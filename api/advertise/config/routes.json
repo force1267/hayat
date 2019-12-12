@@ -18,6 +18,22 @@
     },
     {
       "method": "GET",
+      "path": "/advertises/mine",
+      "handler": "Advertise.findMine",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/advertises/user/:id",
+      "handler": "Advertise.findByUser",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/advertises/:id",
       "handler": "Advertise.findOne",
       "config": {
