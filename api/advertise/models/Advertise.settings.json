@@ -1,0 +1,56 @@
+{
+  "connection": "default",
+  "collectionName": "advertises",
+  "info": {
+    "name": "advertise",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
+    "comment": ""
+  },
+  "attributes": {
+    "title": {
+      "maxLength": 40,
+      "required": true,
+      "minLength": 8,
+      "type": "string"
+    },
+    "description": {
+      "maxLength": 500,
+      "required": true,
+      "minLength": 10,
+      "type": "text"
+    },
+    "submitted": {
+      "type": "boolean"
+    },
+    "active": {
+      "type": "boolean"
+    },
+    "images": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "services": {
+      "collection": "service",
+      "via": "advertise"
+    },
+    "user": {
+      "model": "user",
+      "via": "advertises",
+      "plugin": "users-permissions"
+    },
+    "sponsored": {
+      "type": "boolean"
+    },
+    "ontop": {
+      "type": "boolean"
+    }
+  }
+}

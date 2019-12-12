@@ -1,0 +1,96 @@
+{
+  "connection": "default",
+  "collectionName": "users-permissions_user",
+  "info": {
+    "name": "user",
+    "description": ""
+  },
+  "options": {
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ]
+  },
+  "attributes": {
+    "username": {
+      "type": "string",
+      "minLength": 3,
+      "unique": true,
+      "configurable": false,
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "minLength": 6,
+      "configurable": false,
+      "required": true
+    },
+    "provider": {
+      "type": "string",
+      "configurable": false
+    },
+    "password": {
+      "type": "password",
+      "minLength": 6,
+      "configurable": false,
+      "private": true
+    },
+    "resetPasswordToken": {
+      "type": "string",
+      "configurable": false,
+      "private": true
+    },
+    "confirmed": {
+      "type": "boolean",
+      "default": false,
+      "configurable": false
+    },
+    "blocked": {
+      "type": "boolean",
+      "default": false,
+      "configurable": false
+    },
+    "role": {
+      "model": "role",
+      "via": "users",
+      "plugin": "users-permissions",
+      "configurable": false
+    },
+    "name": {
+      "maxLength": 30,
+      "type": "string"
+    },
+    "family": {
+      "maxLength": 40,
+      "type": "string"
+    },
+    "phone": {
+      "maxLength": 15,
+      "minLength": 8,
+      "type": "string"
+    },
+    "zip": {
+      "maxLength": 10,
+      "minLength": 10,
+      "type": "string"
+    },
+    "address": {
+      "maxLength": 50,
+      "type": "text"
+    },
+    "wallet": {
+      "type": "biginteger"
+    },
+    "male": {
+      "type": "boolean",
+      "default": true
+    },
+    "birth": {
+      "type": "date"
+    },
+    "advertises": {
+      "collection": "advertise",
+      "via": "user"
+    }
+  }
+}

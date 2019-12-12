@@ -1,0 +1,36 @@
+{
+  "connection": "default",
+  "collectionName": "services",
+  "info": {
+    "name": "service",
+    "description": "provided paid services"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
+    "comment": ""
+  },
+  "attributes": {
+    "price": {
+      "type": "biginteger",
+      "default": "0",
+      "required": true
+    },
+    "about": {
+      "type": "text"
+    },
+    "paid": {
+      "type": "boolean"
+    },
+    "done": {
+      "type": "boolean"
+    },
+    "advertise": {
+      "model": "advertise",
+      "via": "services"
+    }
+  }
+}
