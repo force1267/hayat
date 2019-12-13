@@ -59,6 +59,47 @@
         "house"
       ],
       "type": "enumeration"
+    },
+    "price": {
+      "type": "biginteger"
+    },
+    "currency": {
+      "enum": [
+        "rial",
+        "dollar"
+      ],
+      "required": true,
+      "type": "enumeration"
+    },
+    "areaOfBuilding": {
+      "type": "integer"
+    },
+    "byAgency": {
+      "type": "boolean"
+    },
+    "ageOfBuilding": {
+      "type": "integer"
+    },
+    "numberOfRooms": {
+      "type": "integer"
+    },
+    "deposits": {
+      "type": "biginteger"
+    },
+    "rent": {
+      "type": "biginteger"
+    },
+    "yearOfConstruction": {
+      "type": "integer"
+    },
+    "kilometers": {
+      "type": "integer"
+    },
+    "manufacturer": {
+      "type": "string"
+    },
+    "requesting": {
+      "type": "boolean"
     }
   }
 }
