@@ -51,6 +51,14 @@
     },
     "ontop": {
       "type": "boolean"
+    },
+    "class": {
+      "required": true,
+      "enum": [
+        "car",
+        "house"
+      ],
+      "type": "enumeration"
     }
   }
 }
