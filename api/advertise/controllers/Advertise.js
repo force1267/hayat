@@ -8,7 +8,31 @@ const { sanitizeEntity } = require('strapi-utils');
  */
 
 module.exports = {
-    findMine: async ctx => {
+    async findOne(ctx) {
+        const entity = await strapi.services.advertise.findOne(ctx.params);
+        if(entity && entity.submitted && entity.active) {
+            return sanitizeEntity(entity, { model: strapi.models.advertise });
+        } else {
+            ctx.notFound("Not Found")
+        }
+    },
+    async find(ctx) {
+        let entities;
+        if (ctx.query._q) {
+          entities = await strapi.services.advertise.search(ctx.query);
+        } else {
+          entities = await strapi.services.advertise.find(ctx.query);
+        }
+    
+        let ge = entities
+        .filter(entity => entity.submitted && entity.active)
+        .map(entity => sanitizeEntity(entity, { model: strapi.models.advertise }))
+        ge.forEach(e => {
+            delete e.user
+        });
+        return ge
+    },
+    async findMine(ctx) {
         if(ctx.state.user) {
             let entities;
             if (ctx.query._q) {
@@ -28,7 +52,7 @@ module.exports = {
             ctx.unauthorized(`You're not logged in!`);
         }
     },
-    findByUser: async ctx => {
+    async findByUser(ctx) {
         let entities;
         if (ctx.query._q) {
             entities = await strapi.services.advertise.search(ctx.query);
@@ -37,7 +61,7 @@ module.exports = {
         }
 
         let ge = entities
-        .filter(entity => entity.user.id.toString() === ctx.params.id)
+        .filter(entity => entity.user && entity.user.id.toString() === ctx.params.id)
         .map(entity => sanitizeEntity(entity, { model: strapi.models.advertise }))
         ge.forEach(e => {
             delete e.user
