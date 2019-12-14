@@ -28,7 +28,8 @@ module.exports = {
         .filter(entity => entity.submitted && entity.active)
         .map(entity => sanitizeEntity(entity, { model: strapi.models.advertise }))
         ge.forEach(e => {
-            delete e.user
+            let uid = e.user.id
+            e.user = { uid }
         });
         return ge
     },
@@ -45,7 +46,8 @@ module.exports = {
             .filter(entity => entity.user && entity.user.id === ctx.state.user.id)
             .map(entity => sanitizeEntity(entity, { model: strapi.models.advertise }))
             ge.forEach(e => {
-                delete e.user
+                let uid = e.user.id
+                e.user = { uid }
             });
             return ge
         } else {
@@ -64,7 +66,8 @@ module.exports = {
         .filter(entity => entity.user && entity.user.id.toString() === ctx.params.id)
         .map(entity => sanitizeEntity(entity, { model: strapi.models.advertise }))
         ge.forEach(e => {
-            delete e.user
+            let uid = e.user.id
+            e.user = { uid }
         });
         return ge
     },
