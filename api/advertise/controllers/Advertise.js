@@ -1,6 +1,6 @@
 'use strict';
 
-const { sanitizeEntity } = require('strapi-utils');
+const { parseMultipartData, sanitizeEntity } = require('strapi-utils');
 
 /**
  * Read the documentation (https://strapi.io/documentation/3.0.0-beta.x/concepts/controllers.html#core-controllers)
@@ -42,7 +42,7 @@ module.exports = {
             }
         
             let ge = entities
-            .filter(entity => entity.user.id === ctx.state.user.id)
+            .filter(entity => entity.user && entity.user.id === ctx.state.user.id)
             .map(entity => sanitizeEntity(entity, { model: strapi.models.advertise }))
             ge.forEach(e => {
                 delete e.user
@@ -67,5 +67,53 @@ module.exports = {
             delete e.user
         });
         return ge
+    },
+    async create(ctx) {
+        let entity;
+        if(ctx.state.user) {
+            if (ctx.is('multipart')) {
+                const { data, files } = parseMultipartData(ctx);
+                data.active = false
+                data.user = ctx.state.user.id
+                entity = await strapi.services.advertise.create(data, { files });
+            } else {
+                ctx.request.body.active = false
+                ctx.request.body.user = ctx.state.user.id
+                entity = await strapi.services.advertise.create(ctx.request.body);
+            }
+            return sanitizeEntity(entity, { model: strapi.models.advertise });
+        } else {
+            ctx.unauthorized(`You're not logged in!`);
+        }
+    },
+    async update(ctx) {
+        let entity;
+        if(ctx.state.user) {
+            ctx.params.user = ctx.state.user.id
+            if (ctx.is('multipart')) {
+                const { data, files } = parseMultipartData(ctx);
+                entity = await strapi.services.advertise.update(ctx.params, data, {
+                    files,
+                });
+            } else {
+                entity = await strapi.services.advertise.update(
+                    ctx.params,
+                    ctx.request.body
+                );
+            }
+        
+            return sanitizeEntity(entity, { model: strapi.models.advertise });
+        } else {
+            ctx.unauthorized(`You're not logged in!`);
+        }
+    },
+    async delete(ctx) {
+        if(ctx.state.user) {
+            ctx.params.user = ctx.state.user.id
+            const entity = await strapi.services.advertise.delete(ctx.params);
+            return sanitizeEntity(entity, { model: strapi.models.advertise });
+        } else {
+            ctx.unauthorized(`You're not logged in!`);
+        }
     },
 };
