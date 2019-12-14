@@ -148,5 +148,21 @@
         <p>Your admin panel is available at <a href="/admin" target="blank">/admin</a>.
       </div>
     </section>
+    <br>
+    <br>
+    <br>
+    <section>
+      <div id="ws" class="wrapper">
+        <p><a href="#!" onclick="strapi.login('force12678', '126725518')">login</a></p>
+        <p><a href="#!" onclick="strapi.register('abc@abc.com', 'force12678', '126725518')">register</a></p>
+        <p id="jwt"></p>
+      </div>
+      <script src="auth.js"></script>
+      <script>
+        if(strapi.jwt) {
+          document.getElementById('jwt').innerHTML = strapi.jwt
+        }
+      </script>
+    </section>
   </body>
 </html>
