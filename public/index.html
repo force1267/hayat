@@ -156,53 +156,27 @@
         <p><a href="#!" onclick="strapi.login('force12678', '126725518')">login</a></p>
         <p><a href="#!" onclick="strapi.register('abc@abc.com', 'force12678', '126725518')">register</a></p>
         <p id="jwt"></p>
+        <input id="files" type="file" multiple>
+        <input type="button" onclick="upload()" value="upload">
       </div>
       <script src="auth.js"></script>
       <script>
+        // test api function
         if(strapi.jwt) {
           document.getElementById('jwt').innerHTML = strapi.jwt
         }
+        strapi.advertise.find().then(console.log)
+        strapi.advertise.find({
+          rent_gt: 75,
+          rent_lt: 160
+        }).then(console.log)
 
-        // find some adds
-        fetch("/users/me", strapi.auth()).then(r=>r.json()).then(console.log)
+        strapi.advertise.findMine().then(console.log)
 
-        // find some adds
-        // fetch("/advertises?rent_lt=130&rent_gt=70").then(r=>r.json()).then(console.log)
-
-        // find ads of logged-in user
-        fetch("/advertises/mine", strapi.auth()).then(r=>r.json()).then(console.log)
-
-        // get an ad by id
-        // fetch(`/advertises/${2}`).then(r=>r.json()).then(console.log)
-
-        // create an ad
-        // fetch("/advertises", strapi.auth({
-        //   method: "POST",
-        //   headers: { "Content-Type": "application/json" },
-        //   body: JSON.stringify({
-        //     title: "test js for authed user",
-        //     description: "test fetch from js",
-        //     class: "car",
-        //     submitted: true,
-        //   }),
-        // })).then(r=>r.json()).then(console.log)
-
-        // update an ad by id
-        // fetch(`/advertises/${4}`, strapi.auth({
-        //   method: "PUT",
-        //   headers: { "Content-Type": "application/json" },
-        //   body: JSON.stringify({
-        //     title: "test ts ts ts",
-        //     description: "test fetch from js 2 ( this is added with update and auth )",
-        //     class: "car",
-        //     submitted: true,
-        //   }),
-        // })).then(r=>r.json()).then(console.log)
-
-        // delete an ad by id
-        // fetch(`/advertises/${6}`, strapi.auth({
-        //   method: "DELETE"
-        // })).then(r=>r.json()).then(console.log)
+        function upload() {
+          const photos = document.getElementById('files')
+          strapi.advertise.upload(photos, 1)
+        }
       </script>
     </section>
   </body>
