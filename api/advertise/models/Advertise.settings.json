@@ -22,7 +22,6 @@
     },
     "description": {
       "maxLength": 500,
-      "required": true,
       "minLength": 10,
       "type": "text"
     },
@@ -53,7 +52,6 @@
       "type": "boolean"
     },
     "class": {
-      "required": true,
       "enum": [
         "car",
         "house"
@@ -68,7 +66,6 @@
         "rial",
         "dollar"
       ],
-      "required": true,
       "type": "enumeration"
     },
     "areaOfBuilding": {
@@ -104,6 +101,9 @@
     "phone": {
       "maxLength": 15,
       "minLength": 8,
+      "type": "string"
+    },
+    "city": {
       "type": "string"
     }
   }
