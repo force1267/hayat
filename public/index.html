@@ -162,6 +162,47 @@
         if(strapi.jwt) {
           document.getElementById('jwt').innerHTML = strapi.jwt
         }
+
+        // find some adds
+        fetch("/users/me", strapi.auth()).then(r=>r.json()).then(console.log)
+
+        // find some adds
+        // fetch("/advertises?rent_lt=130&rent_gt=70").then(r=>r.json()).then(console.log)
+
+        // find ads of logged-in user
+        fetch("/advertises/mine", strapi.auth()).then(r=>r.json()).then(console.log)
+
+        // get an ad by id
+        // fetch(`/advertises/${2}`).then(r=>r.json()).then(console.log)
+
+        // create an ad
+        // fetch("/advertises", strapi.auth({
+        //   method: "POST",
+        //   headers: { "Content-Type": "application/json" },
+        //   body: JSON.stringify({
+        //     title: "test js for authed user",
+        //     description: "test fetch from js",
+        //     class: "car",
+        //     submitted: true,
+        //   }),
+        // })).then(r=>r.json()).then(console.log)
+
+        // update an ad by id
+        // fetch(`/advertises/${4}`, strapi.auth({
+        //   method: "PUT",
+        //   headers: { "Content-Type": "application/json" },
+        //   body: JSON.stringify({
+        //     title: "test ts ts ts",
+        //     description: "test fetch from js 2 ( this is added with update and auth )",
+        //     class: "car",
+        //     submitted: true,
+        //   }),
+        // })).then(r=>r.json()).then(console.log)
+
+        // delete an ad by id
+        // fetch(`/advertises/${6}`, strapi.auth({
+        //   method: "DELETE"
+        // })).then(r=>r.json()).then(console.log)
       </script>
     </section>
   </body>

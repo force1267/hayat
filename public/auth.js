@@ -44,7 +44,7 @@
             return strapi.jwt
         },
 
-        auth(options) {
+        auth(options = {}) {
             if(!strapi.jwt) {
                 throw "Not logged in"
             }
@@ -52,6 +52,7 @@
                 options.headers = {}
             }
             options.headers.Authorization = `Bearer ${strapi.jwt}`
+            return options
         }
     }
 
