@@ -76,11 +76,11 @@ module.exports = {
         if(ctx.state.user) {
             if (ctx.is('multipart')) {
                 const { data, files } = parseMultipartData(ctx);
-                data.active = false
+                data.active = true // should be false
                 data.user = ctx.state.user.id
                 entity = await strapi.services.advertise.create(data, { files });
             } else {
-                ctx.request.body.active = false
+                ctx.request.body.active = true // should be false
                 ctx.request.body.user = ctx.state.user.id
                 entity = await strapi.services.advertise.create(ctx.request.body);
             }
