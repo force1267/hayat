@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Ganjnameh';
+    src:url('/assets/cdn/fonts/GanjNamehSans-Regular.woff2') format('woff2'),
+    url('/assets/cdn/fonts/GanjNamehSans-Regular.woff') format('woff'),
+    url('/assets/cdn/fonts/GanjNamehSans-Regular.ttf') format('truetype'),
+	url('/assets/cdn/fonts/GanjNamehSans-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}

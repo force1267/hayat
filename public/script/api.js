@@ -3,6 +3,8 @@
         jwt: null,
 
         async register(email, username, password) {
+            document.cookie = 'jwt=; expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+            strapi.jwt = null
             let auth
             try {
                 auth = await fetch('/auth/local/register', {
@@ -19,11 +21,16 @@
             } catch (err) {
                 throw err
             }
+            if(!auth.jwt) {
+                throw auth;
+            }
             strapi.jwt = auth.jwt
             document.cookie = `jwt=${strapi.jwt}`
             return strapi.jwt
         },
         async login(identifier, password) {
+            document.cookie = 'jwt=; expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+            strapi.jwt = null
             let auth
             try {
                 auth = await fetch('/auth/local', {
@@ -38,6 +45,9 @@
                 }).then(r => r.json())
             } catch (err) {
                 throw err
+            }
+            if(!auth.jwt) {
+                throw auth;
             }
             strapi.jwt = auth.jwt
             document.cookie = `jwt=${strapi.jwt}`
@@ -127,7 +137,7 @@
                 return await fetch('/upload', strapi.auth({
                     method: 'POST',
                     body: formData
-                }));
+                })).then(r=>r.json());
             },
         }
     }
@@ -164,3 +174,6 @@
     }
     window.strapi = strapi
 }
+
+// strapi.register('ddssdd@gmail.com', 'dddssd', '123456');
+// strapi.login('ddssdd@gmail.com', '123456');

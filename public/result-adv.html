@@ -1,5 +1,6 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
+
 <head>
     <title>Hayatemun</title>
     <link rel="stylesheet" type="text/css" href="style/master.css">
@@ -16,33 +17,35 @@
     <script src="assets/cdn/jquery.dropdown.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
     <!-- NAVBAR-->
-    <!-- NAVBAR-->
-    <nav class="navbar menu navbar-expand-md py-3 navbar-dark bg-lighter shadow-sm">
+    <nav class="navbar menu navbar-expand-md py-3 navbar-dark bg-dark shadow-sm">
         <div class="container">
             <a href="#" class="navbar-brand">
                 <!-- Logo Image -->
-                <img src="assets/images/logo-p.png" width="45" alt="" class="d-inline-block logo align-middle mr-2">
+                <img src="assets/images/logo.png" width="45" alt="" class="d-inline-block logo align-middle mr-2">
                 <img src="assets/images/logo.png" width="45" alt="" style="width: 100px;height: 100px;visibility: hidden;display: none;" class=" plc align-middle mr-2">
                 <!-- Logo Text -->
-                <!-- <span class="text-uppercase font-weight-bold brand d-none d-lg-inline">Hayatemun</span> -->
+                <span class="text-uppercase font-weight-bold brand d-none d-lg-inline">Hayatemun</span>
                 <ul class='artif'>
                     <li class="nav-item">
                         <a href="#" class="nav-link garn dif d-inline d-md-none"><i class="material-icons">headset_mic</i></a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link logreg dif d-inline d-md-none"><i class="material-icons">person</i></a>
+                        <a href="/login-register.html" class="nav-link logreg dif d-inline d-md-none"><i class="material-icons">person</i></a>
                     </li>
                 </ul>
             </a>
             <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
             <div id="navbarSupportedContent" class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
-                    <!-- <li class="nav-item"><a href="#" class="nav-link bl"><i class="material-icons">fastfood</i>رستوران</a></li> -->
-                    <!-- <li class="nav-item"><a href="#" class="nav-link bl"><i class="material-icons">amp_stories</i>آگهی</a></li> -->
+                    <li class="nav-item"><a href="/result-plane.html" class="nav-link"><i class="material-icons">airplanemode_active</i>پرواز داخلی</a></li>
+                    <li class="nav-item"><a href="/result-plane.html" class="nav-link"><i class="material-icons">public</i>پرواز خارجی</a></li>
+                    <li class="nav-item"><a href="/result-hotel.html" class="nav-link"><i class="material-icons">hotel</i>هتل</a></li>
+                    <li class="nav-item"><a href="/result-adv.html" class="nav-link"><i class="material-icons">amp_stories</i>آگهی</a></li>
                     <li class="nav-item d-none d-sm-inline"><a href="#" class="nav-link garn dif"><i class="material-icons">headset_mic</i>پشتیبانی</a></li>
-                    <li class="nav-item d-none d-sm-inline"><a href="#" class="nav-link logreg dif"><i class="material-icons">person</i>ورود - ثبت نام</a></li>
+                    <li class="nav-item d-none d-sm-inline"><a href="/login-register.html" class="nav-link logreg dif"><i class="material-icons">person</i>ورود - ثبت نام</a></li>
                 </ul>
             </div>
         </div>
@@ -51,29 +54,29 @@
         <img src="assets/images/hotel2.jpg" alt="" class="back-ground">
         <div class="row">
             <div class="col-md-9 ml-auto col-xl-9 mr-auto">
-                <!-- <p class="category d-none d-lg-block d-md-block">خرید بلیط هواپیما و رزرو هتل</p> -->
+                <p class="category d-none d-lg-block d-md-block">خرید بلیط هواپیما و رزرو هتل</p>
                 <!-- Nav tabs -->
                 <div class="card">
                     <div class="card-header">
-                        <ul class="nav nav-tabs" role="tablist">
-                            <!-- <li class="nav-item">
+                        <ul class="nav nav-tabs justify-content-center" role="tablist">
+                            <li class="nav-item">
                                 <a class="nav-link active" data-toggle="tab" href="#int_flight" role="tab">
                                     <i class="material-icons">airplanemode_active</i>پرواز داخلی
                                 </a>
-                            </li> -->
-                            <!-- <li class="nav-item">
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#out_flight" role="tab">
                                     <i class="material-icons">public</i>پرواز خارجی
                                 </a>
-                            </li> -->
+                            </li>
                             <li class="nav-item">
-                                <a class="nav-link active" data-toggle="tab" href="#adv" role="tab">
-                                    <i style="top: 7px;" class="material-icons">amp_stories</i>آگهی
+                                <a class="nav-link" data-toggle="tab" href="#hotel" role="tab">
+                                    <i style="top: 7px;" class="material-icons">hotel</i>هتل
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link soon" data-toggle="tab-x" href="#rest" role="tab">
-                                    <i style="top: 7px;" class="material-icons">fastfood</i>رستوران
+                                <a class="nav-link" data-toggle="tab" href="#adv" role="tab">
+                                    <i style="top: 7px;" class="material-icons">amp_stories</i>آگهی
                                 </a>
                             </li>
                         </ul>
@@ -81,7 +84,7 @@
                     <div class="card-body">
                         <!-- Tab panes -->
                         <div class="tab-content text-center">
-                            <div class="tab-pane" id="int_flight" role="tabpanel">
+                            <div class="tab-pane active" id="int_flight" role="tabpanel">
                                 <label class="form-radiolabel">
                                     <input type="radio" class="form-radio" required="" name="cf-quote" value="0">
                                     <span class="form-radio-styler" aria-hidden="true"></span> یک طرفه
@@ -315,10 +318,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane active" id="adv" role="tabpanel">
+                            <div class="tab-pane" id="adv" role="tabpanel">
                                 <label class="form-radiolabel">
                                     <input type="radio" class="form-radio" required="" name="cf-quote" value="0">
-                                    <span class="form-radio-styler" aria-hidden="true"></span>آگهی ویژه
+                                    <span class="form-radio-styler" aria-hidden="true"></span>فوری
                                 </label>
                                 <label class="form-radiolabel">
                                     <input type="radio" class="form-radio" required="" name="cf-quote" value="0">
@@ -688,180 +691,166 @@
         </div>
     </div>
     <div class="container">
-
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 adv">
-
+            <!-- <div class="blog-card col-md-6 col-sm-12">
+                <div class="meta">
+                    <div class="photo" style="background-image: url(/assets/images/adv.jpg)"></div>
+                </div>
+                <div class="description">
+                    <h1>100 متر آپارتمان پیش فروش بابل </h1>
+                    <h2>یک ربع پیش</h2>
+                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+                    <p class="read-more">
+                        <a class="view" href="#">مشاهده</a>
+                    </p>
+                </div>
+            </div>
+            <div class="blog-card col-md-6 col-sm-12">
+                <div class="meta">
+                    <div class="photo" style="background-image: url(/assets/images/adv.jpg)"></div>
+                </div>
+                <div class="description">
+                    <h1>100 متر آپارتمان پیش فروش بابل </h1>
+                    <h2>یک ربع پیش</h2>
+                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+                    <p class="read-more">
+                        <a class="view" href="#">مشاهده</a>
+                    </p>
+                </div>
+            </div>
+            <div class="blog-card col-md-6 col-sm-12">
+                <div class="meta">
+                    <div class="photo" style="background-image: url(/assets/images/adv.jpg)"></div>
+                </div>
+                <div class="description">
+                    <h1>100 متر آپارتمان پیش فروش بابل </h1>
+                    <h2>یک ربع پیش</h2>
+                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+                    <p class="read-more">
+                        <a class="view" href="#">مشاهده</a>
+                    </p>
+                </div>
+            </div>
+            <div class="blog-card col-md-6 col-sm-12">
+                <div class="meta">
+                    <div class="photo" style="background-image: url(/assets/images/adv.jpg)"></div>
+                </div>
+                <div class="description">
+                    <h1>100 متر آپارتمان پیش فروش بابل </h1>
+                    <h2>یک ربع پیش</h2>
+                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+                    <p class="read-more">
+                        <a class="view" href="#">مشاهده</a>
+                    </p>
+                </div>
+            </div>
+            <div class="blog-card col-md-6 col-sm-12">
+                <div class="meta">
+                    <div class="photo" style="background-image: url(/assets/images/adv.jpg)"></div>
+                </div>
+                <div class="description">
+                    <h1>100 متر آپارتمان پیش فروش بابل </h1>
+                    <h2>یک ربع پیش</h2>
+                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+                    <p class="read-more">
+                        <a class="view" href="#">مشاهده</a>
+                    </p>
+                </div>
+            </div>
+            <div class="blog-card col-md-6 col-sm-12">
+                <div class="meta">
+                    <div class="photo" style="background-image: url(/assets/images/adv.jpg)"></div>
+                </div>
+                <div class="description">
+                    <h1>100 متر آپارتمان پیش فروش بابل </h1>
+                    <h2>یک ربع پیش</h2>
+                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+                    <p class="read-more">
+                        <a class="view" href="#">مشاهده</a>
+                    </p>
+                </div>
+            </div>
+            <div class="blog-card col-md-6 col-sm-12">
+                <div class="meta">
+                    <div class="photo" style="background-image: url(/assets/images/adv.jpg)"></div>
+                </div>
+                <div class="description">
+                    <h1>100 متر آپارتمان پیش فروش بابل </h1>
+                    <h2>یک ربع پیش</h2>
+                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+                    <p class="read-more">
+                        <a class="view" href="#">مشاهده</a>
+                    </p>
+                </div>
+            </div>
+            <div class="blog-card col-md-6 col-sm-12">
+                <div class="meta">
+                    <div class="photo" style="background-image: url(/assets/images/adv.jpg)"></div>
+                </div>
+                <div class="description">
+                    <h1>100 متر آپارتمان پیش فروش بابل </h1>
+                    <h2>یک ربع پیش</h2>
+                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+                    <p class="read-more">
+                        <a class="view" href="#">مشاهده</a>
+                    </p>
+                </div>
+            </div>
+            <div class="blog-card col-md-6 col-sm-12">
+                <div class="meta">
+                    <div class="photo" style="background-image: url(/assets/images/adv.jpg)"></div>
+                </div>
+                <div class="description">
+                    <h1>100 متر آپارتمان پیش فروش بابل </h1>
+                    <h2>یک ربع پیش</h2>
+                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+                    <p class="read-more">
+                        <a class="view" href="#">مشاهده</a>
+                    </p>
+                </div>
+            </div>
+            <div class="blog-card col-md-6 col-sm-12">
+                <div class="meta">
+                    <div class="photo" style="background-image: url(/assets/images/adv.jpg)"></div>
+                </div>
+                <div class="description">
+                    <h1>100 متر آپارتمان پیش فروش بابل </h1>
+                    <h2>یک ربع پیش</h2>
+                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+                    <p class="read-more">
+                        <a class="view" href="#">مشاهده</a>
+                    </p>
+                </div>
+            </div> -->
         </div>
     </div>
-    <div class="row features">
-        <div class="col-md-10 ml-auto col-xl-10 mr-auto">
-            <div class="feature col-md-3 col-sm-12">
-                <div class="feature-icon">
-                    <i class="fa fa-check-circle" aria-hidden="true"></i>
-                </div>
-                <h5>ثبت آگهی رایگان برای ایرانیان خارج از کشور</h5>
-                <p>
-                 ثبت اولين پلتفرم درج آگهي رايگان براي ايرانيان خارج از كشور 
-                </p>
-            </div>
-            <div class="feature col-md-3 col-sm-12">
-                <div class="feature-icon">
-                    <i class="fa fa-headphones" aria-hidden="true"></i>
-                </div>
-                <h5>پشتیبانی 24 ساعته</h5>
-                <p>
-                سفارش آنلاين غذا از رستوران هاي ايراني خارج از كشور 
-                </p>
-            </div>
-            <div class="feature col-md-3 col-sm-12">
-                <div class="feature-icon">
-                    <i class="fa fa-cutlery" aria-hidden="true"></i>
-                </div>
-                <h5>سفارش آنلاین غذا</h5>
-                <p>
-                در ٧ روز هفته و ٢٤ ساعت شبانه روز ، پاسخگوي شما هستين
-                </p>
-            </div>
-            <div class="feature col-md-3 col-sm-12">
-                <div class="feature-icon">
-                    <i class="fa fa-certificate" aria-hidden="true"></i>
-                </div>
-                <h5>پرداخت امن و قابل اطمينان</h5>
-                <p>
-                پرداخت امن از طريق تمام كارت هاي ويزا كارت و مستر كارت
-                </p>
-            </div>
-        </div>
-    </div>
-
-<!--     <div class="cross-line">
-        <span>تور های حیاطمون</span>
-    </div>
-    <div class="row tours">
-        <div class="col-md-10 ml-auto col-xl-10 mr-auto">
-            <div class="col-lg-4 col-md-4 col-sm-12">
-                <div class="thumbnail img-thumb-bg">
-                    <img src="assets/images/tour.jpg" alt="">
-                    <div class="overlay"></div>
-                    <div class="caption">
-                        <div class="tag"><a>ویژه</a></div>
-                        <div class="title"><a href="#">تور 3 روزه بارسلونا</a></div>
-                        <div class="clearfix">
-                            <span class="meta-data">تاریخ رفت : 29/06/2016</span>
-                        </div>
-                        <div class="content">
-                            <p>ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12">
-                <div class="thumbnail img-thumb-bg">
-                    <img src="assets/images/tour.jpg" alt="">
-                    <div class="overlay"></div>
-                    <div class="caption">
-                        <div class="tag"><a>ویژه</a></div>
-                        <div class="title"><a href="#">تور 3 روزه بارسلونا</a></div>
-                        <div class="clearfix">
-                            <span class="meta-data">تاریخ رفت : 29/06/2016</span>
-                        </div>
-                        <div class="content">
-                            <p>ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12">
-                <div class="thumbnail img-thumb-bg">
-                    <img src="assets/images/tour.jpg" alt="">
-                    <div class="overlay"></div>
-                    <div class="caption">
-                        <div class="tag"><a>ویژه</a></div>
-                        <div class="title"><a href="#">تور 3 روزه بارسلونا</a></div>
-                        <div class="clearfix">
-                            <span class="meta-data">تاریخ رفت : 29/06/2016</span>
-                        </div>
-                        <div class="content">
-                            <p>ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12">
-                <div class="thumbnail img-thumb-bg">
-                    <img src="assets/images/tour.jpg" alt="">
-                    <div class="overlay"></div>
-                    <div class="caption">
-                        <div class="tag"><a>ویژه</a></div>
-                        <div class="title"><a href="#">تور 3 روزه بارسلونا</a></div>
-                        <div class="clearfix">
-                            <span class="meta-data">تاریخ رفت : 29/06/2016</span>
-                        </div>
-                        <div class="content">
-                            <p>ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12">
-                <div class="thumbnail img-thumb-bg">
-                    <img src="assets/images/tour.jpg" alt="">
-                    <div class="overlay"></div>
-                    <div class="caption">
-                        <div class="tag"><a>ویژه</a></div>
-                        <div class="title"><a href="#">تور 3 روزه بارسلونا</a></div>
-                        <div class="clearfix">
-                            <span class="meta-data">تاریخ رفت : 29/06/2016</span>
-                        </div>
-                        <div class="content">
-                            <p>ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12">
-                <div class="thumbnail img-thumb-bg">
-                    <img src="assets/images/tour.jpg" alt="">
-                    <div class="overlay"></div>
-                    <div class="caption">
-                        <div class="tag"><a>ویژه</a></div>
-                        <div class="title"><a href="#">تور 3 روزه بارسلونا</a></div>
-                        <div class="clearfix">
-                            <span class="meta-data">تاریخ رفت : 29/06/2016</span>
-                        </div>
-                        <div class="content">
-                            <p>ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
     <div class="advl">
         <div class="c row">
             <i class="material-icons closea" title="Close">close</i>
             <i class="material-icons reporta" title="Report">report</i>
-            <div class="col-md-6 message">
-                <div class="containerx">
-<!--                   <input id="item1" type="checkbox"/>
-                  <label class="item1" for="item1" style="background-image:url(https://picsum.photos/750/750?image=501);"></label>
-                  <input id="item2" type="checkbox"/>
-                  <label class="item2" for="item2" style="background-image:url(https://picsum.photos/750/750?image=502);"></label>
-                  <input id="item3" type="checkbox"/>
-                  <label class="item3" for="item3" style="background-image:url(https://picsum.photos/750/750?image=503);"></label>
-                  <input id="item4" type="checkbox"/>
-                  <label class="item4" for="item4" style="background-image:url(https://picsum.photos/750/750?image=504);"></label>
-                  <input id="item5" type="checkbox"/>
-                  <label class="item5" for="item5" style="background-image:url(https://picsum.photos/750/750?image=505);"></label>
-                  <input id="item6" type="checkbox"/>
-                  <label class="item6" for="item6" style="background-image:url(https://picsum.photos/750/750?image=506);"></label>
-                  <input id="item7" type="checkbox"/>
-                  <label class="item7" for="item7" style="background-image:url(https://picsum.photos/750/750?image=507);"></label>
-                  <input id="item8" type="checkbox"/>
-                  <label class="item8" for="item8" style="background-image:url(https://picsum.photos/750/750?image=508);"></label>
-                  <input id="item9" type="checkbox"/>
-                  <label class="item9" for="item9" style="background-image:url(https://picsum.photos/750/750?image=509);"></label> -->
-                </div>
+            <div class="col-md-6">
+                <ul class="slider">
+                    <li>
+                        <input type="radio" id="slide1" name="slide" checked>
+                        <label for="slide1"></label>
+                        <img src="https://s101.divarcdn.com/static/pictures/1572434147/QX5-Dgxk.jpg" alt="Panel 1">
+                    </li>
+                    <li>
+                        <input type="radio" id="slide2" name="slide">
+                        <label for="slide2"></label>
+                        <img src="https://s101.divarcdn.com/static/pictures/1572434147/QX5-Dgxk.jpg" alt="Panel 2">
+                    </li>
+                    <li>
+                        <input type="radio" id="slide3" name="slide">
+                        <label for="slide3"></label>
+                        <img src="https://s101.divarcdn.com/static/pictures/1572434147/QX5-Dgxk.jpg" alt="Panel 3">
+                    </li>
+                    <li>
+                        <input type="radio" id="slide4" name="slide">
+                        <label for="slide4"></label>
+                        <img src="https://s101.divarcdn.com/static/pictures/1572434147/QX5-Dgxk.jpg" alt="Panel 4">
+                    </li>
+                </ul>
             </div>
             <div class="col-md-6">
                 <div class="info">
@@ -884,6 +873,17 @@
         </div>
     </div>
     <div class="addv">
+        <script>
+            var id;
+            $.ajax({
+                url: `/ad/create`,
+                method: 'GET',
+                async: false,
+                success: function(_resp) {
+                    id = _resp.id;
+                }
+            });
+        </script>
         <div class="cats col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-sm-offset-1">
             <i class="material-icons closev" title="Close">close</i>
             <div class="panel-group" id="amlak" role="tablist" aria-multiselectable="true">
@@ -908,7 +908,7 @@
                                     </div>
                                     <div id="فروشی_مسکونی" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                                         <div class="panel-body">
-                                            <input type="hidden" id="cat" value="فروشی_مسکونی">
+                                            <input type="hidden" id="cat" value="فروشی مسکونی">
                                             <div class="field">
                                                 <div class="title">شهر</div>
                                                 <div class="select col-md-5">
@@ -965,6 +965,7 @@
                                                 <input type="text" id="cy" required placeholder="...">
                                                 <div class="clear"></div>
                                             </div>
+
                                             <div class="field">
                                                 <div class="title">نوع آگهی</div>
                                                 <label class="form-radiolabel">
@@ -1080,729 +1081,8 @@
                     </div>
                 </div>
             </div>
-            <div class="panel-group" id="vasile_naqliee" role="tablist" aria-multiselectable="true">
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingOne3">
-                    <h4 class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#وسايل_نقليه " aria-expanded="false" class="int" aria-controls="وسايل_نقليه">
-                            وسايل نقليه  ( فقط خريد )
-                        </a>
-                    </h4>
-                    </div>
-                    <div id="وسايل_نقليه" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#خودرو" aria-expanded="false" aria-controls="خودرو">
-                                        خودرو
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="خودرو" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="وسايل_نقليه" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#لوازم_يدكي_خودرو" aria-expanded="false" aria-controls="لوازم_يدكي_خودرو">
-                                        لوازم يدكي خودرو 
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="لوازم_يدكي_خودرو" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="وسايل_نقليه" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#موتور_سیکلت_و_لوازم_یدکی" aria-expanded="false" aria-controls="موتور_سیکلت_و_لوازم_یدکی">
-                                        موتور سیکلت و لوازم یدکی 
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="موتور_سیکلت_و_لوازم_یدکی" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="panel-group" id="lavazeme_electronici" role="tablist" aria-multiselectable="true">
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingOne3">
-                    <h4 class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#لوازم_الكترونيكي " aria-expanded="false" class="int" aria-controls="لوازم_الكترونيكي">
-                            لوازم الكترونيكي
-                        </a>
-                    </h4>
-                    </div>
-                    <div id="لوازم_الكترونيكي" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#لپتاپ_و_كامپيوتر" aria-expanded="false" aria-controls="لپتاپ_و_كامپيوتر">
-                                        لپتاپ و كامپيوتر
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="لپتاپ_و_كامپيوتر" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="لوازم_الكترونيكي" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#دوربين_فيلم_برداري_و_عكاسي_و_ملزومات" aria-expanded="false" aria-controls="دوربين_فيلم_برداري_و_عكاسي_و_ملزومات">
-                                        دوربين فيلم برداري و عكاسي و ملزومات
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="دوربين_فيلم_برداري_و_عكاسي_و_ملزومات" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="لوازم_الكترونيكي" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#صوتي_و_تصويري" aria-expanded="false" aria-controls="صوتي_و_تصويري">
-                                        صوتي و تصويري
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="صوتي_و_تصويري" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="لوازم_الكترونيكي" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#موبايل_و_تبلت_و_ملزومات" aria-expanded="false" aria-controls="موبايل_و_تبلت_و_ملزومات">
-                                        موبايل و تبلت و ملزومات 
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="موبايل_و_تبلت_و_ملزومات" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="لوازم_الكترونيكي" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#كنسول_بازي_و_ملزومات" aria-expanded="false" aria-controls="كنسول_بازي_و_ملزومات">
-                                        كنسول بازي و ملزومات 
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="كنسول_بازي_و_ملزومات" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="لوازم_الكترونيكي" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#ساير_لوازم_الكترونيكي" aria-expanded="false" aria-controls="ساير_لوازم_الكترونيكي">
-                                        ساير لوازم الكترونيكي 
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="ساير_لوازم_الكترونيكي" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="panel-group" id="karyabi" role="tablist" aria-multiselectable="true">
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingOne3">
-                    <h4 class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#کاریابی " aria-expanded="false" class="int" aria-controls="کاریابی">
-                            کاریابی
-                        </a>
-                    </h4>
-                    </div>
-                    <div id="کاریابی" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#آشپز_و_شيريني_پز" aria-expanded="false" aria-controls="آشپز_و_شيريني_پز">
-                                        آشپز و شيريني پز 
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="آشپز_و_شيريني_پز" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="کاریابی" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#نظافت" aria-expanded="false" aria-controls="نظافت">
-                                        نظافت 
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="نظافت" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="کاریابی" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#عمران_ساختماني_و_معماري" aria-expanded="false" aria-controls="عمران_ساختماني_و_معماري">
-                                        عمران ، ساختماني و معماري 
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="عمران_ساختماني_و_معماري" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="کاریابی" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#خدمات_رستوران_و_فروشگاه" aria-expanded="false" aria-controls="خدمات_رستوران_و_فروشگاه">
-                                        خدمات، رستوران و فروشگاه 
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="خدمات_رستوران_و_فروشگاه" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="کاریابی" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#حسابداري_مالي_حقوقي" aria-expanded="false" aria-controls="حسابداري_مالي_حقوقي">
-                                        حسابداري ، مالي ، حقوقي 
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="حسابداري_مالي_حقوقي" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="کاریابی" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#آموزش" aria-expanded="false" aria-controls="آموزش">
-                                        آموزش
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="آموزش" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="کاریابی" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#رسانه_و_ماركتينگ_و_گرافيست" aria-expanded="false" aria-controls="رسانه_و_ماركتينگ_و_گرافيست">
-                                        رسانه و ماركتينگ و گرافيست 
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="رسانه_و_ماركتينگ_و_گرافيست" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="کاریابی" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#بازاريابي_و_فروش" aria-expanded="false" aria-controls="بازاريابي_و_فروش">
-                                        بازاريابي و فروش
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="بازاريابي_و_فروش" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="کاریابی" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#درماني_زيبايي_و_بهداشتي" aria-expanded="false" aria-controls="درماني_زيبايي_و_بهداشتي">
-                                        درماني ، زيبايي و بهداشتي 
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="درماني_زيبايي_و_بهداشتي" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="کاریابی" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#رايانه_و_IT" aria-expanded="false" aria-controls="رايانه_و_IT">
-                                        رايانه و IT
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="رايانه_و_IT" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="کاریابی" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#حمل_و_نقل" aria-expanded="false" aria-controls="حمل_و_نقل">
-                                        حمل و نقل 
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="حمل_و_نقل" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="کاریابی" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#صنعت_و_مهندسي" aria-expanded="false" aria-controls="صنعت_و_مهندسي">
-                                        صنعت و مهندسي 
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="صنعت_و_مهندسي" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="panel-group" id="khadamat" role="tablist" aria-multiselectable="true">
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingOne3">
-                    <h4 class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#خدمات " aria-expanded="false" class="int" aria-controls="خدمات">
-                            خدمات
-                        </a>
-                    </h4>
-                    </div>
-                    <div id="خدمات" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#مهاجرتي" aria-expanded="false" aria-controls="مهاجرتي">
-                                        مهاجرتي 
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="مهاجرتي" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="خدمات" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#رافي" aria-expanded="false" aria-controls="رافي">
-                                        صرافي
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="رافي" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="خدمات" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#آرايشگري" aria-expanded="false" aria-controls="آرايشگري">
-                                        آرايشگري
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="آرايشگري" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="خدمات" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#طراحي_سايت_و_شبكه" aria-expanded="false" aria-controls="طراحي_سايت_و_شبكه">
-                                        طراحي سايت و شبكه 
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="طراحي_سايت_و_شبكه" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="خدمات" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#ترجمه" aria-expanded="false" aria-controls="ترجمه">
-                                        ترجمه
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="ترجمه" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="خدمات" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#تعميرات" aria-expanded="false" aria-controls="تعميرات">
-                                        تعميرات
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="تعميرات" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="خدمات" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#ساير_خدمات" aria-expanded="false" aria-controls="ساير_خدمات">
-                                        ساير خدمات
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="ساير_خدمات" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="خدمات" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#اجاره_خودرو" aria-expanded="false" aria-controls="اجاره_خودرو">
-                                        اجاره خودرو 
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="اجاره_خودرو" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="panel-group" id="marboot_be_khane" role="tablist" aria-multiselectable="true">
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingOne3">
-                    <h4 class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#مربوط_به_خانه " aria-expanded="false" class="int" aria-controls="مربوط_به_خانه">
-                            مربوط به  خانه
-                        </a>
-                    </h4>
-                    </div>
-                    <div id="مربوط_به_خانه" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#مبلمان_وسايل_و_ترئينات_خانه" aria-expanded="false" aria-controls="مبلمان_وسايل_و_ترئينات_خانه">
-                                        مبلمان ، وسايل و ترئينات خانه 
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="مبلمان_وسايل_و_ترئينات_خانه" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="مربوط_به_خانه" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#لوازم_آشپزخونه" aria-expanded="false" aria-controls="لوازم_آشپزخونه">
-                                        لوازم آشپزخونه
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="لوازم_آشپزخونه" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="مربوط_به_خانه" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#دكوري_و_روشنايي" aria-expanded="false" aria-controls="دكوري_و_روشنايي">
-                                        دكوري و روشنايي
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="دكوري_و_روشنايي" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="مربوط_به_خانه" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#فرش_و_گليم_و_قاليچه" aria-expanded="false" aria-controls="فرش_و_گليم_و_قاليچه">
-                                        فرش و گليم و قاليچه 
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="فرش_و_گليم_و_قاليچه" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="مربوط_به_خانه" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#باغچه_و_حياط" aria-expanded="false" aria-controls="باغچه_و_حياط">
-                                        باغچه و حياط 
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="باغچه_و_حياط" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="مربوط_به_خانه" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#ساير_وسايل" aria-expanded="false" aria-controls="ساير_وسايل">
-                                        ساير وسايل 
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="ساير_وسايل" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
-    <!-- Site footer -->
     <footer>
         <section class="nb-footer">
             <div class="container">
@@ -1814,7 +1094,7 @@
                             <!-- This is only for better view of theme if you want your image logo remove div dummy-logo bellow and replace your logo in logo.png and uncomment logo tag above-->
                             <div class="dummy-logo">
                                 <div class="icon pull-left brand">
-                                    <img src="assets/images/logo.png" width="45" alt="" class="d-inline-block logo align-middle mr-2">
+                                    <img src="assets/images/logo.png" width="45" alt="" class="d-none d-sm-none d-lg-inline logo align-middle mr-2">
                                 </div>
                                 <h2 style="font-family: Righteous;">Hayatemun</h2>
                                 <p>درباره ما بخوانید</p>
@@ -1839,9 +1119,7 @@
                         </div>
                     </div>
                     <div class="clearfix visible-sm"></div>
-
                     <div class="col-md-3 col-sm-6">
-
                         <div class="col-sm-12 left-clear right-clear footer-single footer-project">
                             <div class="footer-title">
                                 <h2>نمادهاو صلاحیت ها</h2></div>
@@ -1864,22 +1142,19 @@
                             <div class="col-xs-4">
                                 <img src="assets/images/enamad.png" class="img-responsive center-block">
                             </div>
-
                         </div>
-
                     </div>
-
                     <div class="col-md-3 col-sm-6">
                         <div class="footer-single">
                             <div class="footer-title">
                                 <h2>ارتباط با ما</h2></div>
-                            <address>
-                999, Holly Eiusmod Tempor, City<br>
-                Your State, Country <br>
-                <i class="fa fa-phone"></i>  987 654 3210 <br>
-                <i class="fa fa-fax"></i> 012 123 2345<br>
-                <i class="fa fa-envelope"></i> info@example.com<br>
-            </address>
+                                <address>
+                                    999, Holly Eiusmod Tempor, City<br>
+                                    Your State, Country <br>
+                                    <i class="fa fa-phone"></i>  987 654 3210 <br>
+                                    <i class="fa fa-fax"></i> 012 123 2345<br>
+                                    <i class="fa fa-envelope"></i> info@example.com<br>
+                                </address>
                         </div>
                     </div>
 
@@ -1905,8 +1180,11 @@
             </div>
         </section>
     </footer>
-    <script type="text/javascript" src="script/api.js"></script>
+    <span class="filter-t d-block d-md-none">فیلتر</span>
+    <script type="text/javascript" src="script/persian-datepicker.js"></script>
     <script type="text/javascript" src="script/ajaxupload.js"></script>
     <script type="text/javascript" src="script/main.js"></script>
+    </script>
 </body>
+
 </html>
