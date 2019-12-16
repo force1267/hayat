@@ -701,6 +701,7 @@ $('body').on('click', '.register', function() {
             alert('آگهی شما با موفقیت ثبت شد !');
         }).catch(e=> {
             alert('مشکلی در ثبت آگهی به وجود آمده است !');
+            console.log(e)
         });
         $('.closev').trigger('click');
     });
