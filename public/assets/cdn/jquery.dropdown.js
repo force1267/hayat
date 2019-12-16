@@ -3309,13 +3309,13 @@
 		backText: 'برگشت',
 
 		// Toggle
-		toggleText:    'نتخاب کنید',
+		toggleText:    'انتخاب کنید',
 		autoToggle:     true,
 		autoToggleLink: false,
 		autoToggleHTML: false,
 
 		// Title
-		titleText: 'نتخاب کنید',
+		titleText: 'انتخاب کنید',
 		autoTitle: true,
 
 		// Custom classes

@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-9">
-	<title>Document</title>
+	<link rel="icon" href="assets/images/logo.png" type="image/gif" sizes="16x16">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>حیاطمون | ورود : ثبت نام</title>
 	<link rel="stylesheet" type="text/css" href="assets/cdn/ganjnameh.css">
 	<style>
 		* {
@@ -104,6 +106,350 @@
 		  -webkit-font-smoothing: antialiased;
 		  -moz-osx-font-smoothing: grayscale;      
 		}
+ .popUpFundo{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color:#4879c3;
+    opacity: 0.8;
+    z-index: 50;
+}
+.popUp{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    display: none;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    padding: 0;
+    font-size: 14px;
+    font-family: 'PT Sans', sans-serif;
+    color: #fff;
+    border-style:none;
+    z-index: 999;
+    overflow: hidden;
+}
+.popUp button:focus{
+    outline-style: none;
+}
+.popUp>h1{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    margin: 0;
+    padding: 5px;
+    min-height: 40px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    background-color: transparent;
+    border-style: none;
+    border-width: 5px;
+    border-color: black;
+}
+.vermelha>h1{
+    border-color: #fa5032;
+}
+.verde>h1{
+    border-color: #42ad4f;
+}
+.azul>h1{
+    border-color: #659cff;
+}
+
+.popUp>div{
+    display: block;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    padding: 5%;
+    text-align: center;
+    vertical-align: middle;
+    border-width: 1px;
+    border-color: #ccc;
+    border-style: none none solid none;
+    overflow: auto;
+}
+.popUp>div>span{
+    display: table-cell;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+    direction: rtl;
+}
+.popUp>button{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    margin: 0;
+    padding: 10px;
+    width: 50%;
+    border: 1px none #ccc;
+    color: #fff;
+    font-family: inherit;
+    cursor: pointer;
+}
+.alert{
+    width: 100% !important;
+}
+.popUp .puCancelar{
+    float: left;
+}
+
+.popUp .puEnviar{
+    float: right;
+}
+
+.p{
+    margin: 0;
+    width: 100%;
+    max-width: 300px;
+    height: 100%;
+    max-height: 200px;
+    transform: translate(-50%, -50%);
+}
+
+.p>div{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    height: calc(100% -108px);
+    margin: 0;
+    padding: 0;
+    border-style: none;
+    
+}
+.p>div>div, .p span{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 300px;
+    height: 108px;
+    margin: 0;
+    padding: 0;
+    border-style: none;
+
+}
+
+.p>button{
+    height: 50px;
+    
+}
+.puEnviar{
+    margin: 5px 0;
+}
+.puCancelar{
+    margin: 5px 0;
+}
+
+
+.m{
+    margin: 0;
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    max-height: 300px;
+    transform: translate(-50%, -50%);
+}
+.m>div{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    height: calc(100% -108px);
+    margin: 0;
+    padding: 0;
+    border-style: none;
+    border-color:#ccc;
+}
+.m>div>div, .m>span, .m>div>span{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 400px;
+    height: 208px;
+    margin: 0;
+    padding: 0;
+    border-style: none;
+}
+
+.m>button{
+    height: 50px;
+}
+
+.g{
+    margin: 0;
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    max-height: 500px;
+    transform: translate(-50%, -50%);
+}
+.g>div{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    height: calc(100% -108px);
+    margin: 0;
+    padding: 0;
+    border-style: none;
+    border-color: #ccc;
+}
+.g>div>div, .g span{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 600px;
+    height: 408px;
+    margin: 0;
+    padding: 0;
+    border-style: none;
+}
+.g>button{
+   height: 60px;
+}
+
+
+.alert.puEnviar{
+    display: none;
+}
+
+.popUpEntrada{
+    display: block !important;
+    animation: popUpEntrada 0.5s;
+    -webkit-animation: popUpEntrada 0.5s;
+}
+.popUpSaida{
+    display: block !important;
+    animation: popUpSaida 0.5s;
+    -webkit-animation: popUpSaida 0.5s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+.blue{
+    background-color:#51b2d6;
+}
+.blue>button{
+    background-color:#38a7d0;
+}
+.blue>button:hover{
+    background-color:#72c1de;
+}
+.popUpFundo.blue{
+    background-color:#134152;
+}
+.green{
+    background-color: #43b649;
+}
+.green>button{
+    background-color:#3da743;
+}
+.green>button:hover{
+    background-color:#4fbe55;
+}
+.popUpFundo.green{
+    background-color:#173f19;
+}
+.red{
+    background-color: #d55c4b;
+}
+.red>button{
+    background-color: #d04b38;
+}
+.red>button:hover{
+    background-color: #d86959;
+}
+.popUpFundo.red{
+    background-color:#4a1811;
+}
+.orange{
+    background-color: #f9a025;
+}
+.orange>button{
+    background-color: #f89710;
+}
+.orange>button:hover{
+    background-color: #f9ac42;
+}
+.popUpFundo.orange{
+    background-color: #8c5b02;
+}
+.purple{
+    background-color: #ab4bd5;
+}
+.purple>button{
+    background-color: #a238d0;
+}
+.purple>button:hover{
+    background-color: #b159d8;
+}
+.popUpFundo.purple{
+    background-color: #3f114a;
+}
+.white{
+    background-color: #fff;
+    color: #555;
+}
+.white>h1{
+  color: #000;
+}
+.white>button{
+    background-color: #f3f3f3;
+    color: #555;
+}
+.white>button:hover{
+    background-color: #e3e3e3;
+}
+
+.popUpFundo.white{
+    background-color:#555;
+}
+
+
+/*
+That part is just for the form
+*/
+.colorfulForm{
+  width: 350px;
+  margin: 60px auto;
+}
+.colorfulForm input, .colorfulForm textarea, .colorfulForm select{
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 350px;
+  padding: 5px;
+  background-color: #f3f3f3;
+  border: 1px solid #ccc;
+  border-radius: 2px; 
+}
+
+.colorfulForm label{
+  display: block;
+  font-family: Verdana, Arial;
+  margin: 10px 0 5px 0;
+}
+.colorfulForm button{
+  width: 100px;
+  margin: 3px 7px;
+  padding: 5px;
+  color: #fff;
+  border-style: none;
+}
 	</style>
 </head>
 <body>
@@ -127,6 +473,7 @@
 	</div>
 	<script src="/assets/cdn/jquery.min.js" type="text/javascript"></script>
 	<script type="text/javascript" src="script/api.js"></script>
+	<script type="text/javascript" src="script/alert.js"></script>
 	<script>
 		$('#register').click(function() {
 			let name = $('.register-form #name').val();
@@ -134,23 +481,37 @@
 			let password = $('.register-form #password').val();
 			let passwordc = $('.register-form #passwordc').val();
 			if (passwordc != password) {
-				alert('رمز عبور و تکرار آن یکسان نیستند !');
+				janelaPopUp.abre( "id", 'p red alert',  'خطا' ,  'رمزعبور و تکرار آن مطابقت ندارند!');
 				return false;
 			}
 			strapi.register(email, name, password).then(() => {
-				alert('ثبت نام با موفقیت انجام شد !');
-			}).catch(()=> {
-				alert('خطایی رخ داده است, لطفا بعدا تلاش کنید !');
+				janelaPopUp.abre( "id", 'p green alert',  'انجام شد' ,  'ثبت نام با موفقیت انجام شد!');
+				window.location = '/';
+			}).catch((e)=> {
+				switch (e.message[0].messages[0].id) {
+					case "Auth.form.error.email.taken": {
+						janelaPopUp.abre( "id", 'p red alert',  'خطا' ,  'این ایمیل قبلا گرفته انتخاب شده!');
+						break;
+					}
+					case "Auth.form.error.username.taken": {
+						janelaPopUp.abre( "id", 'p red alert',  'خطا' ,  'این نام کاربری قبلا گرفته انتخاب شده!');
+						break;
+					}
+					default: {
+						janelaPopUp.abre( "id", 'p red alert',  'خطا' ,  'خطایی رخ داده است, لطفا مجددا تلاش کنید !');
+					}
+				}
 			});
 		});
-		$('#login').click(function() {
+		$('#login').click(function(e) {
+			e.preventDefault();
 			let email = $('.login-form #email').val();
 			let password = $('.login-form #password').val();
 			strapi.login(email, password).then(() => {
-				alert('با موفقیت وارد شدید !');
+				janelaPopUp.abre( "id", 'p green alert',  'انجام شد' ,  'با موفقیت وارد شدید!');
 				window.location = '/';
 			}).catch(() => {
-				alert('نام کاربری یا رمز عبور اشتباه است !');
+				janelaPopUp.abre( "id", 'p red alert',  'خطا' ,  'نام کاربری یا رمزعبور اشتباه است!');
 			});
 		});
 		$('.message a').click(function(){
