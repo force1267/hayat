@@ -1197,6 +1197,9 @@ $('#adv .search').click(function() {
                     </div>
                 `)
             });
+            $([document.documentElement, document.body]).animate({
+                scrollTop: $(".cross-line").offset().top - 100
+            }, 600);
         } else {
             alert('نتیجه ای یافت نشد !');
         }
