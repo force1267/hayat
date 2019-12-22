@@ -69,6 +69,11 @@
       "minLength": 8,
       "type": "string"
     },
+    "avatar": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
     "zip": {
       "maxLength": 10,
       "minLength": 10,
