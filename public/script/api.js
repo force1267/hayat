@@ -55,7 +55,7 @@
         },
         // who am i
         async me() {
-            return await fetch("/users/me", strapi.auth()).then(r=>r.json())        
+            return await strapi.user.me()        
         },
 
         auth(options = {}) {
@@ -120,26 +120,82 @@
                   method: "DELETE"
                 })).then(r=>r.json())
             },
+            image: {
 
-            async upload(photos, adId) {
-                // get photos like this:
-                // const photos = document.getElementById('image_file_input')
-                // const photos = document.querySelector('input[type="file"][multiple]');
-        
-                // upload images
-                const formData = new FormData();
-                formData.append('ref', 'advertise');
-                formData.append('refId', adId); // <-- put id of post here
-                formData.append('field', 'images');
-                for (let i = 0; i < photos.files.length; i++) {
-                    formData.append('files', photos.files[i]);
-                }
-                return await fetch('/upload', strapi.auth({
-                    method: 'POST',
-                    body: formData
-                })).then(r=>r.json());
+                async delete(adId, imgId) {
+                    // delete an ad by id
+                    fetch(`/advertises/${adId}/image/${imgId}`, strapi.auth({
+                    method: "DELETE"
+                    })).then(r=>r.json())
+                },
+
+                async upload(photos, adId) {
+                    // get photos like this:
+                    // const photos = document.getElementById('image_file_input')
+                    // const photos = document.querySelector('input[type="file"][multiple]');
+            
+                    // upload images
+                    const formData = new FormData()
+                    formData.append('ref', 'advertise')
+                    formData.append('refId', adId)
+                    formData.append('field', 'images')
+                    for (let i = 0; i < photos.files.length; i++) {
+                        formData.append('files', photos.files[i])
+                    }
+                    return await fetch('/upload', strapi.auth({
+                        method: 'POST',
+                        body: formData
+                    })).then(r=>r.json())
+                },
             },
-        }
+        },
+        user: {
+            // who am i
+            async me() {
+                return await fetch("/users/me", strapi.auth()).then(r=>r.json())        
+            },
+
+            async findOne(userId) {
+                // get an ad by id
+                return await fetch(`/users/${userId}`).then(r=>r.json())
+            },
+            async update(data, userId) {
+                // data :
+                // {
+                //     title: "example title",
+                //     description: "some description",
+                //     class: "car",
+                //     submitted: true, // to submit
+                // }
+
+                // update an ad by id
+                return await fetch(`/users/${userId}`, strapi.auth({
+                  method: "PUT",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify(data),
+                })).then(r=>r.json())
+            },
+            avatar: {
+                // TODO not tested api
+                async upload(photos) {
+                    // get photos like this:
+                    // const photos = document.getElementById('image_file_input')
+                    // const photos = document.querySelector('input[type="file"][multiple]');
+
+                    let me = await strapi.user.me();
+                    // upload avatar
+                    const formData = new FormData()
+                    formData.append('ref', 'user') // TODO test this line
+                    formData.append('refId', me.id)
+                    formData.append('field', 'avatar')
+                    formData.append('files', photos.files[0])
+                    return await fetch('/upload', strapi.auth({
+                        method: 'POST',
+                        body: formData
+                    })).then(r=>r.json())
+                },
+            },
+        },
     }
 
     function parseQuery(query = {}) {
