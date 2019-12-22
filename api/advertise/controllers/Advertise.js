@@ -114,9 +114,27 @@ module.exports = {
         if(ctx.state.user) {
             ctx.params.user = ctx.state.user.id
             const entity = await strapi.services.advertise.delete(ctx.params);
+            await Promise.all(entity.images.map(image => strapi.query('file', 'upload').delete({ id: image.id })))
             return sanitizeEntity(entity, { model: strapi.models.advertise });
         } else {
             ctx.unauthorized(`You're not logged in!`);
         }
     },
+
+    async deleteImage(ctx) { // DELETE advertise/:ad/image/:image
+        if(ctx.state.user) {
+            ctx.params.user = ctx.state.user.id
+            const entity = await strapi.services.advertise.findOne({id: ctx.params.ad});
+            const images = entity.images.map(img => img.id)
+            if(images.includes(ctx.params.image)) {
+                await strapi.services.advertise.update({images: images.filter(id => id != ctx.params.image)})
+                let image = await strapi.query('file', 'upload').delete({ id: ctx.params.image })
+                return image
+            } else {
+                return ctx.forbidden(`Image does not belong to your ad!`)
+            }
+        } else {
+            return ctx.unauthorized(`You're not logged in!`);
+        }
+    }
 };

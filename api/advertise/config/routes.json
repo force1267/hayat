@@ -63,6 +63,14 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "DELETE",
+      "path": "/advertises/:id/image/:image",
+      "handler": "Advertise.deleteImage",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }
