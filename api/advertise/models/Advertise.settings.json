@@ -45,11 +45,20 @@
       "via": "advertises",
       "plugin": "users-permissions"
     },
-    "sponsored": {
+    "city": {
+      "type": "string"
+    },
+    "phone": {
+      "maxLength": 15,
+      "minLength": 8,
+      "type": "string"
+    },
+    "vip": {
       "type": "boolean"
     },
-    "ontop": {
-      "type": "boolean"
+    "showcase": {
+      "type": "integer",
+      "default": "0"
     },
     "class": {
       "enum": [
@@ -57,6 +66,9 @@
         "house"
       ],
       "type": "enumeration"
+    },
+    "requesting": {
+      "type": "boolean"
     },
     "price": {
       "type": "biginteger"
@@ -95,15 +107,41 @@
     "manufacturer": {
       "type": "string"
     },
-    "requesting": {
-      "type": "boolean"
-    },
-    "phone": {
-      "maxLength": 15,
-      "minLength": 8,
+    "jobName": {
       "type": "string"
     },
-    "city": {
+    "jobDescription": {
+      "type": "string"
+    },
+    "workExperience": {
+      "enum": [
+        "one",
+        "two",
+        "three",
+        "more"
+      ],
+      "type": "enumeration"
+    },
+    "jobType": {
+      "enum": [
+        "remote",
+        "part",
+        "full"
+      ],
+      "type": "enumeration"
+    },
+    "education": {
+      "enum": [
+        "diploma",
+        "bachelor",
+        "masters",
+        "PhD",
+        "Dr",
+        "Dentist"
+      ],
+      "type": "enumeration"
+    },
+    "companyName": {
       "type": "string"
     }
   }
