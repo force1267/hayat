@@ -5,6 +5,104 @@ Number.prototype.format = function(n, x) {
     return this.toFixed(Math.max(0, ~~n)).replace(new RegExp(re, 'g'), '$&,');
 };
 
+function timeSince(date) {
+  var seconds = Math.floor((new Date() - date) / 1000);
+  var interval = Math.floor(seconds / 31536000);
+  if (interval > 1) {
+    return interval + " سال پیش";
+  }
+  interval = Math.floor(seconds / 2592000);
+  if (interval > 1) {
+    return interval + " ماه پیش";
+  }
+  interval = Math.floor(seconds / 86400);
+  if (interval > 1) {
+    return interval + " روز پیش";
+  }
+  interval = Math.floor(seconds / 3600);
+  if (interval > 1) {
+    return interval + " ساعت پیش";
+  }
+  interval = Math.floor(seconds / 60);
+  if (interval > 1) {
+    return interval + " دقیقه پیش";
+  }
+  return Math.floor(seconds) + " ثانیه پیش";
+}
+
+var user;
+
+$("body").on('click', '.ussp', function(e) {
+    if (strapi.jwt != null) {
+        e.preventDefault();
+        $('.cover').fadeIn(300);
+        $('.uads').html('');
+    }
+});
+
+$('body').on('click', '.delete', function(e) {
+    e.preventDefault();
+    let ad = $(this).attr('data-id');
+    if (confirm('مطمعنید که میخواهید این تبلیغ را حذف کنید ؟')) {
+        strapi.advertise.delete(ad).then(e=> {
+            janelaPopUp.abre("id", 'p blue alert', 'انجام شد', 'با موفقیت حذف شد');
+            $(this).parent().parent().parent().remove();
+        });
+    }
+});
+
+
+$("body").on('click', '.uss', function() {
+    if (strapi.jwt != null) {
+        $('.cover').fadeIn(300);
+        $('.uads').html('');
+        strapi.user.me().then(e=> {
+            user = e;
+        });
+        user.advertises.forEach(function(ad) {
+            let data = ad;
+            $('.uads').append(`
+                <div class="col-md-4 col-sm-6 col-xs-12 fr">
+                    <div class="blog-card">
+                        <div class="meta">
+                            <div class="photo" style="background-image: url(${(ad.images.length ? ad.images[0].url : '/uploads/def.jpg')})"></div>
+                        </div>
+                        <div class="description">
+                            <h1>${data.title}</h1>
+                            <h2>${timeSince(new Date(data.created_at).getTime())}</h2>
+                            <h2><span class='ct'>دسته بندی </span> : ${data.class.split('_').join(' ')}</h2>
+                            <p class="read-more">
+                                <a data-id='${ad.id}'class="delete" href="#">پاک کردن</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            `);
+            $('#u-name').val(user.name);
+            $('#u-last').val(user.family);
+            $('#u-phone').val(user.phone);
+            $('#u-address').val(user.address);
+        });
+    }
+});
+
+$('.registeru').click(function() {
+    data = {
+        "name": $('#u-name').val(),
+        "family": $('#u-last').val(),
+        "phone": $('#u-phone').val(),
+        "address": $('#u-address').val(),
+    }
+    strapi.user.update(data, user.id).then(console.log)
+});
+
+if (strapi.jwt != null) {
+    strapi.user.me().then(e=> {
+        user = e;
+        $('.iul').html(`<span class="uss">${e.username}</span>`);
+    });
+}
+
 var
     persianNumbers = [/۰/g, /۱/g, /۲/g, /۳/g, /۴/g, /۵/g, /۶/g, /۷/g, /۸/g, /۹/g],
     arabicNumbers = [/٠/g, /١/g, /٢/g, /٣/g, /٤/g, /٥/g, /٦/g, /٧/g, /٨/g, /٩/g];
@@ -18,6 +116,44 @@ String.prototype.fix = function() {
 
 $('body').on('keydown', 'input[type=text], input[type=textarea]', function() {
     $(this).val(($(this).val().fix()));
+});
+
+$('.closep').click(function() {
+    $('.cover').fadeOut(300);
+});
+
+$('.uss').click(function() {
+    $('.cover').fadeIn(300);
+});
+
+$(function() {
+    // Multiple images preview in browser
+    var imagesPreview = function(input, placeToInsertImagePreview) {
+
+        if (input.files) {
+            var filesAmount = input.files.length;
+                    placeToInsertImagePreview.html('<div class="clear"></div>');
+
+            for (i = 0; i < filesAmount; i++) {
+                var reader = new FileReader();
+
+                reader.onload = function(event) {
+                    $(`
+                    <span>
+                        <img src="${event.target.result}">
+                    </span>
+                    `).prependTo(placeToInsertImagePreview);
+
+                }
+                reader.readAsDataURL(input.files[i]);
+            }
+        }
+
+    };
+
+    $('body').on('change', '#file', function() {
+        imagesPreview(this, $(this).parent().parent().find('.upi'));
+    });
 });
 
 var map = {
@@ -336,134 +472,238 @@ var map = {
         }, ],
     },
     'آشپز_و_شیرینی_پز': {
-        fields: [{
-            name: 'price',
-            type: 'range',
-            input: 'int',
-            from: ['از ', '', 'from'],
-            to: ['تا ', '', 'to'],
-            caption: ['قیمت (لیر)', '', 'rent'],
-        }, ],
+        fields: [
+        {
+            name: 'workExperience',
+            type: 'list',
+            input: 'list',
+            list: [0, 1, 2, 3, ['&#8734;', 1000]],
+            caption: ['سابقه کاری', '', 'rent'],
+        }, 
+        {
+            name: 'education',
+            type: 'list',
+            input: 'list',
+            list: [['دیپلم', 'diploma'], ['کارشناسی', 'bachelor'], ['کارشناسی ارشد', 'masters'], ['دکترا', 'PhD'], ['پزشکی', 'Dr'], ['دندان پزشکی', 'dentist']],
+            caption: ['مدرک', '', 'rent'],
+        }, 
+        ],
     },
     'نظافت': {
-        fields: [{
-            name: 'price',
-            type: 'range',
-            input: 'int',
-            from: ['از ', '', 'from'],
-            to: ['تا ', '', 'to'],
-            caption: ['قیمت (لیر)', '', 'rent'],
-        }, ],
+        fields: [
+        {
+            name: 'workExperience',
+            type: 'list',
+            input: 'list',
+            list: [0, 1, 2, 3, ['&#8734;', 1000]],
+            caption: ['سابقه کاری', '', 'rent'],
+        }, 
+        {
+            name: 'education',
+            type: 'list',
+            input: 'list',
+            list: [['دیپلم', 'diploma'], ['کارشناسی', 'bachelor'], ['کارشناسی ارشد', 'masters'], ['دکترا', 'PhD'], ['پزشکی', 'Dr'], ['دندان پزشکی', 'dentist']],
+            caption: ['مدرک', '', 'rent'],
+        }, 
+        ],
     },
     'عمران_ساختمانی_و_معماری': {
-        fields: [{
-            name: 'price',
-            type: 'range',
-            input: 'int',
-            from: ['از ', '', 'from'],
-            to: ['تا ', '', 'to'],
-            caption: ['قیمت (لیر)', '', 'rent'],
-        }, ],
+        fields: [
+        {
+            name: 'workExperience',
+            type: 'list',
+            input: 'list',
+            list: [0, 1, 2, 3, ['&#8734;', 1000]],
+            caption: ['سابقه کاری', '', 'rent'],
+        }, 
+        {
+            name: 'education',
+            type: 'list',
+            input: 'list',
+            list: [['دیپلم', 'diploma'], ['کارشناسی', 'bachelor'], ['کارشناسی ارشد', 'masters'], ['دکترا', 'PhD'], ['پزشکی', 'Dr'], ['دندان پزشکی', 'dentist']],
+            caption: ['مدرک', '', 'rent'],
+        }, 
+        ],
     },
     'خدمات_رستوران_و_فروشگاه': {
-        fields: [{
-            name: 'price',
-            type: 'range',
-            input: 'int',
-            from: ['از ', '', 'from'],
-            to: ['تا ', '', 'to'],
-            caption: ['قیمت (لیر)', '', 'rent'],
-        }, ],
+        fields: [
+        {
+            name: 'workExperience',
+            type: 'list',
+            input: 'list',
+            list: [0, 1, 2, 3, ['&#8734;', 1000]],
+            caption: ['سابقه کاری', '', 'rent'],
+        }, 
+        {
+            name: 'education',
+            type: 'list',
+            input: 'list',
+            list: [['دیپلم', 'diploma'], ['کارشناسی', 'bachelor'], ['کارشناسی ارشد', 'masters'], ['دکترا', 'PhD'], ['پزشکی', 'Dr'], ['دندان پزشکی', 'dentist']],
+            caption: ['مدرک', '', 'rent'],
+        }, 
+        ],
     },
     'آموزش': {
-        fields: [{
-            name: 'price',
-            type: 'range',
-            input: 'int',
-            from: ['از ', '', 'from'],
-            to: ['تا ', '', 'to'],
-            caption: ['قیمت (لیر)', '', 'rent'],
-        }, ],
+        fields: [
+        {
+            name: 'workExperience',
+            type: 'list',
+            input: 'list',
+            list: [0, 1, 2, 3, ['&#8734;', 1000]],
+            caption: ['سابقه کاری', '', 'rent'],
+        }, 
+        {
+            name: 'education',
+            type: 'list',
+            input: 'list',
+            list: [['دیپلم', 'diploma'], ['کارشناسی', 'bachelor'], ['کارشناسی ارشد', 'masters'], ['دکترا', 'PhD'], ['پزشکی', 'Dr'], ['دندان پزشکی', 'dentist']],
+            caption: ['مدرک', '', 'rent'],
+        }, 
+        ],
     },
     'رسانه_و_ماركتینگ_و_گرافیست': {
-        fields: [{
-            name: 'price',
-            type: 'range',
-            input: 'int',
-            from: ['از ', '', 'from'],
-            to: ['تا ', '', 'to'],
-            caption: ['قیمت (لیر)', '', 'rent'],
-        }, ],
+        fields: [
+        {
+            name: 'workExperience',
+            type: 'list',
+            input: 'list',
+            list: [0, 1, 2, 3, ['&#8734;', 1000]],
+            caption: ['سابقه کاری', '', 'rent'],
+        }, 
+        {
+            name: 'education',
+            type: 'list',
+            input: 'list',
+            list: [['دیپلم', 'diploma'], ['کارشناسی', 'bachelor'], ['کارشناسی ارشد', 'masters'], ['دکترا', 'PhD'], ['پزشکی', 'Dr'], ['دندان پزشکی', 'dentist']],
+            caption: ['مدرک', '', 'rent'],
+        }, 
+        ],
     },
     'حسابداری_مالی_حقوقی': {
-        fields: [{
-            name: 'price',
-            type: 'range',
-            input: 'int',
-            from: ['از ', '', 'from'],
-            to: ['تا ', '', 'to'],
-            caption: ['قیمت (لیر)', '', 'rent'],
-        }, ],
+        fields: [
+        {
+            name: 'workExperience',
+            type: 'list',
+            input: 'list',
+            list: [0, 1, 2, 3, ['&#8734;', 1000]],
+            caption: ['سابقه کاری', '', 'rent'],
+        }, 
+        {
+            name: 'education',
+            type: 'list',
+            input: 'list',
+            list: [['دیپلم', 'diploma'], ['کارشناسی', 'bachelor'], ['کارشناسی ارشد', 'masters'], ['دکترا', 'PhD'], ['پزشکی', 'Dr'], ['دندان پزشکی', 'dentist']],
+            caption: ['مدرک', '', 'rent'],
+        }, 
+        ],
     },
     'رسانه_و_ماركتینگ_و_گرافیست': {
-        fields: [{
-            name: 'price',
-            type: 'range',
-            input: 'int',
-            from: ['از ', '', 'from'],
-            to: ['تا ', '', 'to'],
-            caption: ['قیمت (لیر)', '', 'rent'],
-        }, ],
+        fields: [
+        {
+            name: 'workExperience',
+            type: 'list',
+            input: 'list',
+            list: [0, 1, 2, 3, ['&#8734;', 1000]],
+            caption: ['سابقه کاری', '', 'rent'],
+        }, 
+        {
+            name: 'education',
+            type: 'list',
+            input: 'list',
+            list: [['دیپلم', 'diploma'], ['کارشناسی', 'bachelor'], ['کارشناسی ارشد', 'masters'], ['دکترا', 'PhD'], ['پزشکی', 'Dr'], ['دندان پزشکی', 'dentist']],
+            caption: ['مدرک', '', 'rent'],
+        }, 
+        ],
     },
     'بازاریابی_و_فروش': {
-        fields: [{
-            name: 'price',
-            type: 'range',
-            input: 'int',
-            from: ['از ', '', 'from'],
-            to: ['تا ', '', 'to'],
-            caption: ['قیمت (لیر)', '', 'rent'],
-        }, ],
+        fields: [
+        {
+            name: 'workExperience',
+            type: 'list',
+            input: 'list',
+            list: [0, 1, 2, 3, ['&#8734;', 1000]],
+            caption: ['سابقه کاری', '', 'rent'],
+        }, 
+        {
+            name: 'education',
+            type: 'list',
+            input: 'list',
+            list: [['دیپلم', 'diploma'], ['کارشناسی', 'bachelor'], ['کارشناسی ارشد', 'masters'], ['دکترا', 'PhD'], ['پزشکی', 'Dr'], ['دندان پزشکی', 'dentist']],
+            caption: ['مدرک', '', 'rent'],
+        }, 
+        ],
     },
     'درمانی_زیبایی_و_بهداشتی': {
-        fields: [{
-            name: 'price',
-            type: 'range',
-            input: 'int',
-            from: ['از ', '', 'from'],
-            to: ['تا ', '', 'to'],
-            caption: ['قیمت (لیر)', '', 'rent'],
-        }, ],
+        fields: [
+        {
+            name: 'workExperience',
+            type: 'list',
+            input: 'list',
+            list: [0, 1, 2, 3, ['&#8734;', 1000]],
+            caption: ['سابقه کاری', '', 'rent'],
+        }, 
+        {
+            name: 'education',
+            type: 'list',
+            input: 'list',
+            list: [['دیپلم', 'diploma'], ['کارشناسی', 'bachelor'], ['کارشناسی ارشد', 'masters'], ['دکترا', 'PhD'], ['پزشکی', 'Dr'], ['دندان پزشکی', 'dentist']],
+            caption: ['مدرک', '', 'rent'],
+        }, 
+        ],
     },
     'رایانه_و_IT': {
-        fields: [{
-            name: 'price',
-            type: 'range',
-            input: 'int',
-            from: ['از ', '', 'from'],
-            to: ['تا ', '', 'to'],
-            caption: ['قیمت (لیر)', '', 'rent'],
-        }, ],
+        fields: [
+        {
+            name: 'workExperience',
+            type: 'list',
+            input: 'list',
+            list: [0, 1, 2, 3, ['&#8734;', 1000]],
+            caption: ['سابقه کاری', '', 'rent'],
+        }, 
+        {
+            name: 'education',
+            type: 'list',
+            input: 'list',
+            list: [['دیپلم', 'diploma'], ['کارشناسی', 'bachelor'], ['کارشناسی ارشد', 'masters'], ['دکترا', 'PhD'], ['پزشکی', 'Dr'], ['دندان پزشکی', 'dentist']],
+            caption: ['مدرک', '', 'rent'],
+        }, 
+        ],
     },
     'حمل_و_نقل': {
-        fields: [{
-            name: 'price',
-            type: 'range',
-            input: 'int',
-            from: ['از ', '', 'from'],
-            to: ['تا ', '', 'to'],
-            caption: ['قیمت (لیر)', '', 'rent'],
-        }, ],
+        fields: [
+        {
+            name: 'workExperience',
+            type: 'list',
+            input: 'list',
+            list: [0, 1, 2, 3, ['&#8734;', 1000]],
+            caption: ['سابقه کاری', '', 'rent'],
+        }, 
+        {
+            name: 'education',
+            type: 'list',
+            input: 'list',
+            list: [['دیپلم', 'diploma'], ['کارشناسی', 'bachelor'], ['کارشناسی ارشد', 'masters'], ['دکترا', 'PhD'], ['پزشکی', 'Dr'], ['دندان پزشکی', 'dentist']],
+            caption: ['مدرک', '', 'rent'],
+        }, 
+        ],
     },
     'صنعت_و_مهندسی': {
-        fields: [{
-            name: 'price',
-            type: 'range',
-            input: 'int',
-            from: ['از ', '', 'from'],
-            to: ['تا ', '', 'to'],
-            caption: ['قیمت (لیر)', '', 'rent'],
-        }, ],
+        fields: [
+        {
+            name: 'workExperience',
+            type: 'list',
+            input: 'list',
+            list: [0, 1, 2, 3, ['&#8734;', 1000]],
+            caption: ['سابقه کاری', '', 'rent'],
+        }, 
+        {
+            name: 'education',
+            type: 'list',
+            input: 'list',
+            list: [['دیپلم', 'diploma'], ['کارشناسی', 'bachelor'], ['کارشناسی ارشد', 'masters'], ['دکترا', 'PhD'], ['پزشکی', 'Dr'], ['دندان پزشکی', 'dentist']],
+            caption: ['مدرک', '', 'rent'],
+        }, 
+        ],
     },
     'مهاجرتی': {
         fields: [],
@@ -578,7 +818,7 @@ $('body').on('click', '.register', function() {
     }
     $(this).html(`<i class="material-icons">hourglass_empty</i>`);
     strapi.advertise.create(data).then((buff) => {
-        strapi.advertise.upload($(this).parent().find('#file')[0], buff.id).then(res => {
+        strapi.advertise.image.upload($(this).parent().find('#file')[0], buff.id).then(res => {
             janelaPopUp.abre("id", 'p green alert', 'خطا', 'آگهی با موفقیت ثبت شد!');
             $(this).html(`ثبت آگهی`);
         }).catch(e => {
@@ -600,6 +840,7 @@ $('body').on('click', '.register', function() {
         });
         $('.closev').trigger('click');
     }).catch(e => {
+        console.log(e);
         janelaPopUp.abre("id", 'p orange alert', 'خطا', 'برای ثبت آگهی ابتدا باید وارد شوید!');
         $(this).html(`ثبت آگهی`);
     });
@@ -644,11 +885,6 @@ $('.panel-collapse.collapse a').click(function() {
                 <input id="file" type="file" multiple>
             </p>
             <div class="upi">
-                <!-- <span>
-                    <img src="/assets/images/adv.jpg">
-                    <i class="material-icons">close</i>
-                </span> -->
-                <div class="clear"></div>
             </div>
         </div>
     `);
@@ -716,6 +952,8 @@ $('.panel-collapse.collapse a').click(function() {
             <div class="clear"></div>
         </div>
         <button class="register" id="submit">ثبت آگهی</button>
+        <button class="register-vip" id="submit">ثبت آگهی ویژه</button>
+        <button class="register-vit" id="submit">ثبت و نمایش در ویترین</button>
     `);
     // if ($('#upl').length) {
     //     new AjaxUpload('upl', {
@@ -1093,7 +1331,7 @@ $('#adv .search').click(function() {
         }
         $('#adv .search').html(`<i class="material-icons">hourglass_empty</i>`);
         if (results.length) {
-            $('.features').fadeOut(100);
+            // $('.features').fadeOut(100);
             $('.adv').html(`
                 <div class="cross-line">
                     <span>نتایج جستوجوی آگهی</span>
@@ -1102,19 +1340,20 @@ $('#adv .search').click(function() {
             results.forEach(function(ad) {
                 fads[ad.id] = ad;
                 data = ad;
-                // console.log(ad);
                 $('.adv').append(`
-                    <div class="blog-card col-md-6 col-sm-12">
-                        <div class="meta">
-                            <div class="photo" style="background-image: url(${(ad.images.length ? ad.images[0].url : '/uploads/def.jpg')})"></div>
-                        </div>
-                        <div class="description">
-                            <h1>${data.title}</h1>
-                            <h2>یک ربع پیش</h2>
-                            <p>${data.description}</p>
-                            <p class="read-more">
-                                <a data-id='${ad.id}'class="view" href="#">مشاهده</a>
-                            </p>
+                    <div class="col-md-4 col-sm-6 col-xs-12 fr">
+                        <div class="blog-card">
+                            <div class="meta">
+                                <div class="photo" style="background-image: url(${(ad.images.length ? ad.images[0].url : '/uploads/def.jpg')})"></div>
+                            </div>
+                            <div class="description">
+                                <h1>${data.title}</h1>
+                                <h2>${timeSince(new Date(data.created_at).getTime())}</h2>
+                                <h2><span class='ct'>دسته بندی </span> : ${data.class.split('_').join(' ')}</h2>
+                                <p class="read-more">
+                                    <a data-id='${ad.id}'class="view" href="#">مشاهده</a>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 `)
@@ -1246,3 +1485,36 @@ $('.soon').click(function(e) {
 });
 
 // jQuery(document).trigger("enhance");
+
+// const wrapper = document.getElementsByClassName('wrapper');
+// const button = document.getElementById('click');
+// const button2 = document.getElementById('click2');
+
+// button.addEventListener('click', clicked);
+// button2.addEventListener('click', clicked2);
+// let scroll = 0;
+
+// wrapper[0].addEventListener("scroll", function (event) {
+//   scroll = wrapper[0].scrollLeft;
+// });
+
+// function clicked () {
+//   scroll = scroll += 500;
+//   wrapper[0].scrollTo({
+//     left: scroll,
+//     behavior: 'smooth'
+//   });
+//   scroll = wrapper[0].scrollLeft + 50;
+//   console.log(wrapper[0].scrollLeft);
+// }
+
+// function clicked2 () {
+//   scroll = scroll -= 500;
+//   wrapper[0].scrollTo({
+//     left: scroll, 
+//     behavior: 'smooth' 
+//   });
+//   scroll = wrapper[0].scrollLeft + 50;
+//   console.log(wrapper[0].scrollLeft);
+// }
+
