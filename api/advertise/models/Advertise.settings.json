@@ -40,11 +40,6 @@
       "collection": "service",
       "via": "advertise"
     },
-    "user": {
-      "model": "user",
-      "via": "advertises",
-      "plugin": "users-permissions"
-    },
     "city": {
       "type": "string"
     },
@@ -143,6 +138,11 @@
     },
     "companyName": {
       "type": "string"
+    },
+    "user": {
+      "model": "user",
+      "via": "advertises",
+      "plugin": "users-permissions"
     }
   }
 }
