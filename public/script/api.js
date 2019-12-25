@@ -164,7 +164,12 @@
             },
             async mark(adId) {
                 let me = await strapi.user.me();
-                me.marks.map(ad => ad.id).push(adId)
+                me.marks = me.marks.map(ad => ad.id).push(adId)
+                return await strapi.user.update(me)
+            },
+            async unmark(adId) {
+                let me = await strapi.user.me();
+                me.marks = me.marks.map(ad => ad.id).filter(id => adId != id)
                 return await strapi.user.update(me)
             }
         },
