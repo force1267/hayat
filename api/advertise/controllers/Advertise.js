@@ -95,12 +95,10 @@ module.exports = {
             ctx.params.user = ctx.state.user.id
             if (ctx.is('multipart')) {
                 const { data, files } = parseMultipartData(ctx);
-                delete data.images
                 entity = await strapi.services.advertise.update(ctx.params, data, {
                     files,
                 });
             } else {
-                delete ctx.request.body.images
                 entity = await strapi.services.advertise.update(
                     ctx.params,
                     ctx.request.body
