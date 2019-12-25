@@ -150,7 +150,7 @@
                     }
                     if(photos.files.length > 0) {
                         try {
-                            await strapi.advertise.update({ hasImage }, adId)
+                            await strapi.advertise.update({ hasImage: true }, adId)
                         } catch(err) {
                             throw err
                             return err
