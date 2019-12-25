@@ -5,6 +5,57 @@ Number.prototype.format = function(n, x) {
     return this.toFixed(Math.max(0, ~~n)).replace(new RegExp(re, 'g'), '$&,');
 };
 
+function copyToClipboard(elem) {
+      // create hidden text element, if it doesn't already exist
+    var targetId = "_hiddenCopyText_";
+    var isInput = elem.tagName === "INPUT" || elem.tagName === "TEXTAREA";
+    var origSelectionStart, origSelectionEnd;
+    if (isInput) {
+        // can just use the original source element for the selection and copy
+        target = elem;
+        origSelectionStart = elem.selectionStart;
+        origSelectionEnd = elem.selectionEnd;
+    } else {
+        // must use a temporary form element for the selection and copy
+        target = document.getElementById(targetId);
+        if (!target) {
+            var target = document.createElement("textarea");
+            target.style.position = "fixed";
+            target.style.left = "-9999px";
+            target.style.top = "0";
+            target.id = targetId;
+            document.body.appendChild(target);
+        }
+        target.textContent = elem.textContent;
+    }
+    // select the content
+    var currentFocus = document.activeElement;
+    target.focus();
+    target.setSelectionRange(0, target.value.length);
+    
+    // copy the selection
+    var succeed;
+    try {
+          succeed = document.execCommand("copy");
+    } catch(e) {
+        succeed = false;
+    }
+    // restore original focus
+    if (currentFocus && typeof currentFocus.focus === "function") {
+        currentFocus.focus();
+    }
+    
+    if (isInput) {
+        // restore prior selection
+        elem.setSelectionRange(origSelectionStart, origSelectionEnd);
+    } else {
+        // clear temporary content
+        target.textContent = "";
+    }
+    return succeed;
+}
+
+
 function timeSince(date) {
   var seconds = Math.floor((new Date() - date) / 1000);
   var interval = Math.floor(seconds / 31536000);
@@ -37,6 +88,33 @@ $("body").on('click', '.ussp', function(e) {
         e.preventDefault();
         $('.cover').fadeIn(300);
         $('.uads').html('');
+        strapi.user.me().then(e=> {
+            user = e;
+        });
+        user.advertises.forEach(function(ad) {
+            let data = ad;
+            $('.uads').append(`
+                <div class="col-md-4 col-sm-6 col-xs-12 fr">
+                    <div class="blog-card">
+                        <div class="meta">
+                            <div class="photo" style="background-image: url(${(ad.images.length ? ad.images[0].url : '/uploads/def.jpg')})"></div>
+                        </div>
+                        <div class="description">
+                            <h1>${data.title}</h1>
+                            <h2>${timeSince(new Date(data.created_at).getTime())}</h2>
+                            <h2><span class='ct'>دسته بندی </span> : ${data.class.split('_').join(' ')}</h2>
+                            <p class="read-more">
+                                <a data-id='${ad.id}'class="delete" href="#">پاک کردن</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            `);
+        });
+        $('#u-name').val(user.name);
+        $('#u-last').val(user.family);
+        $('#u-phone').val(user.phone);
+        $('#u-address').val(user.address);
     }
 });
 
@@ -52,7 +130,8 @@ $('body').on('click', '.delete', function(e) {
 });
 
 
-$("body").on('click', '.uss', function() {
+$("body").on('click', '.uss', function(e) {
+    e.preventDefault();
     if (strapi.jwt != null) {
         $('.cover').fadeIn(300);
         $('.uads').html('');
@@ -78,11 +157,11 @@ $("body").on('click', '.uss', function() {
                     </div>
                 </div>
             `);
-            $('#u-name').val(user.name);
-            $('#u-last').val(user.family);
-            $('#u-phone').val(user.phone);
-            $('#u-address').val(user.address);
         });
+        $('#u-name').val(user.name);
+        $('#u-last').val(user.family);
+        $('#u-phone').val(user.phone);
+        $('#u-address').val(user.address);
     }
 });
 
@@ -93,7 +172,9 @@ $('.registeru').click(function() {
         "phone": $('#u-phone').val(),
         "address": $('#u-address').val(),
     }
-    strapi.user.update(data, user.id).then(console.log)
+    strapi.user.update(data, user.id).then(e=> {
+        janelaPopUp.abre( "id", 'p green alert',  'انجام شد' ,  'اطلاعات شما با موفقیت ذخیره شد!');
+    });
 });
 
 if (strapi.jwt != null) {
@@ -806,6 +887,57 @@ $('body').on('click', '.register', function() {
     };
     let end;
     $(this).parent().find('input, textarea').each(function() {
+        console.log($(this).attr('id'), $(this).val());
+        // console.log($(this).attr('id'), $(this).val());
+        if ($(this).attr('id') == 'city' && ($(this).val() == '0' || $(this).val() == '')) {
+            janelaPopUp.abre("id", 'p orange alert', 'خطا', 'شهر انتخاب شده مجاز نیست!');
+            end = true;
+        }
+        data[$(this).attr('id')] = $(this).val();
+    });
+    if (end) {
+        return false;
+    }
+    $(this).html(`<i class="material-icons">hourglass_empty</i>`);
+    strapi.advertise.create(data).then((buff) => {
+        strapi.advertise.image.upload($(this).parent().find('#file')[0], buff.id).then(res => {
+            janelaPopUp.abre("id", 'p green alert', 'نجام شد', 'آگهی با موفقیت ثبت شد!');
+            $(this).html(`ثبت آگهی`);
+            setTimeout(function() {
+                window.location = '/';
+            }, 1800);
+        }).catch(e => {
+            janelaPopUp.abre("id", 'p orange alert', 'خطا', 'مشکل در آپلود عکس ها!');
+            $(this).html(`ثبت آگهی`);
+        });
+        $('.select').on('click', '.placeholder', function() {
+            var parent = $(this).closest('.select');
+            if (!parent.hasClass('is-open')) {
+                parent.addClass('is-open');
+                $('.select.is-open').not(parent).removeClass('is-open');
+            } else {
+                parent.removeClass('is-open');
+            }
+        }).on('click', 'ul>li', function() {
+            var parent = $(this).closest('.select');
+            parent.removeClass('is-open').find('.placeholder').text($(this).text());
+            parent.find('input[type=hidden]').attr('value', $(this).attr('data-value'));
+        });
+        $('.closev').trigger('click');
+    }).catch(e => {
+        // console.log(e);
+        janelaPopUp.abre("id", 'p orange alert', 'خطا', 'برای ثبت آگهی ابتدا باید وارد شوید!');
+        $(this).html(`ثبت آگهی`);
+    });
+});
+
+$('body').on('click', '.register-vip', function() {
+    // strapi.user.me().then(console.log);
+    let data = {
+        'submitted': true,
+    };
+    let end;
+    $(this).parent().find('input, textarea').each(function() {
         // console.log($(this).attr('id'), $(this).val());
         if ($(this).attr('id') == 'city' && $(this).val() == '0') {
             janelaPopUp.abre("id", 'p orange alert', 'خطا', 'شهر انتخاب شده مجاز نیست!');
@@ -840,7 +972,7 @@ $('body').on('click', '.register', function() {
         });
         $('.closev').trigger('click');
     }).catch(e => {
-        console.log(e);
+        // console.log(e);
         janelaPopUp.abre("id", 'p orange alert', 'خطا', 'برای ثبت آگهی ابتدا باید وارد شوید!');
         $(this).html(`ثبت آگهی`);
     });
@@ -991,9 +1123,10 @@ $('.panel-collapse.collapse a').click(function() {
 var cat = null;
 
 $('body').on('click', '.dropdown-selected .dropdown-link', function() {
+    cat = null;
     if ($($('.dropdown-item.dropdown-selected').find('*')[3]).html() != undefined) {
         cat = $($('.dropdown-item.dropdown-selected').find('*')[3]).html().trim().split('،').join('').split(' ').join('_').split('__').join('_');
-        $('.attrs').slideDown(100);
+        // $('.attrs').slideDown(100);
     }
 });
 
@@ -1013,6 +1146,7 @@ $(".closex").click(function() {
 $(".closea").click(function() {
     $('html').css('overflow-y', 'scroll');
     $('.advl').fadeOut(300);
+    $('.uinf').slideUp(100);
 });
 $('.filter-t').click(function() {
     $('.filter').fadeIn(300);
@@ -1168,13 +1302,14 @@ $(function() {
 var fads = {};
 
 $('#adv .search').click(function() {
+    // $('.attrs').html('');
     if ($('#city').val() == "" || $('#city').val() == "0") {
         janelaPopUp.abre("id", 'p orange alert', 'خطا', 'شهر انتخاب شده مجاز نیست!');
         return false;
     }
     let name = null
     if ($($('.dropdown-item.dropdown-selected').find('*')[3]).html() != undefined) {
-        name = $($('.dropdown-item.dropdown-selected').find('*')[3]).html().trim().split(' ').join('_');
+        name = $($('.dropdown-item.dropdown-selected').find('*')[3]).html().trim().split('،').join('').split(' ').join('_').split('__').join('_');
     }
     let city = $('#city').val();
     let data = {};
@@ -1189,9 +1324,13 @@ $('#adv .search').click(function() {
             data[$(this).attr('id')] = $(this).val().trim();
         }
     });
+    // console.log(data);
     strapi.advertise.find(data).then(results => {
+        // console.log('clear')
         $('.attrs').html('');
-        if (map[cat] != undefined) {
+        // console.log(cat, map[cat]);
+        if (map[cat] != undefined || cat != null) {
+            // console.log('fill again');
             map[cat].fields.forEach(function(field) {
                 switch (field.type) {
                     case 'range': {
@@ -1329,11 +1468,18 @@ $('#adv .search').click(function() {
                 $('.attrs').append(element);
             });
         }
+        $('.adv').html(``);
         $('#adv .search').html(`<i class="material-icons">hourglass_empty</i>`);
         if (results.length) {
+            if (map[cat] != undefined || cat != null) {
+                $(".fsi").fadeIn(100);
+                $('.attrs').slideDown(100);
+            } else {
+                $(".fsi").fadeOut(100);
+            }
             // $('.features').fadeOut(100);
             $('.adv').html(`
-                <div class="cross-line">
+                <div class="cross-line rsa">
                     <span>نتایج جستوجوی آگهی</span>
                 </div>
             `)
@@ -1352,6 +1498,7 @@ $('#adv .search').click(function() {
                                 <h2><span class='ct'>دسته بندی </span> : ${data.class.split('_').join(' ')}</h2>
                                 <p class="read-more">
                                     <a data-id='${ad.id}'class="view" href="#">مشاهده</a>
+                                    <!--<p data-id='${ad.id}'class="vip">ویژه</p> -->
                                 </p>
                             </div>
                         </div>
@@ -1363,7 +1510,9 @@ $('#adv .search').click(function() {
             }, 600);
             $('#adv .search').html(`جستوجو...`);
         } else {
+            $(".fsi").fadeOut(100);
             $('#adv .search').html(`جستوجو...`);
+            $('.attrs').slideUp(100);
             janelaPopUp.abre("id", 'p blue alert', 'خطا', 'نتیجه ای یافت نشد!');
         }
     });
@@ -1427,6 +1576,11 @@ $('#adv .search').click(function() {
 });
 
 $('#addv').click(function(e) {
+    if (user == null) {
+        janelaPopUp.abre("id", 'p orange alert', 'خطا', 'برای ثبت آگهی ابتدا باید وارد شوید!');
+        $(this).html(`ثبت آگهی`);
+        return false;
+    }
     e.preventDefault();
     $('.addv').fadeIn(300);
     $('html').css('overflow-y', 'hidden');
@@ -1442,15 +1596,50 @@ $('body').on('click', '.view', function(e) {
     e.preventDefault();
     $('html').css('overflow-y', 'hidden');
     let ad = fads[$(this).attr('data-id')];
-    let data = ad
-    $('.advl .containerx').html('');
+    let data = ad;
+    console.log(data);
+    $('.advl #carousel .carousel-inner').html('');
+    $('.advl #thumbcarousel .carousel-inner .item').html('<div class="clear"></div>');
     $('.advl .fields').html('');
-    ad.images.forEach(function(a, i) {
-        $('.advl .containerx').append(`
-            <input id="item${i}" type="checkbox"/>
-            <label class="item${i}" for="item${i}" style="background-image:url(${a.url});"></label>
+    $('.advl .ago').html(`${timeSince(new Date(data.created_at).getTime())}`);
+    $('.advl .tp a').html(`${data.phone}`);
+    $('.advl .tp a').attr('href', `tel:${data.phone}`);
+    console.log(ad.images);
+    if (ad.images.length != 0) {
+        ad.images.forEach(function(a, i) {
+            if (i == 0) {
+                $('.advl #carousel .carousel-inner').append(`
+                    <div class="item active">
+                        <img src="${a.url}">
+                    </div>
+                `);
+            } else {
+                $('.advl #carousel .carousel-inner').append(`
+                    <div class="item">
+                        <img src="${a.url}">
+                    </div>
+                `);
+            }
+        });
+        ad.images.forEach(function(a, i) {
+            $('.advl #thumbcarousel .carousel-inner .item').prepend(`
+                <div data-target="#carousel" data-slide-to="${i}" class="thumb"><img src="${a.url}"></div>
+            `);
+        });
+    } else {
+        console.log('dad');
+        $('.advl #carousel .carousel-inner').append(`
+            <div class="item active">
+                <img src="data:image/png;base64,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">
+            </div>
         `);
-    });
+        $('.advl #thumbcarousel .carousel-inner .item').prepend(`
+            <div data-target="#carousel" data-slide-to="0" class="thumb"><img src="data:image/png;base64,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"></div>
+        `);
+    }
+    $(this).ready(function() {
+        $('#carousel img').css('height', $('.message').width());
+    })
     $('.advl .title').html(data.title);
     $('.advl .desc').html(data.description);
     for (let t in map.dic) {
@@ -1481,40 +1670,55 @@ $('.message a').click(function() {
 });
 
 $('.soon').click(function(e) {
-    janelaPopUp.abre("id", 'p blue alert', 'به زودی', 'به زودی این بخش راه اندازی خواه شد!');
+    janelaPopUp.abre("id", 'p purple alert', 'به زودی', 'به زودی این بخش راه اندازی خواهد شد!');
+});
+
+$('.cp').click(function() {
+    $('.cp').html('کپی شد')
+    copyToClipboard($(".tp").get(0));
 });
 
 // jQuery(document).trigger("enhance");
 
-// const wrapper = document.getElementsByClassName('wrapper');
-// const button = document.getElementById('click');
-// const button2 = document.getElementById('click2');
+const wrapper = document.getElementsByClassName('wrapper');
+const button = document.getElementById('click');
+const button2 = document.getElementById('click2');
 
-// button.addEventListener('click', clicked);
-// button2.addEventListener('click', clicked2);
-// let scroll = 0;
+button.addEventListener('click', clicked);
+button2.addEventListener('click', clicked2);
+let scroll = 0;
 
-// wrapper[0].addEventListener("scroll", function (event) {
-//   scroll = wrapper[0].scrollLeft;
-// });
+wrapper[0].addEventListener("scroll", function (event) {
+  scroll = wrapper[0].scrollLeft;
+});
 
-// function clicked () {
-//   scroll = scroll += 500;
-//   wrapper[0].scrollTo({
-//     left: scroll,
-//     behavior: 'smooth'
-//   });
-//   scroll = wrapper[0].scrollLeft + 50;
-//   console.log(wrapper[0].scrollLeft);
-// }
+function clicked () {
+  scroll = scroll += 500;
+  wrapper[0].scrollTo({
+    left: scroll,
+    behavior: 'smooth'
+  });
+  scroll = wrapper[0].scrollLeft + 50;
+  console.log(wrapper[0].scrollLeft);
+}
 
-// function clicked2 () {
-//   scroll = scroll -= 500;
-//   wrapper[0].scrollTo({
-//     left: scroll, 
-//     behavior: 'smooth' 
-//   });
-//   scroll = wrapper[0].scrollLeft + 50;
-//   console.log(wrapper[0].scrollLeft);
-// }
+function clicked2 () {
+  scroll = scroll -= 500;
+  wrapper[0].scrollTo({
+    left: scroll, 
+    behavior: 'smooth' 
+  });
+  scroll = wrapper[0].scrollLeft + 50;
+  console.log(wrapper[0].scrollLeft);
+}
 
+$('.gci').click(function() {
+    $('.uinf').slideDown(300);
+});
+
+$('.logout').click(function() {
+    user = null;
+    document.cookie = 'jwt=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    strapi.jwt = null;
+    window.location = '/';
+});

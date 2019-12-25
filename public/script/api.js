@@ -230,6 +230,3 @@
     }
     window.strapi = strapi
 }
-
-// strapi.register('ddssdd@gmail.com', 'dddssd', '123456');
-// strapi.login('ddssdd@gmail.com', '123456');
