@@ -95,10 +95,12 @@ module.exports = {
             ctx.params.user = ctx.state.user.id
             if (ctx.is('multipart')) {
                 const { data, files } = parseMultipartData(ctx);
+                delete data.images
                 entity = await strapi.services.advertise.update(ctx.params, data, {
                     files,
                 });
             } else {
+                delete ctx.request.body.images
                 entity = await strapi.services.advertise.update(
                     ctx.params,
                     ctx.request.body
@@ -129,7 +131,7 @@ module.exports = {
             if(images.includes(ctx.params.image)) {
                 await strapi.services.advertise.update({images: images.filter(id => id != ctx.params.image)})
                 let image = await strapi.query('file', 'upload').delete({ id: ctx.params.image })
-                return image
+                return await strapi.services.advertise.findOne({id: ctx.params.ad});
             } else {
                 return ctx.forbidden(`Image does not belong to your ad!`)
             }
