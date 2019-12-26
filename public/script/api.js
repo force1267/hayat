@@ -164,7 +164,8 @@
             },
             async mark(adId) {
                 let me = await strapi.user.me();
-                me.marks = me.marks.map(ad => ad.id).push(adId)
+                me.marks = me.marks.map(ad => ad.id)
+                me.marks.push(adId);
                 return await strapi.user.update(me)
             },
             async unmark(adId) {
@@ -193,7 +194,8 @@
                 // }
 
                 // update an ad by id
-                let userId = await strapi.user.me().id
+                let userId = await strapi.user.me();
+                userId = userId.id;
 
                 return await fetch(`/users/${userId}`, strapi.auth({
                   method: "PUT",
@@ -207,11 +209,11 @@
                     // get photos like this:
                     // const photos = document.getElementById('image_file_input')
                     // const photos = document.querySelector('input[type="file"][multiple]');
-
                     let me = await strapi.user.me();
                     // upload avatar
                     const formData = new FormData()
                     formData.append('ref', 'user') // TODO test this line
+                    formData.append("source", "users-permissions")
                     formData.append('refId', me.id)
                     formData.append('field', 'avatar')
                     formData.append('files', photos.files[0])

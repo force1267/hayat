@@ -37,6 +37,7 @@
           font-size: 14px;
           text-align: right;
           border-radius: 5px;
+          /* margin-top: 10px; */
         }
         .form button {
           text-transform: uppercase;
@@ -225,7 +226,6 @@ body, html, root, document{
     width: 50%;
     border: 1px none #ccc;
     color: #fff;
-    font-family: inherit;
     cursor: pointer;
 }
 .alert{
@@ -488,11 +488,24 @@ That part is just for the form
      color: #aaa;
      font-weight: unset;
 }
+.forg {
+    font-size: 11px;
+    color: #FF5722;
+    position: relative;
+    bottom: 5px;
+    margin-bottom: 0;
+}
+.forg:hover {
+  cursor: pointer;
+}
     </style>
 </head>
 <body>
     <div class="login-page">
       <div class="form">
+        <a href="/">
+          <img src="/assets/images/logo-e.png" style="width: 70px;position: relative;bottom: 20px;transform: scale(2.6);z-index: 0;" alt="hayatemoon">
+        </a>
         <form class="register-form">
           <input type="text" id='name' autocomplete="off" placeholder="نام کاربری"/>
           <input type="password" id='password' autocomplete="off" placeholder="رمز عبور"/>
@@ -507,6 +520,7 @@ That part is just for the form
           <input type="password" id='password' placeholder="رمز عبور"/>
           <button id="login">ورود</button>
           <p class="message">ثبت نام نکرده اید ؟ <a href="#">عضو شوید</a></p>
+          <p class="forg">رمز عبورم را فراموش کرده ام</a></p>
         </form>
       </div>
     </div>
@@ -553,7 +567,9 @@ That part is just for the form
             let password = $('.login-form #password').val();
             strapi.login(email, password).then(() => {
                 janelaPopUp.abre( "id", 'p green alert',  'انجام شد' ,  'با موفقیت وارد شدید!');
-                window.location = '/';
+                setTimeout(function() {
+                  window.location = '/';
+                }, 2000);
             }).catch(() => {
                 janelaPopUp.abre( "id", 'p red alert',  'خطا' ,  'نام کاربری یا رمزعبور اشتباه است!');
             });
@@ -562,7 +578,7 @@ That part is just for the form
            $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
         });
         $("input").keypress(function(event){
-            if ($(this).attr('id') != 'password' && $(this).attr('id') != 'passwordc') {
+            if ($(this).attr('id') != 'password' && $(this).attr('id') != 'passwordc' && $(this).attr('id') != 'email') {
                 var ew = event.which;
                 if(ew == 32)
                     return true;

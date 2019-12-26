@@ -88,6 +88,7 @@ $("body").on('click', '.ussp', function(e) {
         e.preventDefault();
         $('.cover').fadeIn(300);
         $('.uads').html('');
+        $('.umks').html('');
         strapi.user.me().then(e=> {
             user = e;
         });
@@ -105,6 +106,27 @@ $("body").on('click', '.ussp', function(e) {
                             <h2><span class='ct'>دسته بندی </span> : ${data.class.split('_').join(' ')}</h2>
                             <p class="read-more">
                                 <a data-id='${ad.id}'class="delete" href="#">پاک کردن</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            `);
+        });
+        user.marks.forEach(function(ad) {
+            let data = ad;
+            $('.umks').append(`
+                <div class="col-md-4 col-sm-6 col-xs-12 fr">
+                    <div class="blog-card">
+                        <div class="meta">
+                            <div class="photo" style="background-image: url(${(ad.images.length ? ad.images[0].url : '/uploads/def.jpg')})"></div>
+                        </div>
+                        <div class="description">
+                            <h1>${data.title}</h1>
+                            <h2>${timeSince(new Date(data.created_at).getTime())}</h2>
+                            <h2><span class='ct'>دسته بندی </span> : ${data.class.split('_').join(' ')}</h2>
+                            <p class="read-more">
+                                <a data-id='${ad.id}'class="view" href="#">مشاهده</a>
+                                <!--<p data-id='${ad.id}'class="vip">ویژه</p> -->
                             </p>
                         </div>
                     </div>
@@ -131,10 +153,11 @@ $('body').on('click', '.delete', function(e) {
 
 
 $("body").on('click', '.uss', function(e) {
-    e.preventDefault();
     if (strapi.jwt != null) {
+        e.preventDefault();
         $('.cover').fadeIn(300);
         $('.uads').html('');
+        $('.umks').html('');
         strapi.user.me().then(e=> {
             user = e;
         });
@@ -158,6 +181,27 @@ $("body").on('click', '.uss', function(e) {
                 </div>
             `);
         });
+        user.marks.forEach(function(ad) {
+            let data = ad;
+            $('.umks').append(`
+                <div class="col-md-4 col-sm-6 col-xs-12 fr">
+                    <div class="blog-card">
+                        <div class="meta">
+                            <div class="photo" style="background-image: url(${(ad.images.length ? ad.images[0].url : '/uploads/def.jpg')})"></div>
+                        </div>
+                        <div class="description">
+                            <h1>${data.title}</h1>
+                            <h2>${timeSince(new Date(data.created_at).getTime())}</h2>
+                            <h2><span class='ct'>دسته بندی </span> : ${data.class.split('_').join(' ')}</h2>
+                            <p class="read-more">
+                                <a data-id='${ad.id}'class="view" href="#">مشاهده</a>
+                                <!--<p data-id='${ad.id}'class="vip">ویژه</p> -->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            `);
+        });
         $('#u-name').val(user.name);
         $('#u-last').val(user.family);
         $('#u-phone').val(user.phone);
@@ -172,15 +216,26 @@ $('.registeru').click(function() {
         "phone": $('#u-phone').val(),
         "address": $('#u-address').val(),
     }
-    strapi.user.update(data, user.id).then(e=> {
+    // console.log($('#uupl').get(0));
+    strapi.user.avatar.upload($('#uupl').get(0))
+    .then(e => strapi.user.update(data, user.id))
+    .then(e => {
         janelaPopUp.abre( "id", 'p green alert',  'انجام شد' ,  'اطلاعات شما با موفقیت ذخیره شد!');
+    })
+    .catch(e=> {
+        janelaPopUp.abre( "id", 'p oragne alert',  'خطا' ,  'خطا در ذخیره اطلاعات');
     });
+    
 });
 
 if (strapi.jwt != null) {
     strapi.user.me().then(e=> {
         user = e;
         $('.iul').html(`<span class="uss">${e.username}</span>`);
+    });
+    strapi.user.me().then(e=> {
+        user = e;
+        $('.ussp').html(`<span style="color: #fff !important;font-size: 16px;=: 0 !important;position: relative;left: 51px;top: 5px;padding: 1px 20px;border-radius: 40px !important;border: 1px solid #fff;font-weight: 400;">${e.username}</span>`);
     });
 }
 
@@ -243,7 +298,7 @@ var map = {
         'city': ['شهر', '', ''],
         'price': ['قیمت', '', ''],
         'areaOfBuilding': ['متراژ', '', ''],
-        'ageOfBulding': ['سن ساختمان', '', ''],
+        'ageOfBuilding': ['سن ساختمان', '', ''],
         'numberOfRooms': ['تعداد اتاق', '', ''],
         'deposits': ['ودیعه', '', ''],
         'rent': ['اجاره', '', ''],
@@ -260,7 +315,7 @@ var map = {
                 caption: ['متراژ - متر مربع', '', ''],
             },
             {
-                name: 'ageOfBulding',
+                name: 'ageOfBuilding',
                 type: 'range-list',
                 input: 'int',
                 list: (function() {
@@ -312,7 +367,7 @@ var map = {
                 caption: ['متراژ - متر مربع', '', ''],
             },
             {
-                name: 'ageOfBulding',
+                name: 'ageOfBuilding',
                 type: 'range-list',
                 input: 'int',
                 list: (function() {
@@ -352,7 +407,7 @@ var map = {
             },
         ],
     },
-    'فروش_تجاری': {
+    'فروشی_تجاری': {
         fields: [{
                 name: 'areaOfBuilding',
                 type: 'range',
@@ -362,7 +417,7 @@ var map = {
                 caption: ['متراژ - متر مربع', '', ''],
             },
             {
-                name: 'ageOfBulding',
+                name: 'ageOfBuilding',
                 type: 'range-list',
                 input: 'int',
                 list: (function() {
@@ -397,7 +452,7 @@ var map = {
                 caption: ['متراژ - متر مربع', '', ''],
             },
             {
-                name: 'ageOfBulding',
+                name: 'ageOfBuilding',
                 type: 'range-list',
                 input: 'int',
                 list: (function() {
@@ -789,7 +844,7 @@ var map = {
     'مهاجرتی': {
         fields: [],
     },
-    'رافی': {
+    'صرافی': {
         fields: [],
     },
     'آرایشگری': {
@@ -887,26 +942,31 @@ $('body').on('click', '.register', function() {
     };
     let end;
     $(this).parent().find('input, textarea').each(function() {
-        console.log($(this).attr('id'), $(this).val());
         // console.log($(this).attr('id'), $(this).val());
         if ($(this).attr('id') == 'city' && ($(this).val() == '0' || $(this).val() == '')) {
             janelaPopUp.abre("id", 'p orange alert', 'خطا', 'شهر انتخاب شده مجاز نیست!');
             end = true;
         }
-        data[$(this).attr('id')] = $(this).val();
+        if (['price', 'rent', 'deposits'].includes($(this).attr('id'))) {
+            data[$(this).attr('id')] = $(this).val().split(',').join('').split('₺').join('');
+        } else {
+            data[$(this).attr('id')] = $(this).val();
+        }
     });
     if (end) {
         return false;
     }
+    console.log(data);
     $(this).html(`<i class="material-icons">hourglass_empty</i>`);
     strapi.advertise.create(data).then((buff) => {
         strapi.advertise.image.upload($(this).parent().find('#file')[0], buff.id).then(res => {
-            janelaPopUp.abre("id", 'p green alert', 'نجام شد', 'آگهی با موفقیت ثبت شد!');
+            janelaPopUp.abre("id", 'p green alert', 'انجام شد', 'آگهی با موفقیت ثبت شد!');
             $(this).html(`ثبت آگهی`);
             setTimeout(function() {
                 window.location = '/';
             }, 1800);
         }).catch(e => {
+            console.log(e);
             janelaPopUp.abre("id", 'p orange alert', 'خطا', 'مشکل در آپلود عکس ها!');
             $(this).html(`ثبت آگهی`);
         });
@@ -954,6 +1014,7 @@ $('body').on('click', '.register-vip', function() {
             janelaPopUp.abre("id", 'p green alert', 'خطا', 'آگهی با موفقیت ثبت شد!');
             $(this).html(`ثبت آگهی`);
         }).catch(e => {
+            console.log(e);
             janelaPopUp.abre("id", 'p orange alert', 'خطا', 'مشکل در آپلود عکس ها!');
             $(this).html(`ثبت آگهی`);
         });
@@ -1020,13 +1081,19 @@ $('.panel-collapse.collapse a').click(function() {
             </div>
         </div>
     `);
+    console.log(map[name]);
     map[name].fields.forEach(function(field) {
         switch (field.input) {
             case 'int': {
+                let cc = '';
+                if (['price', 'rent', 'deposits'].includes(field.name)) {
+                    cc = "data-type='currency'";
+                }
+                console.log(field, cc);
                 $(self).parent().parent().parent().find('.panel-body').append(`
                     <div class="field">
                         <div class="title">${field.caption[lang]}</div>
-                        <input type="text" id="${field.name}" required placeholder="...">
+                        <input type="text" ${cc} id="${field.name}" required placeholder="...">
                         <div class="clear"></div>
                     </div>
                 `);
@@ -1104,7 +1171,14 @@ $('.panel-collapse.collapse a').click(function() {
     //         }
     //     });
     // }
-
+    $("input[data-type='currency']").on({
+        keyup: function() {
+          formatCurrency($(this));
+        },
+        blur: function() { 
+          formatCurrency($(this), "blur");
+        }
+    });
     $('.select').on('click', '.placeholder', function() {
         var parent = $(this).closest('.select');
         if (!parent.hasClass('is-open')) {
@@ -1315,6 +1389,9 @@ $('#adv .search').click(function() {
     let data = {};
     if (name != null) {
         data['class'] = name;
+    }
+    if ($('#wpo:checked').length) {
+        data['hasImage'] = true;     
     }
     if (city != "") {
         data['city'] = city;
@@ -1592,19 +1669,28 @@ $('.closev').click(function(e) {
     $('html').css('overflow-y', 'scroll');
 });
 
-$('body').on('click', '.view', function(e) {
+$('body').on('click', '.view', async function(e) {
+    $('.cp').html('کپی');
     e.preventDefault();
+    $('.advl .mark').html('نشان کردن');
+    $('.advl .mark').attr('data-type', 'mark');
     $('html').css('overflow-y', 'hidden');
-    let ad = fads[$(this).attr('data-id')];
+    console.log(strapi.advertise);
+    let ad = await strapi.advertise.findOne($(this).attr('data-id'));
     let data = ad;
-    console.log(data);
+    if (user != null) {
+        if (user.marks.map(ad => ad.id).includes(ad.id)) {
+            $('.advl .mark').html('نشان شده');
+            $('.advl .mark').attr('data-type', 'marked');
+        }
+    }
     $('.advl #carousel .carousel-inner').html('');
     $('.advl #thumbcarousel .carousel-inner .item').html('<div class="clear"></div>');
     $('.advl .fields').html('');
     $('.advl .ago').html(`${timeSince(new Date(data.created_at).getTime())}`);
     $('.advl .tp a').html(`${data.phone}`);
     $('.advl .tp a').attr('href', `tel:${data.phone}`);
-    console.log(ad.images);
+    $('.advl .mark').attr('data-addid', data.id);
     if (ad.images.length != 0) {
         ad.images.forEach(function(a, i) {
             if (i == 0) {
@@ -1627,7 +1713,6 @@ $('body').on('click', '.view', function(e) {
             `);
         });
     } else {
-        console.log('dad');
         $('.advl #carousel .carousel-inner').append(`
             <div class="item active">
                 <img src="data:image/png;base64,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">
@@ -1699,7 +1784,6 @@ function clicked () {
     behavior: 'smooth'
   });
   scroll = wrapper[0].scrollLeft + 50;
-  console.log(wrapper[0].scrollLeft);
 }
 
 function clicked2 () {
@@ -1709,7 +1793,6 @@ function clicked2 () {
     behavior: 'smooth' 
   });
   scroll = wrapper[0].scrollLeft + 50;
-  console.log(wrapper[0].scrollLeft);
 }
 
 $('.gci').click(function() {
@@ -1722,3 +1805,101 @@ $('.logout').click(function() {
     strapi.jwt = null;
     window.location = '/';
 });
+
+$('.mark').click(function() {
+    let addid = $(this).attr('data-addid');
+    let t = $(this).attr('data-type');
+    if (user != null) {
+        if (t == 'mark') {
+            strapi.advertise.mark(addid).then(function(e) {
+                $('.advl .mark').html('نشان  شده');
+                $('.advl .mark').attr('data-type', 'marked');
+            });
+        } else {
+            strapi.advertise.unmark(addid).then(function(e) {
+                $('.advl .mark').html('نشان کردن');
+                $('.advl .mark').attr('data-type', 'mark');
+            });
+        }
+    } else {
+        janelaPopUp.abre("id", 'p orange alert', 'خطا', 'برای نشان کردن آگهی ابتدا باید وارد شوید!');
+    }
+});
+
+
+function formatNumber(n) {
+  // format number 1000000 to 1,234,567
+  return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+}
+
+
+function formatCurrency(input, blur) {
+  // appends $ to value, validates decimal side
+  // and puts cursor back in right position.
+  
+  // get input value
+  var input_val = input.val();
+  
+  // don't validate empty input
+  if (input_val === "") { return; }
+  
+  // original length
+  var original_len = input_val.length;
+
+  // initial caret position 
+  var caret_pos = input.prop("selectionStart");
+    
+  // check for decimal
+  if (input_val.indexOf(".") >= 0) {
+
+    // get position of first decimal
+    // this prevents multiple decimals from
+    // being entered
+    var decimal_pos = input_val.indexOf(".");
+
+    // split number by decimal point
+    var left_side = input_val.substring(0, decimal_pos);
+    var right_side = input_val.substring(decimal_pos);
+
+    // add commas to left side of number
+    left_side = formatNumber(left_side);
+
+    // validate right side
+    right_side = formatNumber(right_side);
+    
+    // On blur make sure 2 numbers after decimal
+    if (blur === "blur") {
+      right_side += "00";
+    }
+    
+    // Limit decimal to only 2 digits
+    right_side = right_side.substring(0, 2);
+
+    // join number by .
+    input_val = "₺" + left_side + "." + right_side;
+
+  } else {
+    // no decimal entered
+    // add commas to number
+    // remove all non-digits
+    input_val = formatNumber(input_val);
+    input_val = "₺" + input_val;
+    
+    // final formatting
+    if (blur === "blur") {
+      // input_val += ".00";
+    }
+  }
+  
+  // send updated string to input
+  input.val(input_val);
+
+  // put caret back in the right position
+  var updated_len = input_val.length;
+  caret_pos = updated_len - original_len + caret_pos;
+  input[0].setSelectionRange(caret_pos, caret_pos);
+}
+
+// while(1) {
+//     setTimeout()
+// }
