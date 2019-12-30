@@ -92,6 +92,9 @@
                 // }
 
                 // create an ad
+                if(data.images instanceof Array && data.images.length > 0) {
+                    data.hasImage = true
+                }
                 return await fetch("/advertises", strapi.auth({
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -108,6 +111,9 @@
                 // }
 
                 // update an ad by id
+                if(data.images instanceof Array) {
+                    data.hasImage = data.images.length > 0
+                }
                 return await fetch(`/advertises/${adId}`, strapi.auth({
                   method: "PUT",
                   headers: { "Content-Type": "application/json" },
@@ -117,7 +123,7 @@
             async delete(adId) {
                 // delete an ad by id
                 fetch(`/advertises/${adId}`, strapi.auth({
-                  method: "DELETE"
+                    method: "DELETE"
                 })).then(r=>r.json())
             },
             image: {
@@ -125,7 +131,7 @@
                 async delete(adId, imgId) {
                     // delete an ad by id
                     fetch(`/advertises/${adId}/image/${imgId}`, strapi.auth({
-                    method: "DELETE"
+                        method: "DELETE"
                     })).then(r=>r.json())
                 },
 
@@ -133,7 +139,7 @@
                     // get photos like this:
                     // const photos = document.getElementById('image_file_input')
                     // const photos = document.querySelector('input[type="file"][multiple]');
-            
+                    
                     // upload images
                     const formData = new FormData()
                     formData.append('ref', 'advertise')
@@ -142,12 +148,31 @@
                     for (let i = 0; i < photos.files.length; i++) {
                         formData.append('files', photos.files[i])
                     }
+                    if(photos.files.length > 0) {
+                        try {
+                            await strapi.advertise.update({ hasImage: true }, adId)
+                        } catch(err) {
+                            throw err
+                            return err
+                        }
+                    }
                     return await fetch('/upload', strapi.auth({
                         method: 'POST',
                         body: formData
                     })).then(r=>r.json())
                 },
             },
+            async mark(adId) {
+                let me = await strapi.user.me();
+                me.marks = me.marks.map(ad => ad.id)
+                me.marks.push(adId);
+                return await strapi.user.update(me)
+            },
+            async unmark(adId) {
+                let me = await strapi.user.me();
+                me.marks = me.marks.map(ad => ad.id).filter(id => adId != id)
+                return await strapi.user.update(me)
+            }
         },
         user: {
             // who am i
@@ -159,7 +184,7 @@
                 // get an ad by id
                 return await fetch(`/users/${userId}`).then(r=>r.json())
             },
-            async update(data, userId) {
+            async update(data) {
                 // data :
                 // {
                 //     title: "example title",
@@ -169,6 +194,9 @@
                 // }
 
                 // update an ad by id
+                let userId = await strapi.user.me();
+                userId = userId.id;
+
                 return await fetch(`/users/${userId}`, strapi.auth({
                   method: "PUT",
                   headers: { "Content-Type": "application/json" },
@@ -181,11 +209,11 @@
                     // get photos like this:
                     // const photos = document.getElementById('image_file_input')
                     // const photos = document.querySelector('input[type="file"][multiple]');
-
                     let me = await strapi.user.me();
                     // upload avatar
                     const formData = new FormData()
                     formData.append('ref', 'user') // TODO test this line
+                    formData.append("source", "users-permissions")
                     formData.append('refId', me.id)
                     formData.append('field', 'avatar')
                     formData.append('files', photos.files[0])
@@ -208,7 +236,7 @@
         } else {
             return ''
         }
-    }    
+    }
 
     function getCookie(cname) {
         var name = cname + "=";
@@ -230,6 +258,3 @@
     }
     window.strapi = strapi
 }
-
-// strapi.register('ddssdd@gmail.com', 'dddssd', '123456');
-// strapi.login('ddssdd@gmail.com', '123456');

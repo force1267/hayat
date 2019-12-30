@@ -5,16 +5,16 @@
     <link rel="stylesheet" type="text/css" href="style/master.css">
     <link rel="stylesheet" type="text/css" href="style/persian-datepicker.css">
     <link rel="icon" href="assets/images/logo.png" type="image/gif" sizes="16x16">
-    <link rel="stylesheet" type="text/css" href="assets/cdn/ganjnameh.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <link href="assets/cdn/material-icon.css" rel="stylesheet">
     <link href="assets/cdn/google-fonts.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/cdn/bootstrapx.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/cdn/WebFonts/css/fontiran.css">
     <link href="assets/cdn/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/cdn/dropdown.css">
     <script src="assets/cdn/jquery.min.js"></script>
     <script src="assets/cdn/bootstrap.bundle.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="assets/cdn/jquery.dropdown.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval';">
@@ -22,9 +22,10 @@
 <body>
     <!-- NAVBAR-->
     <!-- NAVBAR-->
+    <div class="bgo">
     <nav class="navbar menu navbar-expand-md py-3 navbar-dark bg-lighter shadow-sm">
         <div class="container">
-            <a href="#" class="navbar-brand">
+            <a href="/" class="navbar-brand">
                 <!-- Logo Image -->
                 <img src="assets/images/logo-p.png" width="45" alt="" class="d-inline-block logo align-middle mr-2">
                 <img src="assets/images/logo.png" width="45" alt="" style="width: 100px;height: 100px;visibility: hidden;display: none;" class=" plc align-middle mr-2">
@@ -51,7 +52,7 @@
         </div>
     </nav>
     <div class="landing">
-        <img src="assets/images/hotel2.jpg" alt="" class="back-ground">
+        <img src="" alt="" class="back-ground">
         <div class="row">
             <div class="col-md-9 ml-auto col-xl-9 mr-auto">
                 <!-- <p class="category d-none d-lg-block d-md-block">خرید بلیط هواپیما و رزرو هتل</p> -->
@@ -156,7 +157,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-2 col-sm-6 col-xs-12">
-                                        <button class="search">جستوجو...</button>
+                                        <button class="search">جستجو...</button>
                                     </div>
                                 </div>
                             </div>
@@ -235,7 +236,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-2 col-xs-6">
-                                        <button class="search">جستوجو...</button>
+                                        <button class="search">جستجو...</button>
                                     </div>
                                 </div>
                             </div>
@@ -314,18 +315,24 @@
                                         </div>
                                     </div>
                                     <div class="col-md-2 col-sm-6 col-xs-12">
-                                        <button class="search">جستوجو...</button>
+                                        <button class="search">جستجو...</button>
                                     </div>
                                 </div>
                             </div>
                             <div class="tab-pane active" id="adv" role="tabpanel">
-                                <label class="form-radiolabel">
-                                    <input type="radio" class="form-radio" required="" name="cf-quote" value="0">
-                                    <span class="form-radio-styler" aria-hidden="true"></span>آگهی ویژه
+                                <label class="control control--checkbox">
+                                    <span class="yt">
+                                        آگهی ویژه
+                                    </span>
+                                    <input id="ivip" value="Apples1" type="checkbox">
+                                    <div class="control__indicator"></div>
                                 </label>
-                                <label class="form-radiolabel">
-                                    <input type="radio" class="form-radio" required="" name="cf-quote" value="0">
-                                    <span class="form-radio-styler" aria-hidden="true"></span>عکس دار
+                                <label class="control control--checkbox">
+                                    <span class="yt">
+                                        عکس دار
+                                    </span>
+                                    <input id="wpo" value="Apples2" type="checkbox">
+                                    <div class="control__indicator"></div>
                                 </label>
                                 <div class="clear"></div>
                                 <div class="row" style="direction: rtl;">
@@ -496,18 +503,18 @@
                                         </div>
                                     </div>
                                     <div class="col-md-2 col-sm-6 col-xs-12">
-                                        <button class="search">جستوجو...</button>
+                                        <button class="search">جستجو...</button>
                                     </div>
                                     <div class="col-md-2 col-sm-6 col-xs-12">
                                         <a class="ra" id='addv' href="#">ثبت آگهی</a>
                                     </div>
                                 </div>
-                                <hr style="margin-top: 35px;margin-bottom: 0px;">
-                                <span class="afilters">
+                                <hr class="fsi" style="margin-top: 35px;margin-bottom: 0px;">
+                                <span class="afilters fsi">
                                     <i class="material-icons">keyboard_arrow_down</i>
                                 </span>
                                 <div class="row attrs" style="direction: rtl;display: none;">
-    
+                                    
                                 </div>
                             </div>
                         </div>
@@ -516,12 +523,13 @@
             </div>
         </div>
     </div>
+    </div>
     <div class="container-fluid">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 adv">
         </div>
     </div>
     <!-- VITRIN -->
-<!--     <div class="cross-line">
+    <div class="cross-line">
         <span>ویترین آگهی ها</span>
     </div>
 
@@ -531,98 +539,98 @@
         <ul>
           <li>
             <div class="product-container">
-              <img src="http://localhost:1337/uploads/7e951d75a96d4940a0c20374b08a49ff.jpg" alt="">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
+              <h5>ماشین لباس شویی</h5>
+              <h3>£3.45</h3>
+            </div>
+          </li>
+          <li>
+            <div class="product-container">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
               <h5>Book For Sale</h5>
               <h3>£3.45</h3>
             </div>
           </li>
           <li>
             <div class="product-container">
-              <img src="http://localhost:1337/uploads/7e951d75a96d4940a0c20374b08a49ff.jpg" alt="">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
               <h5>Book For Sale</h5>
               <h3>£3.45</h3>
             </div>
           </li>
           <li>
             <div class="product-container">
-              <img src="http://localhost:1337/uploads/7e951d75a96d4940a0c20374b08a49ff.jpg" alt="">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
               <h5>Book For Sale</h5>
               <h3>£3.45</h3>
             </div>
           </li>
           <li>
             <div class="product-container">
-              <img src="http://localhost:1337/uploads/7e951d75a96d4940a0c20374b08a49ff.jpg" alt="">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
               <h5>Book For Sale</h5>
               <h3>£3.45</h3>
             </div>
           </li>
           <li>
             <div class="product-container">
-              <img src="http://localhost:1337/uploads/7e951d75a96d4940a0c20374b08a49ff.jpg" alt="">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
               <h5>Book For Sale</h5>
               <h3>£3.45</h3>
             </div>
           </li>
           <li>
             <div class="product-container">
-              <img src="http://localhost:1337/uploads/7e951d75a96d4940a0c20374b08a49ff.jpg" alt="">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
               <h5>Book For Sale</h5>
               <h3>£3.45</h3>
             </div>
           </li>
           <li>
             <div class="product-container">
-              <img src="http://localhost:1337/uploads/7e951d75a96d4940a0c20374b08a49ff.jpg" alt="">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
               <h5>Book For Sale</h5>
               <h3>£3.45</h3>
             </div>
           </li>
           <li>
             <div class="product-container">
-              <img src="http://localhost:1337/uploads/7e951d75a96d4940a0c20374b08a49ff.jpg" alt="">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
               <h5>Book For Sale</h5>
               <h3>£3.45</h3>
             </div>
           </li>
           <li>
             <div class="product-container">
-              <img src="http://localhost:1337/uploads/7e951d75a96d4940a0c20374b08a49ff.jpg" alt="">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
               <h5>Book For Sale</h5>
               <h3>£3.45</h3>
             </div>
           </li>
           <li>
             <div class="product-container">
-              <img src="http://localhost:1337/uploads/7e951d75a96d4940a0c20374b08a49ff.jpg" alt="">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
               <h5>Book For Sale</h5>
               <h3>£3.45</h3>
             </div>
           </li>
           <li>
             <div class="product-container">
-              <img src="http://localhost:1337/uploads/7e951d75a96d4940a0c20374b08a49ff.jpg" alt="">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
               <h5>Book For Sale</h5>
               <h3>£3.45</h3>
             </div>
           </li>
           <li>
             <div class="product-container">
-              <img src="http://localhost:1337/uploads/7e951d75a96d4940a0c20374b08a49ff.jpg" alt="">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
               <h5>Book For Sale</h5>
               <h3>£3.45</h3>
             </div>
           </li>
           <li>
             <div class="product-container">
-              <img src="http://localhost:1337/uploads/7e951d75a96d4940a0c20374b08a49ff.jpg" alt="">
-              <h5>Book For Sale</h5>
-              <h3>£3.45</h3>
-            </div>
-          </li>
-          <li>
-            <div class="product-container">
-              <img src="http://localhost:1337/uploads/7e951d75a96d4940a0c20374b08a49ff.jpg" alt="">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
               <h5>Book For Sale</h5>
               <h3>£3.45</h3>
             </div>
@@ -632,7 +640,7 @@
     </div>
     <div id="click2"><span class="left-arrow"></span></div>
     <div id="click"><span class="right-arrow"></div>
-  </div> -->
+  </div>
 
     <div class="cross-line">
         <span>چرا حیاطمون ؟</span>
@@ -645,7 +653,7 @@
                 </div>
                 <h5>ثبت آگهی رایگان برای ایرانیان خارج از کشور</h5>
                 <p>
-                 ثبت اولین پلتفرم درج آگهی رایگان برای ایرانیان خارج از كشور 
+                  اولین پلتفرم درج آگهی رایگان برای ایرانیان خارج از كشور 
                 </p>
             </div>
             <div class="feature col-md-3 col-sm-12">
@@ -654,7 +662,7 @@
                 </div>
                 <h5>پشتیبانی 24 ساعته</h5>
                 <p>
-                در ٧ روز هفته و ٢٤ ساعت شبانه روز ، پاسخگوی شما هستین
+                در ٧ روز هفته و ٢٤ ساعت شبانه روز ، پاسخگوی شما هستیم
                 </p>
             </div>
             <div class="feature col-md-3 col-sm-12">
@@ -785,14 +793,16 @@
         <div class="upanel container">
             <div class="worko-tabs">
                 <i class="material-icons closep" title="Close">close</i>
+                <i class="logout" title="Logout">خروج از حساب کاربری<i class="material-icons">power_settings_new</i></i>
                 <input class="state" type="radio" title="tab-one" name="tabs-state" id="tab-one" checked />
                 <input class="state" type="radio" title="tab-two" name="tabs-state" id="tab-two" />
                 <input class="state" type="radio" title="tab-three" name="tabs-state" id="tab-three" />
                 <input class="state" type="radio" title="tab-four" name="tabs-state" id="tab-four" />
                 <div class="tabs flex-tabs panel-group">
                     <label for="tab-one" id="tab-one-label" class="tab"><i class="material-icons">assignment_ind</i>پروفایل</label>
-                    <label for="tab-two" id="tab-two-label" class="tab"><i class="material-icons">dashboard</i>تبلیغات های من</label>
+                    <label for="tab-two" id="tab-two-label" class="tab"><i class="material-icons">dashboard</i>آگهي هاي من</label>
                     <label for="tab-three" id="tab-three-label" class="tab"><i class="material-icons">attach_money</i>موجودی</label>
+                    <label for="tab-four" id="tab-four-label" class="tab"><i class="material-icons">archive</i>نشان شده ها</label>
                     <div id="tab-one-panel" class="panel active">
                         <div class="field">
                             <div class="title">نام</div>
@@ -818,7 +828,8 @@
                             <div class="title">عکس پروفایل</div>
                             <div class="info">عکس خود را بارگزاری کنید</div>
                             <p class="file">
-                                <label for="file" id="uupl">انتخاب عکس<i class="material-icons">add</i></label>
+                                <label for="file" id="file">انتخاب عکس<i class="material-icons">add</i></label>
+                                <input id="uupl" type="file">
                             </p>
                             <div class="upi">
                                 <!-- <span>
@@ -842,6 +853,11 @@
                         <div class="clear"></div>
                         <button class="regb">پرداخت</button>
                     </div>
+                    <div id="tab-four-panel" class="panel">
+                        <div class="row dr umks">
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -851,34 +867,65 @@
             <i class="material-icons closea" title="Close">close</i>
             <!-- <i class="material-icons reporta" title="Report">report</i> -->
             <div class="col-md-6 message">
-                <div class="containerx">
-<!--                   <input id="item1" type="checkbox"/>
-                  <label class="item1" for="item1" style="background-image:url(https://picsum.photos/750/750?image=501);"></label>
-                  <input id="item2" type="checkbox"/>
-                  <label class="item2" for="item2" style="background-image:url(https://picsum.photos/750/750?image=502);"></label>
-                  <input id="item3" type="checkbox"/>
-                  <label class="item3" for="item3" style="background-image:url(https://picsum.photos/750/750?image=503);"></label>
-                  <input id="item4" type="checkbox"/>
-                  <label class="item4" for="item4" style="background-image:url(https://picsum.photos/750/750?image=504);"></label>
-                  <input id="item5" type="checkbox"/>
-                  <label class="item5" for="item5" style="background-image:url(https://picsum.photos/750/750?image=505);"></label>
-                  <input id="item6" type="checkbox"/>
-                  <label class="item6" for="item6" style="background-image:url(https://picsum.photos/750/750?image=506);"></label>
-                  <input id="item7" type="checkbox"/>
-                  <label class="item7" for="item7" style="background-image:url(https://picsum.photos/750/750?image=507);"></label>
-                  <input id="item8" type="checkbox"/>
-                  <label class="item8" for="item8" style="background-image:url(https://picsum.photos/750/750?image=508);"></label>
-                  <input id="item9" type="checkbox"/>
-                  <label class="item9" for="item9" style="background-image:url(https://picsum.photos/750/750?image=509);"></label> -->
+            <div id="carousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="http://placehold.it/350x250/e8117f/fff&amp;text=Product+Main">
+                    </div>
+                    <div class="item">
+                        <img src="http://placehold.it/350x250/00ffff/000&amp;text=Product+Image+2">
+                    </div>
+                    <div class="item">
+                        <img src="http://placehold.it/350x250/ff00ff/fff&amp;text=Product+Image+3">
+                    </div>
+                    <div class="item">
+                        <img src="http://placehold.it/350x250/ffff00/000&amp;text=Product+Image+4">
+                    </div>
+                    <div class="item">
+                        <img src="http://placehold.it/350x250/612b65/fff&amp;text=Product+Image+5">
+                    </div>
+                    <div class="item">
+                        <img src="http://placehold.it/350x250/00ffff/000&amp;text=Product+Image+6">
+                    </div>
+                    <div class="item">
+                        <img src="http://placehold.it/350x250/db371b/fff&amp;text=Product+Image+7">
+                    </div>
+                    <div class="item">
+                        <img src="http://placehold.it/350x250/feb8aa/000&amp;text=Product+Image+8">
+                    </div>
                 </div>
+            </div> 
+    <div class="clearfix">
+        <div id="thumbcarousel" class="carousel slide" data-interval="false">
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div data-target="#carousel" data-slide-to="0" class="thumb"><img src="http://placehold.it/100/e8117f/fff&amp;text=Product+Main"></div>
+                    <div data-target="#carousel" data-slide-to="1" class="thumb"><img src="http://placehold.it/100/00ffff/000&amp;text=Product+Image+2"></div>
+                    <div data-target="#carousel" data-slide-to="2" class="thumb"><img src="http://placehold.it/100/ff00ff/fff&amp;text=Product+Image+3"></div>
+                    <div data-target="#carousel" data-slide-to="3" class="thumb"><img src="http://placehold.it/100/ffff00/000&amp;text=Product+Image+4"></div>
+                    <div data-target="#carousel" data-slide-to="4" class="thumb"><img src="http://placehold.it/100/612b65/fff&amp;text=Product+Image+5"></div>
+                    <div data-target="#carousel" data-slide-to="5" class="thumb"><img src="http://placehold.it/100/00ffcc/000&amp;text=Product+Image+6"></div>
+                    <div data-target="#carousel" data-slide-to="6" class="thumb"><img src="http://placehold.it/100/db371b/fff&amp;text=Product+Image+7"></div>
+                    <div data-target="#carousel" data-slide-to="7" class="thumb"><img src="http://placehold.it/100/feb8aa/000&amp;text=Product+Image+8"></div>
+                    <div class="clear"></div>
+                </div><!-- /item -->
+            </div><!-- /carousel-inner -->
+        </div> <!-- /thumbcarousel -->
+    </div><!-- /clearfix -->
             </div>
             <div class="col-md-6">
                 <div class="info">
                     <div class="title">100 متر آپارتمان پیش فروش بابل </div>
                     <div class="ago">15 دیقه پیش</div>
                     <button class="gci">دریافت اطلاعات تماس</button>
-                    <button class="mark">نشان کردن</button>
+                    <button class="mark" data-addid='-'>نشان کردن</button>
                     <div class="clear"></div>
+                    <div class="uinf">
+                        <span>تلفن</span>
+                        <span class="cp">کپی</span>
+                        <span class="tp"><a style="color: #0fbab9;text-decoration: none;" href="tel:"></a></span>
+                        <div class="clear"></div>
+                    </div>
                     <div class="fields">
                     </div>
                     <div class="desc">
@@ -1555,12 +1602,12 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading" role="tab" id="headingOne">
                                         <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#رافی" aria-expanded="false" aria-controls="رافی">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#رافی" صرافی-expanded="false" aria-controls="صرافی">
                                         صرافی
                                     </a>
                                     </h4>
                                     </div>
-                                    <div id="رافی" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                    <div id="صرافی" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                                         <div class="panel-body">
                                         </div>
                                     </div>
@@ -1816,65 +1863,34 @@
         <section class="nb-footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-4 col-sm-6">
                         <div class="footer-single">
                             <!--    <img src="images/logo.png" class="img-responsive" alt="Logo"> -->
 
                             <!-- This is only for better view of theme if you want your image logo remove div dummy-logo bellow and replace your logo in logo.png and uncomment logo tag above-->
                             <div class="dummy-logo">
                                 <div class="icon pull-left brand">
-                                    <img src="assets/images/logo.png" width="45" alt="" class="d-inline-block logo align-middle mr-2">
+                                    <img src="assets/images/logo-e.png" width="45" style="position: absolute;left: 0;top: -30px;" alt="" class="d-inline-block logo align-middle mr-2">
                                 </div>
-                                <h2 style="font-family: Righteous;">Hayatemun</h2>
-                                <p>درباره ما بخوانید</p>
+                                <p style="font-weight: bold;border-right: 5px solid #fff;padding: 10px;">درباره ما بخوانید</p>
                             </div>
 
                             <p>رم ایپسوم متن ساختگی با تولید سادگی نامفهوم از رم ایپسوم متن ساختگی با تولید سادگی نامفهوم از رم ایپسوم متن ساختگی با تولید سادگی نامفهوم از </p>
-                            <a href="" class="btn btn-footer">بیشتر بخوانید</a>
+                            <!-- <a href="" class="btn btn-footer">بیشتر بخوانید</a> -->
                         </div>
                     </div>
 
-                    <div class="col-md-3 col-sm-6" style="text-align: right;">
+                    <div class="col-md-4 col-sm-6" style="text-align: right;">
                         <div class="footer-single useful-links">
                             <div class="footer-title">
                                 <h2>لینک ها</h2></div>
                             <ul class="list-unstyled">
-                                <li><a href="/">بلاگ<i class="fa fa-angle-left pull-left"></i></a></li>
+                                <li><a href="/">مجله حیاطمون<i class="fa fa-angle-left pull-left"></i></a></li>
                                 <li><a href="/login-register.html">ورود - ثبت نام<i class="fa fa-angle-left pull-left"></i></a></li>
                         </div>
                     </div>
                     <div class="clearfix visible-sm"></div>
-
-                    <div class="col-md-3 col-sm-6">
-
-                        <div class="col-sm-12 left-clear right-clear footer-single footer-project">
-                            <div class="footer-title">
-                                <h2>نمادهاو صلاحیت ها</h2></div>
-                            <div class="col-xs-4">
-                                <img src="assets/images/enamad.png" class="img-responsive center-block">
-                            </div>
-                            <div class="col-xs-4">
-                                <img src="assets/images/enamad.png" class="img-responsive center-block">
-                            </div>
-                            <div class="col-xs-4">
-                                <img src="assets/images/enamad.png" class="img-responsive center-block">
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="col-xs-4">
-                                <img src="assets/images/enamad.png" class="img-responsive center-block">
-                            </div>
-                            <div class="col-xs-4">
-                                <img src="assets/images/enamad.png" class="img-responsive center-block">
-                            </div>
-                            <div class="col-xs-4">
-                                <img src="assets/images/enamad.png" class="img-responsive center-block">
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-4 col-sm-6">
                         <div class="footer-single">
                             <div class="footer-title">
                                 <h2>ارتباط با ما</h2></div>

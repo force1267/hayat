@@ -36,6 +36,9 @@
       "via": "related",
       "plugin": "upload"
     },
+    "hasImage": {
+      "type": "boolean"
+    },
     "services": {
       "collection": "service",
       "via": "advertise"

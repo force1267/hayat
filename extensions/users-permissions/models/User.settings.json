@@ -93,6 +93,9 @@
     "birth": {
       "type": "date"
     },
+    "marks": {
+      "collection": "advertise"
+    },
     "advertises": {
       "collection": "advertise",
       "via": "user"

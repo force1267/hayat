@@ -1,111 +1,115 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-9">
-	<link rel="icon" href="assets/images/logo.png" type="image/gif" sizes="16x16">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>حیاطمون | ورود : ثبت نام</title>
-	<link rel="stylesheet" type="text/css" href="assets/cdn/ganjnameh.css">
-	<style>
-		* {
-			font-family: 'ganjnameh';
-		}
-		.login-page {
-		  width: 360px;
-		  padding: 8% 0 0;
-		  margin: auto;
-		}
-		.form {
-		  position: relative;
-		  z-index: 1;
-		  background: #FFFFFF;
-		  max-width: 360px;
-		  margin: 0 auto 100px;
-		  padding: 45px;
-		  text-align: center;
-		  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-		}
-		.form input {
-		  outline: 0;
-		  background: #f2f2f2;
-		  width: 100%;
-		  border: 0;
-		  margin: 0 0 15px;
-		  padding: 15px;
-		  box-sizing: border-box;
-		  font-size: 14px;
-		}
-		.form button {
-		  text-transform: uppercase;
-		  outline: 0;
-		  background: #4CAF50;
-		  width: 100%;
-		  border: 0;
-		  padding: 15px;
-		  color: #FFFFFF;
-		  font-size: 14px;
-		  -webkit-transition: all 0.3 ease;
-		  transition: all 0.3 ease;
-		  cursor: pointer;
-		}
-		.form button:hover,.form button:active,.form button:focus {
-		  background: #43A047;
-		}
-		.form .message {
-		  margin: 15px 0 0;
-		  color: #b3b3b3;
-		  font-size: 12px;
-		}
-		.form .message a {
-		  color: #4CAF50;
-		  text-decoration: none;
-		}
-		.form .register-form {
-		  display: none;
-		}
-		.container {
-		  position: relative;
-		  z-index: 1;
-		  max-width: 300px;
-		  margin: 0 auto;
-		}
-		.container:before, .container:after {
-		  content: "";
-		  display: block;
-		  clear: both;
-		}
-		.container .info {
-		  margin: 50px auto;
-		  text-align: center;
-		}
-		.container .info h1 {
-		  margin: 0 0 15px;
-		  padding: 0;
-		  font-size: 36px;
-		  font-weight: 300;
-		  color: #1a1a1a;
-		}
-		.container .info span {
-		  color: #4d4d4d;
-		  font-size: 12px;
-		}
-		.container .info span a {
-		  color: #000000;
-		  text-decoration: none;
-		}
-		.container .info span .fa {
-		  color: #EF3B3A;
-		}
-		body {
-		  background: #76b852; /* fallback for old browsers */
-		  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-		  background: -moz-linear-gradient(right, #76b852, #8DC26F);
-		  background: -o-linear-gradient(right, #76b852, #8DC26F);
-		  background: linear-gradient(to left, #76b852, #8DC26F);
-		  font-family: "Roboto", sans-serif;
-		  -webkit-font-smoothing: antialiased;
-		  -moz-osx-font-smoothing: grayscale;      
-		}
+    <meta charset="UTF-9">
+    <link rel="icon" href="assets/images/logo.png" type="image/gif" sizes="16x16">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>حیاطمون | ورود : ثبت نام</title>
+    <link rel="stylesheet" type="text/css" href="assets/cdn/ganjnameh.css">
+    <style>
+        * {
+            font-family: 'ganjnameh';
+        }
+        .login-page {
+          width: 360px;
+          padding: 8% 0 0;
+          margin: auto;
+        }
+        .form {
+          position: relative;
+          z-index: 1;
+          background: #FFFFFF;
+          max-width: 360px;
+          margin: 0 auto 100px;
+          padding: 45px;
+          text-align: center;
+          box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+          border-radius: 10px;
+        }
+        .form input {
+          outline: 0;
+          background: #f2f2f2;
+          width: 100%;
+          border: 0;
+          margin: 0 0 15px;
+          padding: 15px;
+          box-sizing: border-box;
+          font-size: 14px;
+          text-align: right;
+          border-radius: 5px;
+          /* margin-top: 10px; */
+        }
+        .form button {
+          text-transform: uppercase;
+          outline: 0;
+          background: #0fbab9;
+          width: 100%;
+          border: 0;
+          padding: 15px;
+          color: #FFFFFF;
+          font-size: 14px;
+          -webkit-transition: all 0.3 ease;
+          transition: all 0.3 ease;
+          cursor: pointer;
+          border-radius: 5px;
+        }
+        .form button:hover,.form button:active,.form button:focus {
+          background: #43A047;
+        }
+        .form .message {
+          margin: 15px 0 0;
+          color: #b3b3b3;
+          font-size: 12px;
+        }
+        .form .message a {
+          color: #4CAF50;
+          text-decoration: none;
+        }
+        .form .register-form {
+          display: none;
+        }
+        .container {
+          position: relative;
+          z-index: 1;
+          max-width: 300px;
+          margin: 0 auto;
+        }
+        .container:before, .container:after {
+          content: "";
+          display: block;
+          clear: both;
+        }
+        .container .info {
+          margin: 50px auto;
+          text-align: center;
+        }
+        .container .info h1 {
+          margin: 0 0 15px;
+          padding: 0;
+          font-size: 36px;
+          font-weight: 300;
+          color: #1a1a1a;
+        }
+        .container .info span {
+          color: #4d4d4d;
+          font-size: 12px;
+        }
+        .container .info span a {
+          color: #000000;
+          text-decoration: none;
+        }
+        .container .info span .fa {
+          color: #EF3B3A;
+        }
+        body {
+            background: #76b852;
+            background: -webkit-linear-gradient(right, #76b852, #8DC26F);
+            background: -moz-linear-gradient(right, #76b852, #8DC26F);
+            background: -o-linear-gradient(right, #76b852, #8DC26F);
+            background: linear-gradient(to left, #0fbab9, #0fbab9);
+            font-family: "Roboto", sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
  .popUpFundo{
     display: none;
     position: fixed;
@@ -116,7 +120,7 @@
     margin: 0;
     padding: 0;
     background-color:#4879c3;
-    opacity: 0.8;
+    opacity: 0.99;
     z-index: 50;
 }
 .popUp{
@@ -164,6 +168,31 @@
     border-color: #659cff;
 }
 
+@-webkit-keyframes popUpEntrada {
+  0%{opacity: 0; margin-top: -20%;}
+  75%{margin-top: 5%;}
+  100%{opacity: 1;}
+}
+@keyframes popUpEntrada {
+  0%{opacity: 0; margin-top: -20%;}
+  75%{margin-top: 5%;}
+  100%{opacity: 1;}
+}
+@-webkit-keyframes popUpSaida {
+  0%{opacity: 1;}
+  75%{opacity: 1; margin-top: -20%;}
+  100%{opacity: 0;margin-top: 40%;}
+}
+@keyframes popUpSaida {
+  0%{opacity: 1;}
+  75%{opacity: 1; margin-top: -20%;}
+  100%{opacity: 0;margin-top: 40%;}
+}
+body, html, root, document{
+  display: block
+  height: 500px;
+}
+
 .popUp>div{
     display: block;
     box-sizing: border-box;
@@ -197,7 +226,6 @@
     width: 50%;
     border: 1px none #ccc;
     color: #fff;
-    font-family: inherit;
     cursor: pointer;
 }
 .alert{
@@ -331,6 +359,7 @@
     display: block !important;
     animation: popUpEntrada 0.5s;
     -webkit-animation: popUpEntrada 0.5s;
+    border-radius: 10px;
 }
 .popUpSaida{
     display: block !important;
@@ -450,73 +479,118 @@ That part is just for the form
   color: #fff;
   border-style: none;
 }
-	</style>
+.form h3 {
+     font-size: 10px;
+     text-align: right;
+     margin: 0;
+     position: relative;
+     bottom: 10px;
+     color: #aaa;
+     font-weight: unset;
+}
+.forg {
+    font-size: 11px;
+    color: #FF5722;
+    position: relative;
+    bottom: 5px;
+    margin-bottom: 0;
+}
+.forg:hover {
+  cursor: pointer;
+}
+    </style>
 </head>
 <body>
-	<div class="login-page">
-	  <div class="form">
-	    <form class="register-form">
-	      <input type="text" id='name' autocomplete="off" placeholder="نام"/>
-	      <input type="password" id='password' autocomplete="off" placeholder="رمز عبور"/>
-	      <input type="password" id='passwordc' autocomplete="off" placeholder="تکرار رمز عبور"/>
-	      <input type="text" id='email' placeholder="آدرس ایمیل"/>
-	      <button id="register">ثبت نام</button>
-	      <p class="message">ثبت نام کرده اید ؟ <a href="#">وارد شوید</a></p>
-	    </form>
-	    <form class="login-form">
-	      <input type="text" id='email' placeholder="ایمیل"/>
-	      <input type="password" id='password' placeholder="رمز عبور"/>
-	      <button id="login">ورود</button>
-	      <p class="message">ثبت نام نکرده اید ؟ <a href="#">عضو شوید</a></p>
-	    </form>
-	  </div>
-	</div>
-	<script src="/assets/cdn/jquery.min.js" type="text/javascript"></script>
-	<script type="text/javascript" src="script/api.js"></script>
-	<script type="text/javascript" src="script/alert.js"></script>
-	<script>
-		$('#register').click(function() {
-			let name = $('.register-form #name').val();
-			let email = $('.register-form #email').val();
-			let password = $('.register-form #password').val();
-			let passwordc = $('.register-form #passwordc').val();
-			if (passwordc != password) {
-				janelaPopUp.abre( "id", 'p red alert',  'خطا' ,  'رمزعبور و تکرار آن مطابقت ندارند!');
-				return false;
-			}
-			strapi.register(email, name, password).then(() => {
-				janelaPopUp.abre( "id", 'p green alert',  'انجام شد' ,  'ثبت نام با موفقیت انجام شد!');
-				window.location = '/';
-			}).catch((e)=> {
-				switch (e.message[0].messages[0].id) {
-					case "Auth.form.error.email.taken": {
-						janelaPopUp.abre( "id", 'p red alert',  'خطا' ,  'این ایمیل قبلا گرفته انتخاب شده!');
-						break;
-					}
-					case "Auth.form.error.username.taken": {
-						janelaPopUp.abre( "id", 'p red alert',  'خطا' ,  'این نام کاربری قبلا گرفته انتخاب شده!');
-						break;
-					}
-					default: {
-						janelaPopUp.abre( "id", 'p red alert',  'خطا' ,  'خطایی رخ داده است, لطفا مجددا تلاش کنید !');
-					}
-				}
-			});
-		});
-		$('#login').click(function(e) {
-			e.preventDefault();
-			let email = $('.login-form #email').val();
-			let password = $('.login-form #password').val();
-			strapi.login(email, password).then(() => {
-				janelaPopUp.abre( "id", 'p green alert',  'انجام شد' ,  'با موفقیت وارد شدید!');
-				window.location = '/';
-			}).catch(() => {
-				janelaPopUp.abre( "id", 'p red alert',  'خطا' ,  'نام کاربری یا رمزعبور اشتباه است!');
-			});
-		});
-		$('.message a').click(function(){
-		   $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
-		});
-	</script>
+    <div class="login-page">
+      <div class="form">
+        <a href="/">
+          <img src="/assets/images/logo-e.png" style="width: 70px;position: relative;bottom: 20px;transform: scale(2.6);z-index: 0;" alt="hayatemoon">
+        </a>
+        <form class="register-form">
+          <input type="text" id='name' autocomplete="off" placeholder="نام کاربری"/>
+          <input type="password" id='password' autocomplete="off" placeholder="رمز عبور"/>
+          <h3>رمزعبور باید حداقل 8 رقم باشد</h3>
+          <input type="password" id='passwordc' autocomplete="off" placeholder="تکرار رمز عبور"/>
+          <input type="text" id='email' placeholder="آدرس ایمیل"/>
+          <button id="register">ثبت نام</button>
+          <p class="message">ثبت نام کرده اید ؟ <a href="#">وارد شوید</a></p>
+        </form>
+        <form class="login-form">
+          <input type="text" id='email' placeholder="ایمیل"/>
+          <input type="password" id='password' placeholder="رمز عبور"/>
+          <button id="login">ورود</button>
+          <p class="message">ثبت نام نکرده اید ؟ <a href="#">عضو شوید</a></p>
+          <p class="forg">رمز عبورم را فراموش کرده ام</a></p>
+        </form>
+      </div>
+    </div>
+    <script src="/assets/cdn/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="script/api.js"></script>
+    <script type="text/javascript" src="script/alert.js"></script>
+    <script>
+        $('#register').click(function(e) {
+            e.preventDefault();
+            let name = $('.register-form #name').val();
+            let email = $('.register-form #email').val();
+            let password = $('.register-form #password').val();
+            let passwordc = $('.register-form #passwordc').val();
+            if (password.length < 8) {
+                janelaPopUp.abre( "id", 'p red alert',  'خطا' ,  'رمزعبور حداقل باید 8 رقم باشد!');
+                return false
+            }
+            if (passwordc != password) {
+                janelaPopUp.abre( "id", 'p red alert',  'خطا' ,  'رمزعبور و تکرار آن مطابقت ندارند!');
+                return false;
+            }
+            strapi.register(email, name, password).then(() => {
+                janelaPopUp.abre( "id", 'p green alert',  'انجام شد' ,  'ثبت نام با موفقیت انجام شد!');
+                window.location = '/';
+            }).catch((e)=> {
+                switch (e.message[0].messages[0].id) {
+                    case "Auth.form.error.email.taken": {
+                        janelaPopUp.abre( "id", 'p red alert',  'خطا' ,  'این ایمیل قبلا گرفته انتخاب شده!');
+                        break;
+                    }
+                    case "Auth.form.error.username.taken": {
+                        janelaPopUp.abre( "id", 'p red alert',  'خطا' ,  'این نام کاربری قبلا گرفته انتخاب شده!');
+                        break;
+                    }
+                    default: {
+                        janelaPopUp.abre( "id", 'p red alert',  'خطا' ,  'خطایی رخ داده است, لطفا مجددا تلاش کنید !');
+                    }
+                }
+            });
+        });
+        $('#login').click(function(e) {
+            e.preventDefault();
+            let email = $('.login-form #email').val();
+            let password = $('.login-form #password').val();
+            strapi.login(email, password).then(() => {
+                janelaPopUp.abre( "id", 'p green alert',  'انجام شد' ,  'با موفقیت وارد شدید!');
+                setTimeout(function() {
+                  window.location = '/';
+                }, 2000);
+            }).catch(() => {
+                janelaPopUp.abre( "id", 'p red alert',  'خطا' ,  'نام کاربری یا رمزعبور اشتباه است!');
+            });
+        });
+        $('.message a').click(function(){
+           $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+        });
+        $("input").keypress(function(event){
+            if ($(this).attr('id') != 'password' && $(this).attr('id') != 'passwordc' && $(this).attr('id') != 'email') {
+                var ew = event.which;
+                if(ew == 32)
+                    return true;
+                if(48 <= ew && ew <= 57)
+                    return true;
+                if(65 <= ew && ew <= 90)
+                    return true;
+                if(97 <= ew && ew <= 122)
+                    return true;
+                return false;
+            }
+        });
+    </script>
 </body>
 </html>
