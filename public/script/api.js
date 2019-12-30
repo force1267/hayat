@@ -180,6 +180,48 @@
                 return await fetch("/users/me", strapi.auth()).then(r=>r.json())        
             },
 
+            // request confirmation code to be sent
+            async requestEmailConfirmation(email) {
+                return await fetch('auth/send-email-confirmation', {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        email,
+                        url: `http://${window.location.hostname}/confirm-email.html`
+                    }),
+                }).then(r=>r.json())
+            },
+            // confirm email using the code
+            async confirmEmail() {
+                let confirmation = getParameterByName("confirmation")
+                return await fetch(`/auth/email-confirmation?confirmation=${confirmation}`).then(r=>r.json())
+            },
+
+            // request a code to be sent
+            async forgotPassword(email) {
+                return await fetch('/auth/forgot-password', {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        email,
+                        url: `http://${window.location.hostname}/reset-password.html`
+                    }),
+                }).then(r=>r.json())
+            },
+            // use the code from `forgetPassword` to reset the password
+            async resetPassword(password) {
+                let code = getParameterByName("code")
+                return await fetch('/auth/reset-password', {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        code,
+                        password,
+                        passwordConfirmation: password
+                    }),
+                }).then(r=>r.json())
+            },
+
             async findOne(userId) {
                 // get an ad by id
                 return await fetch(`/users/${userId}`).then(r=>r.json())
@@ -224,6 +266,16 @@
                 },
             },
         },
+    }
+
+    function getParameterByName(name) {
+        let url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
     }
 
     function parseQuery(query = {}) {
