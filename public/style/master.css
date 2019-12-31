@@ -19649,6 +19649,19 @@ p.vip {
     font-weight: bold;
 }
 
+.blog-card.vip .description:before {
+  -webkit-transform: skewX(-3deg);
+  transform: skewX(-16deg);
+  content: "";
+  background: #f3ba1a;
+  width: 30px;
+  position: absolute;
+  left: -12px;
+  top: -20px;
+  bottom: 49px;
+  z-index: -1;
+}
+
 
 .worko-tabs::-webkit-scrollbar-track
 {
@@ -19953,4 +19966,8 @@ button:active, button:focus {
 .upanel .vc {
   background: #eee !important;
   color: #555 !important;
+}
+
+.blog-card .photo:hover {
+  cursor: pointer;
 }

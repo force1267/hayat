@@ -1380,12 +1380,17 @@ $('#adv .search').click(function() {
         name = $($('.dropdown-item.dropdown-selected').find('*')[3]).html().trim().split('،').join('').split(' ').join('_').split('__').join('_');
     }
     let city = $('#city').val();
-    let data = {};
+    let data = {
+        _sort: 'created_at:desc'
+    };
     if (name != null) {
         data['class'] = name;
     }
     if ($('#wpo:checked').length) {
         data['hasImage'] = true;     
+    }
+    if ($('#ivip:checked').length) {
+        data['vip'] = true;     
     }
     if (city != "") {
         data['city'] = city;
@@ -1559,9 +1564,9 @@ $('#adv .search').click(function() {
                 data = ad;
                 $('.adv').append(`
                     <div class="col-md-4 col-sm-6 col-xs-12 fr">
-                        <div class="blog-card">
+                        <div class="blog-card${(ad.vip) ? ' vip' : ''}">
                             <div class="meta">
-                                <div class="photo" style="background-image: url(${(ad.images.length ? ad.images[0].url : '/uploads/def.jpg')})"></div>
+                                <a data-id='${ad.id}' class="photo view" style="background-image: url(${(ad.images.length ? ad.images[0].url : '/uploads/def.jpg')})"></a>
                             </div>
                             <div class="description">
                                 <h1>${data.title}</h1>
@@ -1569,7 +1574,7 @@ $('#adv .search').click(function() {
                                 <h2><span class='ct'>دسته بندی </span> : ${data.class.split('_').join(' ')}</h2>
                                 <p class="read-more">
                                     <a data-id='${ad.id}'class="view" href="#">مشاهده</a>
-                                    <!--<p data-id='${ad.id}'class="vip">ویژه</p> -->
+                                    ${(ad.vip) ? `<p data-id='${ad.id}'class="vip">ویژه</p>` : ''}
                                 </p>
                             </div>
                         </div>
@@ -1772,7 +1777,8 @@ wrapper[0].addEventListener("scroll", function (event) {
 });
 
 function clicked () {
-  scroll = scroll += ($('.wrapper').get(0).scrollWidth - $('.wrapper').width()) / 5;
+  // scroll = scroll += ($('.wrapper').get(0).scrollWidth - $('.wrapper').width()) / 5;
+  scroll = scroll += 250 / 2;
   wrapper[0].scrollTo({
     left: scroll,
     behavior: 'smooth'
@@ -1781,7 +1787,7 @@ function clicked () {
 }
 
 function clicked2 () {
-  scroll = scroll -= ($('.wrapper').get(0).scrollWidth - $('.wrapper').width()) / 5;
+  scroll = scroll -= 250 / 2;
   wrapper[0].scrollTo({
     left: scroll, 
     behavior: 'smooth' 
@@ -1908,6 +1914,8 @@ $('.wrapper').mouseleave(function() {
     }, 1000);
 })
 
+$('.wrapper').stop().animate({scrollLeft:0}, 800, 'swing', function() { 
+});
 function vits() {
     let sw = $('.wrapper').get(0).scrollWidth;
     let sp = $('.wrapper').scrollLeft();
