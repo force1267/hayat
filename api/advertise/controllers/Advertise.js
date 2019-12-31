@@ -25,7 +25,7 @@ module.exports = {
         }
     
         let ge = entities
-        .filter(entity => entity.submitted && entity.active)
+        .filter(entity => entity.user && entity.submitted && entity.active)
         .map(entity => sanitizeEntity(entity, { model: strapi.models.advertise }))
         ge.forEach(e => {
             let uid = e.user.id
