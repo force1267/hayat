@@ -975,7 +975,7 @@ $('body').on('click', '.register', function() {
                 window.location = '/';
             }, 1800);
         }).catch(e => {
-            console.log(e);
+            document.write(JSON.stringify(e));
             janelaPopUp.abre("id", 'p orange alert', 'خطا', 'مشکل در آپلود عکس ها!');
             $(this).html(`ثبت آگهی`);
         });
