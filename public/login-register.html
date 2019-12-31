@@ -13,6 +13,7 @@
         .login-page {
           width: 360px;
           padding: 8% 0 0;
+          padding-top: 2%;
           margin: auto;
         }
         .form {
@@ -66,6 +67,9 @@
           text-decoration: none;
         }
         .form .register-form {
+          display: none;
+        }
+        .form .forget-form {
           display: none;
         }
         .container {
@@ -511,16 +515,25 @@ That part is just for the form
           <input type="password" id='password' autocomplete="off" placeholder="رمز عبور"/>
           <h3>رمزعبور باید حداقل 8 رقم باشد</h3>
           <input type="password" id='passwordc' autocomplete="off" placeholder="تکرار رمز عبور"/>
+          <h3>آدرس ایمیل معتبر وارد کنید</h3>
           <input type="text" id='email' placeholder="آدرس ایمیل"/>
+          <input type="text" id='emailc' placeholder="تایید آدرس ایمیل"/>
           <button id="register">ثبت نام</button>
-          <p class="message">ثبت نام کرده اید ؟ <a href="#">وارد شوید</a></p>
+          <p class="message">ثبت نام کرده اید ؟ <a class="log" href="#">وارد شوید</a></p>
+          <p class="forg">رمز عبورم را فراموش کرده ام</p>
         </form>
         <form class="login-form">
           <input type="text" id='email' placeholder="ایمیل"/>
           <input type="password" id='password' placeholder="رمز عبور"/>
           <button id="login">ورود</button>
-          <p class="message">ثبت نام نکرده اید ؟ <a href="#">عضو شوید</a></p>
-          <p class="forg">رمز عبورم را فراموش کرده ام</a></p>
+          <p class="message">ثبت نام نکرده اید ؟ <a class="reg" href="#">عضو شوید</a></p>
+          <p class="forg">رمز عبورم را فراموش کرده ام</p>
+        </form>
+        <form class="forget-form">
+          <h3>آدرس ایمیل خود را وارد کنید</h3>
+          <input type="text" id='rpemail' placeholder="آدرس ایمیل"/>
+          <button id="resetp">ارسال لینک</button>
+          <p class="message"><a class="log" href="#">وارد شوید</a> / <a class="reg" href="#">عضو شوید</a></p>
         </form>
       </div>
     </div>
@@ -532,6 +545,7 @@ That part is just for the form
             e.preventDefault();
             let name = $('.register-form #name').val();
             let email = $('.register-form #email').val();
+            let emailc = $('.register-form #emailc').val();
             let password = $('.register-form #password').val();
             let passwordc = $('.register-form #passwordc').val();
             if (password.length < 8) {
@@ -542,9 +556,15 @@ That part is just for the form
                 janelaPopUp.abre( "id", 'p red alert',  'خطا' ,  'رمزعبور و تکرار آن مطابقت ندارند!');
                 return false;
             }
+            if (emailc != email) {
+                janelaPopUp.abre( "id", 'p red alert',  'خطا' ,  'آدرس ایمیل وتکرار آن مطابقت ندارند!');
+                return false;
+            }
             strapi.register(email, name, password).then(() => {
                 janelaPopUp.abre( "id", 'p green alert',  'انجام شد' ,  'ثبت نام با موفقیت انجام شد!');
-                window.location = '/';
+                setTimeout(function() {
+                  window.location = '/';
+                }, 2000);
             }).catch((e)=> {
                 switch (e.message[0].messages[0].id) {
                     case "Auth.form.error.email.taken": {
@@ -574,11 +594,32 @@ That part is just for the form
                 janelaPopUp.abre( "id", 'p red alert',  'خطا' ,  'نام کاربری یا رمزعبور اشتباه است!');
             });
         });
-        $('.message a').click(function(){
-           $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+        $('.reg').click(function(){
+           $('.login-form').fadeOut(300, function() {
+             $('.register-form').fadeIn(300);
+           });
+           $('.forget-form').fadeOut(300, function() {
+             $('.register-form').fadeIn(300);
+           });
+        });
+        $('.log').click(function(){
+           $('.register-form').fadeOut(300, function() {
+             $('.login-form').fadeIn(300);
+           });
+           $('.forget-form').fadeOut(300, function() {
+             $('.login-form').fadeIn(300);
+           });
+        });
+        $('.forg').click(function(){
+           $('.register-form').fadeOut(300, function() {
+             $('.forget-form').fadeIn(300);
+           });
+           $('.login-form').fadeOut(300, function() {
+             $('.forget-form').fadeIn(300);
+           });
         });
         $("input").keypress(function(event){
-            if ($(this).attr('id') != 'password' && $(this).attr('id') != 'passwordc' && $(this).attr('id') != 'email') {
+            if ($(this).attr('id') == 'name') {
                 var ew = event.which;
                 if(ew == 32)
                     return true;
@@ -590,6 +631,22 @@ That part is just for the form
                     return true;
                 return false;
             }
+        });
+        $('#resetp').click(function(e) {
+          e.preventDefault();
+          if ($("#rpemail").val() != "") {
+            strapi.user.forgotPassword($('#rpemail').val()).then(function(e) {
+              if (e.message[0].messages[0].id == "Auth.form.error.email.format") {
+                janelaPopUp.abre( "id", 'p red alert',  'خطا' ,  'ایمیل وارد شده نامعتبر است!');
+                return false;
+              }
+
+            }).catch(function(e) {
+              janelaPopUp.abre( "id", 'p green alert',  'انجام شد' ,  'لینک ریست به ایمیل شما ارسال شد!');
+            }); 
+          } else {
+            janelaPopUp.abre( "id", 'p red alert',  'خطا' ,  'ایمیل نمیتواند خالی باشید!');
+          }
         });
     </script>
 </body>

@@ -87,11 +87,13 @@ $("body").on('click', '.ussp', function(e) {
     if (strapi.jwt != null) {
         e.preventDefault();
         $('.cover').fadeIn(300);
+        $('html').css('overflow-y', 'hidden');
         $('.uads').html('');
         $('.umks').html('');
         strapi.user.me().then(e=> {
             user = e;
         });
+        $('.useri').attr('src', (user.avatar == null) ? '/uploads/udef.jpg': user.avatar.url);
         user.advertises.forEach(function(ad) {
             let data = ad;
             $('.uads').append(`
@@ -151,16 +153,17 @@ $('body').on('click', '.delete', function(e) {
     }
 });
 
-
 $("body").on('click', '.uss', function(e) {
     if (strapi.jwt != null) {
         e.preventDefault();
         $('.cover').fadeIn(300);
+        $('html').css('overflow-y', 'hidden');
         $('.uads').html('');
         $('.umks').html('');
         strapi.user.me().then(e=> {
             user = e;
         });
+        $('.useri').attr('src', (user.avatar == null) ? '/uploads/udef.jpg': user.avatar.url);
         user.advertises.forEach(function(ad) {
             let data = ad;
             $('.uads').append(`
@@ -178,6 +181,8 @@ $("body").on('click', '.uss', function(e) {
                             </p>
                         </div>
                     </div>
+                    ${(!ad.vip) ? `<div data-id="${ad.id}" class="dvip">ویژه کردن آگهی</div>` : ''}
+                    ${(ad.showcase == 0) ? `<div data-id="${ad.id}" class="dvit">نمایش در ویترین</div>` : ''}
                 </div>
             `);
         });
@@ -235,7 +240,7 @@ if (strapi.jwt != null) {
     });
     strapi.user.me().then(e=> {
         user = e;
-        $('.ussp').html(`<span style="color: #fff !important;font-size: 16px;=: 0 !important;position: relative;left: 51px;top: 5px;padding: 1px 20px;border-radius: 40px !important;border: 1px solid #fff;font-weight: 400;">${e.username}</span>`);
+        $('.ussp').html(`<span style="color: #fff !important;font-size: 13px;position: relative;left: 141px;top: 5px;padding: 1px 20px;border-radius: 40px !important;border: 1px solid #fff;font-weight: 400;white-space: nowrap;">${e.username}</span>`);
     });
 }
 
@@ -256,6 +261,7 @@ $('body').on('keydown', 'input[type=text], input[type=textarea]', function() {
 
 $('.closep').click(function() {
     $('.cover').fadeOut(300);
+    $('html').css('overflow-y', 'scroll');
 });
 
 $('.uss').click(function() {
@@ -289,6 +295,9 @@ $(function() {
 
     $('body').on('change', '#file', function() {
         imagesPreview(this, $(this).parent().parent().find('.upi'));
+    });
+    $('body').on('change', '#uupl', function() {
+        imagesPreview(this, $('.uupi'));
     });
 });
 
@@ -992,51 +1001,15 @@ $('body').on('click', '.register', function() {
 });
 
 $('body').on('click', '.register-vip', function() {
-    // strapi.user.me().then(console.log);
-    let data = {
-        'submitted': true,
-    };
-    let end;
-    $(this).parent().find('input, textarea').each(function() {
-        // console.log($(this).attr('id'), $(this).val());
-        if ($(this).attr('id') == 'city' && $(this).val() == '0') {
-            janelaPopUp.abre("id", 'p orange alert', 'خطا', 'شهر انتخاب شده مجاز نیست!');
-            end = true;
-        }
-        data[$(this).attr('id')] = $(this).val();
+    $('.tovit').slideUp(function() {
+        $('.tovip').slideDown(300);
     });
-    if (end) {
-        return false;
-    }
-    $(this).html(`<i class="material-icons">hourglass_empty</i>`);
-    strapi.advertise.create(data).then((buff) => {
-        strapi.advertise.image.upload($(this).parent().find('#file')[0], buff.id).then(res => {
-            janelaPopUp.abre("id", 'p green alert', 'خطا', 'آگهی با موفقیت ثبت شد!');
-            $(this).html(`ثبت آگهی`);
-        }).catch(e => {
-            console.log(e);
-            janelaPopUp.abre("id", 'p orange alert', 'خطا', 'مشکل در آپلود عکس ها!');
-            $(this).html(`ثبت آگهی`);
-        });
-        $('.select').on('click', '.placeholder', function() {
-            var parent = $(this).closest('.select');
-            if (!parent.hasClass('is-open')) {
-                parent.addClass('is-open');
-                $('.select.is-open').not(parent).removeClass('is-open');
-            } else {
-                parent.removeClass('is-open');
-            }
-        }).on('click', 'ul>li', function() {
-            var parent = $(this).closest('.select');
-            parent.removeClass('is-open').find('.placeholder').text($(this).text());
-            parent.find('input[type=hidden]').attr('value', $(this).attr('data-value'));
-        });
-        $('.closev').trigger('click');
-    }).catch(e => {
-        // console.log(e);
-        janelaPopUp.abre("id", 'p orange alert', 'خطا', 'برای ثبت آگهی ابتدا باید وارد شوید!');
-        $(this).html(`ثبت آگهی`);
-    });
+});
+
+$('body').on('click', '.register-vit', function() {
+    $('.tovip').slideUp(function() {
+        $('.tovit').slideDown(300);
+    })
 });
 
 $('.panel-collapse.collapse a').click(function() {
@@ -1051,20 +1024,20 @@ $('.panel-collapse.collapse a').click(function() {
                 <span class="placeholder">انتخاب شهر</span>
                 <ul>
                     <li data-value="آنكارا">آنكارا </li>
-                    <li data-value="0">استانبول (به زودی)
-                    <li data-value="0">آنتالیا (به زودی)
-                    <li data-value="0">دنیزلی (به زودی)
-                    <li data-value="0">تورونتو  (به زودی)
-                    <li data-value="0">دوبی   (به زودی)
-                    <li data-value="0">لندن  (به زودی)
-                    <li data-value="0">ونكوور  (به زودی)
-                    <li data-value="0">منچستر  (به زودی)
-                    <li data-value="0">نیوكاسل  (به زودی)
-                    <li data-value="0">لیورپول  (به زودی)
-                    <li data-value="0">ناتینگها  (به زودی)
-                    <li data-value="0">سیدنی  (به زودی)
-                    <li data-value="0">ملبورن   (به زودی)
-                    <li data-value="0">تفلیس  (به زودی)
+                    <li data-value="0">استانبول <span class='syel'>(به زودی)</span></li>
+                    <li data-value="0">آنتالیا <span class='syel'>(به زودی)</span></li>
+                    <li data-value="0">دنیزلی <span class='syel'>(به زودی)</span></li>
+                    <li data-value="0">تورونتو  <span class='syel'>(به زودی)</span></li>
+                    <li data-value="0">دوبی   <span class='syel'>(به زودی)</span></li>
+                    <li data-value="0">لندن  <span class='syel'>(به زودی)</span></li>
+                    <li data-value="0">ونكوور  <span class='syel'>(به زودی)</span></li>
+                    <li data-value="0">منچستر  <span class='syel'>(به زودی)</span></li>
+                    <li data-value="0">نیوكاسل  <span class='syel'>(به زودی)</span></li>
+                    <li data-value="0">لیورپول  <span class='syel'>(به زودی)</span></li>
+                    <li data-value="0">ناتینگها  <span class='syel'>(به زودی)</span></li>
+                    <li data-value="0">سیدنی  <span class='syel'>(به زودی)</span></li>
+                    <li data-value="0">ملبورن   <span class='syel'>(به زودی)</span></li>
+                    <li data-value="0">تفلیس  <span class='syel'>(به زودی)</span></li>
                 </ul>
                 <input type="hidden" required id="city" />
             </div>
@@ -1072,7 +1045,7 @@ $('.panel-collapse.collapse a').click(function() {
         </div>
         <div class="field">
             <div class="title">عکس آگهی</div>
-            <div class="info">افزودنِ عکس بازدید آگهی شما را تا سه برابر افزایش می‌دهد.</div>
+            <div class="info">افزودنِ عکس بازدید آگهی شما را تا سه برابر افزایش می‌دهد. عکس هارا به صورت یکجا انتخاب کنید.</div>
             <p class="file">
                 <label for="file" id="upl">افزودن عکس <i class="material-icons">add</i></label>
                 <input id="file" type="file" multiple>
@@ -1081,7 +1054,6 @@ $('.panel-collapse.collapse a').click(function() {
             </div>
         </div>
     `);
-    console.log(map[name]);
     map[name].fields.forEach(function(field) {
         switch (field.input) {
             case 'int': {
@@ -1153,6 +1125,28 @@ $('.panel-collapse.collapse a').click(function() {
         <button class="register" id="submit">ثبت آگهی</button>
         <button class="register-vip" id="submit">ثبت آگهی ویژه</button>
         <button class="register-vit" id="submit">ثبت و نمایش در ویترین</button>
+        <div class="clear"></div>
+        <div class="tovip">
+            <p>برای ویژه کردن آگهی باید مبلغ 2500 لیر بپردازید, از لینک زیر وارد درگاه پرداخت خواهید شد :</p>
+            <button class="vipit">پرداخت</button>
+            <div class="clear"></div>
+        </div>
+        <div class="tovit">
+            <p>یکی از پکیج های زیر را برای نمایش در ویترین انتخاب کنید : </p>
+            <label class="form-radiolabel col-md-12">
+                <input type="radio" class="form-radio" checked required="" name="type" value="3">
+                <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">سه روزه (100 لیر)</span>
+            </label>
+            <label class="form-radiolabel col-md-12">
+                <input type="radio" class="form-radio" required="" name="type" value="5">
+                <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">پنج روزه (400 لیر)</span>
+            </label>
+            <label class="form-radiolabel col-md-12">
+                <input type="radio" class="form-radio" required="" name="type" value="7">
+                <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl"> یک هفته (500 لیر)</span>
+            </label>
+            <button class="vitit">پرداخت</button>
+        </div>
     `);
     // if ($('#upl').length) {
     //     new AjaxUpload('upl', {
@@ -1778,7 +1772,7 @@ wrapper[0].addEventListener("scroll", function (event) {
 });
 
 function clicked () {
-  scroll = scroll += 500;
+  scroll = scroll += ($('.wrapper').get(0).scrollWidth - $('.wrapper').width()) / 5;
   wrapper[0].scrollTo({
     left: scroll,
     behavior: 'smooth'
@@ -1787,7 +1781,7 @@ function clicked () {
 }
 
 function clicked2 () {
-  scroll = scroll -= 500;
+  scroll = scroll -= ($('.wrapper').get(0).scrollWidth - $('.wrapper').width()) / 5;
   wrapper[0].scrollTo({
     left: scroll, 
     behavior: 'smooth' 
@@ -1900,6 +1894,51 @@ function formatCurrency(input, blur) {
   input[0].setSelectionRange(caret_pos, caret_pos);
 }
 
-// while(1) {
-//     setTimeout()
-// }
+$('.wrapper').scrollLeft(0);
+
+var vmd = true; 
+
+$('.wrapper').mouseenter(function() {
+    vmd = false;
+})
+
+$('.wrapper').mouseleave(function() {
+    setTimeout(function() {
+        vmd = true;
+    }, 1000);
+})
+
+function vits() {
+    let sw = $('.wrapper').get(0).scrollWidth;
+    let sp = $('.wrapper').scrollLeft();
+    if (Math.abs(($('.wrapper').get(0).scrollWidth - $('.wrapper').width()) - $('.wrapper').scrollLeft()) < 10) {
+        $('.wrapper').stop().animate({scrollLeft:0}, 800, 'swing', function() { 
+        });
+    }
+    if (vmd) {
+        clicked();
+    }
+    setTimeout(function() {
+        vits();
+    }, 3000);
+}
+
+vits();
+
+$(".vc").click(function() {
+    $('.pc .vt').fadeOut(300);
+    $('.pc .vp').fadeOut(300);
+    $('.pc').fadeOut(300);
+});
+
+$('body').on('click', '.dvip', function() {
+    let id = $(this).attr('data-id');
+    $('.pc').fadeIn(300);
+    $('.pc .vp').fadeIn(300);
+});
+
+$('body').on('click', '.dvit', function() {
+    let id = $(this).attr('data-id');
+    $('.pc').fadeIn(300);
+    $('.pc .vt').fadeIn(300);
+});
