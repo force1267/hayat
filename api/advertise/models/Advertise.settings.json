@@ -52,7 +52,8 @@
       "type": "string"
     },
     "vip": {
-      "type": "boolean"
+      "type": "integer",
+      "default": "0"
     },
     "showcase": {
       "type": "integer",
