@@ -47,6 +47,14 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "GET",
+      "path": "/posts/like/:id",
+      "handler": "Post.like",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }
