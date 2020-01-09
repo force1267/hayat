@@ -4299,7 +4299,7 @@ input[type=submit].btn-block {
 }
 
 .nav-tabs .nav-item {
-	margin-bottom: -1px
+	margin-bottom: -3px;
 }
 
 .nav-tabs .nav-link {
@@ -8119,7 +8119,7 @@ button.bg-dark:hover {
 }
 
 .shadow-sm {
-	box-shadow: 0px 1px 3px 1px #032628 !important;
+	box-shadow: none !important;
 }
 
 .shadow {

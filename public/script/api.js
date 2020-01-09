@@ -164,26 +164,20 @@
             },
             async mark(adId) {
                 let me = await strapi.user.me();
-                let marks = me.marks.map(ad => ad.id)
-                marks.push(adId)
-                return await strapi.user.update({marks})
+                me.marks = me.marks.map(ad => ad.id)
+                me.marks.push(adId);
+                return await strapi.user.update(me)
             },
             async unmark(adId) {
                 let me = await strapi.user.me();
-                let marks = me.marks.map(ad => ad.id).filter(id => adId != id)
-                return await strapi.user.update({marks})
+                me.marks = me.marks.map(ad => ad.id).filter(id => adId != id)
+                return await strapi.user.update(me)
             }
         },
         user: {
-            now: null,
-
             // who am i
             async me() {
-                if(strapi.user.now) {
-                    return strapi.user.now;
-                } else {
-                    return strapi.user.now = await fetch("/users/me", strapi.auth()).then(r=>r.json())
-                }
+                return await fetch("/users/me", strapi.auth()).then(r=>r.json())        
             },
 
             // request confirmation code to be sent

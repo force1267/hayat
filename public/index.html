@@ -22,13 +22,16 @@
 <body>
     <!-- NAVBAR-->
     <!-- NAVBAR-->
+    <script>
+        var lang = 0;
+    </script>
     <div class="bgo">
     <nav class="navbar menu navbar-expand-md py-3 navbar-dark bg-lighter shadow-sm">
         <div class="container">
             <a href="/" class="navbar-brand">
                 <!-- Logo Image -->
-                <img src="assets/images/logo-p.png" width="45" alt="" class="d-inline-block logo align-middle mr-2">
-                <img src="assets/images/logo.png" width="45" alt="" style="width: 100px;height: 100px;visibility: hidden;display: none;" class=" plc align-middle mr-2">
+                <img src="assets/images/wlp.png" style="height: 32px;" width="45" alt="" class="d-inline-block logo align-middle mr-2">
+                <img src="assets/images/wlp.png" width="45" alt="" style="width: 100px;height: 100px;visibility: hidden;display: none;" class=" plc align-middle mr-2">
                 <!-- Logo Text -->
                 <!-- <span class="text-uppercase font-weight-bold brand d-none d-lg-inline">Hayatemun</span> -->
                 <ul class='artif'>
@@ -475,6 +478,9 @@
                                                     <li data-dropdown='{"value":"اجاره خودرو"}'>
                                                         اجاره خودرو
                                                     </li>
+                                                    <li data-dropdown='{"value":"سایر خدمات"}'>
+                                                        سایر خدمات
+                                                    </li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -484,21 +490,17 @@
                                             <span class="placeholder">شهر</span>
                                             <ul>
                                                 <li data-value="آنكارا">آنكارا </li>
-                                                <li data-value="0">استانبول <span class='syel'>(به زودی)</span></li>
-                                                <li data-value="0">آنتالیا <span class='syel'>(به زودی)</span></li>
-                                                <li data-value="0">دنیزلی <span class='syel'>(به زودی)</span></li>
+                                                <li data-value="استانبول">استانبول </li>
+                                                <li data-value="آنتالیا">آنتالیا </li>
+                                                <li data-value="ازمیر">ازمیر </li>
                                                 <li data-value="0">تورونتو  <span class='syel'>(به زودی)</span></li>
                                                 <li data-value="0">دوبی   <span class='syel'>(به زودی)</span></li>
                                                 <li data-value="0">لندن  <span class='syel'>(به زودی)</span></li>
                                                 <li data-value="0">ونكوور  <span class='syel'>(به زودی)</span></li>
-                                                <li data-value="0">منچستر  <span class='syel'>(به زودی)</span></li>
-                                                <li data-value="0">نیوكاسل  <span class='syel'>(به زودی)</span></li>
-                                                <li data-value="0">لیورپول  <span class='syel'>(به زودی)</span></li>
-                                                <li data-value="0">ناتینگها  <span class='syel'>(به زودی)</span></li>
                                                 <li data-value="0">سیدنی  <span class='syel'>(به زودی)</span></li>
                                                 <li data-value="0">ملبورن   <span class='syel'>(به زودی)</span></li>
                                                 <li data-value="0">تفلیس  <span class='syel'>(به زودی)</span></li>
-                                            </ul>                                            
+                                            </ul>
                                             <input type="hidden" id="city" />
                                         </div>
                                     </div>
@@ -524,123 +526,220 @@
         </div>
     </div>
     </div>
-    <div class="container-fluid">
+    <div class="container">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 adv">
         </div>
     </div>
     <!-- VITRIN -->
-    <div class="cross-line">
+    <div class="cross-line hidden-xs">
         <span>ویترین آگهی ها</span>
     </div>
 
-  <div class="containerv">
-    <div class="wrapper">
-      <div class="products">
-        <ul>
-          <li>
-            <div class="product-container">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
-              <h5>ماشین لباس شویی</h5>
-              <h3>£3.45</h3>
+<div class="container">
+    <div class="row">
+        <div class="container-fluid">
+                <div class="select cdc hidden-xs">
+                    <span class="placeholder">شهر</span>
+                    <ul>
+                        <li data-value="آنكارا">آنكارا </li>
+                        <li data-value="استانبول">استانبول </li>
+                        <li data-value="آنتالیا">آنتالیا </li>
+                        <li data-value="ازمیر">ازمیر </li>
+                        <li data-value="0">تورونتو  <span class='syel'>(به زودی)</span></li>
+                        <li data-value="0">دوبی   <span class='syel'>(به زودی)</span></li>
+                        <li data-value="0">لندن  <span class='syel'>(به زودی)</span></li>
+                        <li data-value="0">ونكوور  <span class='syel'>(به زودی)</span></li>
+                        <li data-value="0">سیدنی  <span class='syel'>(به زودی)</span></li>
+                        <li data-value="0">ملبورن   <span class='syel'>(به زودی)</span></li>
+                        <li data-value="0">تفلیس  <span class='syel'>(به زودی)</span></li>
+                    </ul>                                            
+                    <input type="hidden" id="city" />
+                </div>
+            <div class="fr">
+                <!-- Controls -->
+                <div class="controls pull-right hidden-xs">
+                    <a class="left fa fa-chevron-left btn btn-success" href="#carousel-example"
+                        data-slide="prev"></a><a class="right fa fa-chevron-right btn btn-success" href="#carousel-example"
+                            data-slide="next"></a>
+                </div>
             </div>
-          </li>
-          <li>
-            <div class="product-container">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
-              <h5>Book For Sale</h5>
-              <h3>£3.45</h3>
+        </div>
+        <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="col-item">
+                                <div class="photo">
+                                    <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+                                </div>
+                                <div class="info">
+                                    <div class="row">
+                                        <div class="price col-md-12">
+                                            <h5>Sample Product</h5>
+                                        </div>
+                                    </div>
+                                    <div class="separator clear-left">
+                                        <p class="btn-add">
+                                            <i class="fa fa-eye"></i><a href="#" class="hidden-sm">مشاهده</a></p>
+                                    </div>
+                                    <div class="clearfix">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="col-item">
+                                <div class="photo">
+                                    <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+                                </div>
+                                <div class="info">
+                                    <div class="row">
+                                        <div class="price col-md-12">
+                                            <h5>Sample Product</h5>
+                                        </div>
+                                    </div>
+                                    <div class="separator clear-left">
+                                        <p class="btn-add">
+                                            <i class="fa fa-eye"></i><a href="#" class="hidden-sm">مشاهده</a></p>
+                                    </div>
+                                    <div class="clearfix">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="col-item">
+                                <div class="photo">
+                                    <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+                                </div>
+                                <div class="info">
+                                    <div class="row">
+                                        <div class="price col-md-12">
+                                            <h5>Sample Product</h5>
+                                        </div>
+                                    </div>
+                                    <div class="separator clear-left">
+                                        <p class="btn-add">
+                                            <i class="fa fa-eye"></i><a href="#" class="hidden-sm">مشاهده</a></p>
+                                    </div>
+                                    <div class="clearfix">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="col-item">
+                                <div class="photo">
+                                    <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+                                </div>
+                                <div class="info">
+                                    <div class="row">
+                                        <div class="price col-md-12">
+                                            <h5>Sample Product</h5>
+                                        </div>
+                                    </div>
+                                    <div class="separator clear-left">
+                                        <p class="btn-add">
+                                            <i class="fa fa-eye"></i><a href="#" class="hidden-sm">مشاهده</a></p>
+                                    </div>
+                                    <div class="clearfix">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="col-item">
+                                <div class="photo">
+                                    <img src="/assets/images/hotel_tn.jpg" class="img-responsive" alt="a" />
+                                </div>
+                                <div class="info">
+                                    <div class="row">
+                                        <div class="price col-md-12">
+                                            <h5>Sample Product</h5>
+                                        </div>
+                                    </div>
+                                    <div class="separator clear-left">
+                                        <p class="btn-add">
+                                            <i class="fa fa-eye"></i><a href="#" class="hidden-sm">مشاهده</a></p>
+                                    </div>
+                                    <div class="clearfix">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="col-item">
+                                <div class="photo">
+                                    <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+                                </div>
+                                <div class="info">
+                                    <div class="row">
+                                        <div class="price col-md-12">
+                                            <h5>Sample Product</h5>
+                                        </div>
+                                    </div>
+                                    <div class="separator clear-left">
+                                        <p class="btn-add">
+                                            <i class="fa fa-eye"></i><a href="#" class="hidden-sm">مشاهده</a></p>
+                                    </div>
+                                    <div class="clearfix">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="col-item">
+                                <div class="photo">
+                                    <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+                                </div>
+                                <div class="info">
+                                    <div class="row">
+                                        <div class="price col-md-12">
+                                            <h5>Sample Product</h5>
+                                        </div>
+                                    </div>
+                                    <div class="separator clear-left">
+                                        <p class="btn-add">
+                                            <i class="fa fa-eye"></i><a href="#" class="hidden-sm">مشاهده</a></p>
+                                    </div>
+                                    <div class="clearfix">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="col-item">
+                                <div class="photo">
+                                    <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+                                </div>
+                                <div class="info">
+                                    <div class="row">
+                                        <div class="price col-md-12">
+                                            <h5>Sample Product</h5>
+                                        </div>
+                                    </div>
+                                    <div class="separator clear-left">
+                                        <p class="btn-add">
+                                            <i class="fa fa-eye"></i><a href="#" class="hidden-sm">مشاهده</a></p>
+                                    </div>
+                                    <div class="clearfix">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </li>
-          <li>
-            <div class="product-container">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
-              <h5>Book For Sale</h5>
-              <h3>£3.45</h3>
-            </div>
-          </li>
-          <li>
-            <div class="product-container">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
-              <h5>Book For Sale</h5>
-              <h3>£3.45</h3>
-            </div>
-          </li>
-          <li>
-            <div class="product-container">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
-              <h5>Book For Sale</h5>
-              <h3>£3.45</h3>
-            </div>
-          </li>
-          <li>
-            <div class="product-container">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
-              <h5>Book For Sale</h5>
-              <h3>£3.45</h3>
-            </div>
-          </li>
-          <li>
-            <div class="product-container">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
-              <h5>Book For Sale</h5>
-              <h3>£3.45</h3>
-            </div>
-          </li>
-          <li>
-            <div class="product-container">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
-              <h5>Book For Sale</h5>
-              <h3>£3.45</h3>
-            </div>
-          </li>
-          <li>
-            <div class="product-container">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
-              <h5>Book For Sale</h5>
-              <h3>£3.45</h3>
-            </div>
-          </li>
-          <li>
-            <div class="product-container">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
-              <h5>Book For Sale</h5>
-              <h3>£3.45</h3>
-            </div>
-          </li>
-          <li>
-            <div class="product-container">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
-              <h5>Book For Sale</h5>
-              <h3>£3.45</h3>
-            </div>
-          </li>
-          <li>
-            <div class="product-container">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
-              <h5>Book For Sale</h5>
-              <h3>£3.45</h3>
-            </div>
-          </li>
-          <li>
-            <div class="product-container">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
-              <h5>Book For Sale</h5>
-              <h3>£3.45</h3>
-            </div>
-          </li>
-          <li>
-            <div class="product-container">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
-              <h5>Book For Sale</h5>
-              <h3>£3.45</h3>
-            </div>
-          </li>
-        </ul>
-      </div>
+        </div>
     </div>
-    <div id="click2"><span class="left-arrow"></span></div>
-    <div id="click"><span class="right-arrow"></div>
-  </div>
+</div>
+
 
     <div class="cross-line">
         <span>چرا حیاطمون ؟</span>
@@ -794,8 +893,19 @@
             <div class="pc">
                 <div class="vp">
                     <input type="hidden" id="tovipi" value="0">
-                    <p>برای ویژه کردن آگهی باید مبلغ 2500 لیر بپردازید, از لینک زیر وارد درگاه پرداخت خواهید شد :</p>
-                    <button class="avipit">پرداخت</button>
+                    <p>یکی از پکیج های زیر را برای ثبت ویژه آگهی انتخاب کنید  : </p>
+                    <label class="form-radiolabel col-md-12">
+                        <input type="radio" class="form-radio" checked required="" name="itype" value="1">
+                        <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">يك  روزه  (2 لیر)</span>
+                    </label>
+                    <label class="form-radiolabel col-md-12">
+                        <input type="radio" class="form-radio" required="" name="itype" value="3">
+                        <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">سه  روزه  (5 لیر)</span>
+                    </label>
+                    <label class="form-radiolabel col-md-12">
+                        <input type="radio" class="form-radio" required="" name="itype" value="7">
+                        <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">هفت  روزه  (10 لیر)</span>
+                    </label>
                     <button class="vc">لغو</button>
                     <div class="clear"></div>
                 </div>
@@ -803,16 +913,16 @@
                     <input type="hidden" id="toviti" value="0">
                     <p>یکی از پکیج های زیر را برای نمایش در ویترین انتخاب کنید : </p>
                     <label class="form-radiolabel col-md-12">
-                        <input type="radio" class="form-radio" checked required="" name="type" value="3">
-                        <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">سه روزه (100 لیر)</span>
+                        <input type="radio" class="form-radio" checked required="" name="ttype" value="3">
+                        <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">سه  روزه  (8 لیر)</span>
                     </label>
                     <label class="form-radiolabel col-md-12">
-                        <input type="radio" class="form-radio" required="" name="type" value="5">
-                        <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">پنج روزه (400 لیر)</span>
+                        <input type="radio" class="form-radio" required="" name="ttype" value="5">
+                        <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">هفت   روزه  (15 لیر)</span>
                     </label>
                     <label class="form-radiolabel col-md-12">
-                        <input type="radio" class="form-radio" required="" name="type" value="7">
-                        <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl"> یک هفته (500 لیر)</span>
+                        <input type="radio" class="form-radio" required="" name="ttype" value="10">
+                        <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">ده روزه  (20 لیر)</span>
                     </label>
                     <button class="avitit">پرداخت</button>
                     <button class="vc">لغو</button>
@@ -996,23 +1106,17 @@
                                                 <div class="select col-md-5">
                                                     <span class="placeholder">مبدا</span>
                                                     <ul>
-                                                        <li data-value="استانبول">استانبول</li>
-                                                        <li data-value="آنتالیا">آنتالیا</li>
                                                         <li data-value="آنكارا">آنكارا </li>
-                                                        <li data-value="ازمیر">ازمیر</li>
-                                                        <li data-value="دنیزلی">دنیزلی</li>
-                                                        <li data-value="ونكوور">ونكوور </li>
-                                                        <li data-value="تورونتو">تورونتو </li>
-                                                        <li data-value="دوبی">دوبی  </li>
-                                                        <li data-value="لندن">لندن </li>
-                                                        <li data-value="ونكوور">ونكوور </li>
-                                                        <li data-value="منچستر">منچستر </li>
-                                                        <li data-value="نیوكاسل">نیوكاسل </li>
-                                                        <li data-value="لیورپول">لیورپول </li>
-                                                        <li data-value="ناتینگها">ناتینگها </li>
-                                                        <li data-value="سیدنی">سیدنی </li>
-                                                        <li data-value="ملبورن">ملبورن  </li>
-                                                        <li data-value="تفلیس">تفلیس </li>
+                                                        <li data-value="استانبول">استانبول </li>
+                                                        <li data-value="آنتالیا">آنتالیا </li>
+                                                        <li data-value="ازمیر">ازمیر </li>
+                                                        <li data-value="0">تورونتو  <span class='syel'>(به زودی)</span></li>
+                                                        <li data-value="0">دوبی   <span class='syel'>(به زودی)</span></li>
+                                                        <li data-value="0">لندن  <span class='syel'>(به زودی)</span></li>
+                                                        <li data-value="0">ونكوور  <span class='syel'>(به زودی)</span></li>
+                                                        <li data-value="0">سیدنی  <span class='syel'>(به زودی)</span></li>
+                                                        <li data-value="0">ملبورن   <span class='syel'>(به زودی)</span></li>
+                                                        <li data-value="0">تفلیس  <span class='syel'>(به زودی)</span></li>
                                                     </ul>
                                                     <input type="hidden" required id="city" />
                                                 </div>
@@ -1889,24 +1993,34 @@
         <section class="nb-footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 col-sm-6">
+                    <div class="col-md-3 ds col-sm-6">
                         <div class="footer-single">
                             <!--    <img src="images/logo.png" class="img-responsive" alt="Logo"> -->
 
                             <!-- This is only for better view of theme if you want your image logo remove div dummy-logo bellow and replace your logo in logo.png and uncomment logo tag above-->
                             <div class="dummy-logo">
                                 <div class="icon pull-left brand">
-                                    <a href="/"><img src="assets/images/logo-e.png" width="45" style="position: absolute;left: 0;top: -30px;" alt="" class="d-inline-block logo align-middle mr-2"></a>
+                                    <a href="/"><img src="assets/images/wlp.png" width="45" style="top: -7px;height: 30px;" alt="" class="d-inline-block logob align-middle mr-2"></a>
                                 </div>
                                 <p style="font-weight: bold;border-right: 5px solid #fff;padding: 10px;">درباره ما بخوانید</p>
                             </div>
-
-                            <p>رم ایپسوم متن ساختگی با تولید سادگی نامفهوم از رم ایپسوم متن ساختگی با تولید سادگی نامفهوم از رم ایپسوم متن ساختگی با تولید سادگی نامفهوم از </p>
-                            <a href="" class="btn btn-footer">بیشتر بخوانید</a>
+                            <p  id="au" class="lh">در خانه های سنتی ایرانی وقتی از درب چوبی با آن دق الباب های بامزه و سرتاسر حیایش رد می شدی به فضایی بسته اما دلنشین می رسیدی به نام هشتی، اولین تجربه از فضای داخلی خانه، و چه زیبا گفت رضا امیر خانی که بدا به حال خانه ای که پنج دری اش رو به هشتی باز نشود. وقتی از فضای بسته هشتی گذر می کردی، به فضایی باز و با صفا می رسی به نام حیاط، اصلا انگار هشتی ها را به عمد بسته ساخته اند تا جذابیت حیاط های ایرانی برایت دو چندان شود و لذت ببری از این همه تضاد دل نشین در کنار هم، حیاط ها با حوض ها و گلدان ها و دار درخت، به سان باغ هایی کوچک شده در دل خانه ها بودند که به زندگی طراوت و شادی می بخشیدند. و سهراب چه زیبا توصیف کرد حیاط خانه را، رستگاری نزدیک، لای گل های حیاط. 
+گروه ما اومده تا همه ی ایرانی ها در حیاطمون همون حس و حال زیبا و دلنشین رو تجربه کنند، صرف نظر از اینکه کجای دنیا هستند، افتخار کنند به ایرانی بودنشون و بدونند که ایرانیا هیچ وقت تنها نیستند، همیشه و همه جا کنار همند.
+اینجا قراره همه به هم کمک کنیم تا در اوج غربت به قربت دلها توی همون حیاطای سنتی خودمون برسیم.</p>
+                            <a href="" class="btn btn-footer rmo">بیشتر</a>
                         </div>
                     </div>
-
-                    <div class="col-md-4 col-sm-6" style="text-align: right;">
+                    <div class="col-md-3 ts col-sm-6" style="text-align: right;">
+                        <div class="footer-single useful-links">
+                            <div class="footer-title">
+                                <h2>زبان - Language</h2></div>
+                            <ul class="list-unstyled">
+                                <li><a href="/">فارسی<i class="fa fa-angle-left pull-left"></i></a></li>
+                                <li><a href="/en">English<i class="fa fa-angle-left pull-left"></i></a></li>
+                                <li><a href="/tr">Turkey<i class="fa fa-angle-left pull-left"></i></a></li>
+                        </div>
+                    </div>
+                    <div class="col-md-3 ts col-sm-6" style="text-align: right;">
                         <div class="footer-single useful-links">
                             <div class="footer-title">
                                 <h2>لینک ها</h2></div>
@@ -1916,17 +2030,17 @@
                         </div>
                     </div>
                     <div class="clearfix visible-sm"></div>
-                    <div class="col-md-4 col-sm-6">
+                    <div class="col-md-3 ts col-sm-6">
                         <div class="footer-single">
                             <div class="footer-title">
                                 <h2>ارتباط با ما</h2></div>
                             <address>
-                999, Holly Eiusmod Tempor, City<br>
-                Your State, Country <br>
-                <i class="fa fa-phone"></i>  987 654 3210 <br>
-                <i class="fa fa-fax"></i> 012 123 2345<br>
-                <i class="fa fa-envelope"></i> info@example.com<br>
-            </address>
+                                999, Holly Eiusmod Tempor, City<br>
+                                Your State, Country <br>
+                                <i class="fa fa-phone"></i>  987 654 3210 <br>
+                                <i class="fa fa-fax"></i> 012 123 2345<br>
+                                <i class="fa fa-envelope"></i> info@example.com<br>
+                            </address>
                         </div>
                     </div>
 

@@ -1,6 +1,6 @@
 var janelaPopUp = new Object();
 janelaPopUp.abre = function(id, classes, titulo, corpo, functionCancelar, functionEnviar, textoCancelar, textoEnviar){
-    var cancelar = (textoCancelar !== undefined)? textoCancelar: 'تایید';
+    var cancelar = (textoCancelar !== undefined)? textoCancelar: (['تایید', 'Onay', 'Okay'])[lang];
     var enviar = (textoEnviar !== undefined)? textoEnviar: 'Send';
     classes += ' ';
     var classArray = classes.split(' ');

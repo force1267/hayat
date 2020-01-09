@@ -5,10 +5,10 @@
     <link rel="icon" href="assets/images/logo.png" type="image/gif" sizes="16x16">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>حیاطمون | ورود : ثبت نام</title>
-    <link rel="stylesheet" type="text/css" href="assets/cdn/ganjnameh.css">
+    <link rel="stylesheet" href="assets/cdn/WebFonts/css/fontiran.css">
     <style>
         * {
-            font-family: 'ganjnameh';
+            font-family: 'IRANSans';
         }
         .login-page {
           width: 360px;
@@ -193,7 +193,7 @@
   100%{opacity: 0;margin-top: 40%;}
 }
 body, html, root, document{
-  display: block
+  display: block;
   height: 500px;
 }
 
@@ -512,18 +512,18 @@ That part is just for the form
         </a>
         <form class="register-form">
           <input type="text" id='name' autocomplete="off" placeholder="نام کاربری"/>
-          <input type="password" id='password' autocomplete="off" placeholder="رمز عبور"/>
-          <h3>رمزعبور باید حداقل 8 رقم باشد</h3>
-          <input type="password" id='passwordc' autocomplete="off" placeholder="تکرار رمز عبور"/>
           <h3>آدرس ایمیل معتبر وارد کنید</h3>
-          <input type="text" id='email' placeholder="آدرس ایمیل"/>
-          <input type="text" id='emailc' placeholder="تایید آدرس ایمیل"/>
+          <input type="email" id='email' placeholder="آدرس ایمیل"/>
+          <input type="email" id='emailc' placeholder="تایید آدرس ایمیل"/>
+          <h3>رمزعبور باید حداقل 8 رقم باشد</h3>
+          <input type="password" id='password' autocomplete="off" placeholder="رمز عبور"/>
+          <input type="password" id='passwordc' autocomplete="off" placeholder="تکرار رمز عبور"/>
           <button id="register">ثبت نام</button>
           <p class="message">ثبت نام کرده اید ؟ <a class="log" href="#">وارد شوید</a></p>
           <p class="forg">رمز عبورم را فراموش کرده ام</p>
         </form>
         <form class="login-form">
-          <input type="text" id='email' placeholder="ایمیل"/>
+          <input type="email" id='email' placeholder="ایمیل"/>
           <input type="password" id='password' placeholder="رمز عبور"/>
           <button id="login">ورود</button>
           <p class="message">ثبت نام نکرده اید ؟ <a class="reg" href="#">عضو شوید</a></p>
@@ -531,15 +531,18 @@ That part is just for the form
         </form>
         <form class="forget-form">
           <h3>آدرس ایمیل خود را وارد کنید</h3>
-          <input type="text" id='rpemail' placeholder="آدرس ایمیل"/>
+          <input type="email" id='rpemail' placeholder="آدرس ایمیل"/>
           <button id="resetp">ارسال لینک</button>
           <p class="message"><a class="log" href="#">وارد شوید</a> / <a class="reg" href="#">عضو شوید</a></p>
         </form>
       </div>
     </div>
+    <script>
+        var lang = 0;
+    </script>
     <script src="/assets/cdn/jquery.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="script/api.js"></script>
-    <script type="text/javascript" src="script/alert.js"></script>
+    <script type="text/javascript" src="/script/api.js"></script>
+    <script type="text/javascript" src="/script/alert.js"></script>
     <script>
         $('#register').click(function(e) {
             e.preventDefault();
@@ -568,11 +571,11 @@ That part is just for the form
             }).catch((e)=> {
                 switch (e.message[0].messages[0].id) {
                     case "Auth.form.error.email.taken": {
-                        janelaPopUp.abre( "id", 'p red alert',  'خطا' ,  'این ایمیل قبلا گرفته انتخاب شده!');
+                        janelaPopUp.abre( "id", 'p red alert',  'خطا' ,  'این ایمیل قبلا ثبت نام نموده است');
                         break;
                     }
                     case "Auth.form.error.username.taken": {
-                        janelaPopUp.abre( "id", 'p red alert',  'خطا' ,  'این نام کاربری قبلا گرفته انتخاب شده!');
+                        janelaPopUp.abre( "id", 'p red alert',  'خطا' ,  'این نام کاربری قبلا انتخاب شده است');
                         break;
                     }
                     default: {

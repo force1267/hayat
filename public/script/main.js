@@ -1,15 +1,24 @@
-var lang = 0; // 0 => fa, 1 => tr, 2 => en
+// var lang = 1; // 0 => fa, 1 => tr, 2 => en
 
 Number.prototype.format = function(n, x) {
     var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\.' : '$') + ')';
     return this.toFixed(Math.max(0, ~~n)).replace(new RegExp(re, 'g'), '$&,');
 };
 
+var cd = {"Diğer Hizmetleri": "سایر خدمات", "Satılık Konut":"فروشی مسکونی","Kiralık Konut":"اجاره مسکونی","Satılık İşyeri":"فروش تجاری","Kiralık İşyeri":"اجاره تجاری","Otomobil":"خودرو","Otomobil Ekipmanları":"لوازم یدكی خودرو","Motosiklet ve Ekipmanları":"موتور سیکلت و لوازم یدکی","Bilgisayar ve Notebook":"لپتاپ و كامپیوتر","Fotoğraf & Kamera":"دوربین فیلم برداری و عكاسی و ملزومات","Televizyon ve Ses Sistemleri":"صوتی و تصویری","Oyun & Konsol":"كنسول بازی و ملزومات","Cep Telefonu & Tablet":"موبایل و تبلت و ملزومات","Diğer Her Şey":"سایر وسایل","Mobilya ,Ev Dekorasyon":"مبلمان ، وسایل و تزئینات خانه","Mutfak Gereçleri":"لوازم آشپزخونه","Dekoratif Ürünler":"دكوری و روشنایی","Halı":"فرش و گلیم و قالیچه","Bahçe":"باغچه و حیاط","Aşçi & Fırın Ustası":"آشپز و شیرینی پز","Temizlik":"نظافت","İnşaat ve Yapı":"عمران ، ساختمانی و معماری","Servis Elemanı":"خدمات، رستوران و فروشگاه","Hukuki , Finans ve Bankacılık":"حسابداری ، مالی ، حقوقی","Eğitim":"آموزش","Medya ,Dijital Marketing , Grafist":"رسانه و ماركتینگ و گرافیست","Pazarlama ve Ürün Yönetimi":"بازاریابی و فروش","Hastane İle İlgili":"درمانی ، زیبایی و بهداشتی","Bilgisayar ve İT":"رایانه و IT","Taşıma":"حمل و نقل","Mühendislik":"صنعت و مهندسی","Göç":"مهاجرتی","Döviz":"صرافی","Kuaför":"آرایشگری","Web Sitesi Tasarımı":"طراحی سایت و شبكه","Tercuman":"ترجمه","Tamirat":"تعمیرات","Kiralık Araç":"اجاره خودرو"}
+var ce = {"Residential for sale":"فروشی مسکونی","Residential rental":"اجاره مسکونی","Commercial for sale":"فروش تجاری","Commercial rental":"اجاره تجاری","Car":"خودرو","Spare parts for cars":"لوازم یدكی خودرو","Motorcycle and parts":"موتور سیکلت و لوازم یدکی","Laptop and PC":"لپتاپ و كامپیوتر","Camcorder & Photography & Essentials & Photography & Essentials":"دوربین فیلم برداری و عكاسی و ملزومات","Video and Video and Audio":"صوتی و تصویری","Game consoles":"كنسول بازی و ملزومات","Mobile & Tablet & Accessories & Tablet & Accessories":"موبایل و تبلت و ملزومات","Other electronic devices":"سایر لوازم الكترونیكی","Home furniture, fixtures and decorations":"مبلمان ، وسایل و تزئینات خانه","Kitchen Accessories":"لوازم آشپزخونه","Decoration and lighting":"دكوری و روشنایی","Carpets and rugs":"فرش و گلیم و قالیچه","Garden and yard":"باغچه و حیاط","Other Items":"سایر وسایل","Chef and confectioner":"آشپز و شیرینی پز","Cleaning":"نظافت","Civil, building and architecture":"عمران ، ساختمانی و معماری","Services, restaurants and shops":"خدمات، رستوران و فروشگاه","Accounting, Finance, Legal":"حسابداری ، مالی ، حقوقی","Education":"آموزش","Media & Marketing & Graphic Designer":"رسانه و ماركتینگ و گرافیست","Marketing and Sales":"بازاریابی و فروش","Therapeutic, Beauty and Health":"درمانی ، زیبایی و بهداشتی","IT and Computers":"رایانه و IT","Transportation":"حمل و نقل","Industry and Engineering":"صنعت و مهندسی","Travel":"مهاجرتی","Currency Exchange":"صرافی","Makeup":"آرایشگری","Web site design & Networks":"طراحی سایت و شبكه","Translation":"ترجمه","Repairs":"تعمیرات","Car rental":"اجاره خودرو","Other services":"سایر خدمات"}
+
+function sl(s) {
+    return s[lang];
+}
+
 function copyToClipboard(elem) {
       // create hidden text element, if it doesn't already exist
     var targetId = "_hiddenCopyText_";
     var isInput = elem.tagName === "INPUT" || elem.tagName === "TEXTAREA";
     var origSelectionStart, origSelectionEnd;
+    if (elem.textContent == '')
+        return false;
     if (isInput) {
         // can just use the original source element for the selection and copy
         target = elem;
@@ -36,7 +45,7 @@ function copyToClipboard(elem) {
     // copy the selection
     var succeed;
     try {
-          succeed = document.execCommand("copy");
+        succeed = document.execCommand("copy");
     } catch(e) {
         succeed = false;
     }
@@ -60,25 +69,25 @@ function timeSince(date) {
   var seconds = Math.floor((new Date() - date) / 1000);
   var interval = Math.floor(seconds / 31536000);
   if (interval > 1) {
-    return interval + " سال پیش";
+    return interval + sl([" سال پیش", " Yıl Önce", " Years ago"]);
   }
   interval = Math.floor(seconds / 2592000);
   if (interval > 1) {
-    return interval + " ماه پیش";
+    return interval + sl([" ماه پیش", " Ay Önce", " Months ago"]);
   }
   interval = Math.floor(seconds / 86400);
   if (interval > 1) {
-    return interval + " روز پیش";
+    return interval + sl([" روز پیش", " Gün Önce", " Days ago"]);
   }
   interval = Math.floor(seconds / 3600);
   if (interval > 1) {
-    return interval + " ساعت پیش";
+    return interval + sl([" ساعت پیش", " Saat Önce", " Hours ago"]);
   }
   interval = Math.floor(seconds / 60);
   if (interval > 1) {
-    return interval + " دقیقه پیش";
+    return interval + sl([" دقیقه پیش", " Dakika Önce", " Minutes ago"]);
   }
-  return Math.floor(seconds) + " ثانیه پیش";
+  return Math.floor(seconds) + sl([" ثانیه پیش", " Saniye Önce", " Seconds ago"]);
 }
 
 var user;
@@ -105,12 +114,14 @@ $("body").on('click', '.ussp', function(e) {
                         <div class="description">
                             <h1>${data.title}</h1>
                             <h2>${timeSince(new Date(data.created_at).getTime())}</h2>
-                            <h2><span class='ct'>دسته بندی </span> : ${data.class.split('_').join(' ')}</h2>
+                            <h2><span class='ct'>${sl(['دسته بندی ', 'Kategori ', 'Category '])}</span> : ${data.class.split('_').join(' ')}</h2>
                             <p class="read-more">
-                                <a data-id='${ad.id}'class="delete" href="#">پاک کردن</a>
+                                <a data-id='${ad.id}'class="delete" href="#">${sl(['پاک کردن', 'Kaldırmak', 'Delete'])}</a>
                             </p>
                         </div>
                     </div>
+                    ${(!ad.vip) ? `<div data-id="${ad.id}" class="dvip">${sl(['ویژه کردن آگهی', 'İlanı özel yap', 'Upgrate to special ad'])}</div>` : ''}
+                    ${(ad.showcase == 0) ? `<div data-id="${ad.id}" class="dvit">${sl(['نمایش در ویترین', 'Vitrinde göster', 'Add to showcase'])}</div>` : ''}
                 </div>
             `);
         });
@@ -125,10 +136,10 @@ $("body").on('click', '.ussp', function(e) {
                         <div class="description">
                             <h1>${data.title}</h1>
                             <h2>${timeSince(new Date(data.created_at).getTime())}</h2>
-                            <h2><span class='ct'>دسته بندی </span> : ${data.class.split('_').join(' ')}</h2>
+                            <h2><span class='ct'>${sl(['دسته بندی ', 'Kategori ', 'Category '])}</span> : ${data.class.split('_').join(' ')}</h2>
                             <p class="read-more">
-                                <a data-id='${ad.id}'class="view" href="#">مشاهده</a>
-                                <!--<p data-id='${ad.id}'class="vip">ویژه</p> -->
+                                <a data-id='${ad.id}'class="view" href="#">${sl(['مشاهده', 'İncele', 'View'])}</a>
+                                <!--<p data-id='${ad.id}'class="vip">${sl(['ویژه', 'özel', 'Special'])}</p> -->
                             </p>
                         </div>
                     </div>
@@ -145,9 +156,9 @@ $("body").on('click', '.ussp', function(e) {
 $('body').on('click', '.delete', function(e) {
     e.preventDefault();
     let ad = $(this).attr('data-id');
-    if (confirm('مطمعنید که میخواهید این تبلیغ را حذف کنید ؟')) {
+    if (confirm(sl(['مطمئنيد که میخواهید این آگهی را حذف کنید ؟', 'Bu ilanı kaldırmak istediğinizden emin misiniz?', 'Are you sure you want to delete this ad?']))) {
         strapi.advertise.delete(ad).then(e=> {
-            janelaPopUp.abre("id", 'p blue alert', 'انجام شد', 'با موفقیت حذف شد');
+            janelaPopUp.abre("id", 'p blue alert', sl(['انجام شد', 'Tamam', 'Done']), sl(['با موفقیت حذف شد', 'E-postanız onaylandı', 'Deleted successfully']));
             $(this).parent().parent().parent().remove();
         });
     }
@@ -175,14 +186,14 @@ $("body").on('click', '.uss', function(e) {
                         <div class="description">
                             <h1>${data.title}</h1>
                             <h2>${timeSince(new Date(data.created_at).getTime())}</h2>
-                            <h2><span class='ct'>دسته بندی </span> : ${data.class.split('_').join(' ')}</h2>
+                            <h2><span class='ct'>${sl(['دسته بندی ', 'Kategori ', 'Category '])}</span> : ${data.class.split('_').join(' ')}</h2>
                             <p class="read-more">
-                                <a data-id='${ad.id}'class="delete" href="#">پاک کردن</a>
+                                <a data-id='${ad.id}'class="delete" href="#">${sl(['پاک کردن', 'Kaldırmak', 'Delete'])}</a>
                             </p>
                         </div>
                     </div>
-                    ${(!ad.vip) ? `<div data-id="${ad.id}" class="dvip">ویژه کردن آگهی</div>` : ''}
-                    ${(ad.showcase == 0) ? `<div data-id="${ad.id}" class="dvit">نمایش در ویترین</div>` : ''}
+                    ${(!ad.vip) ? `<div data-id="${ad.id}" class="dvip">${sl(['ویژه کردن آگهی', 'İlanı özel yap', 'Upgrate to special ad'])}</div>` : ''}
+                    ${(ad.showcase == 0) ? `<div data-id="${ad.id}" class="dvit">${sl(['نمایش در ویترین', 'Vitrinde göster', 'Add to showcase'])}</div>` : ''}
                 </div>
             `);
         });
@@ -197,10 +208,10 @@ $("body").on('click', '.uss', function(e) {
                         <div class="description">
                             <h1>${data.title}</h1>
                             <h2>${timeSince(new Date(data.created_at).getTime())}</h2>
-                            <h2><span class='ct'>دسته بندی </span> : ${data.class.split('_').join(' ')}</h2>
+                            <h2><span class='ct'>${sl(['دسته بندی ', 'Kategori ', 'Category '])}</span> : ${data.class.split('_').join(' ')}</h2>
                             <p class="read-more">
-                                <a data-id='${ad.id}'class="view" href="#">مشاهده</a>
-                                <!--<p data-id='${ad.id}'class="vip">ویژه</p> -->
+                                <a data-id='${ad.id}'class="view" href="#">${sl(['مشاهده', 'İncele', 'View'])}</a>
+                                <!--<p data-id='${ad.id}'class="vip">${sl(['ویژه', 'özel', 'Special'])}</p> -->
                             </p>
                         </div>
                     </div>
@@ -225,10 +236,10 @@ $('.registeru').click(function() {
     strapi.user.avatar.upload($('#uupl').get(0))
     .then(e => strapi.user.update(data, user.id))
     .then(e => {
-        janelaPopUp.abre( "id", 'p green alert',  'انجام شد' ,  'اطلاعات شما با موفقیت ذخیره شد!');
+        janelaPopUp.abre( "id", 'p green alert',  sl(['انجام شد', 'Tamam', 'Done']),  sl(['اطلاعات شما با موفقیت ذخیره شد', 'Bilgileriniz başarıyla kaydedildi', 'You data saved successfully']));
     })
-    .catch(e=> {
-        janelaPopUp.abre( "id", 'p oragne alert',  'خطا' ,  'خطا در ذخیره اطلاعات');
+    .catch(e=> { 
+        janelaPopUp.abre( "id", 'p oragne alert',  sl(['خطا', 'Hata', 'Error']) ,  sl(['خطا در ذخیره اطلاعات', 'Kaydedilirken bir hata oluştu', 'Something went worng in saving data']));
     });
     
 });
@@ -240,7 +251,7 @@ if (strapi.jwt != null) {
     });
     strapi.user.me().then(e=> {
         user = e;
-        $('.ussp').html(`<span style="color: #fff !important;font-size: 13px;position: relative;left: 141px;top: 5px;padding: 1px 20px;border-radius: 40px !important;border: 1px solid #fff;font-weight: 400;white-space: nowrap;">${e.username}</span>`);
+        $('.ussp').html(`<span style="color: #fff !important;font-size: 13px;position: absolute;left: 0;top: 6px;padding: 1px 20px;border-radius: 40px !important;border: 1px solid #fff;font-weight: 400;white-space: nowrap;/* max-width: 100px; *//* overflow: hidden; */height: 26px;line-height: 26px;">${e.username}</span>`);
     });
 }
 
@@ -256,6 +267,9 @@ String.prototype.fix = function() {
 };
 
 $('body').on('keydown', 'input[type=text], input[type=textarea]', function() {
+    $(this).val(($(this).val().fix()));
+});
+$('body').on('keyup', 'input[type=text], input[type=textarea]', function() {
     $(this).val(($(this).val().fix()));
 });
 
@@ -303,25 +317,27 @@ $(function() {
 
 var map = {
     dic: {
-        'class': ['دسته بندی', '', ''],
-        'city': ['شهر', '', ''],
-        'price': ['قیمت', '', ''],
-        'areaOfBuilding': ['متراژ', '', ''],
-        'ageOfBuilding': ['سن ساختمان', '', ''],
-        'numberOfRooms': ['تعداد اتاق', '', ''],
-        'deposits': ['ودیعه', '', ''],
-        'rent': ['اجاره', '', ''],
-        'manufacturer': ['سازنده', '', ''],
-        'kilometers': ['کارکرد', '', ''],
+        'class': ['دسته بندی', 'Kategori', 'Category'],
+        'city': ['شهر', 'İl', 'City'],
+        'price': ['قیمت', 'Fiyat', 'Price'],
+        'areaOfBuilding': ['متراژ', '㎡', 'Area of building'],
+        'ageOfBuilding': ['سن ساختمان', 'Bina Yaşı', 'Age of building'],
+        'numberOfRooms': ['تعداد اتاق', 'Oda Sayısı', 'Number of rooms'],
+        'Deposits': ['ودیعه', 'Depozito', 'Deposit'],
+        'Rent': ['اجاره', 'Kira', 'Rent'],
+        'manufacturer': ['سازنده', 'Marka', 'Brand'],
+        'kilometers': ['کارکرد', 'KM', 'KM'],
+        'workExperience': ['سابقه کاری', 'İş Tecrübesi', 'Work background'],
+        'education': ['مدرک', 'Eğitim Durumu', 'Degree'],
     },
     'فروشی_مسکونی': {
         fields: [{
                 name: 'areaOfBuilding',
                 type: 'range',
                 input: 'int',
-                from: ['از', '', 'from'],
-                to: ['تا', '', 'to'],
-                caption: ['متراژ - متر مربع', '', ''],
+                from: ['از', 'En Düşük', 'From'],
+                to: ['تا', 'En Yüksek', 'To'],
+                caption: ['متراژ - متر مربع', '㎡', '㎡'],
             },
             {
                 name: 'ageOfBuilding',
@@ -335,9 +351,9 @@ var map = {
                     out.push(['&#8734;', 1000]);
                     return out;
                 })(),
-                from: ['از ', '', 'from'],
-                to: ['تا ', '', 'to'],
-                caption: ['سن ساختمان', '', ''],
+                from: ['از', 'En Düşük', 'From'],
+                to: ['تا', 'En Yüksek', 'To'],
+                caption: ['سن ساختمان', 'Bina Yaşı', 'Age of building'],
             },
             // {
             //     name: 'requesting',
@@ -354,15 +370,15 @@ var map = {
                 type: 'list',
                 input: 'int',
                 list: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-                caption: ['تعداد اتاق', '', 'minimum number of rooms'],
+                caption: ['تعداد اتاق', 'Oda Sayısı', 'Number of rooms'],
             },
             {
                 name: 'price',
                 type: 'range',
                 input: 'int',
-                from: ['از ', '', 'from'],
-                to: ['تا ', '', 'to'],
-                caption: ['قیمت (لیر)', '', 'rent'],
+                from: ['از', 'En Düşük', 'From'],
+                to: ['تا', 'En Yüksek', 'To'],
+                caption: ['قیمت (لیر)', 'Fiyat', 'Rent'],
             },
         ],
     },
@@ -371,9 +387,9 @@ var map = {
                 name: 'areaOfBuilding',
                 type: 'range',
                 input: 'int',
-                from: ['از', '', 'from'],
-                to: ['تا', '', 'to'],
-                caption: ['متراژ - متر مربع', '', ''],
+                from: ['از', 'En Düşük', 'From'],
+                to: ['تا', 'En Yüksek', 'To'],
+                caption: ['متراژ - متر مربع', '㎡', '㎡'],
             },
             {
                 name: 'ageOfBuilding',
@@ -387,32 +403,32 @@ var map = {
                     out.push(['&#8734;', 1000]);
                     return out;
                 })(),
-                from: ['از ', '', 'from'],
-                to: ['تا ', '', 'to'],
-                caption: ['سن ساختمان', '', ''],
+                from: ['از', 'En Düşük', 'From'],
+                to: ['تا', 'En Yüksek', 'To'],
+                caption: ['سن ساختمان', 'Bina Yaşı', 'Age of building'],
             },
             {
                 name: 'numberOfRooms',
                 type: 'list',
                 input: 'int',
                 list: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-                caption: ['تعداد اتاق', '', 'minimum number of rooms'],
+                caption: ['تعداد اتاق', 'Oda Sayısı', 'Number of rooms'],
             },
             {
-                name: 'deposits',
+                name: 'Deposits',
                 type: 'range',
                 input: 'int',
-                from: ['از ', '', 'from'],
-                to: ['تا ', '', 'to'],
-                caption: ['ودیعه (لیر)', '', 'deposits'],
+                from: ['از', 'En Düşük', 'From'],
+                to: ['تا', 'En Yüksek', 'To'],
+                caption: ['ودیعه (لیر)', 'Depozito', 'Deposits'],
             },
             {
-                name: 'rent',
+                name: 'Rent',
                 type: 'range',
                 input: 'int',
-                from: ['از ', '', 'from'],
-                to: ['تا ', '', 'to'],
-                caption: ['اجاره (لیر)', '', 'rent'],
+                from: ['از', 'En Düşük', 'From'],
+                to: ['تا', 'En Yüksek', 'To'],
+                caption: ['اجاره (لیر)', 'Kira', 'Rent'],
             },
         ],
     },
@@ -421,9 +437,9 @@ var map = {
                 name: 'areaOfBuilding',
                 type: 'range',
                 input: 'int',
-                from: ['از', '', 'from'],
-                to: ['تا', '', 'to'],
-                caption: ['متراژ - متر مربع', '', ''],
+                from: ['از', 'En Düşük', 'From'],
+                to: ['تا', 'En Yüksek', 'To'],
+                caption: ['متراژ - متر مربع', '㎡', '㎡'],
             },
             {
                 name: 'ageOfBuilding',
@@ -437,17 +453,17 @@ var map = {
                     out.push(['&#8734;', 1000]);
                     return out;
                 })(),
-                from: ['از ', '', 'from'],
-                to: ['تا ', '', 'to'],
-                caption: ['سن ساختمان', '', ''],
+                from: ['از', 'En Düşük', 'From'],
+                to: ['تا', 'En Yüksek', 'To'],
+                caption: ['سن ساختمان', 'Bina Yaşı', 'Age of building'],
             },
             {
                 name: 'price',
                 type: 'range',
                 input: 'int',
-                from: ['از ', '', 'from'],
-                to: ['تا ', '', 'to'],
-                caption: ['قیمت (لیر)', '', 'rent'],
+                from: ['از', 'En Düşük', 'From'],
+                to: ['تا', 'En Yüksek', 'To'],
+                caption: ['قیمت (لیر)', 'Fiyat', 'Rent'],
             },
         ],
     },
@@ -456,9 +472,9 @@ var map = {
                 name: 'areaOfBuilding',
                 type: 'range',
                 input: 'int',
-                from: ['از', '', 'from'],
-                to: ['تا', '', 'to'],
-                caption: ['متراژ - متر مربع', '', ''],
+                from: ['از', 'En Düşük', 'From'],
+                to: ['تا', 'En Yüksek', 'To'],
+                caption: ['متراژ - متر مربع', '㎡', '㎡'],
             },
             {
                 name: 'ageOfBuilding',
@@ -472,32 +488,32 @@ var map = {
                     out.push(['&#8734;', 1000]);
                     return out;
                 })(),
-                from: ['از ', '', 'from'],
-                to: ['تا ', '', 'to'],
-                caption: ['سن ساختمان', '', ''],
+                from: ['از', 'En Düşük', 'From'],
+                to: ['تا', 'En Yüksek', 'To'],
+                caption: ['سن ساختمان', 'Bina Yaşı', 'Age of building'],
             },
             {
                 name: 'numberOfRooms',
                 type: 'list',
                 input: 'int',
                 list: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-                caption: ['تعداد اتاق', '', 'minimum number of rooms'],
+                caption: ['تعداد اتاق', 'Oda Sayısı', 'Number of rooms'],
             },
             {
-                name: 'deposits',
+                name: 'Deposits',
                 type: 'range',
                 input: 'int',
-                from: ['از ', '', 'from'],
-                to: ['تا ', '', 'to'],
-                caption: ['ودیعه (لیر)', '', 'deposits'],
+                from: ['از', 'En Düşük', 'From'],
+                to: ['تا', 'En Yüksek', 'To'],
+                caption: ['ودیعه (لیر)', 'Depozito', 'Deposits'],
             },
             {
-                name: 'rent',
+                name: 'Rent',
                 type: 'range',
                 input: 'int',
-                from: ['از ', '', 'from'],
-                to: ['تا ', '', 'to'],
-                caption: ['اجاره (لیر)', '', 'rent'],
+                from: ['از', 'En Düşük', 'From'],
+                to: ['تا', 'En Yüksek', 'To'],
+                caption: ['اجاره (لیر)', 'Kira', 'Rent'],
             },
         ],
     },
@@ -507,23 +523,23 @@ var map = {
                 type: 'list',
                 input: 'list',
                 list: ["Alfa Romeo", "Anadol", "Aston martin", "Audi", "Bentley", "BMW", "Bugatti", "Buick", "Cadillac", "Caterham", "Chery", "Chevrolet", "Chrysler", "Citroen", "Dacia", "Daewoo", "Daihatsu", "Dodge", "Ds Automobiles", "Ferrari", "Fiat", "Ford", "Geely", "Honda", "Hyundai", "Ikco", "Infinity", "Isuzu", "Jaguar", "Kia", "Lada", "Lamborghini", "Lancia", "Lexus", "Lincoln", "Lotus", "Maserati", "Mazda", "Mclaren", "Mercedes - benz", "Mercury", "MG", "Mini", "Mitsubishi", "Morgan", "Moskwitsch", "Nissan", "Oldsmobile", "Opel", "Peugeot", "Plymouth", "Pontiac", "Porsche", "Proton", "Renault", "Rolls-Royce", "Rover", "Saab", "Seat", "Skoda", "Smart", "Subaru", "Suzuki", "Tata", "Tesla", "Toyota", "Volkswagen", "Volvo"],
-                caption: ['برند', '', 'brand'],
+                caption: ['برند', 'Marka', 'brand'],
             },
             {
                 name: 'kilometers',
                 type: 'range',
                 input: 'int',
-                from: ['از ', '', 'from'],
-                to: ['تا ', '', 'to'],
-                caption: ['کارکرد (کیلومتر)', '', ''],
+                from: ['از', 'En Düşük', 'From'],
+                to: ['تا', 'En Yüksek', 'To'],
+                caption: ['کارکرد (کیلومتر)', 'KM', 'KM'],
             },
             {
                 name: 'price',
                 type: 'range',
                 input: 'int',
-                from: ['از ', '', 'from'],
-                to: ['تا ', '', 'to'],
-                caption: ['قیمت (لیر)', '', 'rent'],
+                from: ['از', 'En Düşük', 'From'],
+                to: ['تا', 'En Yüksek', 'To'],
+                caption: ['قیمت (لیر)', 'Fiyat', 'Price'],
             },
         ],
     },
@@ -532,9 +548,9 @@ var map = {
             name: 'price',
             type: 'range',
             input: 'int',
-            from: ['از ', '', 'from'],
-            to: ['تا ', '', 'to'],
-            caption: ['قیمت (لیر)', '', 'rent'],
+            from: ['از', 'En Düşük', 'From'],
+            to: ['تا', 'En Yüksek', 'To'],
+            caption: ['قیمت (لیر)', 'Fiyat', 'Price'],
         }, ],
     },
     'موتور_سیکلت_و_لوازم_یدکی': {
@@ -542,9 +558,9 @@ var map = {
             name: 'price',
             type: 'range',
             input: 'int',
-            from: ['از ', '', 'from'],
-            to: ['تا ', '', 'to'],
-            caption: ['قیمت (لیر)', '', 'rent'],
+            from: ['از', 'En Düşük', 'From'],
+            to: ['تا', 'En Yüksek', 'To'],
+            caption: ['قیمت (لیر)', 'Fiyat', 'Price'],
         }, ],
     },
     'لپتاپ_و_كامپیوتر': {
@@ -554,15 +570,15 @@ var map = {
                 type: 'list',
                 input: 'list',
                 list: ["Acer", "Advent", "Aidata", "Akai", "Alienware", "Apple Macbook", "Arçelik", "Asus", "Averatech", "Beko", "BenQ", "Brother", "Byron", "Casper", "Cbox", "Conpaq", "Crea", "Datron", "Dell", "Dente", "ECS", "Escort", "Exper", "Fujitsu", "Fujitsu Siemens", "Gateway", "Gericom", "Getac", "Gigabyte", "Google", "Grundig", "Haier", "Hitachi", "Hometech", "HP", "Huawei", "IBM", "Keysmart", "Lenovo", "LG", "Medion", "Microsoft", "Monster", "Msi", "NEC", "Packard Bell", "Panasonic", "Philips", "Probook", "Queen", "Razer", "Regal", "Samsung", "Smartbook", "Sony", "Sunny", "Toshiba", "Vestel", "Woon", "Xiaomi", "Yepo", "غيره ..."],
-                caption: ['برند', '', 'اپل'],
+                caption: ['برند', 'Marka', 'Brand'],
             },
             {
                 name: 'price',
                 type: 'range',
                 input: 'int',
-                from: ['از ', '', 'from'],
-                to: ['تا ', '', 'to'],
-                caption: ['قیمت (لیر)', '', 'rent'],
+                from: ['از', 'En Düşük', 'From'],
+                to: ['تا', 'En Yüksek', 'To'],
+                caption: ['قیمت (لیر)', 'Fiyat', 'Price'],
             },
         ],
     },
@@ -571,9 +587,9 @@ var map = {
             name: 'price',
             type: 'range',
             input: 'int',
-            from: ['از ', '', 'from'],
-            to: ['تا ', '', 'to'],
-            caption: ['قیمت (لیر)', '', 'rent'],
+            from: ['از', 'En Düşük', 'From'],
+            to: ['تا', 'En Yüksek', 'To'],
+            caption: ['قیمت (لیر)', 'Fiyat', 'Price'],
         }, ],
     },
     'صوتی_و_تصویری': {
@@ -581,9 +597,9 @@ var map = {
             name: 'price',
             type: 'range',
             input: 'int',
-            from: ['از ', '', 'from'],
-            to: ['تا ', '', 'to'],
-            caption: ['قیمت (لیر)', '', 'rent'],
+            from: ['از', 'En Düşük', 'From'],
+            to: ['تا', 'En Yüksek', 'To'],
+            caption: ['قیمت (لیر)', 'Fiyat', 'Price'],
         }, ],
     },
     'موبایل_و_تبلت_و_ملزومات': {
@@ -591,9 +607,9 @@ var map = {
             name: 'price',
             type: 'range',
             input: 'int',
-            from: ['از ', '', 'from'],
-            to: ['تا ', '', 'to'],
-            caption: ['قیمت (لیر)', '', 'rent'],
+            from: ['از', 'En Düşük', 'From'],
+            to: ['تا', 'En Yüksek', 'To'],
+            caption: ['قیمت (لیر)', 'Fiyat', 'Price'],
         }, ],
     },
     'كنسول_بازی_و_ملزومات': {
@@ -601,9 +617,9 @@ var map = {
             name: 'price',
             type: 'range',
             input: 'int',
-            from: ['از ', '', 'from'],
-            to: ['تا ', '', 'to'],
-            caption: ['قیمت (لیر)', '', 'rent'],
+            from: ['از', 'En Düşük', 'From'],
+            to: ['تا', 'En Yüksek', 'To'],
+            caption: ['قیمت (لیر)', 'Fiyat', 'Price'],
         }, ],
     },
     'سایر_لوازم_الكترونیكی': {
@@ -611,9 +627,9 @@ var map = {
             name: 'price',
             type: 'range',
             input: 'int',
-            from: ['از ', '', 'from'],
-            to: ['تا ', '', 'to'],
-            caption: ['قیمت (لیر)', '', 'rent'],
+            from: ['از', 'En Düşük', 'From'],
+            to: ['تا', 'En Yüksek', 'To'],
+            caption: ['قیمت (لیر)', 'Fiyat', 'Price'],
         }, ],
     },
     'آشپز_و_شیرینی_پز': {
@@ -623,14 +639,14 @@ var map = {
             type: 'list',
             input: 'list',
             list: [0, 1, 2, 3, ['&#8734;', 1000]],
-            caption: ['سابقه کاری', '', 'rent'],
+            caption: ['سابقه کاری', 'İş Tecrübesi', 'Academic background'],
         }, 
         {
             name: 'education',
             type: 'list',
             input: 'list',
             list: [['دیپلم', 'diploma'], ['کارشناسی', 'bachelor'], ['کارشناسی ارشد', 'masters'], ['دکترا', 'PhD'], ['پزشکی', 'Dr'], ['دندان پزشکی', 'dentist']],
-            caption: ['مدرک', '', 'rent'],
+            caption: ['مدرک', 'Eğitim Durumu', 'Degree'],
         }, 
         ],
     },
@@ -641,14 +657,14 @@ var map = {
             type: 'list',
             input: 'list',
             list: [0, 1, 2, 3, ['&#8734;', 1000]],
-            caption: ['سابقه کاری', '', 'rent'],
+            caption: ['سابقه کاری', 'İş Tecrübesi', 'Academic background'],
         }, 
         {
             name: 'education',
             type: 'list',
             input: 'list',
             list: [['دیپلم', 'diploma'], ['کارشناسی', 'bachelor'], ['کارشناسی ارشد', 'masters'], ['دکترا', 'PhD'], ['پزشکی', 'Dr'], ['دندان پزشکی', 'dentist']],
-            caption: ['مدرک', '', 'rent'],
+            caption: ['مدرک', 'Eğitim Durumu', 'Degree'],
         }, 
         ],
     },
@@ -659,14 +675,14 @@ var map = {
             type: 'list',
             input: 'list',
             list: [0, 1, 2, 3, ['&#8734;', 1000]],
-            caption: ['سابقه کاری', '', 'rent'],
+            caption: ['سابقه کاری', 'İş Tecrübesi', 'Academic background'],
         }, 
         {
             name: 'education',
             type: 'list',
             input: 'list',
             list: [['دیپلم', 'diploma'], ['کارشناسی', 'bachelor'], ['کارشناسی ارشد', 'masters'], ['دکترا', 'PhD'], ['پزشکی', 'Dr'], ['دندان پزشکی', 'dentist']],
-            caption: ['مدرک', '', 'rent'],
+            caption: ['مدرک', 'Eğitim Durumu', 'Degree'],
         }, 
         ],
     },
@@ -677,14 +693,14 @@ var map = {
             type: 'list',
             input: 'list',
             list: [0, 1, 2, 3, ['&#8734;', 1000]],
-            caption: ['سابقه کاری', '', 'rent'],
+            caption: ['سابقه کاری', 'İş Tecrübesi', 'Academic background'],
         }, 
         {
             name: 'education',
             type: 'list',
             input: 'list',
             list: [['دیپلم', 'diploma'], ['کارشناسی', 'bachelor'], ['کارشناسی ارشد', 'masters'], ['دکترا', 'PhD'], ['پزشکی', 'Dr'], ['دندان پزشکی', 'dentist']],
-            caption: ['مدرک', '', 'rent'],
+            caption: ['مدرک', 'Eğitim Durumu', 'Degree'],
         }, 
         ],
     },
@@ -695,14 +711,14 @@ var map = {
             type: 'list',
             input: 'list',
             list: [0, 1, 2, 3, ['&#8734;', 1000]],
-            caption: ['سابقه کاری', '', 'rent'],
+            caption: ['سابقه کاری', 'İş Tecrübesi', 'Academic background'],
         }, 
         {
             name: 'education',
             type: 'list',
             input: 'list',
             list: [['دیپلم', 'diploma'], ['کارشناسی', 'bachelor'], ['کارشناسی ارشد', 'masters'], ['دکترا', 'PhD'], ['پزشکی', 'Dr'], ['دندان پزشکی', 'dentist']],
-            caption: ['مدرک', '', 'rent'],
+            caption: ['مدرک', 'Eğitim Durumu', 'Degree'],
         }, 
         ],
     },
@@ -713,14 +729,14 @@ var map = {
             type: 'list',
             input: 'list',
             list: [0, 1, 2, 3, ['&#8734;', 1000]],
-            caption: ['سابقه کاری', '', 'rent'],
+            caption: ['سابقه کاری', 'İş Tecrübesi', 'Academic background'],
         }, 
         {
             name: 'education',
             type: 'list',
             input: 'list',
             list: [['دیپلم', 'diploma'], ['کارشناسی', 'bachelor'], ['کارشناسی ارشد', 'masters'], ['دکترا', 'PhD'], ['پزشکی', 'Dr'], ['دندان پزشکی', 'dentist']],
-            caption: ['مدرک', '', 'rent'],
+            caption: ['مدرک', 'Eğitim Durumu', 'Degree'],
         }, 
         ],
     },
@@ -731,14 +747,14 @@ var map = {
             type: 'list',
             input: 'list',
             list: [0, 1, 2, 3, ['&#8734;', 1000]],
-            caption: ['سابقه کاری', '', 'rent'],
+            caption: ['سابقه کاری', 'İş Tecrübesi', 'Academic background'],
         }, 
         {
             name: 'education',
             type: 'list',
             input: 'list',
             list: [['دیپلم', 'diploma'], ['کارشناسی', 'bachelor'], ['کارشناسی ارشد', 'masters'], ['دکترا', 'PhD'], ['پزشکی', 'Dr'], ['دندان پزشکی', 'dentist']],
-            caption: ['مدرک', '', 'rent'],
+            caption: ['مدرک', 'Eğitim Durumu', 'Degree'],
         }, 
         ],
     },
@@ -749,14 +765,14 @@ var map = {
             type: 'list',
             input: 'list',
             list: [0, 1, 2, 3, ['&#8734;', 1000]],
-            caption: ['سابقه کاری', '', 'rent'],
+            caption: ['سابقه کاری', 'İş Tecrübesi', 'Academic background'],
         }, 
         {
             name: 'education',
             type: 'list',
             input: 'list',
             list: [['دیپلم', 'diploma'], ['کارشناسی', 'bachelor'], ['کارشناسی ارشد', 'masters'], ['دکترا', 'PhD'], ['پزشکی', 'Dr'], ['دندان پزشکی', 'dentist']],
-            caption: ['مدرک', '', 'rent'],
+            caption: ['مدرک', 'Eğitim Durumu', 'Degree'],
         }, 
         ],
     },
@@ -767,14 +783,14 @@ var map = {
             type: 'list',
             input: 'list',
             list: [0, 1, 2, 3, ['&#8734;', 1000]],
-            caption: ['سابقه کاری', '', 'rent'],
+            caption: ['سابقه کاری', 'İş Tecrübesi', 'Academic background'],
         }, 
         {
             name: 'education',
             type: 'list',
             input: 'list',
             list: [['دیپلم', 'diploma'], ['کارشناسی', 'bachelor'], ['کارشناسی ارشد', 'masters'], ['دکترا', 'PhD'], ['پزشکی', 'Dr'], ['دندان پزشکی', 'dentist']],
-            caption: ['مدرک', '', 'rent'],
+            caption: ['مدرک', 'Eğitim Durumu', 'Degree'],
         }, 
         ],
     },
@@ -785,14 +801,14 @@ var map = {
             type: 'list',
             input: 'list',
             list: [0, 1, 2, 3, ['&#8734;', 1000]],
-            caption: ['سابقه کاری', '', 'rent'],
+            caption: ['سابقه کاری', 'İş Tecrübesi', 'Academic background'],
         }, 
         {
             name: 'education',
             type: 'list',
             input: 'list',
             list: [['دیپلم', 'diploma'], ['کارشناسی', 'bachelor'], ['کارشناسی ارشد', 'masters'], ['دکترا', 'PhD'], ['پزشکی', 'Dr'], ['دندان پزشکی', 'dentist']],
-            caption: ['مدرک', '', 'rent'],
+            caption: ['مدرک', 'Eğitim Durumu', 'Degree'],
         }, 
         ],
     },
@@ -803,14 +819,14 @@ var map = {
             type: 'list',
             input: 'list',
             list: [0, 1, 2, 3, ['&#8734;', 1000]],
-            caption: ['سابقه کاری', '', 'rent'],
+            caption: ['سابقه کاری', 'İş Tecrübesi', 'Academic background'],
         }, 
         {
             name: 'education',
             type: 'list',
             input: 'list',
             list: [['دیپلم', 'diploma'], ['کارشناسی', 'bachelor'], ['کارشناسی ارشد', 'masters'], ['دکترا', 'PhD'], ['پزشکی', 'Dr'], ['دندان پزشکی', 'dentist']],
-            caption: ['مدرک', '', 'rent'],
+            caption: ['مدرک', 'Eğitim Durumu', 'Degree'],
         }, 
         ],
     },
@@ -821,14 +837,14 @@ var map = {
             type: 'list',
             input: 'list',
             list: [0, 1, 2, 3, ['&#8734;', 1000]],
-            caption: ['سابقه کاری', '', 'rent'],
+            caption: ['سابقه کاری', 'İş Tecrübesi', 'Academic background'],
         }, 
         {
             name: 'education',
             type: 'list',
             input: 'list',
             list: [['دیپلم', 'diploma'], ['کارشناسی', 'bachelor'], ['کارشناسی ارشد', 'masters'], ['دکترا', 'PhD'], ['پزشکی', 'Dr'], ['دندان پزشکی', 'dentist']],
-            caption: ['مدرک', '', 'rent'],
+            caption: ['مدرک', 'Eğitim Durumu', 'Degree'],
         }, 
         ],
     },
@@ -839,14 +855,14 @@ var map = {
             type: 'list',
             input: 'list',
             list: [0, 1, 2, 3, ['&#8734;', 1000]],
-            caption: ['سابقه کاری', '', 'rent'],
+            caption: ['سابقه کاری', 'İş Tecrübesi', 'Academic background'],
         }, 
         {
             name: 'education',
             type: 'list',
             input: 'list',
             list: [['دیپلم', 'diploma'], ['کارشناسی', 'bachelor'], ['کارشناسی ارشد', 'masters'], ['دکترا', 'PhD'], ['پزشکی', 'Dr'], ['دندان پزشکی', 'dentist']],
-            caption: ['مدرک', '', 'rent'],
+            caption: ['مدرک', 'Eğitim Durumu', 'Degree'],
         }, 
         ],
     },
@@ -879,9 +895,9 @@ var map = {
             name: 'price',
             type: 'range',
             input: 'int',
-            from: ['از ', '', 'from'],
-            to: ['تا ', '', 'to'],
-            caption: ['قیمت (لیر)', '', 'rent'],
+            from: ['از', 'En Düşük', 'From'],
+            to: ['تا', 'En Yüksek', 'To'],
+            caption: ['قیمت (لیر)', 'Fiyat', 'Price'],
         }, ],
     },
     'لوازم_آشپزخونه': {
@@ -889,9 +905,9 @@ var map = {
             name: 'price',
             type: 'range',
             input: 'int',
-            from: ['از ', '', 'from'],
-            to: ['تا ', '', 'to'],
-            caption: ['قیمت (لیر)', '', 'rent'],
+            from: ['از', 'En Düşük', 'From'],
+            to: ['تا', 'En Yüksek', 'To'],
+            caption: ['قیمت (لیر)', 'Fiyat', 'Price'],
         }, ],
     },
     'دكوری_و_روشنایی': {
@@ -899,9 +915,9 @@ var map = {
             name: 'price',
             type: 'range',
             input: 'int',
-            from: ['از ', '', 'from'],
-            to: ['تا ', '', 'to'],
-            caption: ['قیمت (لیر)', '', 'rent'],
+            from: ['از', 'En Düşük', 'From'],
+            to: ['تا', 'En Yüksek', 'To'],
+            caption: ['قیمت (لیر)', 'Fiyat', 'Price'],
         }, ],
     },
     'فرش_و_گلیم_و_قالیچه': {
@@ -909,9 +925,9 @@ var map = {
             name: 'price',
             type: 'range',
             input: 'int',
-            from: ['از ', '', 'from'],
-            to: ['تا ', '', 'to'],
-            caption: ['قیمت (لیر)', '', 'rent'],
+            from: ['از', 'En Düşük', 'From'],
+            to: ['تا', 'En Yüksek', 'To'],
+            caption: ['قیمت (لیر)', 'Fiyat', 'Price'],
         }, ],
     },
     'باغچه_و_حیاط': {
@@ -919,9 +935,9 @@ var map = {
             name: 'price',
             type: 'range',
             input: 'int',
-            from: ['از ', '', 'from'],
-            to: ['تا ', '', 'to'],
-            caption: ['قیمت (لیر)', '', 'rent'],
+            from: ['از', 'En Düşük', 'From'],
+            to: ['تا', 'En Yüksek', 'To'],
+            caption: ['قیمت (لیر)', 'Fiyat', 'Price'],
         }, ],
     },
     'سایر_وسایل': {
@@ -929,9 +945,9 @@ var map = {
             name: 'price',
             type: 'range',
             input: 'int',
-            from: ['از ', '', 'from'],
-            to: ['تا ', '', 'to'],
-            caption: ['قیمت (لیر)', '', 'rent'],
+            from: ['از', 'En Düşük', 'From'],
+            to: ['تا', 'En Yüksek', 'To'],
+            caption: ['قیمت (لیر)', 'Fiyat', 'Price'],
         }, ],
     },
 }
@@ -953,10 +969,10 @@ $('body').on('click', '.register', function() {
     $(this).parent().find('input, textarea').each(function() {
         // console.log($(this).attr('id'), $(this).val());
         if ($(this).attr('id') == 'city' && ($(this).val() == '0' || $(this).val() == '')) {
-            janelaPopUp.abre("id", 'p orange alert', 'خطا', 'شهر انتخاب شده مجاز نیست!');
+            janelaPopUp.abre("id", 'p orange alert', sl(['خطا', 'Hata', 'Error']), sl(['شهر انتخاب شده مجاز نیست', 'Seçilen şehre izin verilmiyor', 'Selected city is not active']));
             end = true;
         }
-        if (['price', 'rent', 'deposits'].includes($(this).attr('id'))) {
+        if (['price', 'Rent', 'Deposits'].includes($(this).attr('id'))) {
             data[$(this).attr('id')] = $(this).val().split(',').join('').split('₺').join('');
         } else {
             data[$(this).attr('id')] = $(this).val();
@@ -969,15 +985,15 @@ $('body').on('click', '.register', function() {
     $(this).html(`<i class="material-icons">hourglass_empty</i>`);
     strapi.advertise.create(data).then((buff) => {
         strapi.advertise.image.upload($(this).parent().find('#file')[0], buff.id).then(res => {
-            janelaPopUp.abre("id", 'p green alert', 'انجام شد', 'آگهی با موفقیت ثبت شد!');
-            $(this).html(`ثبت آگهی`);
+            janelaPopUp.abre("id", 'p green alert', sl(['انجام شد', 'Tamam', 'Done']), sl(['آگهی با موفقیت ثبت شد', 'Fotoğraf yükleme sorunu', 'Advertise added successfully']));
+            $(this).html(sl([`ثبت آگهی`, 'İlan ver', 'Submit']));
             setTimeout(function() {
                 window.location = '/';
             }, 1800);
         }).catch(e => {
             console.log(e);
-            janelaPopUp.abre("id", 'p orange alert', 'خطا', 'مشکل در آپلود عکس ها!');
-            $(this).html(`ثبت آگهی`);
+            janelaPopUp.abre("id", 'p orange alert', sl(['خطا', 'Hata', 'Error']), sl(['مشکل در آپلود عکس ها', 'Fotoğraf yükleme sorunu', 'Something went wrong while uploading images']));
+            $(this).html(sl([`ثبت آگهی`, 'İlan ver', 'Submit']));
         });
         $('.select').on('click', '.placeholder', function() {
             var parent = $(this).closest('.select');
@@ -995,8 +1011,8 @@ $('body').on('click', '.register', function() {
         $('.closev').trigger('click');
     }).catch(e => {
         // console.log(e);
-        janelaPopUp.abre("id", 'p orange alert', 'خطا', 'برای ثبت آگهی ابتدا باید وارد شوید!');
-        $(this).html(`ثبت آگهی`);
+        janelaPopUp.abre("id", 'p orange alert', sl(['خطا', 'Hata', 'Error']), sl(['برای ثبت آگهی ابتدا باید وارد شوید', 'Bir İlan vermek için önce giriş yapmalısınız', 'You need to login for adding an advertise']));
+        $(this).html(sl([`ثبت آگهی`, 'İlan ver', 'Submit']));
     });
 });
 
@@ -1014,40 +1030,38 @@ $('body').on('click', '.register-vit', function() {
 
 $('.panel-collapse.collapse a').click(function() {
     let name = $(this).attr('href').split('#')[1];
+    console.log(name);
     let self = this;
     $(this).parent().parent().parent().find('.panel-body').html('');
     $(this).parent().parent().parent().find('.panel-body').append(`
         <input type="hidden" id="class" value="${name}">
         <div class="field">
-            <div class="title">شهر</div>
+            <div class="title">${sl(['شهر', 'İl', 'City'])}</div>
             <div class="select col-md-5">
-                <span class="placeholder">انتخاب شهر</span>
+                <span class="placeholder">${sl(['انتخاب شهر', 'İl Seçenek', 'Select City'])}</span>
                 <ul>
-                    <li data-value="آنكارا">آنكارا </li>
-                    <li data-value="0">استانبول <span class='syel'>(به زودی)</span></li>
-                    <li data-value="0">آنتالیا <span class='syel'>(به زودی)</span></li>
-                    <li data-value="0">دنیزلی <span class='syel'>(به زودی)</span></li>
-                    <li data-value="0">تورونتو  <span class='syel'>(به زودی)</span></li>
-                    <li data-value="0">دوبی   <span class='syel'>(به زودی)</span></li>
-                    <li data-value="0">لندن  <span class='syel'>(به زودی)</span></li>
-                    <li data-value="0">ونكوور  <span class='syel'>(به زودی)</span></li>
-                    <li data-value="0">منچستر  <span class='syel'>(به زودی)</span></li>
-                    <li data-value="0">نیوكاسل  <span class='syel'>(به زودی)</span></li>
-                    <li data-value="0">لیورپول  <span class='syel'>(به زودی)</span></li>
-                    <li data-value="0">ناتینگها  <span class='syel'>(به زودی)</span></li>
-                    <li data-value="0">سیدنی  <span class='syel'>(به زودی)</span></li>
-                    <li data-value="0">ملبورن   <span class='syel'>(به زودی)</span></li>
-                    <li data-value="0">تفلیس  <span class='syel'>(به زودی)</span></li>
+                    <li data-value="آنكارا">${sl(['آنكارا', 'Ankara', 'Ankara'])}</li>
+                    <li data-value="استانبول">${sl(['استانبول', 'Istanbul', 'Istanbul'])}</li>
+                    <li data-value="آنتالیا">${sl(['آنتالیا', 'Antalya', 'Antalya'])}</li>
+                    <li data-value="ازمیر">${sl(['ازمیر', 'Izmin', 'Izmin'])}</li>
+                    <li data-value="0">${sl(['تورونتو', 'Toronto', 'Toronto'])}<span class='syel'>(${sl(['به زودی', 'Yakında', 'Soon'])})</span></li>
+                    <li data-value="0">${sl(['دوبی  ', 'Dubai', 'Dubai'])}<span class='syel'>(${sl(['به زودی', 'Yakında', 'Soon'])})</span></li>
+                    <li data-value="0">${sl(['لندن ', 'London', 'London'])}<span class='syel'>(${sl(['به زودی', 'Yakında', 'Soon'])})</span></li>
+                    <li data-value="0">${sl(['ونكوور ', 'Vancouver', 'Vancouver'])}<span class='syel'>(${sl(['به زودی', 'Yakında', 'Soon'])})</span></li>
+                    <li data-value="0">${sl(['منچستر ', 'Sydney', 'Sydney'])}<span class='syel'>(${sl(['به زودی', 'Yakında', 'Soon'])})</span></li>
+                    <li data-value="0">${sl(['سیدنی ', 'Sydney', 'Sydney'])}<span class='syel'>(${sl(['به زودی', 'Yakında', 'Soon'])})</span></li>
+                    <li data-value="0">${sl(['ملبورن  ', 'Melbourne', 'Melbourne'])}<span class='syel'>(${sl(['به زودی', 'Yakında', 'Soon'])})</span></li>
+                    <li data-value="0">${sl(['تفلیس ', 'Tbilisi', 'Tbilisi'])}<span class='syel'>(${sl(['به زودی', 'Yakında', 'Soon'])})</span></li>
                 </ul>
                 <input type="hidden" required id="city" />
             </div>
             <div class="clear"></div>
         </div>
         <div class="field">
-            <div class="title">عکس آگهی</div>
-            <div class="info">افزودنِ عکس بازدید آگهی شما را تا سه برابر افزایش می‌دهد. عکس هارا به صورت یکجا انتخاب کنید.</div>
+            <div class="title">${sl(['عکس آگهی', 'İlanın Fotoğrafı', 'Advertise images'])}</div>
+            <div class="info">${sl(['افزودنِ عکس بازدید آگهی شما را تا سه برابر افزایش می‌دهد. عکس هارا به صورت یکجا انتخاب کنید.', 'Fotoğraf Eklemek, İlanızın Görünürlüğünü Üç Katına Çıkarır.Fotoğrafları Birlikte Seçiniz. [Multiselect]', 'Adding image triple your advertise view, pick them all once [Multiselect]'])}</div>
             <p class="file">
-                <label for="file" id="upl">افزودن عکس <i class="material-icons">add</i></label>
+                <label for="file" id="upl">${sl(['افزودن عکس', 'Fotoğraf Seçin', 'Select image'])}<i class="material-icons">add</i></label>
                 <input id="file" type="file" multiple>
             </p>
             <div class="upi">
@@ -1058,7 +1072,7 @@ $('.panel-collapse.collapse a').click(function() {
         switch (field.input) {
             case 'int': {
                 let cc = '';
-                if (['price', 'rent', 'deposits'].includes(field.name)) {
+                if (['price', 'Rent', 'Deposits'].includes(field.name)) {
                     cc = "data-type='currency'";
                 }
                 console.log(field, cc);
@@ -1105,47 +1119,59 @@ $('.panel-collapse.collapse a').click(function() {
     });
     $(this).parent().parent().parent().find('.panel-body').append(`
         <div class="field">
-            <div class="title">شمارهٔ موبایل</div>
-            <div class="info">شماره موبایل معتبری وارد کنید تا کاربران بتوانند با شما ارتباط برقرار کنند.</div>
-            <input type="text" id="phone" placeholder="شماره موبایل معتبر">
+            <div class="title">${sl(['شمارهٔ موبایل', 'telefonu numarası', 'Phone number'])}</div>
+            <div class="info">${sl(['شماره موبایل معتبری وارد کنید تا کاربران بتوانند با شما ارتباط برقرار کنند.', 'Geçerli bir cep telefonu numarası girin', 'Enter a valid phone number so user can contact you'])}</div>
+            <input type="text" id="phone" placeholder="${sl(['شماره موبایل معتبر', 'Geçerli cep telefonu numarası', 'Your phone number'])}">
             <div class="clear"></div>
         </div>
         <div class="field">
-            <div class="title">عنوان</div>
-            <div class="info">در عنوان آگهی به موارد مهم و چشمگیر اشاره کنید.</div>
+            <div class="title">${sl(['عنوان', 'Başlık', 'Title'])}</div>
+            <div class="info">${sl(['در عنوان آگهی به موارد مهم و چشمگیر اشاره کنید.', 'İlan Başlığındaki Önemli Noktaları Vurgulayın.', 'Mention important things about your advertise in the title'])}</div>
             <input type="text" id="title" placeholder="...">
             <div class="clear"></div>
         </div>
         <div class="field">
-            <div class="title">توضیحات آگهی</div>
-            <div class="info">جزئیات و نکات قابل توجه آگهی خود را کامل و دقیق بنویسید تا شانس موفقیت آگهی شما بیشتر شود.</div>
+            <div class="title">${sl(['توضیحات آگهی', 'İlanın  Açıklaması', 'Description'])}</div>
+            <div class="info">${sl(['جزئیات و نکات قابل توجه آگهی خود را کامل و دقیق بنویسید تا شانس موفقیت آگهی شما بیشتر شود.', 'İlanınıza En İyi Şansı Vermek İçin Önemli Noktalar ve Detayları Yazınız', 'Type down details and significant features in the description so users can exactly see what you are presenting'])}</div>
             <textarea id="description"></textarea>
             <div class="clear"></div>
         </div>
-        <button class="register" id="submit">ثبت آگهی</button>
-        <button class="register-vip" id="submit">ثبت آگهی ویژه</button>
-        <button class="register-vit" id="submit">ثبت و نمایش در ویترین</button>
+        <button class="register" id="submit">${sl([`ثبت آگهی`, 'İlan ver', 'Submit'])}</button>
+        <button class="register-vip" id="submit">${sl([`ثبن ویژه آگهی`, 'Özel İlan Vermek', 'Submit as special ad'])}</button>
+        <button class="register-vit" id="submit">${sl(['ثبت و نمایش در ویترین', 'Vitrinde İlan Vermek', 'Submit and add to showcase'])}</button>
         <div class="clear"></div>
         <div class="tovip">
-            <p>برای ویژه کردن آگهی باید مبلغ 2500 لیر بپردازید, از لینک زیر وارد درگاه پرداخت خواهید شد :</p>
-            <button class="vipit">پرداخت</button>
+            <p>${sl(['یکی از پکیج های زیر را برای ثبت ویژه آگهی انتخاب کنید  ', 'İlana Özel Kayıt İçin Aşağıdaki Tarifelerden Birini Seçiniz ', 'Select one of the packages to add as special ad '])}: </p>
+            <label class="form-radiolabel col-md-12">
+                <input type="radio" class="form-radio" checked required="" name="itype" value="1">
+                <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">${sl(["يك  روزه ", 'Bir Gün', 'One day'])} (2 ${sl(["لیر", 'Lyra', 'Lear'])})</span>
+            </label>
+            <label class="form-radiolabel col-md-12">
+                <input type="radio" class="form-radio" required="" name="itype" value="3">
+                <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">${sl(["سه  روزه ", 'Üç Gü', 'Three days'])} (5 ${sl(["لیر", 'Lyra', 'Lear'])})</span>
+            </label>
+            <label class="form-radiolabel col-md-12">
+                <input type="radio" class="form-radio" required="" name="itype" value="7">
+                <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">${sl(["هفت  روزه ", 'Yedi Gün', 'Seven days'])} (10 ${sl(["لیر", 'Lyra', 'Lear'])})</span>
+            </label>
+            <button class="vipit">${sl(['پرداخت', 'Şimdi Öde', 'Pay'])}</button>
             <div class="clear"></div>
         </div>
         <div class="tovit">
-            <p>یکی از پکیج های زیر را برای نمایش در ویترین انتخاب کنید : </p>
+            <p>${sl(['یکی از پکیج های زیر را برای نمایش در ویترین انتخاب کنید  ', 'İlana Özel Kayıt İçin Aşağıdaki Tarifelerden Birini Seçiniz ', 'Select one of the packages to add advertise in showcase '])} : </p>
             <label class="form-radiolabel col-md-12">
-                <input type="radio" class="form-radio" checked required="" name="type" value="3">
-                <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">سه روزه (100 لیر)</span>
+                <input type="radio" class="form-radio" checked required="" name="ttype" value="3">
+                <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">${sl(["سه  روزه ", 'Üç Gün', 'Three day'])} (8 ${sl(["لیر", 'Lyra', 'Lear'])})</span>
             </label>
             <label class="form-radiolabel col-md-12">
-                <input type="radio" class="form-radio" required="" name="type" value="5">
-                <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">پنج روزه (400 لیر)</span>
+                <input type="radio" class="form-radio" required="" name="ttype" value="5">
+                <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">${sl(["هفت   روزه ", 'Yedi Gün', 'Seven days'])} (15 ${sl(["لیر", 'Lyra', 'Lear'])})</span>
             </label>
             <label class="form-radiolabel col-md-12">
-                <input type="radio" class="form-radio" required="" name="type" value="7">
-                <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl"> یک هفته (500 لیر)</span>
+                <input type="radio" class="form-radio" required="" name="ttype" value="10">
+                <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">${sl(["ده روزه", 'On Gün', 'Ten days'])} (20 ${sl(["لیر", 'Lyra', 'Lear'])})</span>
             </label>
-            <button class="vitit">پرداخت</button>
+            <button class="vitit">${sl(['پرداخت', 'Şimdi Öde', 'Pay'])}</button>
         </div>
     `);
     // if ($('#upl').length) {
@@ -1168,10 +1194,15 @@ $('.panel-collapse.collapse a').click(function() {
     $("input[data-type='currency']").on({
         keyup: function() {
           formatCurrency($(this));
+          console.log('x');
         },
         blur: function() { 
-          formatCurrency($(this), "blur");
+          // formatCurrency($(this), "blur");
         }
+    });
+    $('body').click(function() {
+        console.log($("input[data-type='currency']"));
+        $("input[data-type='currency']").focusout();
     });
     $('.select').on('click', '.placeholder', function() {
         var parent = $(this).closest('.select');
@@ -1192,8 +1223,15 @@ var cat = null;
 
 $('body').on('click', '.dropdown-selected .dropdown-link', function() {
     cat = null;
+    console.log($($('.dropdown-item.dropdown-selected').find('*')[3]).text().trim());
     if ($($('.dropdown-item.dropdown-selected').find('*')[3]).html() != undefined) {
-        cat = $($('.dropdown-item.dropdown-selected').find('*')[3]).html().trim().split('،').join('').split(' ').join('_').split('__').join('_');
+        if (lang == 0) {
+            cat = $($('.dropdown-item.dropdown-selected').find('*')[3]).text().trim().split('،').join('').split(' ').join('_').split('__').join('_');
+        } else if (lang == 1) {
+            cat = cd[$($('.dropdown-item.dropdown-selected').find('*')[3]).text().trim()].trim().split('،').join('').split(' ').join('_').split('__').join('_');
+        } else {
+            cat = ce[$($('.dropdown-item.dropdown-selected').find('*')[3]).text().trim()].trim().split('،').join('').split(' ').join('_').split('__').join('_');
+        }
         // $('.attrs').slideDown(100);
     }
 });
@@ -1225,7 +1263,7 @@ $('.adv .view').click(function(e) {
 });
 $(function() {
     $('.cat select,.cat ul').dropdown({
-        toggleText: "همه ی آگهی ها",
+        toggleText: sl(["همه ی آگهی ها", "Tum İlanler", "All Advertises"]),
         nested: true
     });
 });
@@ -1372,12 +1410,19 @@ var fads = {};
 $('#adv .search').click(function() {
     // $('.attrs').html('');
     if ($('#city').val() == "" || $('#city').val() == "0") {
-        janelaPopUp.abre("id", 'p orange alert', 'خطا', 'شهر انتخاب شده مجاز نیست!');
+        janelaPopUp.abre("id", 'p orange alert', sl(['خطا', 'Hata', 'Error']), sl(['شهر انتخاب شده مجاز نیست', 'Seçilen şehre izin verilmiyor', 'Selected city is not active']));
         return false;
     }
     let name = null
     if ($($('.dropdown-item.dropdown-selected').find('*')[3]).html() != undefined) {
-        name = $($('.dropdown-item.dropdown-selected').find('*')[3]).html().trim().split('،').join('').split(' ').join('_').split('__').join('_');
+        console.log($($('.dropdown-item.dropdown-selected').find('*')[3]).text().trim())
+        if (lang == 0) {
+            name = $($('.dropdown-item.dropdown-selected').find('*')[3]).text().trim().split('،').join('').split(' ').join('_').split('__').join('_');
+        } else if (lang == 1) {
+            name = cd[$($('.dropdown-item.dropdown-selected').find('*')[3]).text().trim()].trim().split('،').join('').split(' ').join('_').split('__').join('_');
+        } else {
+            name = ce[$($('.dropdown-item.dropdown-selected').find('*')[3]).text().trim()].trim().split('،').join('').split(' ').join('_').split('__').join('_');
+        }
     }
     let city = $('#city').val();
     let data = {
@@ -1411,7 +1456,7 @@ $('#adv .search').click(function() {
                 switch (field.type) {
                     case 'range': {
                         let tp = 'type="text"';
-                        if (['price', 'rent', 'deposits'].includes(field.name)) {
+                        if (['price', 'Rent', 'Deposits'].includes(field.name)) {
                             tp = `type="number" step="100000" min="0"`
                         }
                         var element = $(`
@@ -1556,7 +1601,7 @@ $('#adv .search').click(function() {
             // $('.features').fadeOut(100);
             $('.adv').html(`
                 <div class="cross-line rsa">
-                    <span>نتایج جستوجوی آگهی</span>
+                    <span>${sl(['نتایج جستوجوی آگهی', 'İlan başarıyla kaydedildi', 'Advertise result search'])}</span>
                 </div>
             `)
             results.forEach(function(ad) {
@@ -1571,10 +1616,10 @@ $('#adv .search').click(function() {
                             <div class="description">
                                 <h1>${data.title}</h1>
                                 <h2>${timeSince(new Date(data.created_at).getTime())}</h2>
-                                <h2><span class='ct'>دسته بندی </span> : ${data.class.split('_').join(' ')}</h2>
+                                <h2><span class='ct'>${sl(['دسته بندی ', 'Kategori ', 'Category '])}</span> : ${data.class.split('_').join(' ')}</h2>
                                 <p class="read-more">
-                                    <a data-id='${ad.id}'class="view" href="#">مشاهده</a>
-                                    ${(ad.vip) ? `<p data-id='${ad.id}'class="vip">ویژه</p>` : ''}
+                                    <a data-id='${ad.id}'class="view" href="#">${sl(['مشاهده', 'İncele', 'View'])}</a>
+                                    ${(ad.vip) ? `<p data-id='${ad.id}'class="vip">${sl(['ویژه', 'özel', 'Special'])}</p>` : ''}
                                 </p>
                             </div>
                         </div>
@@ -1584,12 +1629,12 @@ $('#adv .search').click(function() {
             $([document.documentElement, document.body]).animate({
                 scrollTop: $(".cross-line").offset().top - 100
             }, 600);
-            $('#adv .search').html(`جستوجو...`);
+            $('#adv .search').html(sl([`جستوجو...`, 'Ara...', 'Search...']));
         } else {
             $(".fsi").fadeOut(100);
-            $('#adv .search').html(`جستوجو...`);
+            $('#adv .search').html(sl([`جستوجو...`, 'Ara...', 'Search...']));
             $('.attrs').slideUp(100);
-            janelaPopUp.abre("id", 'p blue alert', 'خطا', 'نتیجه ای یافت نشد!');
+            janelaPopUp.abre("id", 'p blue alert', sl(['خطا', 'Hata', 'Error']), sl(['نتیجه ای یافت نشد', 'Sonuç bulunamadı', 'No result found ']));
         }
     });
     //    fads = {};
@@ -1653,8 +1698,8 @@ $('#adv .search').click(function() {
 
 $('#addv').click(function(e) {
     if (user == null) {
-        janelaPopUp.abre("id", 'p orange alert', 'خطا', 'برای ثبت آگهی ابتدا باید وارد شوید!');
-        $(this).html(`ثبت آگهی`);
+        janelaPopUp.abre("id", 'p orange alert', sl(['خطا', 'Hata', 'Error']), sl(['برای ثبت آگهی ابتدا باید وارد شوید', 'Bir İlan vermek için önce giriş yapmalısınız', 'You need to login for adding an advertise']));
+        $(this).html(sl([`ثبت آگهی`, 'İlan ver', 'Submit']));
         return false;
     }
     e.preventDefault();
@@ -1669,9 +1714,9 @@ $('.closev').click(function(e) {
 });
 
 $('body').on('click', '.view', async function(e) {
-    $('.cp').html('کپی');
+    $('.cp').html(sl(['کپی', 'Kopya', 'Copy']));
     e.preventDefault();
-    $('.advl .mark').html('نشان کردن');
+    $('.advl .mark').html(sl(['نشان  شده', 'Favori', 'Mark']));
     $('.advl .mark').attr('data-type', 'mark');
     $('html').css('overflow-y', 'hidden');
     console.log(strapi.advertise);
@@ -1679,7 +1724,7 @@ $('body').on('click', '.view', async function(e) {
     let data = ad;
     if (user != null) {
         if (user.marks.map(ad => ad.id).includes(ad.id)) {
-            $('.advl .mark').html('نشان شده');
+            $('.advl .mark').html(sl(['نشان شده', 'Favorilerine Eklendi', 'Marked']));
             $('.advl .mark').attr('data-type', 'marked');
         }
     }
@@ -1729,7 +1774,7 @@ $('body').on('click', '.view', async function(e) {
     for (let t in map.dic) {
         // console.log(t, ' : ', data[t]);
         if (data[t] != undefined) {
-            if (['price', 'rent', 'deposits'].includes(t)) {
+            if (['price', 'Rent', 'Deposits'].includes(t)) {
                 data[t] = parseInt(data[t]).format() + ' ₺';
             }
             if (t == 'class') {
@@ -1754,46 +1799,42 @@ $('.message a').click(function() {
 });
 
 $('.soon').click(function(e) {
-    janelaPopUp.abre("id", 'p purple alert', 'به زودی', 'به زودی این بخش راه اندازی خواهد شد!');
+    janelaPopUp.abre("id", 'p purple alert', sl(['به زودی', 'Yakında', 'Soon']), sl(['به زودی این بخش راه اندازی خواهد شد', 'Yakında açılacak', 'This section is under construction']));
 });
 
 $('.cp').click(function() {
-    $('.cp').html('کپی شد')
+    $('.cp').html(sl(['کپی شد', 'Kopyalandı', 'Copied']))
     copyToClipboard($(".tp").get(0));
 });
 
 // jQuery(document).trigger("enhance");
 
-const wrapper = document.getElementsByClassName('wrapper');
-const button = document.getElementById('click');
-const button2 = document.getElementById('click2');
+// const wrapper = document.getElementsByClassName('wrapper');
+// const button = document.getElementById('click');
+// const button2 = document.getElementById('click2');
 
-button.addEventListener('click', clicked);
-button2.addEventListener('click', clicked2);
-let scroll = 0;
+// button.addEventListener('click', clicked);
+// button2.addEventListener('click', clicked2);
+// let scroll = 0;
+// $(wrapper[0]).animate({'scrollLeft': scroll}, 'slow');
 
-wrapper[0].addEventListener("scroll", function (event) {
-  scroll = wrapper[0].scrollLeft;
-});
+// wrapper[0].addEventListener("scroll", function (event) {
+//   scroll = wrapper[0].scrollLeft;
+// });
 
-function clicked () {
-  // scroll = scroll += ($('.wrapper').get(0).scrollWidth - $('.wrapper').width()) / 5;
-  scroll = scroll += 250 / 2;
-  wrapper[0].scrollTo({
-    left: scroll,
-    behavior: 'smooth'
-  });
-  scroll = wrapper[0].scrollLeft + 50;
-}
+// function clicked () {
+//   // scroll = scroll += ($('.wrapper').get(0).scrollWidth - $('.wrapper').width()) / 5;
+//   scroll = scroll += 250 / 2;
+//     $(wrapper[0]).animate({'scrollLeft': scroll}, 'slow');
+//   scroll = wrapper[0].scrollLeft + 50;
+//   console.log(wrapper[0].scrollLeft);
+// }
 
-function clicked2 () {
-  scroll = scroll -= 250 / 2;
-  wrapper[0].scrollTo({
-    left: scroll, 
-    behavior: 'smooth' 
-  });
-  scroll = wrapper[0].scrollLeft + 50;
-}
+// function clicked2 () {
+//   scroll = scroll -= 250 / 2;
+//     $(wrapper[0]).animate({'scrollLeft': scroll}, 'slow');
+//   scroll = wrapper[0].scrollLeft + 50;
+// }
 
 $('.gci').click(function() {
     $('.uinf').slideDown(300);
@@ -1812,26 +1853,24 @@ $('.mark').click(function() {
     if (user != null) {
         if (t == 'mark') {
             strapi.advertise.mark(addid).then(function(e) {
-                $('.advl .mark').html('نشان  شده');
+                $('.advl .mark').html(sl(['نشان  شده', 'Favorilerine Eklendi', 'Marked']));
                 $('.advl .mark').attr('data-type', 'marked');
             });
         } else {
             strapi.advertise.unmark(addid).then(function(e) {
-                $('.advl .mark').html('نشان کردن');
+                $('.advl .mark').html(sl(['نشان  کردن', 'Favori', 'Mark']));
                 $('.advl .mark').attr('data-type', 'mark');
             });
         }
     } else {
-        janelaPopUp.abre("id", 'p orange alert', 'خطا', 'برای نشان کردن آگهی ابتدا باید وارد شوید!');
+        janelaPopUp.abre("id", 'p orange alert', sl(['خطا', 'Hata', 'Error']), sl(['برای نشان کردن آگهی ابتدا باید وارد شوید', 'İlan favori kaydetemk için önce giriş yapmalısınız', 'You need to login for marking an advertise']));
     }
 });
-
 
 function formatNumber(n) {
   // format number 1000000 to 1,234,567
   return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 }
-
 
 function formatCurrency(input, blur) {
   // appends $ to value, validates decimal side
@@ -1917,9 +1956,10 @@ $('.wrapper').mouseleave(function() {
 $('.wrapper').stop().animate({scrollLeft:0}, 800, 'swing', function() { 
 });
 function vits() {
-    let sw = $('.wrapper').get(0).scrollWidth;
-    let sp = $('.wrapper').scrollLeft();
-    if (Math.abs(($('.wrapper').get(0).scrollWidth - $('.wrapper').width()) - $('.wrapper').scrollLeft()) < 10) {
+    let sw = wrapper[0].scrollWidth;
+    let sp = wrapper[0].scrollLeft;
+    console.log(sw, sp, Math.abs((sw - $('.wrapper').width()) - sp));
+    if (Math.abs((sw - $('.wrapper').width()) - sp) < 50) {
         $('.wrapper').stop().animate({scrollLeft:0}, 800, 'swing', function() { 
         });
     }
@@ -1931,7 +1971,7 @@ function vits() {
     }, 3000);
 }
 
-vits();
+// vits();
 
 $(".vc").click(function() {
     $('.pc .vt').fadeOut(300);
@@ -1949,4 +1989,35 @@ $('body').on('click', '.dvit', function() {
     let id = $(this).attr('data-id');
     $('.pc').fadeIn(300);
     $('.pc .vt').fadeIn(300);
+});
+
+// $(document).ready(function () {
+//     $('#carousel-example').carousel({
+//         // interval: 1200,
+//         // cycle: true 
+//     });
+// });
+
+$('.rmo').click(function(e) {
+    e.preventDefault();
+    if ($('.ds').hasClass('col-md-12')) {
+        $(this).html('بیشتر');
+        if ($(window).width() < 700){
+            $('#au').addClass('lh');
+        }
+        $('.ds').toggleClass('col-md-12');
+        setTimeout(function() {
+            $('.ts').fadeToggle(500);
+        }, 500);
+    } else {
+        $(this).html('کمتر');
+        $('.ts').fadeToggle(500);
+        setTimeout(function() {
+            if ($(window).width() < 700){
+                $('#au').removeClass('lh');
+            }
+            $('.ds').toggleClass('col-md-12');
+        }, 500);
+    }
+
 });
