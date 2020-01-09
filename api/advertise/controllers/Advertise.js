@@ -78,10 +78,12 @@ module.exports = {
                 const { data, files } = parseMultipartData(ctx);
                 data.active = true // should be false
                 data.user = ctx.state.user.id
+                delete data.images
                 entity = await strapi.services.advertise.create(data, { files });
             } else {
                 ctx.request.body.active = true // should be false
                 ctx.request.body.user = ctx.state.user.id
+                delete ctx.request.body.images
                 entity = await strapi.services.advertise.create(ctx.request.body);
             }
             return sanitizeEntity(entity, { model: strapi.models.advertise });
@@ -95,10 +97,12 @@ module.exports = {
             ctx.params.user = ctx.state.user.id
             if (ctx.is('multipart')) {
                 const { data, files } = parseMultipartData(ctx);
+                delete data.images
                 entity = await strapi.services.advertise.update(ctx.params, data, {
                     files,
                 });
             } else {
+                delete ctx.request.body.images
                 entity = await strapi.services.advertise.update(
                     ctx.params,
                     ctx.request.body
@@ -127,14 +131,19 @@ module.exports = {
             const entity = await strapi.services.advertise.findOne({id: ctx.params.ad});
             const images = entity.images.map(img => img.id)
             if(images.includes(ctx.params.image)) {
-                await strapi.services.advertise.update({images: images.filter(id => id != ctx.params.image)})
+                await strapi.services.advertise.update({ id: ctx.params.ad }, { images: images.filter(id => id != ctx.params.image) })
                 let image = await strapi.query('file', 'upload').delete({ id: ctx.params.image })
-                return await strapi.services.advertise.findOne({id: ctx.params.ad});
+                return await strapi.services.advertise.findOne({ id: ctx.params.ad });
             } else {
                 return ctx.forbidden(`Image does not belong to your ad!`)
             }
         } else {
             return ctx.unauthorized(`You're not logged in!`);
         }
+    },
+
+    async verifyImage(ctx) { // GET advertises/verifyImage/:id
+        const entity = await strapi.services.advertise.findOne({id: ctx.params.id})
+        return await strapi.services.advertise.update({ id: ctx.params.id }, { hasImage: entity && entity.images && entity.images.length > 0 })
     }
 };

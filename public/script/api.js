@@ -111,9 +111,14 @@
                 // }
 
                 // update an ad by id
-                if(data.images instanceof Array) {
-                    data.hasImage = data.images.length > 0
-                }
+                // if(data.images instanceof Array) {
+                //     data.hasImage = data.images.length > 0
+                // }
+                ///////
+                delete data.images
+                data.hasImage = false
+                ///////
+                
                 return await fetch(`/advertises/${adId}`, strapi.auth({
                   method: "PUT",
                   headers: { "Content-Type": "application/json" },
@@ -129,7 +134,7 @@
             image: {
 
                 async delete(adId, imgId) {
-                    // delete an ad by id
+                    // delete an adImage by id
                     fetch(`/advertises/${adId}/image/${imgId}`, strapi.auth({
                         method: "DELETE"
                     })).then(r=>r.json())
@@ -139,7 +144,7 @@
                     // get photos like this:
                     // const photos = document.getElementById('image_file_input')
                     // const photos = document.querySelector('input[type="file"][multiple]');
-                    
+                    if(photos.files.length < 1) return;
                     // upload images
                     const formData = new FormData()
                     formData.append('ref', 'advertise')
@@ -148,18 +153,21 @@
                     for (let i = 0; i < photos.files.length; i++) {
                         formData.append('files', photos.files[i])
                     }
-                    if(photos.files.length > 0) {
-                        try {
-                            await strapi.advertise.update({ hasImage: true }, adId)
-                        } catch(err) {
-                            throw err
-                            return err
-                        }
-                    }
+                    
                     return await fetch('/upload', strapi.auth({
                         method: 'POST',
                         body: formData
-                    })).then(r=>r.json())
+                    })).then(r=>r.json()).then(async r => {
+                        if(photos.files.length > 0) {
+                            try {
+                                // await strapi.advertise.update({ hasImage: true }, adId)
+                                await fetch(`/advertises/verifyImage/${adId}`, strapi.auth())
+                            } catch(err) {
+                                throw err
+                                return err
+                            }
+                        }
+                    })
                 },
             },
             async mark(adId) {

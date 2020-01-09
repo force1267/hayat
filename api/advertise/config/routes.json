@@ -71,6 +71,14 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "GET",
+      "path": "/advertises/verifyImage/:id",
+      "handler": "Advertise.verifyImage",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }
