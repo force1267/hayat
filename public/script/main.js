@@ -5,8 +5,10 @@ Number.prototype.format = function(n, x) {
     return this.toFixed(Math.max(0, ~~n)).replace(new RegExp(re, 'g'), '$&,');
 };
 
-var cd = {"Diğer Hizmetleri": "سایر خدمات", "Satılık Konut":"فروشی مسکونی","Kiralık Konut":"اجاره مسکونی","Satılık İşyeri":"فروش تجاری","Kiralık İşyeri":"اجاره تجاری","Otomobil":"خودرو","Otomobil Ekipmanları":"لوازم یدكی خودرو","Motosiklet ve Ekipmanları":"موتور سیکلت و لوازم یدکی","Bilgisayar ve Notebook":"لپتاپ و كامپیوتر","Fotoğraf & Kamera":"دوربین فیلم برداری و عكاسی و ملزومات","Televizyon ve Ses Sistemleri":"صوتی و تصویری","Oyun & Konsol":"كنسول بازی و ملزومات","Cep Telefonu & Tablet":"موبایل و تبلت و ملزومات","Diğer Her Şey":"سایر وسایل","Mobilya ,Ev Dekorasyon":"مبلمان ، وسایل و تزئینات خانه","Mutfak Gereçleri":"لوازم آشپزخونه","Dekoratif Ürünler":"دكوری و روشنایی","Halı":"فرش و گلیم و قالیچه","Bahçe":"باغچه و حیاط","Aşçi & Fırın Ustası":"آشپز و شیرینی پز","Temizlik":"نظافت","İnşaat ve Yapı":"عمران ، ساختمانی و معماری","Servis Elemanı":"خدمات، رستوران و فروشگاه","Hukuki , Finans ve Bankacılık":"حسابداری ، مالی ، حقوقی","Eğitim":"آموزش","Medya ,Dijital Marketing , Grafist":"رسانه و ماركتینگ و گرافیست","Pazarlama ve Ürün Yönetimi":"بازاریابی و فروش","Hastane İle İlgili":"درمانی ، زیبایی و بهداشتی","Bilgisayar ve İT":"رایانه و IT","Taşıma":"حمل و نقل","Mühendislik":"صنعت و مهندسی","Göç":"مهاجرتی","Döviz":"صرافی","Kuaför":"آرایشگری","Web Sitesi Tasarımı":"طراحی سایت و شبكه","Tercuman":"ترجمه","Tamirat":"تعمیرات","Kiralık Araç":"اجاره خودرو"}
-var ce = {"Residential for sale":"فروشی مسکونی","Residential rental":"اجاره مسکونی","Commercial for sale":"فروش تجاری","Commercial rental":"اجاره تجاری","Car":"خودرو","Spare parts for cars":"لوازم یدكی خودرو","Motorcycle and parts":"موتور سیکلت و لوازم یدکی","Laptop and PC":"لپتاپ و كامپیوتر","Camcorder & Photography & Essentials & Photography & Essentials":"دوربین فیلم برداری و عكاسی و ملزومات","Video and Video and Audio":"صوتی و تصویری","Game consoles":"كنسول بازی و ملزومات","Mobile & Tablet & Accessories & Tablet & Accessories":"موبایل و تبلت و ملزومات","Other electronic devices":"سایر لوازم الكترونیكی","Home furniture, fixtures and decorations":"مبلمان ، وسایل و تزئینات خانه","Kitchen Accessories":"لوازم آشپزخونه","Decoration and lighting":"دكوری و روشنایی","Carpets and rugs":"فرش و گلیم و قالیچه","Garden and yard":"باغچه و حیاط","Other Items":"سایر وسایل","Chef and confectioner":"آشپز و شیرینی پز","Cleaning":"نظافت","Civil, building and architecture":"عمران ، ساختمانی و معماری","Services, restaurants and shops":"خدمات، رستوران و فروشگاه","Accounting, Finance, Legal":"حسابداری ، مالی ، حقوقی","Education":"آموزش","Media & Marketing & Graphic Designer":"رسانه و ماركتینگ و گرافیست","Marketing and Sales":"بازاریابی و فروش","Therapeutic, Beauty and Health":"درمانی ، زیبایی و بهداشتی","IT and Computers":"رایانه و IT","Transportation":"حمل و نقل","Industry and Engineering":"صنعت و مهندسی","Travel":"مهاجرتی","Currency Exchange":"صرافی","Makeup":"آرایشگری","Web site design & Networks":"طراحی سایت و شبكه","Translation":"ترجمه","Repairs":"تعمیرات","Car rental":"اجاره خودرو","Other services":"سایر خدمات"}
+var locations = ['/', '/tr', '/en'];
+
+var cd = {"Diğer Hizmetleri": "سایر خدمات", "Satılık Konut":"فروشی مسکونی","Kiralık Konut":"اجاره مسکونی","Satılık İşyeri":"فروشی تجاری","Kiralık İşyeri":"اجاره تجاری","Otomobil":"خودرو","Otomobil Ekipmanları":"لوازم یدكی خودرو","Motosiklet ve Ekipmanları":"موتور سیکلت و لوازم یدکی","Bilgisayar ve Notebook":"لپتاپ و كامپیوتر","Fotoğraf & Kamera":"دوربین فیلم برداری و عكاسی و ملزومات","Televizyon ve Ses Sistemleri":"صوتی و تصویری","Oyun & Konsol":"كنسول بازی و ملزومات","Cep Telefonu & Tablet":"موبایل و تبلت و ملزومات","Diğer Her Şey":"سایر وسایل","Mobilya ,Ev Dekorasyon":"مبلمان ، وسایل و تزئینات خانه","Mutfak Gereçleri":"لوازم آشپزخونه","Dekoratif Ürünler":"دكوری و روشنایی","Halı":"فرش و گلیم و قالیچه","Bahçe":"باغچه و حیاط","Aşçi & Fırın Ustası":"آشپز و شیرینی پز","Temizlik":"نظافت","İnşaat ve Yapı":"عمران ، ساختمانی و معماری","Servis Elemanı":"خدمات، رستوران و فروشگاه","Hukuki , Finans ve Bankacılık":"حسابداری ، مالی ، حقوقی","Eğitim":"آموزش","Medya ,Dijital Marketing , Grafist":"رسانه و ماركتینگ و گرافیست","Pazarlama ve Ürün Yönetimi":"بازاریابی و فروش","Hastane İle İlgili":"درمانی ، زیبایی و بهداشتی","Bilgisayar ve İT":"رایانه و IT","Taşıma":"حمل و نقل","Mühendislik":"صنعت و مهندسی","Göç":"مهاجرتی","Döviz":"صرافی","Kuaför":"آرایشگری","Web Sitesi Tasarımı":"طراحی سایت و شبكه","Tercuman":"ترجمه","Tamirat":"تعمیرات","Kiralık Araç":"اجاره خودرو"}
+var ce = {"Residential for sale":"فروشی مسکونی","Residential rental":"اجاره مسکونی","Commercial for sale":"فروشی تجاری","Commercial rental":"اجاره تجاری","Car":"خودرو","Spare parts for cars":"لوازم یدكی خودرو","Motorcycle and parts":"موتور سیکلت و لوازم یدکی","Laptop and PC":"لپتاپ و كامپیوتر","Camcorder & Photography & Essentials & Photography & Essentials":"دوربین فیلم برداری و عكاسی و ملزومات","Video and Video and Audio":"صوتی و تصویری","Game consoles":"كنسول بازی و ملزومات","Mobile & Tablet & Accessories & Tablet & Accessories":"موبایل و تبلت و ملزومات","Other electronic devices":"سایر لوازم الكترونیكی","Home furniture, fixtures and decorations":"مبلمان ، وسایل و تزئینات خانه","Kitchen Accessories":"لوازم آشپزخونه","Decoration and lighting":"دكوری و روشنایی","Carpets and rugs":"فرش و گلیم و قالیچه","Garden and yard":"باغچه و حیاط","Other Items":"سایر وسایل","Chef and confectioner":"آشپز و شیرینی پز","Cleaning":"نظافت","Civil, building and architecture":"عمران ، ساختمانی و معماری","Services, restaurants and shops":"خدمات، رستوران و فروشگاه","Accounting, Finance, Legal":"حسابداری ، مالی ، حقوقی","Education":"آموزش","Media & Marketing & Graphic Designer":"رسانه و ماركتینگ و گرافیست","Marketing and Sales":"بازاریابی و فروش","Therapeutic, Beauty and Health":"درمانی ، زیبایی و بهداشتی","IT and Computers":"رایانه و IT","Transportation":"حمل و نقل","Industry and Engineering":"صنعت و مهندسی","Travel":"مهاجرتی","Currency Exchange":"صرافی","Makeup":"آرایشگری","Web site design & Networks":"طراحی سایت و شبكه","Translation":"ترجمه","Repairs":"تعمیرات","Car rental":"اجاره خودرو","Other services":"سایر خدمات"}
 
 function sl(s) {
     return s[lang];
@@ -323,8 +325,8 @@ var map = {
         'areaOfBuilding': ['متراژ', '㎡', 'Area of building'],
         'ageOfBuilding': ['سن ساختمان', 'Bina Yaşı', 'Age of building'],
         'numberOfRooms': ['تعداد اتاق', 'Oda Sayısı', 'Number of rooms'],
-        'Deposits': ['ودیعه', 'Depozito', 'Deposit'],
-        'Rent': ['اجاره', 'Kira', 'Rent'],
+        'deposits': ['ودیعه', 'Depozito', 'Deposit'],
+        'rent': ['اجاره', 'Kira', 'Rent'],
         'manufacturer': ['سازنده', 'Marka', 'Brand'],
         'kilometers': ['کارکرد', 'KM', 'KM'],
         'workExperience': ['سابقه کاری', 'İş Tecrübesi', 'Work background'],
@@ -415,7 +417,7 @@ var map = {
                 caption: ['تعداد اتاق', 'Oda Sayısı', 'Number of rooms'],
             },
             {
-                name: 'Deposits',
+                name: 'deposits',
                 type: 'range',
                 input: 'int',
                 from: ['از', 'En Düşük', 'From'],
@@ -423,7 +425,7 @@ var map = {
                 caption: ['ودیعه (لیر)', 'Depozito', 'Deposits'],
             },
             {
-                name: 'Rent',
+                name: 'rent',
                 type: 'range',
                 input: 'int',
                 from: ['از', 'En Düşük', 'From'],
@@ -500,7 +502,7 @@ var map = {
                 caption: ['تعداد اتاق', 'Oda Sayısı', 'Number of rooms'],
             },
             {
-                name: 'Deposits',
+                name: 'deposits',
                 type: 'range',
                 input: 'int',
                 from: ['از', 'En Düşük', 'From'],
@@ -508,7 +510,7 @@ var map = {
                 caption: ['ودیعه (لیر)', 'Depozito', 'Deposits'],
             },
             {
-                name: 'Rent',
+                name: 'rent',
                 type: 'range',
                 input: 'int',
                 from: ['از', 'En Düşük', 'From'],
@@ -972,7 +974,7 @@ $('body').on('click', '.register', function() {
             janelaPopUp.abre("id", 'p orange alert', sl(['خطا', 'Hata', 'Error']), sl(['شهر انتخاب شده مجاز نیست', 'Seçilen şehre izin verilmiyor', 'Selected city is not active']));
             end = true;
         }
-        if (['price', 'Rent', 'Deposits'].includes($(this).attr('id'))) {
+        if (['price', 'rent', 'deposits'].includes($(this).attr('id'))) {
             data[$(this).attr('id')] = $(this).val().split(',').join('').split('₺').join('');
         } else {
             data[$(this).attr('id')] = $(this).val();
@@ -988,7 +990,7 @@ $('body').on('click', '.register', function() {
             janelaPopUp.abre("id", 'p green alert', sl(['انجام شد', 'Tamam', 'Done']), sl(['آگهی با موفقیت ثبت شد', 'Fotoğraf yükleme sorunu', 'Advertise added successfully']));
             $(this).html(sl([`ثبت آگهی`, 'İlan ver', 'Submit']));
             setTimeout(function() {
-                window.location = '/';
+                window.location = locations[lang];
             }, 1800);
         }).catch(e => {
             console.log(e);
@@ -1059,7 +1061,7 @@ $('.panel-collapse.collapse a').click(function() {
         </div>
         <div class="field">
             <div class="title">${sl(['عکس آگهی', 'İlanın Fotoğrafı', 'Advertise images'])}</div>
-            <div class="info">${sl(['افزودنِ عکس بازدید آگهی شما را تا سه برابر افزایش می‌دهد. عکس هارا به صورت یکجا انتخاب کنید.', 'Fotoğraf Eklemek, İlanızın Görünürlüğünü Üç Katına Çıkarır.Fotoğrafları Birlikte Seçiniz. [Multiselect]', 'Adding image triple your advertise view, pick them all once [Multiselect]'])}</div>
+            <div class="info">${sl(['افزودنِ عکس بازدید آگهی شما را تا سه برابر افزایش می‌دهد. عکس هارا به صورت یکجا انتخاب کنید.', 'Fotoğraf Eklemek, İlanızın Görünürlüğünü Üç Katına Çıkarır.Fotoğrafları Birlikte Seçiniz.', 'Adding image triple your advertise view, pick them all once'])}</div>
             <p class="file">
                 <label for="file" id="upl">${sl(['افزودن عکس', 'Fotoğraf Seçin', 'Select image'])}<i class="material-icons">add</i></label>
                 <input id="file" type="file" multiple>
@@ -1072,7 +1074,7 @@ $('.panel-collapse.collapse a').click(function() {
         switch (field.input) {
             case 'int': {
                 let cc = '';
-                if (['price', 'Rent', 'Deposits'].includes(field.name)) {
+                if (['price', 'rent', 'deposits'].includes(field.name)) {
                     cc = "data-type='currency'";
                 }
                 console.log(field, cc);
@@ -1137,12 +1139,12 @@ $('.panel-collapse.collapse a').click(function() {
             <div class="clear"></div>
         </div>
         <button class="register" id="submit">${sl([`ثبت آگهی`, 'İlan ver', 'Submit'])}</button>
-        <button class="register-vip" id="submit">${sl([`ثبن ویژه آگهی`, 'Özel İlan Vermek', 'Submit as special ad'])}</button>
+        <button class="register-vip" id="submit">${sl([`ثبت ویژه آگهی`, 'Özel İlan Vermek', 'Submit as special ad'])}</button>
         <button class="register-vit" id="submit">${sl(['ثبت و نمایش در ویترین', 'Vitrinde İlan Vermek', 'Submit and add to showcase'])}</button>
         <div class="clear"></div>
         <div class="tovip">
             <p>${sl(['یکی از پکیج های زیر را برای ثبت ویژه آگهی انتخاب کنید  ', 'İlana Özel Kayıt İçin Aşağıdaki Tarifelerden Birini Seçiniz ', 'Select one of the packages to add as special ad '])}: </p>
-            <label class="form-radiolabel col-md-12">
+            <label class="form-radiolabel col-md-12">xxx
                 <input type="radio" class="form-radio" checked required="" name="itype" value="1">
                 <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">${sl(["يك  روزه ", 'Bir Gün', 'One day'])} (2 ${sl(["لیر", 'Lyra', 'Lear'])})</span>
             </label>
@@ -1435,7 +1437,7 @@ $('#adv .search').click(function() {
         data['hasImage'] = true;     
     }
     if ($('#ivip:checked').length) {
-        data['vip'] = true;     
+        data['vip'] > 0;     
     }
     if (city != "") {
         data['city'] = city;
@@ -1456,7 +1458,7 @@ $('#adv .search').click(function() {
                 switch (field.type) {
                     case 'range': {
                         let tp = 'type="text"';
-                        if (['price', 'Rent', 'Deposits'].includes(field.name)) {
+                        if (['price', 'rent', 'deposits'].includes(field.name)) {
                             tp = `type="number" step="100000" min="0"`
                         }
                         var element = $(`
@@ -1601,7 +1603,7 @@ $('#adv .search').click(function() {
             // $('.features').fadeOut(100);
             $('.adv').html(`
                 <div class="cross-line rsa">
-                    <span>${sl(['نتایج جستوجوی آگهی', 'İlan başarıyla kaydedildi', 'Advertise result search'])}</span>
+                    <span>${sl(['نتایج جستجوی آگهی', 'İlan başarıyla kaydedildi', 'Advertise result search'])}</span>
                 </div>
             `)
             results.forEach(function(ad) {
@@ -1629,10 +1631,10 @@ $('#adv .search').click(function() {
             $([document.documentElement, document.body]).animate({
                 scrollTop: $(".cross-line").offset().top - 100
             }, 600);
-            $('#adv .search').html(sl([`جستوجو...`, 'Ara...', 'Search...']));
+            $('#adv .search').html(sl([`جستجو...`, '...Ara', '...Search']));
         } else {
             $(".fsi").fadeOut(100);
-            $('#adv .search').html(sl([`جستوجو...`, 'Ara...', 'Search...']));
+            $('#adv .search').html(sl([`جستجو...`, '...Ara', '...Search']));
             $('.attrs').slideUp(100);
             janelaPopUp.abre("id", 'p blue alert', sl(['خطا', 'Hata', 'Error']), sl(['نتیجه ای یافت نشد', 'Sonuç bulunamadı', 'No result found ']));
         }
@@ -1667,7 +1669,7 @@ $('#adv .search').click(function() {
     //                $('.features').fadeOut(100);
     //                $('.adv').html(`
     //                    <div class="cross-line">
-    //                        <span>نتایج جستوجوی آگهی</span>
+    //                        <span>نتایج جستجوی آگهی</span>
     //                    </div>
     //                `)
     //                rs.forEach(function(ad) {
@@ -1716,7 +1718,7 @@ $('.closev').click(function(e) {
 $('body').on('click', '.view', async function(e) {
     $('.cp').html(sl(['کپی', 'Kopya', 'Copy']));
     e.preventDefault();
-    $('.advl .mark').html(sl(['نشان  شده', 'Favori', 'Mark']));
+    $('.advl .mark').html(sl(['نشان  کردن', 'Favori', 'Mark']));
     $('.advl .mark').attr('data-type', 'mark');
     $('html').css('overflow-y', 'hidden');
     console.log(strapi.advertise);
@@ -1771,10 +1773,11 @@ $('body').on('click', '.view', async function(e) {
     })
     $('.advl .title').html(data.title);
     $('.advl .desc').html(data.description);
+    console.log(data);
     for (let t in map.dic) {
         // console.log(t, ' : ', data[t]);
         if (data[t] != undefined) {
-            if (['price', 'Rent', 'Deposits'].includes(t)) {
+            if (['price', 'rent', 'deposits'].includes(t)) {
                 data[t] = parseInt(data[t]).format() + ' ₺';
             }
             if (t == 'class') {
@@ -1844,7 +1847,7 @@ $('.logout').click(function() {
     user = null;
     document.cookie = 'jwt=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     strapi.jwt = null;
-    window.location = '/';
+    window.location = locations[lang];
 });
 
 $('.mark').click(function() {
@@ -1853,12 +1856,12 @@ $('.mark').click(function() {
     if (user != null) {
         if (t == 'mark') {
             strapi.advertise.mark(addid).then(function(e) {
-                $('.advl .mark').html(sl(['نشان  شده', 'Favorilerine Eklendi', 'Marked']));
+                $('.advl .mark').html(sl(['نشان  کردن', 'Favori', 'Mark']));
                 $('.advl .mark').attr('data-type', 'marked');
             });
         } else {
             strapi.advertise.unmark(addid).then(function(e) {
-                $('.advl .mark').html(sl(['نشان  کردن', 'Favori', 'Mark']));
+                $('.advl .mark').html(sl(['نشان  شده', 'Favorilerine Eklendi', 'Marked']));
                 $('.advl .mark').attr('data-type', 'mark');
             });
         }
