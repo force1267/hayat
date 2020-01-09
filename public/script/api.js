@@ -3,8 +3,7 @@
         jwt: null,
 
         async register(email, username, password) {
-            document.cookie = 'jwt=; expires=Thu, 01 Jan 1970 00:00:01 GMT;'
-            strapi.jwt = null
+            strapi.logout()
             let auth
             try {
                 auth = await fetch('/auth/local/register', {
@@ -25,12 +24,11 @@
                 throw auth;
             }
             strapi.jwt = auth.jwt
-            document.cookie = `jwt=${strapi.jwt}`
+            setCookie("jwt", strapi.jwt, 7)
             return strapi.jwt
         },
         async login(identifier, password) {
-            document.cookie = 'jwt=; expires=Thu, 01 Jan 1970 00:00:01 GMT;'
-            strapi.jwt = null
+            strapi.logout()
             let auth
             try {
                 auth = await fetch('/auth/local', {
@@ -50,7 +48,7 @@
                 throw auth;
             }
             strapi.jwt = auth.jwt
-            document.cookie = `jwt=${strapi.jwt}`
+            setCookie("jwt", strapi.jwt, 7)
             return strapi.jwt
         },
         logout() {
@@ -81,6 +79,10 @@
             async findOne(postId) {
                 // get an ad by id
                 return await fetch(`/posts/${postId}`).then(r=>r.json())
+            },
+            async like(postId) {
+                // get an ad by id
+                return await fetch(`/posts/like/${postId}`, strapi.auth()).then(r=>r.json())
             },
         },
 
