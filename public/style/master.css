@@ -2067,7 +2067,7 @@ span.to-w{
     white-space:nowrap;
     text-decoration:none;
     position:absolute;
-    left:17px
+    left:17px;
 }
 .blog-card.alt .description .read-more a{
     float:right
@@ -2077,8 +2077,10 @@ span.to-w{
     font-family:FontAwesome;
     margin-left:-10px;
     opacity:0;
+    position: absolute;
+    left: 17px;
     vertical-align:middle;
-    transition:margin .3s,opacity .3s
+    transition:margin .3s,opacity .3s;
 }
 .blog-card .description .read-more a:hover:after{
     opacity:1;
