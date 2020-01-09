@@ -144,6 +144,7 @@ module.exports = {
 
     async verifyImage(ctx) { // GET advertises/verifyImage/:id
         const entity = await strapi.services.advertise.findOne({id: ctx.params.id})
-        return await strapi.services.advertise.update({ id: ctx.params.id }, { hasImage: entity && entity.images && entity.images.length > 0 })
+        let hasImage = entity && entity.images && entity.images.length > 0
+        return await strapi.services.advertise.update({ id: ctx.params.id }, { hasImage })
     }
 };
