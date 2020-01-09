@@ -1447,6 +1447,7 @@ $('#adv .search').click(function() {
             data[$(this).attr('id')] = $(this).val().trim();
         }
     });
+    console.log("search data :", data);
     // console.log(data);
     strapi.advertise.find(data).then(results => {
         // console.log('clear')
