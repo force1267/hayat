@@ -52,12 +52,10 @@
       "type": "string"
     },
     "vip": {
-      "type": "integer",
-      "default": "0"
+      "type": "boolean"
     },
     "showcase": {
-      "type": "integer",
-      "default": "0"
+      "type": "boolean"
     },
     "class": {
       "enum": [

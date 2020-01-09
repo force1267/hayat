@@ -99,9 +99,6 @@
     "advertises": {
       "collection": "advertise",
       "via": "user"
-    },
-    "marks": {
-      "collection": "advertise"
     }
   }
 }

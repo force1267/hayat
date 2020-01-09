@@ -195,7 +195,7 @@
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
                         email,
-                        url: `http://${window.location.hostname}/confirm-email.html`
+                        url: `https://${window.location.hostname}/confirm-email.html`
                     }),
                 }).then(r=>r.json())
             },
@@ -212,7 +212,7 @@
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
                         email,
-                        url: `http://${window.location.hostname}/reset-password.html`
+                        url: `https://${window.location.hostname}/reset-password.html`
                     }),
                 }).then(r=>r.json())
             },
