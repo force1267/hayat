@@ -53,6 +53,10 @@
             document.cookie = `jwt=${strapi.jwt}`
             return strapi.jwt
         },
+        logout() {
+            setCookie("jwt", "", -1)
+            strapi.user.now = strapi.jwt = null
+        },
         // who am i
         async me() {
             return await strapi.user.me()        
@@ -67,6 +71,17 @@
             }
             options.headers.Authorization = `Bearer ${strapi.jwt}`
             return options
+        },
+
+        post: {
+            async find(query) {
+                // find some adds
+                return await fetch(`/posts${parseQuery(query)}`).then(r=>r.json())
+            },
+            async findOne(postId) {
+                // get an ad by id
+                return await fetch(`/posts/${postId}`).then(r=>r.json())
+            },
         },
 
         advertise: {
@@ -172,20 +187,26 @@
             },
             async mark(adId) {
                 let me = await strapi.user.me();
-                me.marks = me.marks.map(ad => ad.id)
-                me.marks.push(adId);
-                return await strapi.user.update(me)
+                let marks = me.marks.map(ad => ad.id)
+                marks.push(adId)
+                return await strapi.user.update({marks})
             },
             async unmark(adId) {
                 let me = await strapi.user.me();
-                me.marks = me.marks.map(ad => ad.id).filter(id => adId != id)
-                return await strapi.user.update(me)
+                let marks = me.marks.map(ad => ad.id).filter(id => adId != id)
+                return await strapi.user.update({marks})
             }
         },
         user: {
+            now: null,
+            
             // who am i
             async me() {
-                return await fetch("/users/me", strapi.auth()).then(r=>r.json())        
+                if(strapi.user.now) {
+                    return strapi.user.now;
+                } else {
+                    return strapi.user.now = await fetch("/users/me", strapi.auth()).then(r=>r.json())
+                }
             },
 
             // request confirmation code to be sent
@@ -311,6 +332,15 @@
             }
         }
         return "";
+    }
+
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires="+d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/en";
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/tr";
     }
 
     if(getCookie("jwt") != "") {

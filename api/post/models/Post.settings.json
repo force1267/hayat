@@ -27,6 +27,10 @@
       "via": "related",
       "plugin": "upload",
       "required": true
+    },
+    "like": {
+      "type": "integer",
+      "default": "0"
     }
   }
 }
