@@ -145,6 +145,15 @@
       "model": "user",
       "via": "advertises",
       "plugin": "users-permissions"
+    },
+    "lang": {
+      "required": true,
+      "enum": [
+        "persian",
+        "english",
+        "turkish"
+      ],
+      "type": "enumeration"
     }
   }
 }
