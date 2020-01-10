@@ -2,6 +2,9 @@
 <html>
 <head>
     <title>حیاطمون</title>
+    <script>
+        var lang = 0;
+    </script>
     <link rel="stylesheet" type="text/css" href="style/master.css">
     <link rel="stylesheet" type="text/css" href="style/persian-datepicker.css">
     <link rel="icon" href="assets/images/logo.png" type="image/gif" sizes="16x16">
@@ -22,9 +25,6 @@
 <body>
     <!-- NAVBAR-->
     <!-- NAVBAR-->
-    <script>
-        var lang = 0;
-    </script>
     <div class="bgo">
     <nav class="navbar menu navbar-expand-md py-3 navbar-dark bg-lighter shadow-sm">
         <div class="container">
@@ -36,7 +36,7 @@
                 <!-- <span class="text-uppercase font-weight-bold brand d-none d-lg-inline">Hayatemun</span> -->
                 <ul class='artif'>
                     <li class="nav-item">
-                        <a href="#" class="nav-link garn dif d-inline d-md-none"><i class="material-icons">headset_mic</i></a>
+                        <a href="#" class="nav-link garn dif d-inline d-md-none tooltip-bottom" data-tooltip="09113114664 09331254456"><i class="material-icons">headset_mic</i></a>
                     </li>
                     <li class="nav-item">
                         <a href="/login-register.html" class="nav-link logreg dif d-inline d-md-none ussp"><i class="material-icons">person</i></a>
@@ -48,7 +48,7 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- <li class="nav-item"><a href="#" class="nav-link bl"><i class="material-icons">fastfood</i>رستوران</a></li> -->
                     <!-- <li class="nav-item"><a href="#" class="nav-link bl"><i class="material-icons">amp_stories</i>آگهی</a></li> -->
-                    <li class="nav-item d-none d-sm-inline"><a href="#" class="nav-link garn dif"><i class="material-icons">headset_mic</i>پشتیبانی</a></li>
+                    <li class="nav-item d-none d-sm-inline tooltip-bottom" data-tooltip="09113114664 09331254456"><a href="#" class="nav-link garn dif"><i class="material-icons">headset_mic</i>پشتیبانی</a></li>
                     <li class="nav-item d-none d-sm-inline iul"><a href="/login-register.html" class="nav-link logreg dif"><i class="material-icons">person</i>ورود - ثبت نام</a></li>
                 </ul>
             </div>
@@ -2001,7 +2001,7 @@
                             <!-- This is only for better view of theme if you want your image logo remove div dummy-logo bellow and replace your logo in logo.png and uncomment logo tag above-->
                             <div class="dummy-logo">
                                 <div class="icon pull-left brand">
-                                    <a href="/"><img src="assets/images/wlp.png" width="45" style="top: -7px;height: 30px;" alt="" class="d-inline-block logob align-middle mr-2"></a>
+                                    <a href="/"><img src="assets/images/wlp.png" width="45" style="height: 30px;" alt="" class="d-inline-block logob align-middle mr-2"></a>
                                 </div>
                                 <p style="font-weight: bold;border-right: 5px solid #fff;padding: 10px;">درباره ما بخوانید</p>
                             </div>
@@ -2018,7 +2018,7 @@
                             <ul class="list-unstyled">
                                 <li><a href="/">فارسی<i class="fa fa-angle-left pull-left"></i></a></li>
                                 <li><a href="/en">English<i class="fa fa-angle-left pull-left"></i></a></li>
-                                <li><a href="/tr">Turkey<i class="fa fa-angle-left pull-left"></i></a></li>
+                                <li><a href="/tr">Turkish<i class="fa fa-angle-left pull-left"></i></a></li>
                         </div>
                     </div>
                     <div class="col-md-3 ts col-sm-12" style="text-align: right;">
@@ -2067,6 +2067,25 @@
             </div>
         </section>
     </footer>
+    <nav class="circle-menu" id="menu4">  
+      <ul>
+        <li>
+           <a href="/">
+             <img src="/assets/images/iran.png" alt="">
+          </a>
+        </li>
+         <li>
+           <a href="/en">
+             <img src="/assets/images/uk.png" alt="">
+          </a>
+        </li>
+         <li>
+           <a href="/tr">
+             <img src="/assets/images/turkey.png" alt="">
+          </a>
+        </li>    
+      </ul>
+    </nav>
     <script type="text/javascript" src="script/alert.js"></script>
     <script type="text/javascript" src="script/api.js"></script>
     <script type="text/javascript" src="script/ajaxupload.js"></script>

@@ -7025,7 +7025,7 @@ button.bg-dark:hover {
 }
 
 .d-inline-block {
-	display: inline-block!important
+	/* display: inline-block; */
 }
 
 .d-block {

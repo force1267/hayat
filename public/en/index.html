@@ -2,7 +2,11 @@
 <html>
 <head>
     <title>Hayatemoon</title>
+    <script>
+        var lang = 2;
+    </script>
     <link rel="stylesheet" type="text/css" href="style/master.css">
+    <link rel="stylesheet" type="text/css" href="style/ltr.css">
     <link rel="stylesheet" type="text/css" href="style/persian-datepicker.css">
     <link rel="icon" href="assets/images/logo.png" type="image/gif" sizes="16x16">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
@@ -20,15 +24,10 @@
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval';">
 </head>
 <body>
-    <script>
-        var lang = 2;
-        console.log(lang);
-    </script>
-    <!-- NAVBAR-->
     <!-- NAVBAR-->
     <div class="bgo">
     <nav class="navbar menu navbar-expand-md py-3 navbar-dark bg-lighter shadow-sm">
-        <div class="container">
+        <div class="container" style="direction: ltr">
             <a href="/" class="navbar-brand">
                 <!-- Logo Image -->
                 <img src="assets/images/wle.png" width="45" alt="" class="d-inline-block logo align-middle mr-2">
@@ -37,7 +36,7 @@
                 <!-- <span class="text-uppercase font-weight-bold brand d-none d-lg-inline">Hayatemun</span> -->
                 <ul class='artif'>
                     <li class="nav-item">
-                        <a href="#" class="nav-link garn dif d-inline d-md-none"><i class="material-icons">headset_mic</i></a>
+                        <a href="#" class="nav-link garn dif d-inline d-md-none tooltip-bottom" data-tooltip="09113114664 09331254456"><i class="material-icons">headset_mic</i></a>
                     </li>
                     <li class="nav-item">
                         <a href="/en/login-register.html" class="nav-link logreg dif d-inline d-md-none ussp"><i class="material-icons">person</i></a>
@@ -49,7 +48,7 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- <li class="nav-item"><a href="#" class="nav-link bl"><i class="material-icons">fastfood</i>رستوران</a></li> -->
                     <!-- <li class="nav-item"><a href="#" class="nav-link bl"><i class="material-icons">amp_stories</i>آگهی</a></li> -->
-                    <li class="nav-item d-none d-sm-inline"><a href="#" class="nav-link garn dif"><i class="material-icons">headset_mic</i>Support</a></li>
+                    <li class="nav-item d-none d-sm-inline"><a href="#" class="nav-link garn dif tooltip-bottom" data-tooltip="09113114664 09331254456"><i id="hs" class="material-icons">headset_mic</i>Support</a></li>
                     <li class="nav-item d-none d-sm-inline iul"><a href="/en/login-register.html" class="nav-link logreg dif"><i class="material-icons">person</i>Login - Register</a></li>
                 </ul>
             </div>
@@ -76,12 +75,12 @@
                             </li> -->
                             <li class="nav-item">
                                 <a class="nav-link active" data-toggle="tab" href="#adv" role="tab">
-                                    <i style="top: 7px;" class="material-icons">amp_stories</i>Advertise
+                                    <i style="top: 7px;" class="material-icons">amp_stories</i>Ads
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link soon" data-toggle="tab-x" href="#rest" role="tab">
-                                    <i style="top: 7px;" class="material-icons">fastfood</i>Restaurant
+                                    <i style="top: 4px;" class="material-icons">fastfood</i>Online Food Order
                                 </a>
                             </li>
                         </ul>
@@ -99,7 +98,7 @@
                                     <span class="form-radio-styler" aria-hidden="true"></span> رفت و برگشت
                                 </label>
                                 <div class="clear"></div>
-                                <div class="row" style="direction: rtl;">
+                                <div class="row" style="direction: ltr;">
                                     <div class="col-md-2 col-sm-6 col-xs-12">
                                         <div class="select">
                                             <span class="placeholder">مبدا</span>
@@ -326,23 +325,23 @@
                             <div class="tab-pane active" id="adv" role="tabpanel">
                                 <label class="control control--checkbox">
                                     <span class="yt">
-                                        special
+                                        Special
                                     </span>
                                     <input id="ivip" value="Apples1" type="checkbox">
                                     <div class="control__indicator"></div>
                                 </label>
                                 <label class="control control--checkbox">
                                     <span class="yt">
-                                        with photo
+                                        Ads with Photo
                                     </span>
                                     <input id="wpo" value="Apples2" type="checkbox">
                                     <div class="control__indicator"></div>
                                 </label>
                                 <div class="clear"></div>
-                                <div class="row" style="direction: rtl;">
+                                <div class="row" style="direction: ltr;">
                                     <div class="col-md-4 col-xs-12 cat">
                                         <ul>
-                                            <li data-dropdown='{"value":"همه ی آگهی ها"}' data-dropdown-text="all avertises"></li>
+                                            <li data-dropdown='{"value":"همه ی آگهی ها"}' data-dropdown-text="All Ads"></li>
                                             <li data-dropdown='{"value":"املاك"}' data-dropdown-text="estate">
                                                 <ul>
                                                     <li data-dropdown='{"value":"فروشی مسکونی"}'>
@@ -365,7 +364,7 @@
                                                         Car
                                                     </li>
                                                     <li data-dropdown='{"value":"لوازم یدكی خودرو "}'>
-                                                        Parts
+                                                        Spare parts for cars
                                                     </li>
                                                     <li data-dropdown='{"value":"موتور سیکلت و لوازم یدکی "}'>
                                                         Motorcycle and parts
@@ -394,7 +393,7 @@
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li data-dropdown='{"value":"مربوط به  خانه"}' data-dropdown-text="House">
+                                            <li data-dropdown='{"value":"مربوط به  خانه"}' data-dropdown-text="Home And Garden">
                                                 <ul>
                                                     <li data-dropdown='{"value":"مبلمان ، وسایل و تزئینات خانه"}'>
                                                         Home furniture, fixtures and decorations
@@ -416,7 +415,7 @@
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li data-dropdown='{"value":"كاریابی"}' data-dropdown-text="Employment">
+                                            <li data-dropdown='{"value":"كاریابی"}' data-dropdown-text="Job">
                                                 <ul>
                                                     <li data-dropdown='{"value":"آشپز و شیرینی پز "}'>
                                                         Chef and confectioner
@@ -459,7 +458,7 @@
                                             <li data-dropdown='{"value":"خدمات"}' data-dropdown-text="Services">
                                                 <ul>
                                                     <li data-dropdown='{"value":"مهاجرتی"}'>
-                                                        Travel
+                                                        Immigration
                                                     </li>
                                                     <li data-dropdown='{"value":"صرافی"}'>
                                                         Currency Exchange
@@ -509,14 +508,14 @@
                                         <button class="search">Search<i class="material-icons">search</i></button>
                                     </div>
                                     <div class="col-md-2 col-sm-6 col-xs-12">
-                                        <a class="ra" id='addv' href="#">Submit</a>
+                                        <a class="ra" id='addv' href="#">Post Ad</a>
                                     </div>
                                 </div>
                                 <hr class="fsi" style="margin-top: 35px;margin-bottom: 0px;">
                                 <span class="afilters fsi">
                                     <i class="material-icons">keyboard_arrow_down</i>
                                 </span>
-                                <div class="row attrs" style="direction: rtl;display: none;">
+                                <div class="row attrs" style="direction: ltr;display: none;">
                                     
                                 </div>
                             </div>
@@ -745,41 +744,43 @@
     </div>
     <div class="row features">
         <div class="col-md-10 ml-auto col-xl-10 mr-auto">
-            <div class="feature col-md-3 col-sm-12">
-                <div class="feature-icon">
-                    <i class="fa fa-check-circle" aria-hidden="true"></i>
+            <div class="row">
+                <div class="feature col-lg-3 col-md-6 col-sm-12">
+                    <div class="feature-icon">
+                        <i class="fa fa-check-circle" aria-hidden="true"></i>
+                    </div>
+                    <h5>Free Ad Posting for Iranians Abroad</h5>
+                    <p>
+                        The first free Ad Registration platform for Iranians abroad 
+                    </p>
                 </div>
-                <h5>Free Ad Registration for Iranians Abroad</h5>
-                <p>
-                    The first free Ad Registration platform for Iranians abroad 
-                </p>
-            </div>
-            <div class="feature col-md-3 col-sm-12">
-                <div class="feature-icon">
-                    <i class="fa fa-headphones" aria-hidden="true"></i>
+                <div class="feature col-lg-3 col-md-6 col-sm-12">
+                    <div class="feature-icon">
+                        <i class="fa fa-headphones" aria-hidden="true"></i>
+                    </div>
+                    <h5>24/7 support</h5>
+                    <p>
+                        We are ready to respond to you 7 days a week and 24 hours a day
+                    </p>
                 </div>
-                <h5>24/7 support</h5>
-                <p>
-                    We are ready to respond to you 7 days a week and 24 hours a day
-                </p>
-            </div>
-            <div class="feature col-md-3 col-sm-12">
-                <div class="feature-icon">
-                    <i class="fa fa-cutlery" aria-hidden="true"></i>
+                <div class="feature col-lg-3 col-md-6 col-sm-12">
+                    <div class="feature-icon">
+                        <i class="fa fa-cutlery" aria-hidden="true"></i>
+                    </div>
+                    <h5>Online food ordering</h5>
+                    <p>
+                        Online food ordering from Iranian restaurants abroad
+                    </p>
                 </div>
-                <h5>Online food ordering</h5>
-                <p>
-                    Online food ordering from Iranian restaurants abroad
-                </p>
-            </div>
-            <div class="feature col-md-3 col-sm-12">
-                <div class="feature-icon">
-                    <i class="fa fa-certificate" aria-hidden="true"></i>
+                <div class="feature col-lg-3 col-md-6 col-sm-12">
+                    <div class="feature-icon">
+                        <i class="fa fa-certificate" aria-hidden="true"></i>
+                    </div>
+                    <h5>Secure and Safe Payment</h5>
+                    <p>
+                        Secure payment through all Visa Card and Master Card
+                    </p>
                 </div>
-                <h5>Secure and Safe Payment</h5>
-                <p>
-                    Secure payment through all Visa Card and Master Card
-                </p>
             </div>
         </div>
     </div>
@@ -968,6 +969,7 @@
                                 <label for="file" id="file">Choose Photo<i class="material-icons">add</i></label>
                                 <input id="uupl" type="file">
                             </p>
+                            <div class="clear"></div>
                             <div class="uupi">
                                 <span>
                                     <img class="useri" src="">
@@ -983,7 +985,7 @@
                         </div>
                     </div>
                     <div id="tab-three-panel" class="panel">
-                        <div class="infob"><span style="float: right;">Your wallet : </span><span class="balance">0 ₺</span></div>
+                        <div class="infob"><span style="float: left;">Your wallet : </span><span class="balance">0 ₺</span></div>
                         <div class="titleb">Add wallet balance : </div>
                         <input type="text" placeholder="Liras" class="addb">
                         <div class="clear"></div>
@@ -1301,7 +1303,7 @@
                                     <div class="panel-heading" role="tab" id="headingOne">
                                         <h4 class="panel-title">
                                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#لوازم_یدكی_خودرو" aria-expanded="false" aria-controls="لوازم_یدكی_خودرو">
-                                        Parts 
+                                        Spare parts for cars 
                                     </a>
                                     </h4>
                                     </div>
@@ -1464,7 +1466,7 @@
                     <div class="panel-heading" role="tab" id="headingOne3">
                     <h4 class="panel-title">
                         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#مربوط_به_خانه " aria-expanded="false" class="int" aria-controls="مربوط_به_خانه">
-                            House
+                            Home And Garden
                         </a>
                     </h4>
                     </div>
@@ -1589,7 +1591,7 @@
                     <div class="panel-heading" role="tab" id="headingOne3">
                     <h4 class="panel-title">
                         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#کاریابی " aria-expanded="false" class="int" aria-controls="کاریابی">
-                           Employment
+                           Job
                         </a>
                     </h4>
                     </div>
@@ -1839,7 +1841,7 @@
                                     <div class="panel-heading" role="tab" id="headingOne">
                                         <h4 class="panel-title">
                                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#مهاجرتی" aria-expanded="false" aria-controls="مهاجرتی">
-                                        Travel 
+                                        Immigration 
                                     </a>
                                     </h4>
                                     </div>
@@ -2000,13 +2002,13 @@
                             <!-- This is only for better view of theme if you want your image logo remove div dummy-logo bellow and replace your logo in logo.png and uncomment logo tag above-->
                             <div class="dummy-logo">
                                 <div class="icon pull-left brand">
-                                    <a href="/en"><img src="assets/images/wle.png" width="45" style="top: -7px;" alt="" class="d-inline-block logob align-middle mr-2"></a>
+                                    
                                 </div>
-                                <p style="font-weight: bold;border-right: 5px solid #fff;padding: 10px;">About us</p>
+                                <p style="text-align: left;font-weight: bold;border-left: 5px solid #fff;padding: 10px;">About us</p>
                             </div>
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                            <a href="#" class="btn btn-footer">Read more</a>
+                            <p style="text-align: left;direction: ltr;"><a href="/en"><img src="assets/images/wle.png" width="45" alt="" class="d-inline-block logob align-middle mr-2"></a>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                            <!-- <a href="#" class="btn btn-footer">Read more</a> -->
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-12" style="text-align: right;">
@@ -2014,9 +2016,9 @@
                             <div class="footer-title">
                                 <h2>زبان - Language</h2></div>
                             <ul class="list-unstyled">
-                                <li><a href="/">فارسی<i class="fa fa-angle-left pull-left"></i></a></li>
-                                <li><a href="/en">English<i class="fa fa-angle-left pull-left"></i></a></li>
-                                <li><a href="/tr">Turkey<i class="fa fa-angle-left pull-left"></i></a></li>
+                                <li><a href="/">فارسی<i class="fa fa-angle-right fr"></i></a></li>
+                                <li><a href="/en">English<i class="fa fa-angle-right fr"></i></a></li>
+                                <li><a href="/tr">Turkish<i class="fa fa-angle-right fr"></i></a></li>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-12" style="text-align: right;">
@@ -2024,8 +2026,8 @@
                             <div class="footer-title">
                                 <h2>Links</h2></div>
                             <ul class="list-unstyled">
-                                <li><a href="/blog">Magazine<i class="fa fa-angle-left pull-left"></i></a></li>
-                                <li><a href="/en/login-register.html">Sign in - Sign Up<i class="fa fa-angle-left pull-left"></i></a></li>
+                                <li><a href="/blog"> Hayatemoon’s Magazine<i class="fa fa-angle-right fr"></i></a></li>
+                                <li><a href="/en/login-register.html">Sign in - Sign Up<i class="fa fa-angle-right fr"></i></a></li>
                         </div>
                     </div>
                     <div class="clearfix visible-sm"></div>
@@ -2065,6 +2067,25 @@
             </div>
         </section>
     </footer>
+    <nav class="circle-menu" id="menu4">  
+      <ul>
+        <li>
+           <a href="/">
+             <img src="/assets/images/iran.png" alt="">
+          </a>
+        </li>
+         <li>
+           <a href="/en">
+             <img src="/assets/images/uk.png" alt="">
+          </a>
+        </li>
+         <li>
+           <a href="/tr">
+             <img src="/assets/images/turkey.png" alt="">
+          </a>
+        </li>    
+      </ul>
+    </nav>
     <script type="text/javascript" src="script/alert.js"></script>
     <script type="text/javascript" src="script/api.js"></script>
     <script type="text/javascript" src="script/ajaxupload.js"></script>

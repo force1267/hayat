@@ -1,0 +1,224 @@
+
+.features {
+	direction: ltr;
+	text-align: left;
+}
+
+.nb-footer .footer-single {
+    direction: ltr;
+    text-align: left;
+}
+
+.logob {
+    right: 10px;
+    position: absolute;
+}
+
+.attrs .title {
+    text-align: left;
+    direction: ltr;
+    padding-left: 5px;
+}
+
+.field input[type=text], .field textarea, .panel-group button, .upi img, .uupi img {
+    float: left;
+}
+
+.field .title {
+    direction: ltr;
+    text-align: left;
+}
+
+.panel-group .info {
+    text-align: left;
+}
+
+.field input[type=text], .field textarea, .panel-group button, .upi img, .uupi img {
+	text-align: left;
+}
+
+.register, .register-vip, .register-vit, .registeru, .regb, .vipit, .vitit {
+	text-align: center !important;
+	margin-left: 0px !important;
+	margin-right: 10px !important;
+}
+
+.panel-group .select {
+    float: left;
+}
+
+.panel-group .select .placeholder {
+	text-align: left;
+	padding-left: 40px;
+}
+
+.file input {
+    left: 0 !important;
+    /* float: left; */
+    right: unset;
+}
+
+.description h2 {
+	direction: rtl;
+}
+
+.infob {
+    text-align: left !important;
+    direction: ltr;
+}
+
+.infob .balance {
+    margin-left: 10px;
+}
+
+.titleb {
+    text-align: left;
+    direction: ltr;
+}
+
+.addb {
+    float: left;
+}
+
+.tovip p, .tovit p {
+    text-align: left;
+    direction: ltr;
+}
+
+.vpl {
+    float: left;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.ct {
+    /* margin-right: 6px; */
+}
+
+.form-radio-styler {
+    right: 40px;
+    float: left;
+}
+
+.dr {
+	direction: ltr !important;
+}
+
+.upanel .pc .vp p, .upanel .pc .vt p {
+    text-align: left !important;
+    direction: ltr !important;
+}
+
+.upanel .pc .vp button, .upanel .pc .vt button {
+    float: left;
+    margin: 20px 0px 20px 10px;
+}
+
+.panel-default>.panel-heading a:after {
+    float: right;
+}
+
+.panel-default>.panel-heading a {
+    text-align: left;
+}
+
+.file label {
+    float: left;
+}
+
+.card .nav-tabs {
+    direction: ltr;
+}
+
+.card .nav-item {
+    direction: ltr;
+}
+
+.nav-tabs>.nav-item>.nav-link i {
+    margin-right: 8px;
+    margin-left: unset !important;
+}
+
+.control {
+    float: left;
+}
+
+.control__indicator {
+	right: unset !important;
+    left: -31px;
+}
+
+.card-body .search i {
+    left: 3px;
+    top: 3px;
+}
+
+.dropdown-toggle .dropdown-text {
+    text-align: left !important;
+    padding-left: 20px !important;
+}
+
+.select .placeholder {
+    direction: ltr !important;
+    text-align: right !important;
+    padding-left: 20px !important;
+}
+
+.dropdown-toggle::after {
+    left: -50px !important;
+}
+
+.navbar-nav {
+    float: right !important;
+    margin: 0 !important;
+}
+
+.logo {
+    position: relative;
+    left: 49px !important;
+}
+
+.nav-link i {
+    /* left: -5px !important; */
+    /* top: 5px !important; */
+}
+
+
+@media only screen and (max-device-width: 768px) {
+    .navbar-brand {
+        position: absolute;
+        right: 20px !important;
+    }
+	.logo {
+		position: absolute;
+		right: 0 !important;
+		left: unset !important;
+	}
+}
+
+@media only screen and (max-device-width: 768px) {
+    .logob {
+         right: 40px !important; 
+    }
+    .feature {
+        margin-left: 20px;
+    }
+}
+
+.nb-footer .footer-title {
+    text-align: left !important;
+}
+
+.nav-link i {
+    left: -4px !important;
+    top: 5px !important;
+}
+
+@media only screen and (max-device-width: 991px) {
+    .form-radio-styler {
+        right: 20px !important;
+    }
+    .vpl {
+        margin-left: 30px !important;
+    }
+}

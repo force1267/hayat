@@ -16,6 +16,7 @@
 .dropdown a {
   text-decoration: none;
   text-align: right;
+  text-transform: capitalize;
 }
 /**
  *  =Toggle

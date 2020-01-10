@@ -3309,13 +3309,13 @@
 		backText: 'برگشت',
 
 		// Toggle
-		toggleText:    'انتخاب کنید',
+		toggleText:    (['انتخاب کنید', 'Seçmek', 'Select'])[lang],
 		autoToggle:     true,
 		autoToggleLink: false,
 		autoToggleHTML: false,
 
 		// Title
-		titleText: 'انتخاب کنید',
+		titleText: (['انتخاب کنید', 'Seçmek', 'Select'])[lang],
 		autoTitle: true,
 
 		// Custom classes

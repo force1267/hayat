@@ -2,7 +2,11 @@
 <html>
 <head>
     <title>Hayatemoon</title>
+    <script>
+        var lang = 1;
+    </script>
     <link rel="stylesheet" type="text/css" href="style/master.css">
+    <link rel="stylesheet" type="text/css" href="style/ltr.css">
     <link rel="stylesheet" type="text/css" href="style/persian-datepicker.css">
     <link rel="icon" href="assets/images/logo.png" type="image/gif" sizes="16x16">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
@@ -22,12 +26,9 @@
 </head>
 <body>
     <!-- NAVBAR-->
-    <script>
-        var lang = 1;
-    </script>
     <div class="bgo">
     <nav class="navbar menu navbar-expand-md py-3 navbar-dark bg-lighter shadow-sm">
-        <div class="container">
+        <div class="container" style="direction: ltr">
             <a href="/" class="navbar-brand">
                 <!-- Logo Image -->
                 <img src="assets/images/wle.png" width="45" alt="" class="d-inline-block logo align-middle mr-2">
@@ -36,7 +37,7 @@
                 <!-- <span class="text-uppercase font-weight-bold brand d-none d-lg-inline">Hayatemun</span> -->
                 <ul class='artif'>
                     <li class="nav-item">
-                        <a href="#" class="nav-link garn dif d-inline d-md-none"><i class="material-icons">headset_mic</i></a>
+                        <a href="#" class="nav-link garn dif d-inline d-md-none tooltip-bottom" data-tooltip="09113114664 09331254456"><i id="hs" class="material-icons">headset_mic</i></a>
                     </li>
                     <li class="nav-item">
                         <a href="/tr/login-register.html" class="nav-link logreg dif d-inline d-md-none ussp"><i class="material-icons">person</i></a>
@@ -48,7 +49,7 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- <li class="nav-item"><a href="#" class="nav-link bl"><i class="material-icons">fastfood</i>رستوران</a></li> -->
                     <!-- <li class="nav-item"><a href="#" class="nav-link bl"><i class="material-icons">amp_stories</i>آگهی</a></li> -->
-                    <li class="nav-item d-none d-sm-inline"><a href="#" class="nav-link garn dif"><i class="material-icons">headset_mic</i>Destek</a></li>
+                    <li class="nav-item d-none d-sm-inline"><a href="#" class="nav-link garn dif tooltip-bottom" data-tooltip="09113114664 09331254456"><i class="material-icons">headset_mic</i>Destek</a></li>
                     <li class="nav-item d-none d-sm-inline iul"><a href="/tr/login-register.html" class="nav-link logreg dif"><i class="material-icons">person</i>Giriş Yap - Üye Ol</a></li>
                 </ul>
             </div>
@@ -80,7 +81,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link soon" data-toggle="tab-x" href="#rest" role="tab">
-                                    <i style="top: 7px;" class="material-icons">fastfood</i>Restoran
+                                    <i style="top: 4px;" class="material-icons">fastfood</i>Yemek Siparişi
                                 </a>
                             </li>
                         </ul>
@@ -104,7 +105,7 @@
                                     <div class="control__indicator"></div>
                                 </label>
                                 <div class="clear"></div>
-                                <div class="row" style="direction: rtl;">
+                                <div class="row" style="direction: ltr;">
                                     <div class="col-md-4 col-xs-12 cat">
                                         <ul>
                                             <li data-dropdown='{"value":"Tum İlanler"}' data-dropdown-text="Tum İlanler"></li>
@@ -274,15 +275,14 @@
                                         <button class="search">Ara<i class="material-icons">search</i></button>
                                     </div>
                                     <div class="col-md-2 col-sm-6 col-xs-12">
-                                        <a class="ra" id='addv' href="#">Ücretsiz ilan ver</a>
+                                        <a class="ra" id='addv' href="#">Ücretsiz ilan Ver</a>
                                     </div>
                                 </div>
                                 <hr class="fsi" style="margin-top: 35px;margin-bottom: 0px;">
                                 <span class="afilters fsi">
                                     <i class="material-icons">keyboard_arrow_down</i>
                                 </span>
-                                <div class="row attrs" style="direction: rtl;display: none;">
-                                    
+                                <div class="row attrs" style="direction: ltr;display: none;">
                                 </div>
                             </div>
                         </div>
@@ -770,15 +770,15 @@
                     <p>İlana Özel Kayıt İçin Aşağıdaki Tarifelerden Birini Seçiniz : </p>
                     <label class="form-radiolabel col-md-12">
                         <input type="radio" class="form-radio" checked required="" name="itype" value="1">
-                        <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">Bir Gün (2 Lyra)</span>
+                        <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">Bir Gün (2 Lira)</span>
                     </label>
                     <label class="form-radiolabel col-md-12">
                         <input type="radio" class="form-radio" required="" name="itype" value="3">
-                        <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">Üç Gü (5 Lyra)</span>
+                        <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">Üç Gü (5 Lira)</span>
                     </label>
                     <label class="form-radiolabel col-md-12">
                         <input type="radio" class="form-radio" required="" name="itype" value="7">
-                        <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">Yedi Gün (10 Lyra)</span>
+                        <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">Yedi Gün (10 Lira)</span>
                     </label>
                     <button class="avitit">Şimdi Öde</button>
                     <button class="vc">İptal</button>
@@ -788,15 +788,15 @@
                     <p>Vitrinde Görüntülemek İçin Aşağıdaki Paketlerden Birini Seçiniz : </p>
                     <label class="form-radiolabel col-md-12">
                         <input type="radio" class="form-radio" checked required="" name="ttype" value="3">
-                        <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">Üç Gün (8 Lyra)</span>
+                        <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">Üç Gün (8 Lira)</span>
                     </label>
                     <label class="form-radiolabel col-md-12">
                         <input type="radio" class="form-radio" required="" name="ttype" value="5">
-                        <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">Yedi Gün (15 Lyra)</span>
+                        <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">Yedi Gün (15 Lira)</span>
                     </label>
                     <label class="form-radiolabel col-md-12">
                         <input type="radio" class="form-radio" required="" name="ttype" value="10">
-                        <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">On Gün (20 Lyra)</span>
+                        <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">On Gün (20 Lira)</span>
                     </label>
                     <button class="avitit">Şimdi Öde</button>
                     <button class="vc">İptal</button>
@@ -842,6 +842,7 @@
                                 <label for="file" id="file">Fotoğraf Seçin<i class="material-icons">add</i></label>
                                 <input id="uupl" type="file">
                             </p>
+                            <div class="clear"></div>
                             <div class="uupi">
                                 <span>
                                     <img class="useri" src="">
@@ -857,7 +858,7 @@
                         </div>
                     </div>
                     <div id="tab-three-panel" class="panel">
-                        <div class="infob"><span style="float: right;">Kalan Bakiyeniz : </span><span class="balance">0 ₺</span></div>
+                        <div class="infob"><span style="float: left;">Kalan Bakiyeniz : </span><span class="balance">0 ₺</span></div>
                         <div class="titleb">Para Yükle : </div>
                         <input type="text" placeholder="TL" class="addb">
                         <div class="clear"></div>
@@ -1027,7 +1028,7 @@
                                     <div class="panel-heading" role="tab" id="headingOne">
                                         <h4 class="panel-title">
                                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#اجاره_تجاری" aria-expanded="false" aria-controls="اجاره_تجاری">
-                                        Satılık İşyeri
+                                        Kiralık İşyeri
                                     </a>
                                     </h4>
                                     </div>
@@ -1771,18 +1772,14 @@
                 <div class="row">
                     <div class="col-md-3 ds col-sm-12">
                         <div class="footer-single">
-                            <!--    <img src="images/logo.png" class="img-responsive" alt="Logo"> -->
-
-                            <!-- This is only for better view of theme if you want your image logo remove div dummy-logo bellow and replace your logo in logo.png and uncomment logo tag above-->
                             <div class="dummy-logo">
                                 <div class="icon pull-left brand">
-                                    <a href="/tr"><img src="assets/images/wle.png" width="45" style="top: -7px;" alt="" class="d-inline-block logob align-middle mr-2"></a>
+                                    
                                 </div>
-                                <p style="font-weight: bold;border-right: 5px solid #fff;padding: 10px;">Hakkımızda</p>
+                                <p style="text-align: left;font-weight: bold;border-left: 5px solid #fff;padding: 10px;">Hakkımızda<a href="/tr"><img src="assets/images/wle.png" width="45" alt="" class="d-inline-block logob align-middle mr-2"></a></p>
                             </div>
-
                             <p style="text-align: left;direction: ltr;">İhtiyaçlarınızı karşılamak için güvenli bir yer.Tüm günlük ihtiyaçlarınızı karşılayabileceğiniz tek bir yer.Buraya bir ilan yerleştirebilir, çevrimiçi olarak en iyi İran restoranlarından yemek sipariş edebilirsiniz.</p>
-                            <a href="#" class="btn btn-footer">Daha Fazla Oku</a>
+                            <!-- <a href="#" class="btn btn-footer">Daha Fazla Oku</a> -->
                         </div>
                     </div>
                     <div class="col-md-3 ts col-sm-12" style="text-align: right;">
@@ -1790,9 +1787,9 @@
                             <div class="footer-title">
                                 <h2>زبان - Language</h2></div>
                             <ul class="list-unstyled">
-                                <li><a href="/">فارسی<i class="fa fa-angle-left pull-left"></i></a></li>
-                                <li><a href="/en">English<i class="fa fa-angle-left pull-left"></i></a></li>
-                                <li><a href="/tr">Turkey<i class="fa fa-angle-left pull-left"></i></a></li>
+                                <li><a href="/">فارسی<i class="fa fa-angle-right fr"></i></a></li>
+                                <li><a href="/en">English<i class="fa fa-angle-right fr"></i></a></li>
+                                <li><a href="/tr">Turkish<i class="fa fa-angle-right fr"></i></a></li>
                         </div>
                     </div>
                     <div class="col-md-3 ts col-sm-12" style="text-align: right;">
@@ -1800,8 +1797,8 @@
                             <div class="footer-title">
                                 <h2>Bağlantılar</h2></div>
                             <ul class="list-unstyled">
-                                <li><a href="/blog">Hayatemoon Dergisi<i class="fa fa-angle-left pull-left"></i></a></li>
-                                <li><a href="/tr/login-register.html">Giriş Yap - Üye Ol<i class="fa fa-angle-left pull-left"></i></a></li>
+                                <li><a href="/blog">Hayatemoon’s Dergısı<i class="fa fa-angle-right fr"></i></a></li>
+                                <li><a href="/tr/login-register.html">Giriş Yap - Üye Ol<i class="fa fa-angle-right fr"></i></a></li>
                         </div>
                     </div>
                     <div class="clearfix visible-sm"></div>
@@ -1841,6 +1838,25 @@
             </div>
         </section>
     </footer>
+    <nav class="circle-menu" id="menu4">  
+      <ul>
+        <li>
+           <a href="/">
+             <img src="/assets/images/iran.png" alt="">
+          </a>
+        </li>
+         <li>
+           <a href="/en">
+             <img src="/assets/images/uk.png" alt="">
+          </a>
+        </li>
+         <li>
+           <a href="/tr">
+             <img src="/assets/images/turkey.png" alt="">
+          </a>
+        </li>    
+      </ul>
+    </nav>
     <script type="text/javascript" src="script/alert.js"></script>
     <script type="text/javascript" src="script/api.js"></script>
     <script type="text/javascript" src="script/ajaxupload.js"></script>

@@ -8,7 +8,7 @@ Number.prototype.format = function(n, x) {
 var locations = ['/', '/tr', '/en'];
 
 var cd = {"Diğer Hizmetleri": "سایر خدمات", "Satılık Konut":"فروشی مسکونی","Kiralık Konut":"اجاره مسکونی","Satılık İşyeri":"فروشی تجاری","Kiralık İşyeri":"اجاره تجاری","Otomobil":"خودرو","Otomobil Ekipmanları":"لوازم یدكی خودرو","Motosiklet ve Ekipmanları":"موتور سیکلت و لوازم یدکی","Bilgisayar ve Notebook":"لپتاپ و كامپیوتر","Fotoğraf & Kamera":"دوربین فیلم برداری و عكاسی و ملزومات","Televizyon ve Ses Sistemleri":"صوتی و تصویری","Oyun & Konsol":"كنسول بازی و ملزومات","Cep Telefonu & Tablet":"موبایل و تبلت و ملزومات","Diğer Her Şey":"سایر وسایل","Mobilya ,Ev Dekorasyon":"مبلمان ، وسایل و تزئینات خانه","Mutfak Gereçleri":"لوازم آشپزخونه","Dekoratif Ürünler":"دكوری و روشنایی","Halı":"فرش و گلیم و قالیچه","Bahçe":"باغچه و حیاط","Aşçi & Fırın Ustası":"آشپز و شیرینی پز","Temizlik":"نظافت","İnşaat ve Yapı":"عمران ، ساختمانی و معماری","Servis Elemanı":"خدمات، رستوران و فروشگاه","Hukuki , Finans ve Bankacılık":"حسابداری ، مالی ، حقوقی","Eğitim":"آموزش","Medya ,Dijital Marketing , Grafist":"رسانه و ماركتینگ و گرافیست","Pazarlama ve Ürün Yönetimi":"بازاریابی و فروش","Hastane İle İlgili":"درمانی ، زیبایی و بهداشتی","Bilgisayar ve İT":"رایانه و IT","Taşıma":"حمل و نقل","Mühendislik":"صنعت و مهندسی","Göç":"مهاجرتی","Döviz":"صرافی","Kuaför":"آرایشگری","Web Sitesi Tasarımı":"طراحی سایت و شبكه","Tercuman":"ترجمه","Tamirat":"تعمیرات","Kiralık Araç":"اجاره خودرو"}
-var ce = {"Residential for sale":"فروشی مسکونی","Residential rental":"اجاره مسکونی","Commercial for sale":"فروشی تجاری","Commercial rental":"اجاره تجاری","Car":"خودرو","Spare parts for cars":"لوازم یدكی خودرو","Motorcycle and parts":"موتور سیکلت و لوازم یدکی","Laptop and PC":"لپتاپ و كامپیوتر","Camcorder & Photography & Essentials & Photography & Essentials":"دوربین فیلم برداری و عكاسی و ملزومات","Video and Video and Audio":"صوتی و تصویری","Game consoles":"كنسول بازی و ملزومات","Mobile & Tablet & Accessories & Tablet & Accessories":"موبایل و تبلت و ملزومات","Other electronic devices":"سایر لوازم الكترونیكی","Home furniture, fixtures and decorations":"مبلمان ، وسایل و تزئینات خانه","Kitchen Accessories":"لوازم آشپزخونه","Decoration and lighting":"دكوری و روشنایی","Carpets and rugs":"فرش و گلیم و قالیچه","Garden and yard":"باغچه و حیاط","Other Items":"سایر وسایل","Chef and confectioner":"آشپز و شیرینی پز","Cleaning":"نظافت","Civil, building and architecture":"عمران ، ساختمانی و معماری","Services, restaurants and shops":"خدمات، رستوران و فروشگاه","Accounting, Finance, Legal":"حسابداری ، مالی ، حقوقی","Education":"آموزش","Media & Marketing & Graphic Designer":"رسانه و ماركتینگ و گرافیست","Marketing and Sales":"بازاریابی و فروش","Therapeutic, Beauty and Health":"درمانی ، زیبایی و بهداشتی","IT and Computers":"رایانه و IT","Transportation":"حمل و نقل","Industry and Engineering":"صنعت و مهندسی","Travel":"مهاجرتی","Currency Exchange":"صرافی","Makeup":"آرایشگری","Web site design & Networks":"طراحی سایت و شبكه","Translation":"ترجمه","Repairs":"تعمیرات","Car rental":"اجاره خودرو","Other services":"سایر خدمات"}
+var ce = {"Residential for sale":"فروشی مسکونی","Residential rental":"اجاره مسکونی","Commercial for sale":"فروشی تجاری","Commercial rental":"اجاره تجاری","Car":"خودرو","Spare parts for cars":"لوازم یدكی خودرو","Motorcycle and parts":"موتور سیکلت و لوازم یدکی","Laptop and PC":"لپتاپ و كامپیوتر","Camcorder & Photography & Essentials & Photography & Essentials":"دوربین فیلم برداری و عكاسی و ملزومات","Video and Video and Audio":"صوتی و تصویری","Game consoles":"كنسول بازی و ملزومات","Mobile & Tablet & Accessories & Tablet & Accessories":"موبایل و تبلت و ملزومات","Other electronic devices":"سایر لوازم الكترونیكی","Home furniture, fixtures and decorations":"مبلمان ، وسایل و تزئینات خانه","Kitchen Accessories":"لوازم آشپزخونه","Decoration and lighting":"دكوری و روشنایی","Carpets and rugs":"فرش و گلیم و قالیچه","Garden and yard":"باغچه و حیاط","Other Items":"سایر وسایل","Chef and confectioner":"آشپز و شیرینی پز","Cleaning":"نظافت","Civil, building and architecture":"عمران ، ساختمانی و معماری","Services, restaurants and shops":"خدمات، رستوران و فروشگاه","Accounting, Finance, Legal":"حسابداری ، مالی ، حقوقی","Education":"آموزش","Media & Marketing & Graphic Designer":"رسانه و ماركتینگ و گرافیست","Marketing and Sales":"بازاریابی و فروش","Therapeutic, Beauty and Health":"درمانی ، زیبایی و بهداشتی","IT and Computers":"رایانه و IT","Transportation":"حمل و نقل","Industry and Engineering":"صنعت و مهندسی","Immigration":"مهاجرتی","Currency Exchange":"صرافی","Makeup":"آرایشگری","Web site design & Networks":"طراحی سایت و شبكه","Translation":"ترجمه","Repairs":"تعمیرات","Car rental":"اجاره خودرو","Other services":"سایر خدمات"}
 
 function sl(s) {
     return s[lang];
@@ -160,7 +160,7 @@ $('body').on('click', '.delete', function(e) {
     let ad = $(this).attr('data-id');
     if (confirm(sl(['مطمئنيد که میخواهید این آگهی را حذف کنید ؟', 'Bu ilanı kaldırmak istediğinizden emin misiniz?', 'Are you sure you want to delete this ad?']))) {
         strapi.advertise.delete(ad).then(e=> {
-            janelaPopUp.abre("id", 'p blue alert', sl(['انجام شد', 'Tamam', 'Done']), sl(['با موفقیت حذف شد', 'E-postanız onaylandı', 'Deleted successfully']));
+            janelaPopUp.abre("id", 'p blue alert', sl(['انجام شد', 'Onay', 'Done']), sl(['با موفقیت حذف شد', 'E-postanız onaylandı', 'Deleted successfully']));
             $(this).parent().parent().parent().remove();
         });
     }
@@ -238,7 +238,7 @@ $('.registeru').click(function() {
     strapi.user.avatar.upload($('#uupl').get(0))
     .then(e => strapi.user.update(data, user.id))
     .then(e => {
-        janelaPopUp.abre( "id", 'p green alert',  sl(['انجام شد', 'Tamam', 'Done']),  sl(['اطلاعات شما با موفقیت ذخیره شد', 'Bilgileriniz başarıyla kaydedildi', 'You data saved successfully']));
+        janelaPopUp.abre( "id", 'p green alert',  sl(['انجام شد', 'Onay', 'Done']),  sl(['اطلاعات شما با موفقیت ذخیره شد', 'Bilgileriniz başarıyla kaydedildi', 'You data saved successfully']));
     })
     .catch(e=> { 
         janelaPopUp.abre( "id", 'p oragne alert',  sl(['خطا', 'Hata', 'Error']) ,  sl(['خطا در ذخیره اطلاعات', 'Kaydedilirken bir hata oluştu', 'Something went worng in saving data']));
@@ -253,7 +253,7 @@ if (strapi.jwt != null) {
     });
     strapi.user.me().then(e=> {
         user = e;
-        $('.ussp').html(`<span style="color: #fff !important;font-size: 13px;position: absolute;left: 0;top: 6px;padding: 1px 20px;border-radius: 40px !important;border: 1px solid #fff;font-weight: 400;white-space: nowrap;/* max-width: 100px; *//* overflow: hidden; */height: 26px;line-height: 26px;">${e.username}</span>`);
+        $('.ussp').html(`<span style="color: #fff !important;font-size: 13px;position: absolute;left: -40px;top: 14px;padding: 1px 20px;border-radius: 40px !important;border: 1px solid #fff;font-weight: 400;white-space: nowrap;/* max-width: 100px; *//* overflow: hidden; */height: 26px;line-height: 26px;">${e.username}</span>`);
     });
 }
 
@@ -983,19 +983,19 @@ $('body').on('click', '.register', function() {
     if (end) {
         return false;
     }
-    console.log(data);
+    // console.log(data);
     $(this).html(`<i class="material-icons">hourglass_empty</i>`);
     strapi.advertise.create(data).then((buff) => {
         strapi.advertise.image.upload($(this).parent().find('#file')[0], buff.id).then(res => {
-            janelaPopUp.abre("id", 'p green alert', sl(['انجام شد', 'Tamam', 'Done']), sl(['آگهی با موفقیت ثبت شد', 'Fotoğraf yükleme sorunu', 'Advertise added successfully']));
-            $(this).html(sl([`ثبت آگهی`, 'İlan ver', 'Submit']));
+            janelaPopUp.abre("id", 'p green alert', sl(['انجام شد', 'Onay', 'Done']), sl(['آگهی با موفقیت ثبت شد', 'Fotoğraf yükleme sorunu', 'Advertise added successfully']));
+            $(this).html(sl([`ثبت آگهی`, 'İlan ver', 'Post Ad']));
             setTimeout(function() {
                 window.location = locations[lang];
             }, 1800);
         }).catch(e => {
-            console.log(e);
+            // console.log(e);
             janelaPopUp.abre("id", 'p orange alert', sl(['خطا', 'Hata', 'Error']), sl(['مشکل در آپلود عکس ها', 'Fotoğraf yükleme sorunu', 'Something went wrong while uploading images']));
-            $(this).html(sl([`ثبت آگهی`, 'İlan ver', 'Submit']));
+            $(this).html(sl([`ثبت آگهی`, 'İlan ver', 'Post Ad']));
         });
         $('.select').on('click', '.placeholder', function() {
             var parent = $(this).closest('.select');
@@ -1014,7 +1014,7 @@ $('body').on('click', '.register', function() {
     }).catch(e => {
         // console.log(e);
         janelaPopUp.abre("id", 'p orange alert', sl(['خطا', 'Hata', 'Error']), sl(['برای ثبت آگهی ابتدا باید وارد شوید', 'Bir İlan vermek için önce giriş yapmalısınız', 'You need to login for adding an advertise']));
-        $(this).html(sl([`ثبت آگهی`, 'İlan ver', 'Submit']));
+        $(this).html(sl([`ثبت آگهی`, 'İlan ver', 'Post Ad']));
     });
 });
 
@@ -1032,7 +1032,7 @@ $('body').on('click', '.register-vit', function() {
 
 $('.panel-collapse.collapse a').click(function() {
     let name = $(this).attr('href').split('#')[1];
-    console.log(name);
+    // console.log(name);
     let self = this;
     $(this).parent().parent().parent().find('.panel-body').html('');
     $(this).parent().parent().parent().find('.panel-body').append(`
@@ -1065,6 +1065,7 @@ $('.panel-collapse.collapse a').click(function() {
             <p class="file">
                 <label for="file" id="upl">${sl(['افزودن عکس', 'Fotoğraf Seçin', 'Select image'])}<i class="material-icons">add</i></label>
                 <input id="file" type="file" multiple>
+                <div class="clear"></div>
             </p>
             <div class="upi">
             </div>
@@ -1080,8 +1081,8 @@ $('.panel-collapse.collapse a').click(function() {
                 console.log(field, cc);
                 $(self).parent().parent().parent().find('.panel-body').append(`
                     <div class="field">
-                        <div class="title">${field.caption[lang]}</div>
-                        <input type="text" ${cc} id="${field.name}" required placeholder="...">
+                        <div class="title">${field.caption[lang]} : </div>
+                        <input type="text" ${cc} id="${field.name}" onkeypress='validaten(event)' required placeholder="...">
                         <div class="clear"></div>
                     </div>
                 `);
@@ -1104,7 +1105,7 @@ $('.panel-collapse.collapse a').click(function() {
                 }
                 $(self).parent().parent().parent().find('.panel-body').append(`
                     <div class="field">
-                        <div class="title">${field.caption[lang]}</div>
+                        <div class="title">${field.caption[lang]} : </div>
                         <div class="select col-md-5">
                             <span class="placeholder">...</span>
                             <ul>
@@ -1138,23 +1139,23 @@ $('.panel-collapse.collapse a').click(function() {
             <textarea id="description"></textarea>
             <div class="clear"></div>
         </div>
-        <button class="register" id="submit">${sl([`ثبت آگهی`, 'İlan ver', 'Submit'])}</button>
-        <button class="register-vip" id="submit">${sl([`ثبت ویژه آگهی`, 'Özel İlan Vermek', 'Submit as special ad'])}</button>
-        <button class="register-vit" id="submit">${sl(['ثبت و نمایش در ویترین', 'Vitrinde İlan Vermek', 'Submit and add to showcase'])}</button>
+        <button class="register" id="submit">${sl([`ثبت رایگان آگهی`, 'İlan ver', 'Post Free Ad'])}</button>
+        <button class="register-vip" id="submit">${sl([`ثبت ویژه آگهی`, 'Özel İlan Vermek', 'Post Special'])}</button>
+        <button class="register-vit" id="submit">${sl(['ثبت و نمایش در ویترین', 'Vitrinde İlan Vermek', 'Post Ad to Showcase'])}</button>
         <div class="clear"></div>
         <div class="tovip">
             <p>${sl(['یکی از پکیج های زیر را برای ثبت ویژه آگهی انتخاب کنید  ', 'İlana Özel Kayıt İçin Aşağıdaki Tarifelerden Birini Seçiniz ', 'Select one of the packages to add as special ad '])}: </p>
-            <label class="form-radiolabel col-md-12">xxx
+            <label class="form-radiolabel col-md-12">
                 <input type="radio" class="form-radio" checked required="" name="itype" value="1">
-                <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">${sl(["يك  روزه ", 'Bir Gün', 'One day'])} (2 ${sl(["لیر", 'Lyra', 'Lear'])})</span>
+                <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">${sl(["يك  روزه ", 'Bir Gün', 'One day'])} (2 ${sl(["لیر", 'Lira', 'Lear'])})</span>
             </label>
             <label class="form-radiolabel col-md-12">
                 <input type="radio" class="form-radio" required="" name="itype" value="3">
-                <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">${sl(["سه  روزه ", 'Üç Gü', 'Three days'])} (5 ${sl(["لیر", 'Lyra', 'Lear'])})</span>
+                <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">${sl(["سه  روزه ", 'Üç Gü', 'Three days'])} (5 ${sl(["لیر", 'Lira', 'Lear'])})</span>
             </label>
             <label class="form-radiolabel col-md-12">
                 <input type="radio" class="form-radio" required="" name="itype" value="7">
-                <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">${sl(["هفت  روزه ", 'Yedi Gün', 'Seven days'])} (10 ${sl(["لیر", 'Lyra', 'Lear'])})</span>
+                <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">${sl(["هفت  روزه ", 'Yedi Gün', 'Seven days'])} (10 ${sl(["لیر", 'Lira', 'Lear'])})</span>
             </label>
             <button class="vipit">${sl(['پرداخت', 'Şimdi Öde', 'Pay'])}</button>
             <div class="clear"></div>
@@ -1163,15 +1164,15 @@ $('.panel-collapse.collapse a').click(function() {
             <p>${sl(['یکی از پکیج های زیر را برای نمایش در ویترین انتخاب کنید  ', 'İlana Özel Kayıt İçin Aşağıdaki Tarifelerden Birini Seçiniz ', 'Select one of the packages to add advertise in showcase '])} : </p>
             <label class="form-radiolabel col-md-12">
                 <input type="radio" class="form-radio" checked required="" name="ttype" value="3">
-                <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">${sl(["سه  روزه ", 'Üç Gün', 'Three day'])} (8 ${sl(["لیر", 'Lyra', 'Lear'])})</span>
+                <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">${sl(["سه  روزه ", 'Üç Gün', 'Three day'])} (8 ${sl(["لیر", 'Lira', 'Lear'])})</span>
             </label>
             <label class="form-radiolabel col-md-12">
                 <input type="radio" class="form-radio" required="" name="ttype" value="5">
-                <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">${sl(["هفت   روزه ", 'Yedi Gün', 'Seven days'])} (15 ${sl(["لیر", 'Lyra', 'Lear'])})</span>
+                <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">${sl(["هفت   روزه ", 'Yedi Gün', 'Seven days'])} (15 ${sl(["لیر", 'Lira', 'Lear'])})</span>
             </label>
             <label class="form-radiolabel col-md-12">
                 <input type="radio" class="form-radio" required="" name="ttype" value="10">
-                <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">${sl(["ده روزه", 'On Gün', 'Ten days'])} (20 ${sl(["لیر", 'Lyra', 'Lear'])})</span>
+                <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">${sl(["ده روزه", 'On Gün', 'Ten days'])} (20 ${sl(["لیر", 'Lira', 'Lear'])})</span>
             </label>
             <button class="vitit">${sl(['پرداخت', 'Şimdi Öde', 'Pay'])}</button>
         </div>
@@ -1196,14 +1197,13 @@ $('.panel-collapse.collapse a').click(function() {
     $("input[data-type='currency']").on({
         keyup: function() {
           formatCurrency($(this));
-          console.log('x');
         },
         blur: function() { 
           // formatCurrency($(this), "blur");
         }
     });
     $('body').click(function() {
-        console.log($("input[data-type='currency']"));
+        // console.log($("input[data-type='currency']"));
         $("input[data-type='currency']").focusout();
     });
     $('.select').on('click', '.placeholder', function() {
@@ -1225,7 +1225,7 @@ var cat = null;
 
 $('body').on('click', '.dropdown-selected .dropdown-link', function() {
     cat = null;
-    console.log($($('.dropdown-item.dropdown-selected').find('*')[3]).text().trim());
+    // console.log($($('.dropdown-item.dropdown-selected').find('*')[3]).text().trim());
     if ($($('.dropdown-item.dropdown-selected').find('*')[3]).html() != undefined) {
         if (lang == 0) {
             cat = $($('.dropdown-item.dropdown-selected').find('*')[3]).text().trim().split('،').join('').split(' ').join('_').split('__').join('_');
@@ -1269,7 +1269,6 @@ $(function() {
         nested: true
     });
 });
-
 
 $(document).ready(function() {
     $(".toggle-accordion").on("click", function() {
@@ -1452,6 +1451,7 @@ $('#adv .search').click(function() {
     strapi.advertise.find(data).then(results => {
         // console.log('clear')
         $('.attrs').html('');
+        console.log(cat, map[cat]);
         // console.log(cat, map[cat]);
         if (map[cat] != undefined || cat != null) {
             // console.log('fill again');
@@ -1464,7 +1464,7 @@ $('#adv .search').click(function() {
                         }
                         var element = $(`
                             <div class="col-md-2 col-xs-6">
-                                <div class="title">${field.caption[lang]}</div>
+                                <div class="title">${field.caption[lang]} : </div>
                                 <div class="content">
                                     <div class="col-md-6">
                                         <input id="${field.name}_gt" placeholder="${field.from[lang]}" ${tp}>
@@ -1494,7 +1494,7 @@ $('#adv .search').click(function() {
                         }
                         var element = $(`
                             <div class="col-md-2 col-xs-6">
-                                <div class="title">${field.caption[lang]} :</div>
+                                <div class="title">${field.caption[lang]} : </div>
                                 <div class="content">
                                     <div class="col-md-6">
                                         <select id="${field.name}_gt">
@@ -1530,7 +1530,7 @@ $('#adv .search').click(function() {
                         }
                         var element = $(`
                             <div class="col-md-2 col-xs-6">
-                                <div class="title">${field.caption[lang]} :</div>
+                                <div class="title">${field.caption[lang]} : </div>
                                 <div class="content">
                                     <div class="col-md-12">
                                         <select id="${field.name}">
@@ -1565,7 +1565,7 @@ $('#adv .search').click(function() {
                         }
                         var element = $(`
                             <div class="col-md-2 col-xs-6">
-                                <div class="title">${field.caption[lang]} :</div>
+                                <div class="title">${field.caption[lang]} : </div>
                                 <div class="content">
                                     <div class="col-md-12">
                                         ${s(field.options)}
@@ -1578,7 +1578,7 @@ $('#adv .search').click(function() {
                     case 'int': {
                         var element = $(`
                             <div class="col-md-2 col-xs-6">
-                                <div class="title">${field.caption[lang]} :</div>
+                                <div class="title">${field.caption[lang]} : </div>
                                 <div class="content">
                                     <div class="col-md-12">
                                         <input id="${field.name}" type="text" placeholder="...">
@@ -1632,10 +1632,10 @@ $('#adv .search').click(function() {
             $([document.documentElement, document.body]).animate({
                 scrollTop: $(".cross-line").offset().top - 100
             }, 600);
-            $('#adv .search').html(sl([`جستجو...`, '...Ara', '...Search']));
+            $('#adv .search').html(sl([`جستجو...`, 'Ara...', 'Search...']));
         } else {
             $(".fsi").fadeOut(100);
-            $('#adv .search').html(sl([`جستجو...`, '...Ara', '...Search']));
+            $('#adv .search').html(sl([`جستجو...`, 'Ara...', 'Search...']));
             $('.attrs').slideUp(100);
             janelaPopUp.abre("id", 'p blue alert', sl(['خطا', 'Hata', 'Error']), sl(['نتیجه ای یافت نشد', 'Sonuç bulunamadı', 'No result found ']));
         }
@@ -1702,7 +1702,7 @@ $('#adv .search').click(function() {
 $('#addv').click(function(e) {
     if (user == null) {
         janelaPopUp.abre("id", 'p orange alert', sl(['خطا', 'Hata', 'Error']), sl(['برای ثبت آگهی ابتدا باید وارد شوید', 'Bir İlan vermek için önce giriş yapmalısınız', 'You need to login for adding an advertise']));
-        $(this).html(sl([`ثبت آگهی`, 'İlan ver', 'Submit']));
+        $(this).html(sl([`ثبت آگهی`, 'İlan ver', 'Post Ad']));
         return false;
     }
     e.preventDefault();
@@ -1845,9 +1845,7 @@ $('.gci').click(function() {
 });
 
 $('.logout').click(function() {
-    user = null;
-    document.cookie = 'jwt=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-    strapi.jwt = null;
+    strapi.logout();
     window.location = locations[lang];
 });
 
@@ -2025,3 +2023,183 @@ $('.rmo').click(function(e) {
     }
 
 });
+
+(function($) {
+
+    $.circleMenu = function(el, options) {
+        var plugin = this;
+        var $el = $(el);
+        var $toggle, $links;
+        var open = false,
+            nbLinks, multip = 1,
+            dir;
+
+        plugin.options = $.extend({
+            direction: 'up', // up down right left
+            position: {
+                x: 'right',
+                y: 'bottom'
+            }
+        }, options);
+
+        plugin.init = function() {
+            switch (plugin.options.position.x) {
+                case 'right':
+                    $el.css('right', '15px');
+                    break;
+                case 'left':
+                    $el.css('left', '15px');
+                    break;
+                default:
+                    $el.css('right', '15px');
+            }
+            switch (plugin.options.position.y) {
+                case 'top':
+                    $el.css('top', '15px');
+                    break;
+                case 'bottom':
+                    $el.css('bottom', '15px');
+                    break;
+                default:
+                    $el.css('bottom', '15px');
+            }
+            plugin.createToggle();
+            plugin.createLink();
+            plugin.initEvents();
+        }
+        plugin.createToggle = function() {
+            //create button
+            $toggle = $(document.createElement('button'));
+            $toggle.addClass('circle-menu-toggle');
+
+            //create icon
+            $icon = $(document.createElement('i'));
+            $icon.addClass('fa fa-globe');
+            $icon.prop("aria-hidden", true);
+
+            $toggle.append($icon);
+            $el.append($toggle);
+        }
+        plugin.createLink = function() {
+            $links = $el.find('li');
+            nbLink = $links.length;
+            switch (plugin.options.direction) {
+                case 'up':
+                    dir = 'Y';
+                    multip = -1;
+                    break;
+                case 'down':
+                    dir = 'Y';
+                    multip = 1;
+                    break;
+                case 'right':
+                    dir = 'X';
+                    multip = 1;
+                    break;
+                case 'left':
+                    dir = 'X';
+                    multip = -1;
+                    break;
+                default:
+                    dir = 'Y';
+                    multip = -1;
+            }
+            plugin.close();
+        }
+        plugin.initEvents = function() {
+            $toggle.click(function() {
+                plugin.handleClick(plugin, $el);
+            });
+        }
+        plugin.handleClick = function(plugin, $el) {
+            open = !open;
+            if (open) {
+                plugin.open();
+            } else {
+                plugin.close();
+            }
+        }
+        plugin.open = function() {
+            $links.each(function(index) {
+                plugin.css($(this), 'transition-delay', ((nbLink - index) * 0.1) + 's');
+                plugin.css($(this), 'transform', 'translate' + dir + '(' + (multip * (index + 1) * ($(this).height() + 10)) + 'px) scale(1)');
+            });
+        }
+        plugin.close = function() {
+            $links.each(function(index) {
+                plugin.css($(this), 'transition-delay', ((index + 1) * 0.1) + 's');
+                plugin.css($(this), 'transform', 'translate' + dir + '(0px) scale(0)');
+            });
+
+        }
+        plugin.css = function($el, prop, value) {
+            $el.css(prop, value);
+            $el.css('-webkit-' + prop, value);
+            $el.css('-ms-' + prop, value);
+            $el.css('-moz-' + prop, value);
+            $el.css('-o-' + prop, value);
+        }
+
+
+
+
+        plugin.init();
+    }
+
+
+    $.fn.circleMenu = function(options) {
+        return this.each(function() {
+            console.log($(this).attr('upgraded'));
+            if ($(this).attr('upgraded') == undefined) {
+                var plugin = new $.circleMenu(this, options);
+                $(this).attr('upgraded', 'true');
+            }
+        });
+
+    }
+
+}(jQuery));
+
+$('#menu1').circleMenu({
+    direction: 'down',
+    position: {
+        x: 'left',
+        y: 'top'
+    }
+});
+$('#menu2').circleMenu({
+    direction: 'left',
+    position: {
+        x: 'right',
+        y: 'top'
+    }
+});
+$('#menu3').circleMenu({
+    direction: 'right',
+    position: {
+        x: 'left',
+        y: 'bottom'
+    }
+});
+$('#menu4').circleMenu({
+    direction: 'up',
+    position: {
+        x: 'right',
+        y: 'bottom'
+    }
+});
+
+function validaten(evt) {
+  var theEvent = evt || window.event;
+  if (theEvent.type === 'paste') {
+      key = event.clipboardData.getData('text/plain');
+  } else {
+      var key = theEvent.keyCode || theEvent.which;
+      key = String.fromCharCode(key);
+  }
+  var regex = /[0-9]|\./;
+  if( !regex.test(key) ) {
+    theEvent.returnValue = false;
+    if(theEvent.preventDefault) theEvent.preventDefault();
+  }
+}
