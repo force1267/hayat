@@ -1,5 +1,5 @@
 {
-  "host": "localhost",
+  "host": "hayatemoon.com",
   "port": 1337,
   "proxy": {
     "enabled": false

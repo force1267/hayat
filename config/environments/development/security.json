@@ -3,9 +3,8 @@
     "enabled": true,
     "policy": [
       {
-        "img-src": "'self' http: data:"
-      },
-      "block-all-mixed-content"
+        "img-src": "'self' 'inline-unsafe' https: data: blob: mediastream: filesystem:"
+      }
     ]
   },
   "p3p": {

@@ -3,7 +3,7 @@
     "enabled": true,
     "policy": [
       {
-        "img-src": "'self' http: data:"
+        "img-src": "'self' 'inline-unsafe' https: data: blob: mediastream: filesystem:"
       },
       "block-all-mixed-content"
     ]
