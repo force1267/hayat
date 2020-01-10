@@ -275,7 +275,8 @@ p{
     display:block;
     font-size:13px;
     padding:3px;
-    text-align:right
+    text-align: right;
+    direction: ltr;
 }
 @media screen and (max-width:768px){
     .landing{
@@ -1642,8 +1643,8 @@ input{
     position:absolute;
     right:0;
     top:100%;
-    width:140%;
-    z-index:100
+    width: 100%;
+    z-index:100;
 }
 .select ul li:hover{
     background:#4ebbf0;
@@ -2603,7 +2604,7 @@ span.to-w{
     }
     .artif .garn,.artif .logreg{
         top:5px!important;
-        left: 86px!important;
+        left: 16px!important;
         right:unset!important;
     }
     .artif .logreg{
@@ -3581,6 +3582,9 @@ p.vip{
     }
     .item .thumb{
         margin-right:40px
+    }
+    .tooltip-bottom:before, .tooltip-bottom:after {
+        left: 133% !important;
     }
 }
 #carousel img{

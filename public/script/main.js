@@ -253,7 +253,7 @@ if (strapi.jwt != null) {
     });
     strapi.user.me().then(e=> {
         user = e;
-        $('.ussp').html(`<span style="color: #fff !important;font-size: 13px;position: absolute;left: -40px;top: 14px;padding: 1px 20px;border-radius: 40px !important;border: 1px solid #fff;font-weight: 400;white-space: nowrap;/* max-width: 100px; *//* overflow: hidden; */height: 26px;line-height: 26px;">${e.username}</span>`);
+        $('.ussp').html(`<span style="color: #fff !important;font-size: 13px;position: absolute;left: 10px;top: 14px;padding: 1px 20px;border-radius: 40px !important;border: 1px solid #fff;font-weight: 400;white-space: nowrap;/* max-width: 100px; *//* overflow: hidden; */height: 26px;line-height: 26px;">${e.username}</span>`);
     });
 }
 
@@ -1265,7 +1265,7 @@ $('.adv .view').click(function(e) {
 });
 $(function() {
     $('.cat select,.cat ul').dropdown({
-        toggleText: sl(["همه ی آگهی ها", "Tum İlanler", "All Advertises"]),
+        toggleText: sl(["همه ی آگهی ها", "Tum İlanler", "All Ads"]),
         nested: true
     });
 });

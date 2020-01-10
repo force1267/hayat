@@ -160,7 +160,7 @@
 
 .select .placeholder {
     direction: ltr !important;
-    text-align: right !important;
+    text-align: left !important;
     padding-left: 20px !important;
 }
 
@@ -203,6 +203,9 @@
     .feature {
         margin-left: 20px;
     }
+    .artif .logreg {
+        top: 10px!important;
+    }
 }
 
 .nb-footer .footer-title {
@@ -220,5 +223,15 @@
     }
     .vpl {
         margin-left: 30px !important;
-    }
+    
 }
+
+.select .placeholder:after {
+    right: 1em !important;
+    left: unset !important; 
+}
+
+.field .upi span {
+    float: left;
+}
+
