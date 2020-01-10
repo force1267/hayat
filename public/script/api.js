@@ -82,7 +82,7 @@
             },
             async like(postId) {
                 // get an ad by id
-                return await fetch(`/posts/like/${postId}`, strapi.auth()).then(r=>r.json())
+                return await fetch(`/posts/like/${postId}`).then(r=>r.json())
             },
         },
 
