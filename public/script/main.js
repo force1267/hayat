@@ -993,7 +993,7 @@ $('body').on('click', '.register', function() {
                 window.location = locations[lang];
             }, 1800);
         }).catch(e => {
-            // console.log(e);
+            console.error(e)
             janelaPopUp.abre("id", 'p orange alert', sl(['خطا', 'Hata', 'Error']), sl(['مشکل در آپلود عکس ها', 'Fotoğraf yükleme sorunu', 'Something went wrong while uploading images']));
             $(this).html(sl([`ثبت آگهی`, 'İlan ver', 'Post Ad']));
         });

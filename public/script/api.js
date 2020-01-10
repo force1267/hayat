@@ -167,24 +167,47 @@
                     formData.append('ref', 'advertise')
                     formData.append('refId', adId)
                     formData.append('field', 'images')
-                    for (let i = 0; i < photos.files.length; i++) {
-                        formData.append('files', photos.files[i])
+
+                    var options = {
+                        maxSizeMB: 0.99,
+                        maxWidthOrHeight: 1920,
+                        useWebWorker: true
                     }
-                    
-                    return await fetch('/upload', strapi.auth({
-                        method: 'POST',
-                        body: formData
-                    })).then(r=>r.json()).then(async r => {
-                        if(photos.files.length > 0) {
-                            try {
+
+                    let files
+                    if(photos.files.length > 10) {
+                        files = 10
+                    } else {
+                        files = photos.files.length
+                    }
+                    for (let i = 0; i < files; ++ i) {
+                        // using /script/image-compress.js
+                        let compressed = await imageCompression(photos.files[i], options)
+
+                        // using /script/conversion.js
+                        // let compressed = await imageConversion.compressAccurately(photos.files[i], 1019)
+
+                        let file = new File([compressed], `ad.${adId}.${i}.jpg`, {
+                            type: "image/jpeg",
+                        })
+                        console.log("file", file)
+                        formData.append('files', file)
+                        console.log("after append")
+                    }
+
+                    try {
+                        return await fetch('/upload', strapi.auth({
+                                method: 'POST',
+                            body: formData
+                        })).then(r=>r.json()).then(async r => {
+                            if(photos.files.length > 0) {
                                 // await strapi.advertise.update({ hasImage: true }, adId)
                                 await fetch(`/advertises/verifyImage/${adId}`, strapi.auth())
-                            } catch(err) {
-                                throw err
-                                return err
                             }
-                        }
-                    })
+                        })
+                    } catch (e) {
+                        console.error("eee", e)
+                    }
                 },
             },
             async mark(adId) {
