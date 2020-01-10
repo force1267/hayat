@@ -1,7 +1,7 @@
 
 .features {
-	direction: ltr;
-	text-align: left;
+    direction: ltr;
+    text-align: left;
 }
 
 .nb-footer .footer-single {
@@ -34,13 +34,13 @@
 }
 
 .field input[type=text], .field textarea, .panel-group button, .upi img, .uupi img {
-	text-align: left;
+    text-align: left;
 }
 
 .register, .register-vip, .register-vit, .registeru, .regb, .vipit, .vitit {
-	text-align: center !important;
-	margin-left: 0px !important;
-	margin-right: 10px !important;
+    text-align: center !important;
+    margin-left: 0px !important;
+    margin-right: 10px !important;
 }
 
 .panel-group .select {
@@ -48,8 +48,8 @@
 }
 
 .panel-group .select .placeholder {
-	text-align: left;
-	padding-left: 40px;
+    text-align: left;
+    padding-left: 40px;
 }
 
 .file input {
@@ -59,7 +59,7 @@
 }
 
 .description h2 {
-	direction: rtl;
+    direction: rtl;
 }
 
 .infob {
@@ -101,7 +101,7 @@
 }
 
 .dr {
-	direction: ltr !important;
+    direction: ltr !important;
 }
 
 .upanel .pc .vp p, .upanel .pc .vt p {
@@ -144,7 +144,7 @@
 }
 
 .control__indicator {
-	right: unset !important;
+    right: unset !important;
     left: -31px;
 }
 
@@ -166,6 +166,7 @@
 
 .dropdown-toggle::after {
     left: -50px !important;
+    position: relative;
 }
 
 .navbar-nav {
@@ -189,11 +190,11 @@
         position: absolute;
         right: 20px !important;
     }
-	.logo {
-		position: absolute;
-		right: 0 !important;
-		left: unset !important;
-	}
+    .logo {
+        position: absolute;
+        right: 0 !important;
+        left: unset !important;
+    }
 }
 
 @media only screen and (max-device-width: 768px) {
@@ -223,7 +224,7 @@
     }
     .vpl {
         margin-left: 30px !important;
-    
+    }
 }
 
 .select .placeholder:after {
@@ -235,3 +236,7 @@
     float: left;
 }
 
+.select .placeholder:after {
+    right: 1em !important;
+    left: unset !important;
+}
