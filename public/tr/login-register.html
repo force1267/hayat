@@ -39,6 +39,8 @@
           text-align: right;
           border-radius: 5px;
           /* margin-top: 10px; */
+          text-align: left;
+          text-transform: capitalize;
         }
         .form button {
           text-transform: uppercase;
@@ -152,15 +154,17 @@
     -moz-box-sizing: border-box;
     margin: 0;
     padding: 5px;
+    position: relative;
+    top: 16px;
     min-height: 40px;
     font-size: 1.2em;
-    font-weight: bold;
+    font-weight: 700;
     text-align: center;
     color: #fff;
     background-color: transparent;
     border-style: none;
     border-width: 5px;
-    border-color: black;
+    border-color: #000;
 }
 .vermelha>h1{
     border-color: #fa5032;
@@ -485,13 +489,15 @@ That part is just for the form
   border-style: none;
 }
 .form h3 {
-     font-size: 10px;
-     text-align: right;
-     margin: 0;
-     position: relative;
-     bottom: 10px;
-     color: #aaa;
-     font-weight: unset;
+    font-size: 10px;
+    text-align: right;
+    margin: 0;
+    position: relative;
+    bottom: 10px;
+    color: #aaa;
+    font-weight: unset;
+    text-align: left;
+    text-transform: capitalize;
 }
 .forg {
     font-size: 11px;
@@ -532,7 +538,7 @@ That part is just for the form
         </form>
         <form class="forget-form">
           <h3>E-postanızı girin</h3>
-          <input type="email" id='rpemail' placeholder="آدرس ایمیل"/>
+          <input type="email" id='rpemail' placeholder="E-posta"/>
           <button id="resetp">Link Gönder</button>
           <p class="message"><a class="log" href="#">Giriş Yap</a> / <a class="reg" href="#">Üye Ol</a></p>
         </form>

@@ -22,14 +22,13 @@
     <script src="assets/cdn/bootstrap.bundle.min.js"></script>
     <script src="assets/cdn/jquery.dropdown.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval';">
 </head>
 <body>
     <!-- NAVBAR-->
     <div class="bgo">
     <nav class="navbar menu navbar-expand-md py-3 navbar-dark bg-lighter shadow-sm">
         <div class="container" style="direction: ltr">
-            <a href="/" class="navbar-brand">
+            <a href="/tr" class="navbar-brand">
                 <!-- Logo Image -->
                 <img src="assets/images/wle.png" width="45" alt="" class="d-inline-block logo align-middle mr-2">
                 <img src="assets/images/wle.png" width="45" alt="" style="width: 100px;height: 100px;visibility: hidden;display: none;" class=" plc align-middle mr-2">
@@ -37,7 +36,7 @@
                 <!-- <span class="text-uppercase font-weight-bold brand d-none d-lg-inline">Hayatemun</span> -->
                 <ul class='artif'>
                     <li class="nav-item">
-                        <a href="#" class="nav-link garn dif d-inline d-md-none tooltip-bottom" data-tooltip="09113114664 09331254456"><i id="hs" class="material-icons">headset_mic</i></a>
+                        <a href="#" class="nav-link garn dif d-inline d-md-none tooltip-bottom" pd-popup-open="popupNew"><i id="hs" class="material-icons">headset_mic</i></a>
                     </li>
                     <li class="nav-item">
                         <a href="/tr/login-register.html" class="nav-link logreg dif d-inline d-md-none ussp"><i class="material-icons">person</i></a>
@@ -49,12 +48,19 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- <li class="nav-item"><a href="#" class="nav-link bl"><i class="material-icons">fastfood</i>رستوران</a></li> -->
                     <!-- <li class="nav-item"><a href="#" class="nav-link bl"><i class="material-icons">amp_stories</i>آگهی</a></li> -->
-                    <li class="nav-item d-none d-sm-inline"><a href="#" class="nav-link garn dif tooltip-bottom" data-tooltip="09113114664 09331254456"><i class="material-icons">headset_mic</i>Destek</a></li>
+                    <li class="nav-item d-none d-sm-inline"><a href="#" class="nav-link garn dif tooltip-bottom" pd-popup-open="popupNew"><i class="material-icons">headset_mic</i>Destek</a></li>
                     <li class="nav-item d-none d-sm-inline iul"><a href="/tr/login-register.html" class="nav-link logreg dif"><i class="material-icons">person</i>Giriş Yap - Üye Ol</a></li>
                 </ul>
             </div>
         </div>
     </nav>
+    <div class="popup" pd-popup="popupNew">
+        <div class="popup-inner">
+              <p><i id="hs" class="material-icons">local_phone</i>09113114256</p>
+              <p><i id="hs" class="material-icons">business</i>09113114256</p>
+            <a class="popup-close" pd-popup-close="popupNew" href="#"> </a>
+        </div>
+    </div>
     <div class="landing">
         <img src="" alt="" class="back-ground">
         <div class="row">
@@ -108,7 +114,7 @@
                                 <div class="row" style="direction: ltr;">
                                     <div class="col-md-4 col-xs-12 cat">
                                         <ul>
-                                            <li data-dropdown='{"value":"Tum İlanler"}' data-dropdown-text="Tum İlanler"></li>
+                                            <li data-dropdown='{"value":"Tüm İlanler"}' data-dropdown-text="Tüm İlanler"></li>
                                             <li data-dropdown='{"value":"Emlak"}' data-dropdown-text="Emlak">
                                                 <ul>
                                                     <li data-dropdown='{"value":"فروشی مسکونی"}'>
@@ -810,9 +816,9 @@
                 <input class="state" type="radio" title="tab-three" name="tabs-state" id="tab-three" />
                 <input class="state" type="radio" title="tab-four" name="tabs-state" id="tab-four" />
                 <div class="tabs flex-tabs panel-group">
-                    <label for="tab-one" id="tab-one-label" class="tab"><i class="material-icons">assignment_ind</i>Profil</label>
+                    <label for="tab-one" id="tab-one-label" class="tab"><i class="material-icons">assignment_ind</i>Hesabım</label>
                     <label for="tab-two" id="tab-two-label" class="tab"><i class="material-icons">dashboard</i>İlanlarım</label>
-                    <label for="tab-three" id="tab-three-label" class="tab"><i class="material-icons">attach_money</i>Para</label>
+                    <label for="tab-three" id="tab-three-label" class="tab"><i class="material-icons">attach_money</i>Bakiye</label>
                     <label for="tab-four" id="tab-four-label" class="tab"><i class="material-icons">archive</i>Favorilerim</label>
                     <div id="tab-one-panel" class="panel active">
                         <div class="field">
@@ -1858,6 +1864,8 @@
       </ul>
     </nav>
     <script type="text/javascript" src="script/alert.js"></script>
+    <!-- <script type="text/javascript" src="script/conversion.js"></script> -->
+    <script type="text/javascript" src="script/image-compress.js"></script>
     <script type="text/javascript" src="script/api.js"></script>
     <script type="text/javascript" src="script/ajaxupload.js"></script>
     <script type="text/javascript" src="script/main.js"></script>

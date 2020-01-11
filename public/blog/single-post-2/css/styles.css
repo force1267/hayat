@@ -18,9 +18,20 @@
 
 html{ font-size: 100%; height: 100%;  overflow-x: hidden; touch-action: manipulation; }
 
-body{ font-size: 15px; font-family: 'Roboto', sans-serif; width: 100%; height: 100%; margin: 0; font-weight: 300;
-	-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; word-wrap: break-word; 
-	background: #EDF3F3; color: #000; }
+body{
+	font-size: 15px;
+	font-family: 'Roboto', sans-serif;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	font-weight: 300;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	word-wrap: break-word;
+	background: #EDF3F3;
+	color: #000;
+	direction: rtl;
+	}
 
 h1, h2, h3, h4, h5, h6, p, a, ul, span, li, img{ margin: 0; padding: 0; font-weight: 300; }
 
@@ -42,9 +53,9 @@ button:focus, button:active, button:hover{ text-decoration: none; color: #498BF9
 
 b{ font-weight: 500; }
 
-img{ width: 100%; }
+img{width: 100%;}
 
-li{ list-style: none; display: inline-block; }
+li{list-style: none;display: inline-block;float: right;/* margin-left: 13px; */}
 
 span{ display: inline-block; }
 
@@ -138,7 +149,7 @@ header .src-area .src-btn{ position: absolute; top: 0; bottom: 0; left: 0; width
 4. SLIDER
 --------------------------------- */
 
-.slider{ height: 400px; width: 100%; background-image: url(../../images/slider-1-1600x900.jpg); background-size: cover; }  
+.slider{height: 400px;width: 100%;background-image: linear-gradient(rgba(0, 0, 0, 0.66),rgba(0,0,0,.5)),url(/assets/images/bga.jpg);background-size: cover;background-repeat: no-repeat;}  
 
 
  
@@ -148,12 +159,22 @@ header .src-area .src-btn{ position: absolute; top: 0; bottom: 0; left: 0; width
 
 .post-area .post-info{ position: relative; padding: 30px 0; }
 
-.post-area .post-info .left-area{ height: 70px; width: 70px; border-radius: 100px; overflow: hidden; position: absolute;
-	top: 50%; margin-top: -35px; border: 6px solid #fff; box-shadow: 0px 0px 5px rgba(0,0,0,.3); }
+.post-area .post-info .left-area{
+	height: 70px;
+	width: 70px;
+	border-radius: 100px;
+	overflow: hidden;
+	position: absolute;
+	top: 50%;
+	margin-top: -35px;
+	border: 6px solid #fff;
+	box-shadow: 0px 0px 5px rgba(0,0,0,.3);
+	padding-top: 8px;
+	}
 
-.post-area .post-info .middle-area{ padding-left: 90px; display: inline-block; }
+.post-area .post-info .middle-area{padding-right: 90px;display: inline-block;}
 
-.post-area .post-info .date{ display: inline-block; color: #999; }
+.post-area .post-info .date{display: inline-block;color: #999;direction: rtl;}
 
 .post-area .post-info .right-area{ float: right; }
 
@@ -166,7 +187,7 @@ header .src-area .src-btn{ position: absolute; top: 0; bottom: 0; left: 0; width
 	border-bottom: 1px solid #eee; background: #fff; }
 
 .main-post .post-top-area,
-.main-post .post-bottom-area{ margin: 0 70px; }
+.main-post .post-bottom-area{margin: 0 70px;margin-bottom: 21px;}
 
 .main-post .pre-title{ margin-bottom: 20px; color: #777; }
 
@@ -184,14 +205,20 @@ header .src-area .src-btn{ position: absolute; top: 0; bottom: 0; left: 0; width
 
 /* ICONS */
 
-.main-post .post-icons-area{ margin: 30px 0; padding: 30px 0; overflow: hidden; 
-	border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; }
+.main-post .post-icons-area{
+	direction: rtl;
+	margin: 30px 0;
+	padding: 30px 0;
+	overflow: hidden;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	}
 
-.main-post ul.post-icons{ float: left; }
+.main-post ul.post-icons{float: right;}
 
-.main-post ul.post-icons > li > a{ padding-right: 15px; }
+.main-post ul.post-icons > li > a{left: 15px;}
 
-.main-post ul.post-icons > li > a > i{ padding-right: 10px; font-size: 1.1em; opacity: .5; }
+.main-post ul.post-icons > li > a > i{padding-right: 10px;padding-left: 10px;font-size: 1.1em;opacity: .5;}
 
 .main-post ul.icons{ float: right; }
 
@@ -200,7 +227,7 @@ header .src-area .src-btn{ position: absolute; top: 0; bottom: 0; left: 0; width
 
 /* POST FOOTER */
 
-.main-post .post-footer.post-info{ margin-top: 30px; padding-right: 30px; }
+.main-post .post-footer.post-info{margin-top: 30px;padding: 30px;padding-right: 0;}
 
 .main-post .post-footer{ margin-bottom: 30px; }
 
@@ -219,12 +246,24 @@ header .src-area .src-btn{ position: absolute; top: 0; bottom: 0; left: 0; width
 
 .recomended-area .single-post .title{ padding: 20px 30px 30px; }
 
-.single-post .avatar{ margin: 0 auto; margin-top: -40px; width: 70px; height: 70px; overflow: hidden; z-index: 10;
-	border-radius: 100px; position: relative; border: 7px solid #fff; box-shadow: 0px 0px 10px rgba(0,0,0,.2); }
+.single-post .avatar{
+	margin: 0 auto;
+	margin-top: -40px;
+	width: 70px;
+	height: 70px;
+	overflow: hidden;
+	z-index: 10;
+	border-radius: 100px;
+	position: relative;
+	border: 7px solid #fff;
+	box-shadow: 0px 0px 10px rgba(0,0,0,.2);
+	background: #fff;
+	padding-top: 8px;
+	}
 
 .single-post .post-footer{ position: absolute; bottom: 0; left: 0; right: 0; text-align: center; }
 
-.single-post .post-footer > li{ width: 33.33%; display: inline-block; border-right: 1px solid #fff; background: #EDF3F3; }
+.single-post .post-footer > li{width: 50%;display: inline-block;border-right: 1px solid #fff;background: #EDF3F3;}
 
 .single-post .post-footer > li:first-child{ float: left; }
 
@@ -232,7 +271,7 @@ header .src-area .src-btn{ position: absolute; top: 0; bottom: 0; left: 0; width
 
 .single-post .post-footer > li > a{ line-height: 45px; width: 100%; }
 
-.single-post .post-footer i{ display: inline-block; margin-right: 10px; opacity: .6; font-size: 1.1em; }
+.single-post .post-footer i{display: inline-block;margin-left: 10px;opacity: .6;font-size: 1.1em;}
 
 
 
@@ -291,9 +330,9 @@ header .src-area .src-btn{ position: absolute; top: 0; bottom: 0; left: 0; width
 9. FOOTER
 --------------------------------- */
 
-footer{ padding: 70px 0 30px; margin-top: 40px; background: #fff; }
+footer{padding: 40px 0 30px;margin-top: 40px;background: #fff;}
 
-footer .footer-section{ margin-bottom: 40px; }
+footer .footer-section{margin-bottom: 40px;text-align: center;}
 
 footer .footer-section .title{ margin-bottom: 20px; }
 
@@ -317,3 +356,34 @@ footer .input-area .submit-btn{ position: absolute; top: 0; bottom: 0; right: 0;
 	border: 0; outline: 0; margin-right: 10px; opacity: .8; cursor: pointer; transition: all .2s; }
 
 
+.ion-heart {
+	color: red;
+}
+
+.ion-eye {
+	color: blue;
+}
+
+.logo img {
+	width: 120px;
+}
+
+.icons {
+    margin: auto;
+    width: 270px;
+    height: 30px;
+}
+
+* {
+	font-family: 'IRANSans' !important;
+}
+
+.post-style-1 .blog-image {
+    max-height: 200px;
+    overflow: hidden;
+}
+
+.post-style-1 .blog-image img {
+    height: 200px;
+    /*width: 200px;*/
+}

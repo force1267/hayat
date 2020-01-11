@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="fa-IR">
 <head>
-	<title>Hayatemoon | Magazine</title>
+	<title>مجله حیاطمون</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8">
@@ -14,6 +14,8 @@
 
 	<!-- Stylesheets -->
 
+	<link rel="stylesheet" href="/assets/cdn/WebFonts/css/fontiran.css">
+
 	<link href="/blog/common-css/bootstrap.css" rel="stylesheet">
 
 	<link href="/blog/common-css/ionicons.css" rel="stylesheet">
@@ -23,34 +25,60 @@
 
 	<link href="/blog/blog-sidebar/css/responsive.css" rel="stylesheet">
 
+	<script>
+		/**
+		 * @param {String} HTML representing a single element
+		 * @return {Element}
+		 */
+		function htmlToElement(html) {
+			var template = document.createElement('template');
+			html = html.trim(); // Never return a text node of whitespace as the result
+			template.innerHTML = html;
+			return template.content.firstChild;
+		}
+	</script>
+
+<template id="template.post">
+	<div class="col-md-6 col-sm-12">
+		<div class="card h-100">
+			<div class="single-post post-style-1">
+				<div class="blog-image"><img src="{cover}" alt="عکس پست"></div>
+
+				<a class="avatar" href="#"><img src="/blog/images/icons8-team-355979.jpg" alt="Profile Image"></a>
+
+				<div class="blog-info">
+
+					<h4 class="title"><a href="{link}"><b>{title}</b></a></h4>
+
+					<ul class="post-footer">
+						<li><a href="#"><i class="ion-eye"></i>138</a></li>
+						<li><a href="javascript:void(0)" onclick="strapi.post.like({id})"><i class="ion-heart"></i>{like}</a></li>
+						<!-- <li><a href="#"><i class="ion-chatbubble"></i>6</a></li> -->
+					</ul>
+
+				</div><!-- blog-info -->
+			</div><!-- single-post -->
+		</div><!-- card -->
+	</div><!-- col-md-6 col-sm-12 -->
+</template>
+
+<script>
+	function addPost(data) {
+		let ws = document.getElementById('workspace')
+		let template = document.getElementById('template.post').innerHTML.trim()
+		for(let key in data) {
+			template = template.split(`{${key}}`).join(data[key])
+		}
+		let post = htmlToElement(template)
+		ws.appendChild(post)
+	}
+</script>
+
 </head>
 <body >
 
-	<header>
-		<div class="container-fluid position-relative no-side-padding">
-
-			<a href="#" class="logo"><img src="/blog/images/logo.png" alt="Logo Image"></a>
-
-			<div class="menu-nav-icon" data-nav-menu="#main-menu"><i class="ion-navicon"></i></div>
-
-			<ul class="main-menu visible-on-click" id="main-menu">
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Categories</a></li>
-				<li><a href="#">Features</a></li>
-			</ul><!-- main-menu -->
-
-			<div class="src-area">
-				<form>
-					<button class="src-btn" type="submit"><i class="ion-ios-search-strong"></i></button>
-					<input class="src-input" type="text" placeholder="Type of search">
-				</form>
-			</div>
-
-		</div><!-- conatiner -->
-	</header>
-
 	<div class="slider display-table center-text">
-		<h1 class="title display-table-cell"><b>Hayatemoon Magazine</b></h1>
+		<h1 class="title display-table-cell"><b>مجله حیاطمون</b></h1>
 	</div><!-- slider -->
 
 	<section class="blog-area section">
@@ -58,268 +86,28 @@
 
 			<div class="row">
 
-				<div class="col-lg-8 col-md-12">
-					<div class="row">
-
-						<div class="col-md-6 col-sm-12">
-							<div class="card h-100">
-								<div class="single-post post-style-1">
-
-									<div class="blog-image"><img src="/blog/images/bga.jpg" alt="Blog Image"></div>
-
-									<a class="avatar" href="#"><img src="/blog/images/icons8-team-355979.jpg" alt="Profile Image"></a>
-
-									<div class="blog-info">
-
-										<h4 class="title"><a href="#"><b>Hayatemoon Magazine Post Title</b></a></h4>
-
-										<ul class="post-footer">
-											<li><a href="#"><i class="ion-heart"></i>57</a></li>
-											<li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
-											<li><a href="#"><i class="ion-eye"></i>138</a></li>
-										</ul>
-
-									</div><!-- blog-info -->
-								</div><!-- single-post -->
-							</div><!-- card -->
-						</div><!-- col-md-6 col-sm-12 -->
-
-						<div class="col-md-6 col-sm-12">
-							<div class="card h-100">
-								<div class="single-post post-style-1">
-
-									<div class="blog-image"><img src="/blog/images/bga.jpg" alt="Blog Image"></div>
-
-									<a class="avatar" href="#"><img src="/blog/images/icons8-team-355979.jpg" alt="Profile Image"></a>
-
-									<div class="blog-info">
-										<h4 class="title"><a href="#"><b>Hayatemoon Magazine Post Title</b></a></h4>
-
-										<ul class="post-footer">
-											<li><a href="#"><i class="ion-heart"></i>57</a></li>
-											<li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
-											<li><a href="#"><i class="ion-eye"></i>138</a></li>
-										</ul>
-
-									</div><!-- blog-info -->
-
-								</div><!-- single-post -->
-
-							</div><!-- card -->
-						</div><!-- col-md-6 col-sm-12 -->
-
-						<div class="col-lg-12 col-md-12">
-							<div class="card h-100">
-								<div class="single-post post-style-2">
-
-									<div class="blog-image"><img src="/blog/images/bga.jpg" alt="Blog Image"></div>
-
-									<div class="blog-info">
-
-										<h6 class="pre-title"><a href="#"><b>HEALTH</b></a></h6>
-
-										<h4 class="title"><a href="#"><b>Hayatemoon Magazine Post Title</b></a></h4>
-
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-											ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-
-										<div class="avatar-area">
-											<a class="avatar" href="#"><img src="/blog/images/icons8-team-355979.jpg" alt="Profile Image"></a>
-											<div class="right-area">
-												<a class="name" href="#"><b>Lora Plamer</b></a>
-												<h6 class="date" href="#">on Sep 29, 2017 at 9:48am</h6>
-											</div>
-										</div>
-
-										<ul class="post-footer">
-											<li><a href="#"><i class="ion-heart"></i>57</a></li>
-											<li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
-											<li><a href="#"><i class="ion-eye"></i>138</a></li>
-										</ul>
-
-									</div><!-- blog-right -->
-
-								</div><!-- single-post extra-blog -->
-
-							</div><!-- card -->
-						</div><!-- col-lg-12 col-md-12 -->
-
-						<div class="col-md-6 col-sm-12">
-							<div class="card h-100">
-								<div class="single-post post-style-1">
-
-									<div class="blog-image"><img src="/blog/images/bga.jpg" alt="Blog Image"></div>
-
-									<a class="avatar" href="#"><img src="/blog/images/bga.jpg" alt="Profile Image"></a>
-
-									<h4 class="title"><a href="#"><b>Hayatemoon Magazine Post Title</b></a></h4>
-
-									<ul class="post-footer">
-										<li><a href="#"><i class="ion-heart"></i>57</a></li>
-										<li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
-										<li><a href="#"><i class="ion-eye"></i>138</a></li>
-									</ul>
-
-								</div><!-- single-post -->
-							</div><!-- card -->
-						</div><!-- col-md-6 col-sm-12 -->
-
-						<div class="col-md-6 col-sm-12">
-							<div class="card h-100">
-
-								<div class="single-post post-style-2 post-style-3">
-
-									<div class="blog-info">
-
-										<h6 class="pre-title"><a href="#"><b>HEALTH</b></a></h6>
-
-										<h4 class="title"><a href="#"><b>Hayatemoon Magazine Post Title</b></a></h4>
-
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-											ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-
-										<div class="avatar-area">
-											<a class="avatar" href="#"><img src="/blog/images/icons8-team-355979.jpg" alt="Profile Image"></a>
-											<div class="right-area">
-												<a class="name" href="#"><b>Lora Plamer</b></a>
-												<h6 class="date" href="#">on Sep 29, 2017 at 9:48am</h6>
-											</div>
-										</div>
-
-										<ul class="post-footer">
-											<li><a href="#"><i class="ion-heart"></i>57</a></li>
-											<li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
-											<li><a href="#"><i class="ion-eye"></i>138</a></li>
-										</ul>
-
-									</div><!-- blog-right -->
-
-								</div><!-- single-post extra-blog -->
-
-							</div><!-- card -->
-						</div><!-- col-md-6 col-sm-12 -->
-
-						<div class="col-md-6 col-sm-12">
-							<div class="card h-100">
-								<div class="single-post post-style-1">
-
-									<div class="blog-image"><img src="/blog/images/bga.jpg" alt="Blog Image"></div>
-
-									<a class="avatar" href="#"><img src="/blog/images/icons8-team-355979.jpg" alt="Profile Image"></a>
-
-									<div class="blog-info">
-										<h4 class="title"><a href="#"><b>Hayatemoon Magazine Post Title</b></a></h4>
-
-										<ul class="post-footer">
-											<li><a href="#"><i class="ion-heart"></i>57</a></li>
-											<li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
-											<li><a href="#"><i class="ion-eye"></i>138</a></li>
-										</ul>
-									</div><!-- blog-info -->
-
-								</div><!-- single-post -->
-
-							</div><!-- card -->
-						</div><!-- col-lg-6 col-md-12 -->
-
-						<div class="col-md-6 col-sm-12">
-							<div class="card h-100">
-
-								<div class="single-post post-style-4">
-
-									<div class="display-table">
-										<h4 class="title display-table-cell"><a href="#"><b>Hayatemoon Magazine Post Title</b></a></h4>
-									</div>
-
-									<ul class="post-footer">
-										<li><a href="#"><i class="ion-heart"></i>57</a></li>
-										<li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
-										<li><a href="#"><i class="ion-eye"></i>138</a></li>
-									</ul>
-
-								</div><!-- single-post -->
-
-								<div class="single-post">
-
-									<div class="display-table">
-										<h4 class="title display-table-cell"><a href="#"><b>Hayatemoon Magazine Post Title</b></a></h4>
-									</div>
-
-									<ul class="post-footer">
-										<li><a href="#"><i class="ion-heart"></i>57</a></li>
-										<li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
-										<li><a href="#"><i class="ion-eye"></i>138</a></li>
-									</ul>
-
-								</div><!-- single-post -->
-
-							</div><!-- card -->
-						</div><!-- col-md-6 col-sm-12 -->
-
-						<div class="col-lg-12 col-md-12">
-							<div class="card h-100">
-								<div class="single-post post-style-2">
-
-									<div class="blog-image"><img src="/blog/images/bga.jpg" alt="Blog Image"></div>
-
-									<div class="blog-info">
-
-										<h6 class="pre-title"><a href="#"><b>HEALTH</b></a></h6>
-
-										<h4 class="title"><a href="#"><b>Hayatemoon Magazine Post Title</b></a></h4>
-
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-											ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-
-										<div class="avatar-area">
-											<a class="avatar" href="#"><img src="/blog/images/icons8-team-355979.jpg" alt="Profile Image"></a>
-											<div class="right-area">
-												<a class="name" href="#"><b>Lora Plamer</b></a>
-												<h6 class="date" href="#">on Sep 29, 2017 at 9:48am</h6>
-											</div>
-										</div>
-
-										<ul class="post-footer">
-											<li><a href="#"><i class="ion-heart"></i>57</a></li>
-											<li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
-											<li><a href="#"><i class="ion-eye"></i>138</a></li>
-										</ul>
-
-									</div><!-- blog-right -->
-
-								</div><!-- single-post extra-blog -->
-
-							</div><!-- card -->
-						</div><!-- col-lg-12 col-md-12 -->
-
-					</div><!-- row -->
-
-					<a class="load-more-btn" href="#"><b>Load More</b></a>
-
-				</div><!-- col-lg-8 col-md-12 -->
-
 				<div class="col-lg-4 col-md-12 ">
 
 					<div class="single-post info-area ">
 
 						<div class="about-area">
-							<h4 class="title"><b>ABOUT HAYATEMOON</b></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-								ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur
-								Ut enim ad minim veniam</p>
+							<h4 class="title"><b>درباره حیاطمون</b></h4>
+							<p>لورم ایپسوم
+								و این داستانا که میگن راجع بهش همش راسته چون یه متن الکیه که هست که باشه</p>
 						</div>
 
 						<div class="subscribe-area">
 
-							<h4 class="title"><b>SUBSCRIBE</b></h4>
+							<h4 class="title"><b>عضو مجله شو</b></h4>
 							<div class="input-area">
 								<form>
-									<input class="email-input" type="text" placeholder="Enter your email">
+									<input class="email-input" type="text" placeholder="ایمیلتون">
 									<button class="submit-btn" type="submit"><i class="ion-ios-email-outline"></i></button>
 								</form>
 							</div>
-
-						</div><!-- subscribe-area -->
+						</div>
+						<!-- subscribe-area -->
+						<!-- </div>
 
 						<div class="tag-area">
 
@@ -334,11 +122,26 @@
 								<li><a href="#">Recommendation</a></li>
 							</ul>
 
-						</div><!-- subscribe-area -->
+						</div> -->
+						<!-- subscribe-area -->
 
 					</div><!-- info-area -->
 
 				</div><!-- col-lg-4 col-md-12 -->
+
+				<div class="col-lg-8 col-md-12">
+					<div class="row" id="workspace">
+
+						
+						<!-- inject here -->
+						
+					</div><!-- row -->
+
+					<a id="more" class="load-more-btn" href="javascript:void(0)" onclick="more()"><b>بیشتر</b></a>
+
+				</div><!-- col-lg-8 col-md-12 -->
+
+
 
 			</div><!-- row -->
 
@@ -352,10 +155,10 @@
 
 				<div class="col-md-12">
 					<div class="footer-section">
-
+						<a class="logo" href="#"><img src="/blog/images/logo.png" alt="Hayatemoon"></a>
 						<!-- <a class="logo" href="#"><img src="/blog/images/logo.png" alt="Logo Image"></a> -->
-						<p class="copyright">Hayatemoon @ 2017. All rights reserved.</p>
-						<p class="copyright">Designed by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+						<p class="copyright">تمام حقوق این اثر مطعلق به حیاطمون میباشد.</p>
+						<!-- <p class="copyright">Designed by <a href="https://colorlib.com" target="_blank">Colorlib</a></p> -->
 						<ul class="icons">
 							<li><a href="#"><i class="ion-social-facebook-outline"></i></a></li>
 							<li><a href="#"><i class="ion-social-twitter-outline"></i></a></li>
@@ -372,7 +175,7 @@
 	</footer>
 
 
-	<!-- SCIPTS -->
+	<!-- SCRIPTS -->
 
 	<script src="/blog/common-js/jquery-3.1.1.min.js"></script>
 
@@ -382,5 +185,34 @@
 
 	<script src="/blog/common-js/scripts.js"></script>
 
+	<script src="/script/api.js"></script>
+
+	<script>
+		var _start = 0
+		var _limit = 10
+		function start() {
+			strapi.post.find({_start, _limit}).then(posts => {
+				for(let post of posts) {
+					addPost({
+						id: post.id,
+						title: post.title,
+						cover: post.cover.url,
+						link: `/blog/post.html?id=${post.id}`,
+						like: post.like ? parseInt(post.like) : 0,
+					})
+				}
+				if(posts.length <= _limit) {
+					start = e => e
+					more = e => e
+					document.getElementById("more").hidden = true
+				}
+			})
+		}
+		function more() {
+			_start += _limit
+			start()
+		}
+		document.addEventListener("DOMContentLoaded", start)
+	</script>
 </body>
 </html>

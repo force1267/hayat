@@ -156,15 +156,17 @@
     -moz-box-sizing: border-box;
     margin: 0;
     padding: 5px;
+    position: relative;
+    top: 16px;
     min-height: 40px;
     font-size: 1.2em;
-    font-weight: bold;
+    font-weight: 700;
     text-align: center;
     color: #fff;
     background-color: transparent;
     border-style: none;
     border-width: 5px;
-    border-color: black;
+    border-color: #000;
 }
 .vermelha>h1{
     border-color: #fa5032;
@@ -522,8 +524,8 @@ That part is just for the form
           <input type="email" id='email' placeholder="Email address"/>
           <input type="email" id='emailc' placeholder="Confirm address"/>
           <h3>Password should contain atleast 8 character</h3>
-          <input type="password" id='password' autocomplete="off" placeholder="رمز عبور"/>
-          <input type="password" id='passwordc' autocomplete="off" placeholder="تکرار رمز عبور"/>
+          <input type="password" id='password' autocomplete="off" placeholder="Password"/>
+          <input type="password" id='passwordc' autocomplete="off" placeholder="Confirm Password"/>
           <button id="register">Sing Up</button>
           <p class="message">Already singed up ? <a class="log" href="#">Login</a></p>
           <p class="forg">I forgot my password</p>

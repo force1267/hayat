@@ -35,6 +35,7 @@
 
 .field input[type=text], .field textarea, .panel-group button, .upi img, .uupi img {
     text-align: left;
+    direction: ltr;
 }
 
 .register, .register-vip, .register-vit, .registeru, .regb, .vipit, .vitit {
@@ -58,10 +59,6 @@
     right: unset;
 }
 
-.description h2 {
-    direction: rtl;
-}
-
 .infob {
     text-align: left !important;
     direction: ltr;
@@ -78,6 +75,7 @@
 
 .addb {
     float: left;
+    text-align: left;
 }
 
 .tovip p, .tovit p {
@@ -150,7 +148,9 @@
 
 .card-body .search i {
     left: 3px;
-    top: 3px;
+    top: 2.8px;
+    transform: rotate(75deg);
+    font-size: 15.1px;
 }
 
 .dropdown-toggle .dropdown-text {
@@ -194,6 +194,15 @@
         position: absolute;
         right: 0 !important;
         left: unset !important;
+    }
+    .advl .info .ago {
+        width: 100% !important;
+    }
+    .advl .gci, .advl .mark {
+        margin-left: 0 !important;
+    }
+    .advl .mark {
+        margin-left: 20px !important;
     }
 }
 
@@ -240,3 +249,63 @@
     right: 1em !important;
     left: unset !important;
 }
+
+.select ul li {
+    text-align: left;
+    direction: ltr;
+}
+
+.syel {
+    float: right;
+    right: 10px;
+    left: unset !important;
+}
+
+.dropdown a {
+    text-align: left !important;
+}
+
+.dropdown-parent .dropdown-link:after {
+    left: unset !important;
+    right: 20px;
+    transform: rotateZ(360deg) !important;
+}
+
+.description h2 {
+    text-align: left;
+    direction: ltr;
+}
+
+.ct {
+    margin-left: 0 !important;
+    margin-right: 6px;
+}
+
+.balance {
+    font-family: sans-serif !important;
+}
+
+.advl .data .field {
+    float: left !important;
+}
+
+.advl .data .value {
+    float: right;
+}
+
+.advl .info .ago {
+    text-align: left;
+    width: 90%;
+    direction: ltr;
+}
+
+.advl .gci, .advl .mark {
+    float: left;
+    margin-left: 10%;
+    font-size: 12px;
+}
+
+.advl .mark {
+    margin-left: 20px;
+}
+

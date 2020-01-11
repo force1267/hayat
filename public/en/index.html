@@ -21,14 +21,13 @@
     <script src="assets/cdn/bootstrap.bundle.min.js"></script>
     <script src="assets/cdn/jquery.dropdown.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval';">
 </head>
 <body>
     <!-- NAVBAR-->
     <div class="bgo">
     <nav class="navbar menu navbar-expand-md py-3 navbar-dark bg-lighter shadow-sm">
         <div class="container" style="direction: ltr">
-            <a href="/" class="navbar-brand">
+            <a href="/en" class="navbar-brand">
                 <!-- Logo Image -->
                 <img src="assets/images/wle.png" width="45" alt="" class="d-inline-block logo align-middle mr-2">
                 <img src="assets/images/wle.png" width="45" alt="" style="width: 100px;height: 100px;visibility: hidden;display: none;" class=" plc align-middle mr-2">
@@ -36,7 +35,7 @@
                 <!-- <span class="text-uppercase font-weight-bold brand d-none d-lg-inline">Hayatemun</span> -->
                 <ul class='artif'>
                     <li class="nav-item">
-                        <a href="#" class="nav-link garn dif d-inline d-md-none tooltip-bottom" data-tooltip="09113114664 09331254456"><i class="material-icons">headset_mic</i></a>
+                        <a href="#" class="nav-link garn dif d-inline d-md-none tooltip-bottom" pd-popup-open="popupNew"><i class="material-icons">headset_mic</i></a>
                     </li>
                     <li class="nav-item">
                         <a href="/en/login-register.html" class="nav-link logreg dif d-inline d-md-none ussp"><i class="material-icons">person</i></a>
@@ -48,12 +47,24 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- <li class="nav-item"><a href="#" class="nav-link bl"><i class="material-icons">fastfood</i>رستوران</a></li> -->
                     <!-- <li class="nav-item"><a href="#" class="nav-link bl"><i class="material-icons">amp_stories</i>آگهی</a></li> -->
-                    <li class="nav-item d-none d-sm-inline"><a href="#" class="nav-link garn dif tooltip-bottom" data-tooltip="09113114664 09331254456"><i id="hs" class="material-icons">headset_mic</i>Support</a></li>
+                    <li class="nav-item d-none d-sm-inline">
+                        <a href="#" class="nav-link garn dif" pd-popup-open="popupNew">
+                            <i id="hs" class="material-icons">headset_mic</i>
+                            Support
+                        </a>
+                    </li>
                     <li class="nav-item d-none d-sm-inline iul"><a href="/en/login-register.html" class="nav-link logreg dif"><i class="material-icons">person</i>Sing In - Sign Up</a></li>
                 </ul>
             </div>
         </div>
     </nav>
+    <div class="popup" pd-popup="popupNew">
+        <div class="popup-inner">
+              <p><i id="hs" class="material-icons">local_phone</i>09113114256</p>
+              <p><i id="hs" class="material-icons">business</i>09113114256</p>
+            <a class="popup-close" pd-popup-close="popupNew" href="#"> </a>
+        </div>
+    </div>
     <div class="landing">
         <img src="" alt="" class="back-ground">
         <div class="row">
@@ -325,7 +336,7 @@
                             <div class="tab-pane active" id="adv" role="tabpanel">
                                 <label class="control control--checkbox">
                                     <span class="yt">
-                                        Special
+                                        Featured Ads
                                     </span>
                                     <input id="ivip" value="Apples1" type="checkbox">
                                     <div class="control__indicator"></div>
@@ -377,16 +388,16 @@
                                                         Laptop and PC
                                                     </li>
                                                     <li data-dropdown='{"value":"دوربین فیلم برداری و عكاسی و ملزومات"}'>
-                                                        Camcorder & Photography & Essentials & Photography & Essentials
+                                                        Camera and Accessories
                                                     </li>
                                                     <li data-dropdown='{"value":"صوتی و تصویری "}'>
-                                                        Video and Video and Audio
+                                                        Audio and Visual
                                                     </li>
                                                     <li data-dropdown='{"value":"كنسول بازی و ملزومات "}'>
                                                         Game consoles
                                                     </li>
                                                     <li data-dropdown='{"value":"موبایل و تبلت و ملزومات "}'>
-                                                        Mobile & Tablet & Accessories & Tablet & Accessories
+                                                        Mobile-Tablet and Accessories
                                                     </li>
                                                     <li data-dropdown='{"value":"سایر لوازم الكترونیكی "}'>
                                                         Other electronic devices
@@ -564,7 +575,7 @@
                 </div>
             </div>
         </div>
-        <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
+        <div id="carousel-example" class="carousel slide" data-ride="carousel">
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item active">
@@ -893,7 +904,7 @@
             <div class="pc">
                 <div class="vp">
                     <input type="hidden" id="tovipi" value="0">
-                    <p>Select one of the packages to add as special ad : </p>
+                    <p>Select one of the packages to add as Featured Ad : </p>
                     <label class="form-radiolabel col-md-12">
                         <input type="radio" class="form-radio" checked required="" name="itype" value="1">
                         <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">One day (2 Lear)</span>
@@ -1371,7 +1382,7 @@
                                     <div class="panel-heading" role="tab" id="headingOne">
                                         <h4 class="panel-title">
                                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#دوربین_فیلم_برداری_و_عكاسی_و_ملزومات" aria-expanded="false" aria-controls="دوربین_فیلم_برداری_و_عكاسی_و_ملزومات">
-                                        Camcorder & Photography & Essentials
+                                        Camera and Accessories
                                     </a>
                                     </h4>
                                     </div>
@@ -1390,7 +1401,7 @@
                                     <div class="panel-heading" role="tab" id="headingOne">
                                         <h4 class="panel-title">
                                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#صوتی_و_تصویری" aria-expanded="false" aria-controls="صوتی_و_تصویری">
-                                        Video and Audio
+                                        Video and Video and Audio
                                     </a>
                                     </h4>
                                     </div>
@@ -1409,30 +1420,11 @@
                                     <div class="panel-heading" role="tab" id="headingOne">
                                         <h4 class="panel-title">
                                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#موبایل_و_تبلت_و_ملزومات" aria-expanded="false" aria-controls="موبایل_و_تبلت_و_ملزومات">
-                                        Mobile & Tablet & Accessories
+                                        Mobile-Tablet and Accessories
                                     </a>
                                     </h4>
                                     </div>
                                     <div id="موبایل_و_تبلت_و_ملزومات" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="لوازم_الكترونیكی" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body int">
-                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="false">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#سایر_لوازم_الكترونیكی" aria-expanded="false" aria-controls="سایر_لوازم_الكترونیكی">
-                                        Other electronic devices
-                                    </a>
-                                    </h4>
-                                    </div>
-                                    <div id="سایر_لوازم_الكترونیكی" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                                         <div class="panel-body">
                                         </div>
                                     </div>
@@ -1452,6 +1444,25 @@
                                     </h4>
                                     </div>
                                     <div id="كنسول_بازی_و_ملزومات" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                        <div class="panel-body">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="لوازم_الكترونیكی" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body int">
+                            <div class="panel-group" id="fm" role="tablist" aria-multiselectable="false">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingOne">
+                                        <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#سایر_لوازم_الكترونیكی" aria-expanded="false" aria-controls="سایر_لوازم_الكترونیكی">
+                                        Other electronic devices
+                                    </a>
+                                    </h4>
+                                    </div>
+                                    <div id="سایر_لوازم_الكترونیكی" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                                         <div class="panel-body">
                                         </div>
                                     </div>
@@ -2087,6 +2098,8 @@
       </ul>
     </nav>
     <script type="text/javascript" src="script/alert.js"></script>
+    <!-- <script type="text/javascript" src="script/conversion.js"></script> -->
+    <script type="text/javascript" src="script/image-compress.js"></script>
     <script type="text/javascript" src="script/api.js"></script>
     <script type="text/javascript" src="script/ajaxupload.js"></script>
     <script type="text/javascript" src="script/main.js"></script>

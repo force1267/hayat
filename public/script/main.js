@@ -8,7 +8,11 @@ Number.prototype.format = function(n, x) {
 var locations = ['/', '/tr', '/en'];
 
 var cd = {"Diğer Hizmetleri": "سایر خدمات", "Satılık Konut":"فروشی مسکونی","Kiralık Konut":"اجاره مسکونی","Satılık İşyeri":"فروشی تجاری","Kiralık İşyeri":"اجاره تجاری","Otomobil":"خودرو","Otomobil Ekipmanları":"لوازم یدكی خودرو","Motosiklet ve Ekipmanları":"موتور سیکلت و لوازم یدکی","Bilgisayar ve Notebook":"لپتاپ و كامپیوتر","Fotoğraf & Kamera":"دوربین فیلم برداری و عكاسی و ملزومات","Televizyon ve Ses Sistemleri":"صوتی و تصویری","Oyun & Konsol":"كنسول بازی و ملزومات","Cep Telefonu & Tablet":"موبایل و تبلت و ملزومات","Diğer Her Şey":"سایر وسایل","Mobilya ,Ev Dekorasyon":"مبلمان ، وسایل و تزئینات خانه","Mutfak Gereçleri":"لوازم آشپزخونه","Dekoratif Ürünler":"دكوری و روشنایی","Halı":"فرش و گلیم و قالیچه","Bahçe":"باغچه و حیاط","Aşçi & Fırın Ustası":"آشپز و شیرینی پز","Temizlik":"نظافت","İnşaat ve Yapı":"عمران ، ساختمانی و معماری","Servis Elemanı":"خدمات، رستوران و فروشگاه","Hukuki , Finans ve Bankacılık":"حسابداری ، مالی ، حقوقی","Eğitim":"آموزش","Medya ,Dijital Marketing , Grafist":"رسانه و ماركتینگ و گرافیست","Pazarlama ve Ürün Yönetimi":"بازاریابی و فروش","Hastane İle İlgili":"درمانی ، زیبایی و بهداشتی","Bilgisayar ve İT":"رایانه و IT","Taşıma":"حمل و نقل","Mühendislik":"صنعت و مهندسی","Göç":"مهاجرتی","Döviz":"صرافی","Kuaför":"آرایشگری","Web Sitesi Tasarımı":"طراحی سایت و شبكه","Tercuman":"ترجمه","Tamirat":"تعمیرات","Kiralık Araç":"اجاره خودرو"}
-var ce = {"Residential for sale":"فروشی مسکونی","Residential rental":"اجاره مسکونی","Commercial for sale":"فروشی تجاری","Commercial rental":"اجاره تجاری","Car":"خودرو","Spare parts for cars":"لوازم یدكی خودرو","Motorcycle and parts":"موتور سیکلت و لوازم یدکی","Laptop and PC":"لپتاپ و كامپیوتر","Camcorder & Photography & Essentials & Photography & Essentials":"دوربین فیلم برداری و عكاسی و ملزومات","Video and Video and Audio":"صوتی و تصویری","Game consoles":"كنسول بازی و ملزومات","Mobile & Tablet & Accessories & Tablet & Accessories":"موبایل و تبلت و ملزومات","Other electronic devices":"سایر لوازم الكترونیكی","Home furniture, fixtures and decorations":"مبلمان ، وسایل و تزئینات خانه","Kitchen Accessories":"لوازم آشپزخونه","Decoration and lighting":"دكوری و روشنایی","Carpets and rugs":"فرش و گلیم و قالیچه","Garden and yard":"باغچه و حیاط","Other Items":"سایر وسایل","Chef and confectioner":"آشپز و شیرینی پز","Cleaning":"نظافت","Civil, building and architecture":"عمران ، ساختمانی و معماری","Services, restaurants and shops":"خدمات، رستوران و فروشگاه","Accounting, Finance, Legal":"حسابداری ، مالی ، حقوقی","Education":"آموزش","Media & Marketing & Graphic Designer":"رسانه و ماركتینگ و گرافیست","Marketing and Sales":"بازاریابی و فروش","Therapeutic, Beauty and Health":"درمانی ، زیبایی و بهداشتی","IT and Computers":"رایانه و IT","Transportation":"حمل و نقل","Industry and Engineering":"صنعت و مهندسی","Immigration":"مهاجرتی","Currency Exchange":"صرافی","Makeup":"آرایشگری","Web site design & Networks":"طراحی سایت و شبكه","Translation":"ترجمه","Repairs":"تعمیرات","Car rental":"اجاره خودرو","Other services":"سایر خدمات"}
+var ce = {"Residential for sale":"فروشی مسکونی","Residential rental":"اجاره مسکونی","Commercial for sale":"فروشی تجاری","Commercial rental":"اجاره تجاری","Car":"خودرو","Spare parts for cars":"لوازم یدكی خودرو","Motorcycle and parts":"موتور سیکلت و لوازم یدکی","Laptop and PC":"لپتاپ و كامپیوتر","Camera and Accessories":"دوربین فیلم برداری و عكاسی و ملزومات","Audio and Visual":"صوتی و تصویری","Game consoles":"كنسول بازی و ملزومات","Mobile-Tablet and Accessories":"موبایل و تبلت و ملزومات","Other electronic devices":"سایر لوازم الكترونیكی","Home furniture, fixtures and decorations":"مبلمان ، وسایل و تزئینات خانه","Kitchen Accessories":"لوازم آشپزخونه","Decoration and lighting":"دكوری و روشنایی","Carpets and rugs":"فرش و گلیم و قالیچه","Garden and yard":"باغچه و حیاط","Other Items":"سایر وسایل","Chef and confectioner":"آشپز و شیرینی پز","Cleaning":"نظافت","Civil, building and architecture":"عمران ، ساختمانی و معماری","Services, restaurants and shops":"خدمات، رستوران و فروشگاه","Accounting, Finance, Legal":"حسابداری ، مالی ، حقوقی","Education":"آموزش","Media & Marketing & Graphic Designer":"رسانه و ماركتینگ و گرافیست","Marketing and Sales":"بازاریابی و فروش","Therapeutic, Beauty and Health":"درمانی ، زیبایی و بهداشتی","IT and Computers":"رایانه و IT","Transportation":"حمل و نقل","Industry and Engineering":"صنعت و مهندسی","Immigration":"مهاجرتی","Currency Exchange":"صرافی","Makeup":"آرایشگری","Web site design & Networks":"طراحی سایت و شبكه","Translation":"ترجمه","Repairs":"تعمیرات","Car rental":"اجاره خودرو","Other services":"سایر خدمات"}
+var dc = {"سایر خدمات":"Diğer Hizmetleri","فروشی مسکونی":"Satılık Konut","اجاره مسکونی":"Kiralık Konut","فروشی تجاری":"Satılık İşyeri","اجاره تجاری":"Kiralık İşyeri","خودرو":"Otomobil","لوازم یدكی خودرو":"Otomobil Ekipmanları","موتور سیکلت و لوازم یدکی":"Motosiklet ve Ekipmanları","لپتاپ و كامپیوتر":"Bilgisayar ve Notebook","دوربین فیلم برداری و عكاسی و ملزومات":"Fotoğraf & Kamera","صوتی و تصویری":"Televizyon ve Ses Sistemleri","كنسول بازی و ملزومات":"Oyun & Konsol","موبایل و تبلت و ملزومات":"Cep Telefonu & Tablet","سایر وسایل":"Diğer Her Şey","مبلمان وسایل و تزئینات خانه":"Mobilya ,Ev Dekorasyon","لوازم آشپزخونه":"Mutfak Gereçleri","دكوری و روشنایی":"Dekoratif Ürünler","فرش و گلیم و قالیچه":"Halı","باغچه و حیاط":"Bahçe","آشپز و شیرینی پز":"Aşçi & Fırın Ustası","نظافت":"Temizlik","عمران ساختمانی و معماری":"İnşaat ve Yapı","خدمات رستوران و فروشگاه":"Servis Elemanı","حسابداری مالی حقوقی":"Hukuki , Finans ve Bankacılık","آموزش":"Eğitim","رسانه و ماركتینگ و گرافیست":"Medya ,Dijital Marketing , Grafist","بازاریابی و فروش":"Pazarlama ve Ürün Yönetimi","درمانی زیبایی و بهداشتی":"Hastane İle İlgili","رایانه و IT":"Bilgisayar ve İT","حمل و نقل":"Taşıma","صنعت و مهندسی":"Mühendislik","مهاجرتی":"Göç","صرافی":"Döviz","آرایشگری":"Kuaför","طراحی سایت و شبكه":"Web Sitesi Tasarımı","ترجمه":"Tercuman","تعمیرات":"Tamirat","اجاره خودرو":"Kiralık Araç"}
+var ec = {"فروشی مسکونی":"Residential for sale","اجاره مسکونی":"Residential rental","فروشی تجاری":"Commercial for sale","اجاره تجاری":"Commercial rental","خودرو":"Car","لوازم یدكی خودرو":"Spare parts for cars","موتور سیکلت و لوازم یدکی":"Motorcycle and parts","لپتاپ و كامپیوتر":"Laptop and PC","دوربین فیلم برداری و عكاسی و ملزومات":"Camera and Accessories","صوتی و تصویری":"Audio and Visual","كنسول بازی و ملزومات":"Game consoles","موبایل و تبلت و ملزومات":"Mobile-Tablet and Accessories","سایر لوازم الكترونیكی":"Other electronic devices","مبلمان وسایل و تزئینات خانه":"Home furniture, fixtures and decorations","لوازم آشپزخونه":"Kitchen Accessories","دكوری و روشنایی":"Decoration and lighting","فرش و گلیم و قالیچه":"Carpets and rugs","باغچه و حیاط":"Garden and yard","سایر وسایل":"Other Items","آشپز و شیرینی پز":"Chef and confectioner","نظافت":"Cleaning","عمران ساختمانی و معماری":"Civil, building and architecture","خدمات رستوران و فروشگاه":"Services, restaurants and shops","حسابداری مالی حقوقی":"Accounting, Finance, Legal","آموزش":"Education","رسانه و ماركتینگ و گرافیست":"Media & Marketing & Graphic Designer","بازاریابی و فروش":"Marketing and Sales","درمانی زیبایی و بهداشتی":"Therapeutic, Beauty and Health","رایانه و IT":"IT and Computers","حمل و نقل":"Transportation","صنعت و مهندسی":"Industry and Engineering","مهاجرتی":"Immigration","صرافی":"Currency Exchange","آرایشگری":"Makeup","طراحی سایت و شبكه":"Web site design & Networks","ترجمه":"Translation","تعمیرات":"Repairs","اجاره خودرو":"Car rental","سایر خدمات":"Other services"}
+var cc = {"آنكارا":"Ankara","استانبول":"Istanbul","آنتالیا":"Antalya","ازمیر":"Izmin","تورنتو":"Toronto","دبی":"Dubai","لندن":"London","ونکوور":"Vancouver","سیدنی":"Sydney","ملبورن":"Melbourne","تفلیس":"Tbilisi"}
+
 
 function sl(s) {
     return s[lang];
@@ -104,25 +108,25 @@ $("body").on('click', '.ussp', function(e) {
         strapi.user.me().then(e=> {
             user = e;
         });
-        $('.useri').attr('src', (user.avatar == null) ? '/uploads/udef.jpg': user.avatar.url);
+        $('.useri').attr('src', (user.avatar == null) ? '/assets/images/udef.jpg': user.avatar.url);
         user.advertises.forEach(function(ad) {
             let data = ad;
             $('.uads').append(`
                 <div class="col-md-4 col-sm-6 col-xs-12 fr">
                     <div class="blog-card">
                         <div class="meta">
-                            <div class="photo" style="background-image: url(${(ad.images.length ? ad.images[0].url : '/uploads/def.jpg')})"></div>
+                            <div class="photo" style="background-image: url(${(ad.images.length ? ad.images[0].url : '/assets/images/def.jpg')})"></div>
                         </div>
                         <div class="description">
                             <h1>${data.title}</h1>
                             <h2>${timeSince(new Date(data.created_at).getTime())}</h2>
-                            <h2><span class='ct'>${sl(['دسته بندی ', 'Kategori ', 'Category '])}</span> : ${data.class.split('_').join(' ')}</h2>
+                            <h2><span class='ct'>${sl(['دسته بندی ', 'Kategori ', 'Category '])}</span> : ${(lang == 0 ? data.class.split('_').join(' ') : (lang == 1 ? dc[data.class.split('_').join(' ')] : ec[data.class.split('_').join(' ')]))}</h2>
                             <p class="read-more">
                                 <a data-id='${ad.id}'class="delete" href="#">${sl(['پاک کردن', 'Kaldırmak', 'Delete'])}</a>
                             </p>
                         </div>
                     </div>
-                    ${(!ad.vip) ? `<div data-id="${ad.id}" class="dvip">${sl(['ویژه کردن آگهی', 'İlanı özel yap', 'Upgrate to special ad'])}</div>` : ''}
+                    ${(!ad.vip) ? `<div data-id="${ad.id}" class="dvip">${sl(['ویژه کردن آگهی', 'İlanı özel yap', 'Upgrate to Featured Ad'])}</div>` : ''}
                     ${(ad.showcase == 0) ? `<div data-id="${ad.id}" class="dvit">${sl(['نمایش در ویترین', 'Vitrinde göster', 'Add to showcase'])}</div>` : ''}
                 </div>
             `);
@@ -133,15 +137,15 @@ $("body").on('click', '.ussp', function(e) {
                 <div class="col-md-4 col-sm-6 col-xs-12 fr">
                     <div class="blog-card">
                         <div class="meta">
-                            <div class="photo" style="background-image: url(${(ad.images.length ? ad.images[0].url : '/uploads/def.jpg')})"></div>
+                            <div class="photo" style="background-image: url(${(ad.images.length ? ad.images[0].url : '/assets/images/def.jpg')})"></div>
                         </div>
                         <div class="description">
                             <h1>${data.title}</h1>
                             <h2>${timeSince(new Date(data.created_at).getTime())}</h2>
-                            <h2><span class='ct'>${sl(['دسته بندی ', 'Kategori ', 'Category '])}</span> : ${data.class.split('_').join(' ')}</h2>
+                            <h2><span class='ct'>${sl(['دسته بندی ', 'Kategori ', 'Category '])}</span> : ${(lang == 0 ? data.class.split('_').join(' ') : (lang == 1 ? dc[data.class.split('_').join(' ')] : ec[data.class.split('_').join(' ')]))}</h2>
                             <p class="read-more">
                                 <a data-id='${ad.id}'class="view" href="#">${sl(['مشاهده', 'İncele', 'View'])}</a>
-                                <!--<p data-id='${ad.id}'class="vip">${sl(['ویژه', 'özel', 'Special'])}</p> -->
+                                <!--<p data-id='${ad.id}'class="vip">${sl(['ویژه', 'özel', 'Featured Ads'])}</p> -->
                             </p>
                         </div>
                     </div>
@@ -176,25 +180,25 @@ $("body").on('click', '.uss', function(e) {
         strapi.user.me().then(e=> {
             user = e;
         });
-        $('.useri').attr('src', (user.avatar == null) ? '/uploads/udef.jpg': user.avatar.url);
+        $('.useri').attr('src', (user.avatar == null) ? '/assets/images/udef.jpg': user.avatar.url);
         user.advertises.forEach(function(ad) {
             let data = ad;
             $('.uads').append(`
                 <div class="col-md-4 col-sm-6 col-xs-12 fr">
                     <div class="blog-card">
                         <div class="meta">
-                            <div class="photo" style="background-image: url(${(ad.images.length ? ad.images[0].url : '/uploads/def.jpg')})"></div>
+                            <div class="photo" style="background-image: url(${(ad.images.length ? ad.images[0].url : '/assets/images/def.jpg')})"></div>
                         </div>
                         <div class="description">
                             <h1>${data.title}</h1>
                             <h2>${timeSince(new Date(data.created_at).getTime())}</h2>
-                            <h2><span class='ct'>${sl(['دسته بندی ', 'Kategori ', 'Category '])}</span> : ${data.class.split('_').join(' ')}</h2>
+                            <h2><span class='ct'>${sl(['دسته بندی ', 'Kategori ', 'Category '])}</span> : ${(lang == 0 ? data.class.split('_').join(' ') : (lang == 1 ? dc[data.class.split('_').join(' ')] : ec[data.class.split('_').join(' ')]))}</h2>
                             <p class="read-more">
                                 <a data-id='${ad.id}'class="delete" href="#">${sl(['پاک کردن', 'Kaldırmak', 'Delete'])}</a>
                             </p>
                         </div>
                     </div>
-                    ${(!ad.vip) ? `<div data-id="${ad.id}" class="dvip">${sl(['ویژه کردن آگهی', 'İlanı özel yap', 'Upgrate to special ad'])}</div>` : ''}
+                    ${(!ad.vip) ? `<div data-id="${ad.id}" class="dvip">${sl(['ویژه کردن آگهی', 'İlanı özel yap', 'Upgrate to Featured Ad'])}</div>` : ''}
                     ${(ad.showcase == 0) ? `<div data-id="${ad.id}" class="dvit">${sl(['نمایش در ویترین', 'Vitrinde göster', 'Add to showcase'])}</div>` : ''}
                 </div>
             `);
@@ -205,15 +209,15 @@ $("body").on('click', '.uss', function(e) {
                 <div class="col-md-4 col-sm-6 col-xs-12 fr">
                     <div class="blog-card">
                         <div class="meta">
-                            <div class="photo" style="background-image: url(${(ad.images.length ? ad.images[0].url : '/uploads/def.jpg')})"></div>
+                            <div class="photo" style="background-image: url(${(ad.images.length ? ad.images[0].url : '/assets/images/def.jpg')})"></div>
                         </div>
                         <div class="description">
                             <h1>${data.title}</h1>
                             <h2>${timeSince(new Date(data.created_at).getTime())}</h2>
-                            <h2><span class='ct'>${sl(['دسته بندی ', 'Kategori ', 'Category '])}</span> : ${data.class.split('_').join(' ')}</h2>
+                            <h2><span class='ct'>${sl(['دسته بندی ', 'Kategori ', 'Category '])}</span> : ${(lang == 0 ? data.class.split('_').join(' ') : (lang == 1 ? dc[data.class.split('_').join(' ')] : ec[data.class.split('_').join(' ')]))}</h2>
                             <p class="read-more">
                                 <a data-id='${ad.id}'class="view" href="#">${sl(['مشاهده', 'İncele', 'View'])}</a>
-                                <!--<p data-id='${ad.id}'class="vip">${sl(['ویژه', 'özel', 'Special'])}</p> -->
+                                <!--<p data-id='${ad.id}'class="vip">${sl(['ویژه', 'özel', 'Featured Ads'])}</p> -->
                             </p>
                         </div>
                     </div>
@@ -974,6 +978,14 @@ $('body').on('click', '.register', function() {
             janelaPopUp.abre("id", 'p orange alert', sl(['خطا', 'Hata', 'Error']), sl(['شهر انتخاب شده مجاز نیست', 'Seçilen şehre izin verilmiyor', 'Selected city is not active']));
             end = true;
         }
+        if ($(this).attr('id') == 'title' && $(this).val() == '') {
+            janelaPopUp.abre("id", 'p orange alert', sl(['خطا', 'Hata', 'Error']), sl(['عنوان نمیتواند خالی باشد', 'Başlık boş bırakılamaz', "Title can't be empty"]));
+            end = true;
+        }
+        if ($(this).attr('id') == 'price' && $(this).val() == '') {
+            janelaPopUp.abre("id", 'p orange alert', sl(['خطا', 'Hata', 'Error']), sl(['قیمت نمیتواند خالی باشد', 'Fiyat boş bırakılamaz', "Price can't be empty"]));
+            end = true;
+        }
         if (['price', 'rent', 'deposits'].includes($(this).attr('id'))) {
             data[$(this).attr('id')] = $(this).val().split(',').join('').split('₺').join('');
         } else {
@@ -989,13 +1001,15 @@ $('body').on('click', '.register', function() {
         strapi.advertise.image.upload($(this).parent().find('#file')[0], buff.id).then(res => {
             janelaPopUp.abre("id", 'p green alert', sl(['انجام شد', 'Onay', 'Done']), sl(['آگهی با موفقیت ثبت شد', 'Fotoğraf yükleme sorunu', 'Advertise added successfully']));
             $(this).html(sl([`ثبت آگهی`, 'İlan ver', 'Post Ad']));
+            $('.closev').trigger('click');
             setTimeout(function() {
                 window.location = locations[lang];
             }, 1800);
         }).catch(e => {
-            console.error(e)
+            // console.log(e);
             janelaPopUp.abre("id", 'p orange alert', sl(['خطا', 'Hata', 'Error']), sl(['مشکل در آپلود عکس ها', 'Fotoğraf yükleme sorunu', 'Something went wrong while uploading images']));
             $(this).html(sl([`ثبت آگهی`, 'İlan ver', 'Post Ad']));
+            $('.closev').trigger('click');
         });
         $('.select').on('click', '.placeholder', function() {
             var parent = $(this).closest('.select');
@@ -1010,11 +1024,11 @@ $('body').on('click', '.register', function() {
             parent.removeClass('is-open').find('.placeholder').text($(this).text());
             parent.find('input[type=hidden]').attr('value', $(this).attr('data-value'));
         });
-        $('.closev').trigger('click');
     }).catch(e => {
         // console.log(e);
-        janelaPopUp.abre("id", 'p orange alert', sl(['خطا', 'Hata', 'Error']), sl(['برای ثبت آگهی ابتدا باید وارد شوید', 'Bir İlan vermek için önce giriş yapmalısınız', 'You need to login for adding an advertise']));
+        janelaPopUp.abre("id", 'p orange alert', sl(['خطا', 'Hata', 'Error']), sl(['برای ثبت آگهی ابتدا باید وارد شوید', 'Bir İlan ver için önce giriş yapmalısınız', 'You need to login for adding an advertise']));
         $(this).html(sl([`ثبت آگهی`, 'İlan ver', 'Post Ad']));
+        $('.closev').trigger('click');
     });
 });
 
@@ -1135,16 +1149,16 @@ $('.panel-collapse.collapse a').click(function() {
         </div>
         <div class="field">
             <div class="title">${sl(['توضیحات آگهی', 'İlanın  Açıklaması', 'Description'])}</div>
-            <div class="info">${sl(['جزئیات و نکات قابل توجه آگهی خود را کامل و دقیق بنویسید تا شانس موفقیت آگهی شما بیشتر شود.', 'İlanınıza En İyi Şansı Vermek İçin Önemli Noktalar ve Detayları Yazınız', 'Type down details and significant features in the description so users can exactly see what you are presenting'])}</div>
+            <div class="info">${sl(['جزئیات و نکات قابل توجه آگهی خود را کامل و دقیق بنویسید تا شانس موفقیت آگهی شما بیشتر شود.', 'İlanınıza En İyi Şansı ver İçin Önemli Noktalar ve Detayları Yazınız', 'Type down details and significant features in the description so users can exactly see what you are presenting'])}</div>
             <textarea id="description"></textarea>
             <div class="clear"></div>
         </div>
         <button class="register" id="submit">${sl([`ثبت رایگان آگهی`, 'İlan ver', 'Post Free Ad'])}</button>
-        <button class="register-vip" id="submit">${sl([`ثبت ویژه آگهی`, 'Özel İlan Vermek', 'Post Special'])}</button>
-        <button class="register-vit" id="submit">${sl(['ثبت و نمایش در ویترین', 'Vitrinde İlan Vermek', 'Post Ad to Showcase'])}</button>
+        <button class="register-vip" id="submit">${sl([`ثبت ویژه آگهی`, 'Özel İlan ver', 'Post Featured Ad'])}</button>
+        <button class="register-vit" id="submit">${sl(['ثبت و نمایش در ویترین', 'Vitrinde İlan ver', 'Post Ad to Showcase'])}</button>
         <div class="clear"></div>
         <div class="tovip">
-            <p>${sl(['یکی از پکیج های زیر را برای ثبت ویژه آگهی انتخاب کنید  ', 'İlana Özel Kayıt İçin Aşağıdaki Tarifelerden Birini Seçiniz ', 'Select one of the packages to add as special ad '])}: </p>
+            <p>${sl(['یکی از پکیج های زیر را برای ثبت ویژه آگهی انتخاب کنید  ', 'İlana Özel Kayıt İçin Aşağıdaki Tarifelerden Birini Seçiniz ', 'Select one of the packages to add as Featured Ad '])}: </p>
             <label class="form-radiolabel col-md-12">
                 <input type="radio" class="form-radio" checked required="" name="itype" value="1">
                 <span class="form-radio-styler" aria-hidden="true"></span><span class="vpl">${sl(["يك  روزه ", 'Bir Gün', 'One day'])} (2 ${sl(["لیر", 'Lira', 'Lear'])})</span>
@@ -1265,7 +1279,7 @@ $('.adv .view').click(function(e) {
 });
 $(function() {
     $('.cat select,.cat ul').dropdown({
-        toggleText: sl(["همه ی آگهی ها", "Tum İlanler", "All Ads"]),
+        toggleText: sl(["همه ی آگهی ها", "Tüm İlanlar", "All Ads"]),
         nested: true
     });
 });
@@ -1436,7 +1450,7 @@ $('#adv .search').click(function() {
         data['hasImage'] = true;     
     }
     if ($('#ivip:checked').length) {
-        data['vip'] > 0;     
+        data['vip'] = true;     
     }
     if (city != "") {
         data['city'] = city;
@@ -1446,7 +1460,6 @@ $('#adv .search').click(function() {
             data[$(this).attr('id')] = $(this).val().trim();
         }
     });
-    console.log("search data :", data);
     // console.log(data);
     strapi.advertise.find(data).then(results => {
         // console.log('clear')
@@ -1604,25 +1617,26 @@ $('#adv .search').click(function() {
             // $('.features').fadeOut(100);
             $('.adv').html(`
                 <div class="cross-line rsa">
-                    <span>${sl(['نتایج جستجوی آگهی', 'İlan başarıyla kaydedildi', 'Advertise result search'])}</span>
+                    <span>${sl(['نتایج جستجوی آگهی', 'İlan başarıyla kaydedildi', 'Results'])}</span>
                 </div>
             `)
             results.forEach(function(ad) {
                 fads[ad.id] = ad;
                 data = ad;
+                console.log(data.class.split('_').join(' '), dc[data.class.split('_').join(' ')], ec[data.class.split('_').join(' ')]);
                 $('.adv').append(`
                     <div class="col-md-4 col-sm-6 col-xs-12 fr">
                         <div class="blog-card${(ad.vip) ? ' vip' : ''}">
                             <div class="meta">
-                                <a data-id='${ad.id}' class="photo view" style="background-image: url(${(ad.images.length ? ad.images[0].url : '/uploads/def.jpg')})"></a>
+                                <a data-id='${ad.id}' class="photo view" style="background-image: url(${(ad.images.length ? ad.images[0].url : '/assets/images/def.jpg')})"></a>
                             </div>
                             <div class="description">
                                 <h1>${data.title}</h1>
                                 <h2>${timeSince(new Date(data.created_at).getTime())}</h2>
-                                <h2><span class='ct'>${sl(['دسته بندی ', 'Kategori ', 'Category '])}</span> : ${data.class.split('_').join(' ')}</h2>
+                                <h2><span class='ct'>${sl(['دسته بندی ', 'Kategori ', 'Category '])}</span> : ${(lang == 0 ? data.class.split('_').join(' ') : (lang == 1 ? dc[data.class.split('_').join(' ')] : ec[data.class.split('_').join(' ')]))}</h2>
                                 <p class="read-more">
                                     <a data-id='${ad.id}'class="view" href="#">${sl(['مشاهده', 'İncele', 'View'])}</a>
-                                    ${(ad.vip) ? `<p data-id='${ad.id}'class="vip">${sl(['ویژه', 'özel', 'Special'])}</p>` : ''}
+                                    ${(ad.vip) ? `<p data-id='${ad.id}'class="vip">${sl(['ویژه', 'özel', 'Featured Ads'])}</p>` : ''}
                                 </p>
                             </div>
                         </div>
@@ -1701,7 +1715,7 @@ $('#adv .search').click(function() {
 
 $('#addv').click(function(e) {
     if (user == null) {
-        janelaPopUp.abre("id", 'p orange alert', sl(['خطا', 'Hata', 'Error']), sl(['برای ثبت آگهی ابتدا باید وارد شوید', 'Bir İlan vermek için önce giriş yapmalısınız', 'You need to login for adding an advertise']));
+        janelaPopUp.abre("id", 'p orange alert', sl(['خطا', 'Hata', 'Error']), sl(['برای ثبت آگهی ابتدا باید وارد شوید', 'Bir İlan ver için önce giriş yapmalısınız', 'You need to login for adding an advertise']));
         $(this).html(sl([`ثبت آگهی`, 'İlan ver', 'Post Ad']));
         return false;
     }
@@ -1784,12 +1798,28 @@ $('body').on('click', '.view', async function(e) {
             if (t == 'class') {
                 data[t] = data[t].split('_').join(' ');
             }
-            $('.advl .fields').append(`
-                <div class="data">
-                    <div class="field">${map.dic[t][lang]}</div>
-                    <div class="value">${data[t]}</div>
-                </div>
-            `)
+            if (t == 'class') { 
+                $('.advl .fields').append(`
+                    <div class="data">
+                        <div class="field">${map.dic[t][lang]}</div>
+                        <div class="value">${(lang == 0 ? data[t] : (lang == 1 ? dc[data[t]] : ec[data[t]]))}</div>
+                    </div>
+                `);
+            } else if (t == 'city') {
+                $('.advl .fields').append(`
+                    <div class="data">
+                        <div class="field">${map.dic[t][lang]}</div>
+                        <div class="value">${(lang == 0 ? data[t] : cc[data[t]])}</div>
+                    </div>
+                `);
+            } else {
+                $('.advl .fields').append(`
+                    <div class="data">
+                        <div class="field">${map.dic[t][lang]}</div>
+                        <div class="value">${data[t]}</div>
+                    </div>
+                `);
+            }
         }
     }
     $('.advl').fadeIn(300);
@@ -1855,12 +1885,14 @@ $('.mark').click(function() {
     if (user != null) {
         if (t == 'mark') {
             strapi.advertise.mark(addid).then(function(e) {
-                $('.advl .mark').html(sl(['نشان  کردن', 'Favori', 'Mark']));
+                user = e;
+                $('.advl .mark').html(sl(['نشان  شده', 'Favorilerine Eklendi', 'Marked']));
                 $('.advl .mark').attr('data-type', 'marked');
             });
         } else {
             strapi.advertise.unmark(addid).then(function(e) {
-                $('.advl .mark').html(sl(['نشان  شده', 'Favorilerine Eklendi', 'Marked']));
+                user = e;
+                $('.advl .mark').html(sl(['نشان  کردن', 'Favori', 'Mark']));
                 $('.advl .mark').attr('data-type', 'mark');
             });
         }
@@ -1953,7 +1985,7 @@ $('.wrapper').mouseleave(function() {
     setTimeout(function() {
         vmd = true;
     }, 1000);
-})
+});
 
 $('.wrapper').stop().animate({scrollLeft:0}, 800, 'swing', function() { 
 });
@@ -2203,3 +2235,20 @@ function validaten(evt) {
     if(theEvent.preventDefault) theEvent.preventDefault();
   }
 }
+
+$(function() {
+    //----- OPEN
+    $('[pd-popup-open]').on('click', function(e)  {
+        var targeted_popup_class = jQuery(this).attr('pd-popup-open');
+        $('[pd-popup="' + targeted_popup_class + '"]').fadeIn(100);
+ 
+        e.preventDefault();
+    });
+    //----- CLOSE
+    $('[pd-popup-close]').on('click', function(e)  {
+        var targeted_popup_class = jQuery(this).attr('pd-popup-close');
+        $('[pd-popup="' + targeted_popup_class + '"]').fadeOut(200);
+ 
+        e.preventDefault();
+    });
+});

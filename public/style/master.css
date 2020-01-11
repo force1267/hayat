@@ -570,7 +570,7 @@ p{
     text-align:right
 }
 .nb-footer .useful-links li a{
-    text-transform:uppercase
+    text-transform: capitalize;
 }
 @media (max-width:767px){
     .left-clear{
@@ -618,7 +618,8 @@ p{
     top:7px
 }
 .nav-link.garn{
-    color:#fff!important
+    color:#fff!important;
+    position: relative;
 }
 .nav-link.logreg{
     border:1px solid#31ba36;
@@ -2054,8 +2055,10 @@ span.to-w{
 .blog-card .description h2{
     font-size:1.3rem;
     font-weight:300;
-    text-transform:uppercase;
-    color:#aaa
+    text-transform: capitalize;
+    color:#aaa;
+    max-height: 40px;
+    overflow: hidden;
 }
 .blog-card .description .read-more{
     text-align:right
@@ -2071,7 +2074,7 @@ span.to-w{
     white-space:nowrap;
     text-decoration:none;
     position:absolute;
-    left:17px;
+    left: 10px;
 }
 .blog-card.alt .description .read-more a{
     float:right
@@ -3759,7 +3762,8 @@ button:active,button:focus{
 .col-item .price h5{
     line-height:20px;
     margin:0;
-    font-size:12px
+    font-size:12px;
+    text-align: center;
 }
 .price-text-color{
     color:#219fd1
@@ -3810,8 +3814,8 @@ button:active,button:focus{
 .cdc{
     position:absolute;
     left:0;
-    width:110px;
-    top:10px
+    width: 210px;
+    top:10px;
 }
 .btn-add a{
     color:#fff!important
@@ -3914,214 +3918,109 @@ and (max-device-width : 992px) {
 }
 
 
-/* Base styles for the element that has a tooltip */
-[data-tooltip],
-.tooltip {
-  position: relative;
-  cursor: pointer;
+.popup {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: fixed;
+  top: 0px;
+  z-index: 3;
+  left: 0px;
+  background: rgba(0, 0, 0, 0.75);
 }
 
-/* Base styles for the entire tooltip */
-[data-tooltip]:before,
-[data-tooltip]:after,
-.tooltip:before,
-.tooltip:after {
-  position: absolute;
-  visibility: hidden;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  -webkit-transition: 
-      opacity 0.2s ease-in-out,
-        visibility 0.2s ease-in-out,
-        -webkit-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
-    -moz-transition:    
-        opacity 0.2s ease-in-out,
-        visibility 0.2s ease-in-out,
-        -moz-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
-    transition:         
-        opacity 0.2s ease-in-out,
-        visibility 0.2s ease-in-out,
-        transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform:    translate3d(0, 0, 0);
-  transform:         translate3d(0, 0, 0);
-  pointer-events: none;
-}
-
-/* Show the entire tooltip on hover and focus */
-[data-tooltip]:hover:before,
-[data-tooltip]:hover:after,
-[data-tooltip]:focus:before,
-[data-tooltip]:focus:after,
-.tooltip:hover:before,
-.tooltip:hover:after,
-.tooltip:focus:before,
-.tooltip:focus:after {
-  visibility: visible;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
-}
-
-/* Base styles for the tooltip's directional arrow */
-.tooltip:before,
-[data-tooltip]:before {
-  z-index: 1001;
-  border: 6px solid transparent;
-  background: transparent;
-  content: "";
-}
-
-/* Base styles for the tooltip's content area */
-.tooltip:after,
-[data-tooltip]:after {
-  z-index: 1000;
-  padding: 8px;
-  width: 160px;
-  background-color: #000;
-  background-color: #032628d9;
-  color: #fff;
-  content: attr(data-tooltip);
-  font-size: 14px;
-  line-height: 1.2;
-  /* position: relative; */
-}
-
-/* Directions */
-
-/* Top (default) */
-[data-tooltip]:before,
-[data-tooltip]:after,
-.tooltip:before,
-.tooltip:after,
-.tooltip-top:before,
-.tooltip-top:after {
-  bottom: 100%;
-  left: 50%;
-}
-
-[data-tooltip]:before,
-.tooltip:before,
-.tooltip-top:before {
-  margin-left: -6px;
-  margin-bottom: -12px;
-  border-top-color: #000;
-  border-top-color: hsla(0, 0%, 20%, 0.9);
-}
-
-/* Horizontally align top/bottom tooltips */
-[data-tooltip]:after,
-.tooltip:after,
-.tooltip-top:after {
-  margin-left: -80px;
-}
-
-[data-tooltip]:hover:before,
-[data-tooltip]:hover:after,
-[data-tooltip]:focus:before,
-[data-tooltip]:focus:after,
-.tooltip:hover:before,
-.tooltip:hover:after,
-.tooltip:focus:before,
-.tooltip:focus:after,
-.tooltip-top:hover:before,
-.tooltip-top:hover:after,
-.tooltip-top:focus:before,
-.tooltip-top:focus:after {
-  -webkit-transform: translateY(-12px);
-  -moz-transform:    translateY(-12px);
-  transform:         translateY(-12px); 
-}
-
-/* Left */
-.tooltip-left:before,
-.tooltip-left:after {
-  right: 100%;
-  bottom: 50%;
-  left: auto;
-}
-
-.tooltip-left:before {
-  margin-left: 0;
-  margin-right: -12px;
-  margin-bottom: 0;
-  border-top-color: transparent;
-  border-left-color: #000;
-  border-left-color: hsla(0, 0%, 20%, 0.9);
-}
-
-.tooltip-left:hover:before,
-.tooltip-left:hover:after,
-.tooltip-left:focus:before,
-.tooltip-left:focus:after {
-  -webkit-transform: translateX(-12px);
-  -moz-transform:    translateX(-12px);
-  transform:         translateX(-12px); 
-}
-
-/* Bottom */
-.tooltip-bottom:before,
-.tooltip-bottom:after {
-  top: 105%;
-  bottom: auto;
-  left: 50%;
-  height: 60px;
-  border-radius: 10px;
+.popup {
   text-align: center;
-  line-height: 22px;
 }
 
-.tooltip-bottom:before {
-  margin-top: -12px;
-  margin-bottom: 0;
-  border-top-color: transparent;
-  /* border-bottom-color: #000; */
-  /* border-bottom-color: hsla(0, 0%, 20%, 0.9); */
+.popup:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  margin-right: -4px;
+  vertical-align: middle;
 }
 
-.tooltip-bottom:hover:before,
-.tooltip-bottom:hover:after,
-.tooltip-bottom:focus:before,
-.tooltip-bottom:focus:after {
-  -webkit-transform: translateY(12px);
-  -moz-transform:    translateY(12px);
-  transform:         translateY(12px); 
+.popup-inner {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+  position: relative;
+  max-width: 460px;
+  width: 90%;
+  direction: ltr;
+  padding-top: 40px;
+  padding-bottom: 27px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 1);
+  border-radius: 3px;
+  background: #fff;
+  text-align: center;
 }
 
-/* Right */
-.tooltip-right:before,
-.tooltip-right:after {
-  bottom: 50%;
-  left: 100%;
+.popup-inner h1 {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700;
 }
 
-.tooltip-right:before {
-  margin-bottom: 0;
-  margin-left: -12px;
-  border-top-color: transparent;
-  border-right-color: #000;
-  border-right-color: hsla(0, 0%, 20%, 0.9);
+.popup-inner p {
+  font-size: 24px;
+  font-weight: 400;
 }
 
-.tooltip-right:hover:before,
-.tooltip-right:hover:after,
-.tooltip-right:focus:before,
-.tooltip-right:focus:after {
-  -webkit-transform: translateX(12px);
-  -moz-transform:    translateX(12px);
-  transform:         translateX(12px); 
+.popup-close {
+  width: 27px;
+  height: 27px;
+  padding-top: 4px;
+  display: inline-block;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  -webkit-transform: translate(50%, -50%);
+  transform: translate(50%, -50%);
+  border-radius: 100%;
+  background: transparent;
+  border: solid 4px #808080;
 }
 
-/* Move directional arrows down a bit for left/right tooltips */
-.tooltip-left:before,
-.tooltip-right:before {
-  top: 3px;
+.popup-close:after,
+.popup-close:before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 3px;
+  height: 3px;
+  width: 13px;
+  border-radius: 30px;
+  background: #808080;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
-/* Vertically center tooltip content for left/right tooltips */
-.tooltip-left:after,
-.tooltip-right:after {
-  margin-left: 0;
-  margin-bottom: -16px;
+.popup-close:after {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.popup-close:hover {
+  -webkit-transform: translate(50%, -50%) rotate(180deg);
+  transform: translate(50%, -50%) rotate(180deg);
+  background: #f00;
+  text-decoration: none;
+  border-color: #f00;
+}
+
+.popup-close:hover:after,
+.popup-close:hover:before {
+  background: #fff;
+}
+
+.popup-inner i {
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 100%;
+    background: #FFC107;
+    color: #fff;
+    top: 3px !important;
 }
