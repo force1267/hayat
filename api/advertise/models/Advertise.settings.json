@@ -147,7 +147,7 @@
       "plugin": "users-permissions"
     },
     "lang": {
-      "required": true,
+      "required": false,
       "enum": [
         "persian",
         "english",
