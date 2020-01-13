@@ -571,6 +571,7 @@ That part is just for the form
                   window.location = '/';
                 }, 2000);
             }).catch((e)=> {
+                console.log(e);
                 switch (e.message[0].messages[0].id) {
                     case "Auth.form.error.email.taken": {
                         janelaPopUp.abre( "id", 'p red alert',  'خطا' ,  'این ایمیل قبلا ثبت نام نموده است');

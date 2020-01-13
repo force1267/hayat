@@ -48,9 +48,9 @@
     float: left;
 }
 
-.panel-group .select .placeholder {
+.select .placeholder {
     text-align: left;
-    padding-left: 40px;
+    padding-left: 10px;
 }
 
 .file input {
@@ -118,6 +118,7 @@
 
 .panel-default>.panel-heading a {
     text-align: left;
+    direction: ltr;
 }
 
 .file label {
@@ -158,10 +159,13 @@
     padding-left: 20px !important;
 }
 
-.select .placeholder {
+.select.cdc .placeholder {
     direction: ltr !important;
     text-align: left !important;
     padding-left: 20px !important;
+    position: relative;
+    margin-left: 10px;
+    top: 10px;
 }
 
 .dropdown-toggle::after {
@@ -188,7 +192,7 @@
 @media only screen and (max-device-width: 768px) {
     .navbar-brand {
         position: absolute;
-        right: 20px !important;
+        left: 20px !important;
     }
     .logo {
         position: absolute;
@@ -215,6 +219,17 @@
     }
     .artif .logreg {
         top: 10px!important;
+    }
+    .artif .garn, .artif .logreg {
+        right: 60px !important;
+    }
+    .feature p {
+        padding-left: 50px;
+    }
+    .feature-icon {
+        float: left;
+        margin-right: 10px;
+        margin-left: unset !important;
     }
 }
 
@@ -309,3 +324,26 @@
     margin-left: 20px;
 }
 
+
+.ussp span {
+    position: relative !important;
+    right: unset !important;
+    /* left: -30px !important; */
+    top: 9px !important;
+    direction: rtl !important;
+    float: right !important;
+}
+
+.attrs input[type=text], .attrs select {
+    text-align: left;
+}
+
+input[type=number] {
+    text-align: left;
+    padding-right: 0 !important; 
+}
+
+.blog-card .description h1 {
+    text-align: left !important;
+    direction: ltr !important;
+}

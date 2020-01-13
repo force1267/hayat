@@ -36,7 +36,7 @@
                 <!-- <span class="text-uppercase font-weight-bold brand d-none d-lg-inline">Hayatemun</span> -->
                 <ul class='artif'>
                     <li class="nav-item">
-                        <a href="#" class="nav-link garn dif d-inline d-md-none tooltip-bottom" pd-popup-open="popupNew"><i id="hs" class="material-icons">headset_mic</i></a>
+                        <a href="#" class="nav-link garn dif d-inline d-md-none tooltip-bottom" style="right: 10px !important;" pd-popup-open="popupNew"><i class="material-icons">headset_mic</i></a>
                     </li>
                     <li class="nav-item">
                         <a href="/tr/login-register.html" class="nav-link logreg dif d-inline d-md-none ussp"><i class="material-icons">person</i></a>
@@ -54,11 +54,11 @@
             </div>
         </div>
     </nav>
-    <div class="popup" pd-popup="popupNew">
+    <div class="popup" pd-popup-close="popupNew" pd-popup="popupNew">
         <div class="popup-inner">
-              <p><i id="hs" class="material-icons">local_phone</i>09113114256</p>
-              <p><i id="hs" class="material-icons">business</i>09113114256</p>
-            <a class="popup-close" pd-popup-close="popupNew" href="#"> </a>
+              <p><i id="hs" class="material-icons">local_phone</i><a style="color: #0fbab9;text-decoration: none;font-size: 15px;color: #fff" href="tel:09113114256">09113114256</a></p>
+              <p><i id="hs" class="material-icons">business</i><a style="color: #0fbab9;text-decoration: none;font-size: 15px;color: #fff" href="tel:09113114256">09113114256</a></p>
+            <!-- <a class="popup-close" href="#"> </a> -->
         </div>
     </div>
     <div class="landing">
@@ -112,7 +112,7 @@
                                 </label>
                                 <div class="clear"></div>
                                 <div class="row" style="direction: ltr;">
-                                    <div class="col-md-4 col-xs-12 cat">
+                                    <div class="col-md-4 col-xs-6 cat">
                                         <ul>
                                             <li data-dropdown='{"value":"Tüm İlanler"}' data-dropdown-text="Tüm İlanler"></li>
                                             <li data-dropdown='{"value":"Emlak"}' data-dropdown-text="Emlak">
@@ -243,7 +243,7 @@
                                                         Web Sitesi Tasarımı
                                                     </li>
                                                     <li data-dropdown='{"value":"ترجمه"}'>
-                                                        Tercuman
+                                                        Tercüman
                                                     </li>
                                                     <li data-dropdown='{"value":"تعمیرات"}'>
                                                         Tamirat
@@ -265,7 +265,7 @@
                                                 <li data-value="آنكارا">Ankara</li>
                                                 <li data-value="استانبول">Istanbul</li>
                                                 <li data-value="آنتالیا">Antalya</li>
-                                                <li data-value="ازمیر">Izmin</li>
+                                                <li data-value="ازمیر">Izmir</li>
                                                 <li data-value="0">Toronto<span class='syel'>(Yakında)</span></li>
                                                 <li data-value="0">Dubai<span class='syel'>(Yakında)</span></li>
                                                 <li data-value="0">London<span class='syel'>(Yakında)</span></li>
@@ -298,209 +298,212 @@
         </div>
     </div>
     </div>
-    <div class="container">
+    <div class="cross-line rsa">
+        <span>İlan başarıyla kaydedildi</span>
+    </div>
+    <div class="container np">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 adv">
         </div>
     </div>
     <!-- VITRIN -->
-    <div class="cross-line hidden-xs">
+    <div class="cross-line">
         <span>İlan Vitrini</span>
     </div>
-
-<div class="container">
-    <div class="row">
-        <div class="container-fluid">
-                <div class="select cdc hidden-xs">
-                    <span class="placeholder">İl</span>
-                    <ul>
-                        <li data-value="آنكارا">Ankara</li>
-                        <li data-value="استانبول">Istanbul</li>
-                        <li data-value="آنتالیا">Antalya</li>
-                        <li data-value="ازمیر">Izmin</li>
-                        <li data-value="0">Toronto<span class='syel'>(Yakında)</span></li>
-                        <li data-value="0">Dubai<span class='syel'>(Yakında)</span></li>
-                        <li data-value="0">London<span class='syel'>(Yakında)</span></li>
-                        <li data-value="0">Vancouver<span class='syel'>(Yakında)</span></li>
-                        <li data-value="0">Sydney<span class='syel'>(Yakında)</span></li>
-                        <li data-value="0">Melbourne<span class='syel'>(Yakında)</span></li>
-                        <li data-value="0">Tbilisi<span class='syel'>(Yakında)</span></li>
-                    </ul>                                            
-                    <input type="hidden" id="city" />
-                </div>
-            <div class="fr">
-                <!-- Controls -->
-                <div class="controls pull-right hidden-xs">
-                    <a class="left fa fa-chevron-left btn btn-success" href="#carousel-example"
-                        data-slide="prev"></a><a class="right fa fa-chevron-right btn btn-success" href="#carousel-example"
-                            data-slide="next"></a>
+    <div class="container  hidden-xs">
+        <div class="row">
+            <div class="container-fluid">
+                    <div class="select cdc hidden-xs">
+                        <span class="placeholder">City</span>
+                        <ul>
+                            <li data-value="آنكارا">Ankara</li>
+                            <li data-value="استانبول">Istanbul</li>
+                            <li data-value="آنتالیا">Antalya</li>
+                            <li data-value="ازمیر">Izmir</li>
+                            <li data-value="0">Toronto<span class='syel'>(Soon)</span></li>
+                            <li data-value="0">Dubai<span class='syel'>(Soon)</span></li>
+                            <li data-value="0">London<span class='syel'>(Soon)</span></li>
+                            <li data-value="0">Vancouver<span class='syel'>(Soon)</span></li>
+                            <li data-value="0">Sydney<span class='syel'>(Soon)</span></li>
+                            <li data-value="0">Melbourne<span class='syel'>(Soon)</span></li>
+                            <li data-value="0">Tbilisi<span class='syel'>(Soon)</span></li>
+                        </ul>                                            
+                        <input type="hidden" id="city" />
+                    </div>
+                <div class="fr">
+                    <!-- Controls -->
+                    <div class="controls pull-right hidden-xs">
+                        <a class="left fa fa-chevron-left btn btn-success" href="#carousel-example"
+                            data-slide="prev"></a><a class="right fa fa-chevron-right btn btn-success" href="#carousel-example"
+                                data-slide="next"></a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-                <div class="item active">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <div class="col-item">
-                                <div class="photo">
-                                    <img src="/assets/images/7.jpg" class="img-responsive" alt="a" />
-                                </div>
-                                <div class="info">
-                                    <div class="row">
-                                        <div class="price col-md-12">
-                                            <h5>Sample Product</h5>
+            <div id="carousel-example" class="carousel slide" data-ride="carousel">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="col-item">
+                                    <div class="photo">
+                                        <img src="/assets/images/7.jpg" class="img-responsive" alt="a" />
+                                    </div>
+                                    <div class="info">
+                                        <div class="row">
+                                            <div class="price col-md-12">
+                                                <h5>Sample Product</h5>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="separator clear-left">
-                                        <p class="btn-add">
-                                            <i class="fa fa-eye"></i><a href="#" class="hidden-sm">İncele</a></p>
-                                    </div>
-                                    <div class="clearfix">
+                                        <div class="separator clear-left">
+                                            <p class="btn-add">
+                                                <i class="fa fa-eye"></i><a href="#" class="hidden-sm">İncele</a></p>
+                                        </div>
+                                        <div class="clearfix">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="col-item">
-                                <div class="photo">
-                                    <img src="/assets/images/6.jpg" class="img-responsive" alt="a" />
-                                </div>
-                                <div class="info">
-                                    <div class="row">
-                                        <div class="price col-md-12">
-                                            <h5>Sample Product</h5>
+                            <div class="col-sm-3">
+                                <div class="col-item">
+                                    <div class="photo">
+                                        <img src="/assets/images/6.jpg" class="img-responsive" alt="a" />
+                                    </div>
+                                    <div class="info">
+                                        <div class="row">
+                                            <div class="price col-md-12">
+                                                <h5>Sample Product</h5>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="separator clear-left">
-                                        <p class="btn-add">
-                                            <i class="fa fa-eye"></i><a href="#" class="hidden-sm">İncele</a></p>
-                                    </div>
-                                    <div class="clearfix">
+                                        <div class="separator clear-left">
+                                            <p class="btn-add">
+                                                <i class="fa fa-eye"></i><a href="#" class="hidden-sm">İncele</a></p>
+                                        </div>
+                                        <div class="clearfix">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="col-item">
-                                <div class="photo">
-                                    <img src="/assets/images/4.jpg" class="img-responsive" alt="a" />
-                                </div>
-                                <div class="info">
-                                    <div class="row">
-                                        <div class="price col-md-12">
-                                            <h5>Sample Product</h5>
+                            <div class="col-sm-3">
+                                <div class="col-item">
+                                    <div class="photo">
+                                        <img src="/assets/images/4.jpg" class="img-responsive" alt="a" />
+                                    </div>
+                                    <div class="info">
+                                        <div class="row">
+                                            <div class="price col-md-12">
+                                                <h5>Sample Product</h5>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="separator clear-left">
-                                        <p class="btn-add">
-                                            <i class="fa fa-eye"></i><a href="#" class="hidden-sm">İncele</a></p>
-                                    </div>
-                                    <div class="clearfix">
+                                        <div class="separator clear-left">
+                                            <p class="btn-add">
+                                                <i class="fa fa-eye"></i><a href="#" class="hidden-sm">İncele</a></p>
+                                        </div>
+                                        <div class="clearfix">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="col-item">
-                                <div class="photo">
-                                    <img src="/assets/images/5.jpg" class="img-responsive" alt="a" />
-                                </div>
-                                <div class="info">
-                                    <div class="row">
-                                        <div class="price col-md-12">
-                                            <h5>Sample Product</h5>
+                            <div class="col-sm-3">
+                                <div class="col-item">
+                                    <div class="photo">
+                                        <img src="/assets/images/5.jpg" class="img-responsive" alt="a" />
+                                    </div>
+                                    <div class="info">
+                                        <div class="row">
+                                            <div class="price col-md-12">
+                                                <h5>Sample Product</h5>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="separator clear-left">
-                                        <p class="btn-add">
-                                            <i class="fa fa-eye"></i><a href="#" class="hidden-sm">İncele</a></p>
-                                    </div>
-                                    <div class="clearfix">
+                                        <div class="separator clear-left">
+                                            <p class="btn-add">
+                                                <i class="fa fa-eye"></i><a href="#" class="hidden-sm">İncele</a></p>
+                                        </div>
+                                        <div class="clearfix">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="item">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <div class="col-item">
-                                <div class="photo">
-                                    <img src="/assets/images/hotel_tn.jpg" class="img-responsive" alt="a" />
-                                </div>
-                                <div class="info">
-                                    <div class="row">
-                                        <div class="price col-md-12">
-                                            <h5>Sample Product</h5>
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="col-item">
+                                    <div class="photo">
+                                        <img src="/assets/images/hotel_tn.jpg" class="img-responsive" alt="a" />
+                                    </div>
+                                    <div class="info">
+                                        <div class="row">
+                                            <div class="price col-md-12">
+                                                <h5>Sample Product</h5>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="separator clear-left">
-                                        <p class="btn-add">
-                                            <i class="fa fa-eye"></i><a href="#" class="hidden-sm">İncele</a></p>
-                                    </div>
-                                    <div class="clearfix">
+                                        <div class="separator clear-left">
+                                            <p class="btn-add">
+                                                <i class="fa fa-eye"></i><a href="#" class="hidden-sm">İncele</a></p>
+                                        </div>
+                                        <div class="clearfix">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="col-item">
-                                <div class="photo">
-                                    <img src="/assets/images/1.jpg" class="img-responsive" alt="a" />
-                                </div>
-                                <div class="info">
-                                    <div class="row">
-                                        <div class="price col-md-12">
-                                            <h5>Sample Product</h5>
+                            <div class="col-sm-3">
+                                <div class="col-item">
+                                    <div class="photo">
+                                        <img src="/assets/images/1.jpg" class="img-responsive" alt="a" />
+                                    </div>
+                                    <div class="info">
+                                        <div class="row">
+                                            <div class="price col-md-12">
+                                                <h5>Sample Product</h5>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="separator clear-left">
-                                        <p class="btn-add">
-                                            <i class="fa fa-eye"></i><a href="#" class="hidden-sm">İncele</a></p>
-                                    </div>
-                                    <div class="clearfix">
+                                        <div class="separator clear-left">
+                                            <p class="btn-add">
+                                                <i class="fa fa-eye"></i><a href="#" class="hidden-sm">İncele</a></p>
+                                        </div>
+                                        <div class="clearfix">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="col-item">
-                                <div class="photo">
-                                    <img src="/assets/images/2.jpg" class="img-responsive" alt="a" />
-                                </div>
-                                <div class="info">
-                                    <div class="row">
-                                        <div class="price col-md-12">
-                                            <h5>Sample Product</h5>
+                            <div class="col-sm-3">
+                                <div class="col-item">
+                                    <div class="photo">
+                                        <img src="/assets/images/2.jpg" class="img-responsive" alt="a" />
+                                    </div>
+                                    <div class="info">
+                                        <div class="row">
+                                            <div class="price col-md-12">
+                                                <h5>Sample Product</h5>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="separator clear-left">
-                                        <p class="btn-add">
-                                            <i class="fa fa-eye"></i><a href="#" class="hidden-sm">İncele</a></p>
-                                    </div>
-                                    <div class="clearfix">
+                                        <div class="separator clear-left">
+                                            <p class="btn-add">
+                                                <i class="fa fa-eye"></i><a href="#" class="hidden-sm">İncele</a></p>
+                                        </div>
+                                        <div class="clearfix">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="col-item">
-                                <div class="photo">
-                                    <img src="/assets/images/3.jpg" class="img-responsive" alt="a" />
-                                </div>
-                                <div class="info">
-                                    <div class="row">
-                                        <div class="price col-md-12">
-                                            <h5>Sample Product</h5>
+                            <div class="col-sm-3">
+                                <div class="col-item">
+                                    <div class="photo">
+                                        <img src="/assets/images/3.jpg" class="img-responsive" alt="a" />
+                                    </div>
+                                    <div class="info">
+                                        <div class="row">
+                                            <div class="price col-md-12">
+                                                <h5>Sample Product</h5>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="separator clear-left">
-                                        <p class="btn-add">
-                                            <i class="fa fa-eye"></i><a href="#" class="hidden-sm">İncele</a></p>
-                                    </div>
-                                    <div class="clearfix">
+                                        <div class="separator clear-left">
+                                            <p class="btn-add">
+                                                <i class="fa fa-eye"></i><a href="#" class="hidden-sm">İncele</a></p>
+                                        </div>
+                                        <div class="clearfix">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -510,120 +513,141 @@
             </div>
         </div>
     </div>
-</div>
-
-<!--       <div class="containerv">
-        <div class="wrapper">
-          <div class="products">
-            <ul>
-              <li>
-                <div class="product-container">
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
-                  <h5>ماشین لباس شویی</h5>
-                  <h3>£3.45</h3>
+    <div class="container  hidden-sm hidden-md hidden-lg">
+        <div class="row">
+            <div class="container-fluid">
+                    <div class="select cdc">
+                        <span class="placeholder">City</span>
+                        <ul>
+                            <li data-value="آنكارا">Ankara</li>
+                            <li data-value="استانبول">Istanbul</li>
+                            <li data-value="آنتالیا">Antalya</li>
+                            <li data-value="ازمیر">Izmir</li>
+                            <li data-value="0">Toronto<span class='syel'>(Soon)</span></li>
+                            <li data-value="0">Dubai<span class='syel'>(Soon)</span></li>
+                            <li data-value="0">London<span class='syel'>(Soon)</span></li>
+                            <li data-value="0">Vancouver<span class='syel'>(Soon)</span></li>
+                            <li data-value="0">Sydney<span class='syel'>(Soon)</span></li>
+                            <li data-value="0">Melbourne<span class='syel'>(Soon)</span></li>
+                            <li data-value="0">Tbilisi<span class='syel'>(Soon)</span></li>
+                        </ul>                                            
+                        <input type="hidden" id="city" />
+                    </div>
+                <div class="fr">
+                    <!-- Controls -->
+                    <div class="controls pull-right">
+                        <a class="left fa fa-chevron-left btn btn-success" href="#carousel-example1"
+                            data-slide="prev"></a><a class="right fa fa-chevron-right btn btn-success" href="#carousel-example1"
+                                data-slide="next"></a>
+                    </div>
                 </div>
-              </li>
-              <li>
-                <div class="product-container">
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
-                  <h5>Book For Sale</h5>
-                  <h3>£3.45</h3>
+            </div>
+            <div id="carousel-example1" class="carousel slide" data-ride="carousel">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div class="row">
+                            <div class="col-sm-12">                                
+                                <div class="col-item">
+                                    <div class="photo">
+                                        <img src="/assets/images/5.jpg" class="img-responsive mb" alt="a" />
+                                    </div>
+                                    <div class="info">
+                                        <div class="row">
+                                            <div class="price col-md-12">
+                                                <h5>Sample Product</h5>
+                                            </div>
+                                        </div>
+                                        <div class="separator clear-left">
+                                            <p class="btn-add">
+                                                <i class="fa fa-eye"></i><a href="#" class="hidden-sm">İncele</a></p>
+                                        </div>
+                                        <div class="clearfix">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="col-item">
+                                    <div class="photo">
+                                        <img src="/assets/images/7.jpg" class="img-responsive mb" alt="a" />
+                                    </div>
+                                    <div class="info">
+                                        <div class="row">
+                                            <div class="price col-md-12">
+                                                <h5>Sample Product</h5>
+                                            </div>
+                                        </div>
+                                        <div class="separator clear-left">
+                                            <p class="btn-add">
+                                                <i class="fa fa-eye"></i><a href="#" class="hidden-sm">İncele</a></p>
+                                        </div>
+                                        <div class="clearfix">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="col-item">
+                                    <div class="photo">
+                                        <img src="/assets/images/6.jpg" class="img-responsive mb" alt="a" />
+                                    </div>
+                                    <div class="info">
+                                        <div class="row">
+                                            <div class="price col-md-12">
+                                                <h5>Sample Product</h5>
+                                            </div>
+                                        </div>
+                                        <div class="separator clear-left">
+                                            <p class="btn-add">
+                                                <i class="fa fa-eye"></i><a href="#" class="hidden-sm">İncele</a></p>
+                                        </div>
+                                        <div class="clearfix">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="col-item">
+                                    <div class="photo">
+                                        <img src="/assets/images/1.jpg" class="img-responsive mb" alt="a" />
+                                    </div>
+                                    <div class="info">
+                                        <div class="row">
+                                            <div class="price col-md-12">
+                                                <h5>Sample Product</h5>
+                                            </div>
+                                        </div>
+                                        <div class="separator clear-left">
+                                            <p class="btn-add">
+                                                <i class="fa fa-eye"></i><a href="#" class="hidden-sm">İncele</a></p>
+                                        </div>
+                                        <div class="clearfix">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </li>
-              <li>
-                <div class="product-container">
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
-                  <h5>Book For Sale</h5>
-                  <h3>£3.45</h3>
-                </div>
-              </li>
-              <li>
-                <div class="product-container">
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
-                  <h5>Book For Sale</h5>
-                  <h3>£3.45</h3>
-                </div>
-              </li>
-              <li>
-                <div class="product-container">
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
-                  <h5>Book For Sale</h5>
-                  <h3>£3.45</h3>
-                </div>
-              </li>
-              <li>
-                <div class="product-container">
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
-                  <h5>Book For Sale</h5>
-                  <h3>£3.45</h3>
-                </div>
-              </li>
-              <li>
-                <div class="product-container">
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
-                  <h5>Book For Sale</h5>
-                  <h3>£3.45</h3>
-                </div>
-              </li>
-              <li>
-                <div class="product-container">
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
-                  <h5>Book For Sale</h5>
-                  <h3>£3.45</h3>
-                </div>
-              </li>
-              <li>
-                <div class="product-container">
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
-                  <h5>Book For Sale</h5>
-                  <h3>£3.45</h3>
-                </div>
-              </li>
-              <li>
-                <div class="product-container">
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
-                  <h5>Book For Sale</h5>
-                  <h3>£3.45</h3>
-                </div>
-              </li>
-              <li>
-                <div class="product-container">
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
-                  <h5>Book For Sale</h5>
-                  <h3>£3.45</h3>
-                </div>
-              </li>
-              <li>
-                <div class="product-container">
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
-                  <h5>Book For Sale</h5>
-                  <h3>£3.45</h3>
-                </div>
-              </li>
-              <li>
-                <div class="product-container">
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
-                  <h5>Book For Sale</h5>
-                  <h3>£3.45</h3>
-                </div>
-              </li>
-              <li>
-                <div class="product-container">
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaR-Jy9MbDd8YaxTjSQr-aPjQCg6VxoyA2MDNUhqWxfX3no5-o" alt="">
-                  <h5>Book For Sale</h5>
-                  <h3>£3.45</h3>
-                </div>
-              </li>
-            </ul>
-          </div>
+            </div>
         </div>
-        <div id="click2"><span class="left-arrow"></span></div>
-        <div id="click"><span class="right-arrow"></div>
-      </div> -->
-
-    <div class="cross-line">
+    </div>
+    <!-- <div class="cross-line">
         <span>? Neden Hayatemoon</span>
-    </div>
+    </div> -->
     <div class="row features">
         <div class="col-md-10 ml-auto col-xl-10 mr-auto">
             <div class="feature col-md-3 col-sm-12">
@@ -639,7 +663,7 @@
                 <div class="feature-icon">
                     <i class="fa fa-headphones" aria-hidden="true"></i>
                 </div>
-                <h5>7/24 Müşteri Hizmetleti</h5>
+                <h5>7/24 Müşteri Hizmetleri</h5>
                 <p>
                     ‏Size haftanın 7 günü ve günün 24 saati destek ‏veriyoruz
                 </p>
@@ -846,7 +870,7 @@
                             <div class="info">Fotoğrafını Yükle</div>
                             <p class="file">
                                 <label for="file" id="file">Fotoğraf Seçin<i class="material-icons">add</i></label>
-                                <input id="uupl" type="file">
+                                <input id="uupl" type="file" accept="image/*">
                             </p>
                             <div class="clear"></div>
                             <div class="uupi">
@@ -1383,7 +1407,7 @@
                                     <div class="panel-heading" role="tab" id="headingOne">
                                         <h4 class="panel-title">
                                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#آشپز_و_شیرینی_پز" aria-expanded="false" aria-controls="آشپز_و_شیرینی_پز">
-                                        Aşçi & Fırın Ustası
+                                        Aşci & Fırın Ustası
                                     </a>
                                     </h4>
                                     </div>
@@ -1698,7 +1722,7 @@
                                     <div class="panel-heading" role="tab" id="headingOne">
                                         <h4 class="panel-title">
                                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#ترجمه" aria-expanded="false" aria-controls="ترجمه">
-                                        Tercuman
+                                        Tercüman
                                     </a>
                                     </h4>
                                     </div>
