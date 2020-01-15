@@ -152,7 +152,7 @@
 
                 async delete(adId, imgId) {
                     // delete an adImage by id
-                    fetch(`/advertises/${adId}/image/${imgId}`, strapi.auth({
+                    return await fetch(`/advertises/${adId}/image/${imgId}`, strapi.auth({
                         method: "DELETE"
                     })).then(r=>r.json())
                 },
@@ -277,21 +277,12 @@
             },
 
             async findOne(userId) {
-                // get an ad by id
+                // get a user by id
                 return await fetch(`/users/${userId}`).then(r=>r.json())
             },
             async update(data) {
-                // data :
-                // {
-                //     title: "example title",
-                //     description: "some description",
-                //     class: "car",
-                //     submitted: true, // to submit
-                // }
 
-                // update an ad by id
-                let userId = await strapi.user.me();
-                userId = userId.id;
+                let userId = (await strapi.user.me()).id
 
                 return await fetch(`/users/${userId}`, strapi.auth({
                   method: "PUT",
@@ -300,7 +291,19 @@
                 })).then(r=>r.json())
             },
             avatar: {
-                // TODO not tested api
+
+                async delete() {
+                    let me = await strapi.user.me()
+                    me.avatar = null
+                    let userId = me.id
+    
+                    return await fetch(`/users/${userId}`, strapi.auth({
+                        method: "PUT",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(me),
+                    })).then(r=>r.json())
+                },
+
                 async upload(photos) {
                     // get photos like this:
                     // const photos = document.getElementById('image_file_input')
@@ -312,7 +315,19 @@
                     formData.append("source", "users-permissions")
                     formData.append('refId', me.id)
                     formData.append('field', 'avatar')
-                    formData.append('files', photos.files[0])
+
+                    var options = {
+                        maxSizeMB: 0.3,
+                        maxWidthOrHeight: 1920,
+                        useWebWorker: true
+                    }
+                    let compressed = await imageCompression(photos.files[0], options)
+
+                    let file = new File([compressed], `ad.${adId}.${i}.jpg`, {
+                        type: "image/jpeg",
+                    })
+
+                    formData.append('files', file)
                     return await fetch('/upload', strapi.auth({
                         method: 'POST',
                         body: formData
