@@ -31,6 +31,7 @@
 
 .panel-group .info {
     text-align: left;
+    direction: ltr;
 }
 
 .field input[type=text], .field textarea, .panel-group button, .upi img, .uupi img {
@@ -346,4 +347,13 @@ input[type=number] {
 .blog-card .description h1 {
     text-align: left !important;
     direction: ltr !important;
+}
+
+.feature {
+    border-left: 5px solid #9e9e9e40;
+    border-right: unset !important;
+}
+
+.field .upi span, .uupi span {
+    float: left !important;
 }

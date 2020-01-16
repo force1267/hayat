@@ -171,8 +171,8 @@ $('body').on('click', '.delete', function(e) {
     let ad = $(this).attr('data-id');
     if (confirm(sl(['مطمئنيد که میخواهید این آگهی را حذف کنید ؟', 'Bu ilanı kaldırmak istediğinizden emin misiniz?', 'Are you sure you want to delete this ad?']))) {
         strapi.advertise.delete(ad).then(e=> {
-            janelaPopUp.abre("id", 'p blue alert', sl(['انجام شد', 'Onay', 'Done']), sl(['با موفقیت حذف شد', 'E-postanız onaylandı', 'Deleted successfully']));
-            $(this).parent().parent().parent().remove();
+            janelaPopUp.abre("id", 'p blue alert', sl(['انجام شد', 'Onay', 'Done']), sl(['با موفقیت حذف شد', 'İlan Kaldırıldı', 'Deleted successfully']));
+            $(this).parent().parent().parent().parent().remove();
         });
     }
 });
@@ -252,7 +252,7 @@ $('.registeru').click(function() {
         janelaPopUp.abre( "id", 'p green alert',  sl(['انجام شد', 'Onay', 'Done']),  sl(['اطلاعات شما با موفقیت ذخیره شد', 'Bilgileriniz başarıyla kaydedildi', 'You data saved successfully']));
     })
     .catch(e=> { 
-        janelaPopUp.abre( "id", 'p oragne alert',  sl(['خطا', 'Hata', 'Error']) ,  sl(['خطا در ذخیره اطلاعات', 'Kaydedilirken bir hata oluştu', 'Something went worng in saving data']));
+        janelaPopUp.abre( "id", 'p blue alert',  sl(['خطا', 'Hata', 'Error']) ,  sl(['خطا در ذخیره اطلاعات', 'Kaydedilirken bir hata oluştu', 'Something went worng in saving data']));
     });
     
 });
@@ -299,11 +299,12 @@ var ai = [], an = 0;
 
 $(function() {
     // Multiple images preview in browser
-    var imagesPreview = function(input, placeToInsertImagePreview) {
+    var imagesPreview = function(input, placeToInsertImagePreview, mul = true, ip = false) {
 
         if (input.files) {
             var filesAmount = input.files.length;
-                    // placeToInsertImagePreview.html('<div class="clear"></div>');
+            if (!mul)
+                placeToInsertImagePreview.html('<div class="clear"></div>');
 
             for (i = 0; i < filesAmount; i++) {
                 var reader = new FileReader();
@@ -312,7 +313,7 @@ $(function() {
                     $(`
                     <span>
                         <img src="${event.target.result}">
-                        <i data-index="${an}" class="aim material-icons">close</i>
+                        <i data-index="${(ip ? -1 : an)}" class="aim material-icons">close</i>
                     </span>
                     `).prependTo(placeToInsertImagePreview);
                     an++;
@@ -322,15 +323,19 @@ $(function() {
             placeToInsertImagePreview.append('<div class="clear"></div>');
         }
 
-        $('body').on('click', '.aim', function() {
-            let index = parseInt($(this).attr('data-index'));
-            ai = ai.filter(e => ai.indexOf(e) != index);
-            $(this).parent().remove();
-        });
-
-
     };
-
+    $('body').on('click', '.aim', function() {
+        let index = parseInt($(this).attr('data-index'));
+        let self = this;
+        if (index == -1) {
+            strapi.user.avatar.delete().then(function() {
+                $(self).prev().attr('src', '/assets/images/udef.jpg');
+            });
+            return false;
+        }
+        ai = ai.filter(e => ai.indexOf(e) != index);
+        $(this).parent().remove();
+    });
     $('body').on('change', '#file', function() {
         for (let i = 0;i < this.files.length;i++) {
             ai.push(this.files[i]);
@@ -338,7 +343,7 @@ $(function() {
         imagesPreview(this, $(this).parent().parent().find('.upi'));
     });
     $('body').on('change', '#uupl', function() {
-        imagesPreview(this, $('.uupi'));
+        imagesPreview(this, $('.uupi'), false, true);
     });
 });
 
@@ -978,6 +983,11 @@ var map = {
         }, ],
     },
 }
+
+$('body').click(function(e) {
+    if ($(e.target).hasClass('placeholder')) return false;
+    $('.select').removeClass('is-open');
+});
 
 $('.afilters i').click(function() {
     $('.attrs').slideToggle();
@@ -1749,8 +1759,6 @@ $('#addv').click(function(e) {
 });
 
 $('.closev').click(function(e) {
-    e.preventDefault();
-    $('.addv').fadeOut(300);
     $('.select').on('click', '.placeholder', function() {
         var parent = $(this).closest('.select');
         if (!parent.hasClass('is-open')) {
@@ -1764,6 +1772,8 @@ $('.closev').click(function(e) {
         parent.removeClass('is-open').find('.placeholder').text($(this).text());
         parent.find('input[type=hidden]').attr('value', $(this).attr('data-value'));
     });
+    e.preventDefault();
+    $('.addv').fadeOut(300);
     ai = [];
     an = 0;
     $('html').css('overflow-y', 'scroll');
@@ -2297,6 +2307,11 @@ $(function() {
         e.preventDefault();
     });
 });
+
+$('.popup-inner').click(function(event) {
+    event.stopPropagation();
+});
+
 
 if (user && user.statusCode == 401) {
     $('.logout').trigger('click');
