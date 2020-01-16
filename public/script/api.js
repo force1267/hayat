@@ -323,7 +323,7 @@
                     }
                     let compressed = await imageCompression(photos.files[0], options)
 
-                    let file = new File([compressed], `ad.${adId}.${i}.jpg`, {
+                    let file = new File([compressed], `avatar.${me.id}.jpg`, {
                         type: "image/jpeg",
                     })
 
