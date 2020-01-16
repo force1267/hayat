@@ -29,7 +29,8 @@ const Editor = ({ onChange, name, value }) => {
   }}
   config={{
     simpleUpload: {
-      uploadUrl: `${strapi.config.uploadHost}/upload`,
+      // TODO use configs. change this for host change. 
+      uploadUrl: `https://hayatemoon.com/upload`, // `${strapi.backendURL}/upload`
         headers: {
           Authorization: "Bearer " + jwtToken
       }
