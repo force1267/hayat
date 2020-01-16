@@ -2,7 +2,10 @@
   "host": "hayatemoon.com",
   "port": 1337,
   "proxy": {
-    "enabled": false
+    "enabled": true,
+    "host": "hayatemoon.com",
+    "port": 443,
+    "ssl": true
   },
   "cron": {
     "enabled": false
