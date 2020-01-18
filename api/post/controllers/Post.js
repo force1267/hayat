@@ -18,7 +18,21 @@ module.exports = {
                 return result
             } catch (err) {
                 likeBlocked[id] = false
+                return {}
             }
+        }
+        return {}
+    },
+    async view(ctx) { // GET /posts/view/:id
+        let id = ctx.params.id
+        let post
+        try {
+            post = await strapi.services.post.findOne({ id })
+            await strapi.services.post.update({ id }, { view: post.view + 1 })
+        } catch (err) {
+            return {}
+        } finally {
+            return post
         }
     }
 };

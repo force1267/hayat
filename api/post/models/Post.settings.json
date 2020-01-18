@@ -31,6 +31,10 @@
     "like": {
       "type": "integer",
       "default": "0"
+    },
+    "view": {
+      "type": "integer",
+      "default": "0"
     }
   }
 }

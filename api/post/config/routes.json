@@ -55,6 +55,14 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "GET",
+      "path": "/posts/view/:id",
+      "handler": "Post.view",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }
