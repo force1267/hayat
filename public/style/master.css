@@ -126,7 +126,12 @@ body, body *{
     outline-color:red;
     outline-style:none;
     outline:0;
+}
+body.ne {
     font-family: "Colaborate", "IRANSans";
+}
+body.ie {
+    font-family: "IRANSans";
 }
 .collapse.in{
     width:100%
@@ -666,7 +671,6 @@ p{
 }
 body,input{
     direction:rtl;
-    font-family:'IRANSans', 'Colaborate' !important;
 }
 .logob{
     right:-110px;
@@ -2828,7 +2832,8 @@ body,document,html,root{
     border:1px #ccc;
     color:#fff;
     font-family:inherit;
-    cursor:pointer
+    cursor:pointer;
+    font-size: 16px !important;
 }
 .alert{
     width:100%!important
@@ -3174,7 +3179,7 @@ body,html{
     width:245px
 }
 .fr{
-    float:right!important
+    float:right!important;
 }
 .dr{
     direction:rtl!important
@@ -3875,7 +3880,8 @@ button:active,button:focus{
     padding-left:10px
 }
 .controls{
-    margin-top:20px
+    margin-top:20px;
+    direction: ltr;
 }
 [data-slide=prev]{
     margin-right:10px

@@ -152,7 +152,7 @@ header .src-area .src-btn{ position: absolute; top: 0; bottom: 0; left: 0; width
 4. SLIDER
 --------------------------------- */
 
-.slider{ height: 300px; width: 100%; background-image: url(../../images/slider-1.jpg); background-size: cover; }  
+.slider{height: 100%;background-position: center;width: 100%;background-image: url(/assets/images/magb.jpg);background-size: cover;}  
  
 .slider .title{ color: #fff; text-shadow: 2px 2px 10px rgba(0,0,0,.3); }
 
@@ -242,7 +242,7 @@ header .src-area .src-btn{ position: absolute; top: 0; bottom: 0; left: 0; width
 
 .blog-area .post-style-4{ margin-bottom: 30px; }
 
-.display-table .display-table-cell.title{ padding: 30px; }
+.display-table .display-table-cell.title{padding: 30px;text-shadow: 0px 3px 6px #000;}
 
 .load-more-btn{ padding: 15px 40px; margin: 30px 0 0; transition: all .3s; box-shadow: 0px 0px 2px rgba(0,0,0,.4);
 	background: #C3D8F5; }

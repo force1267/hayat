@@ -21,7 +21,7 @@
     <script src="assets/cdn/jquery.dropdown.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body>
+<body class="ne">
     <!-- NAVBAR-->
     <!-- NAVBAR-->
     <div class="bgo">
@@ -533,7 +533,7 @@
     </div>
     </div>
     <div class="cross-line rsa">
-        <span>نتایج جستجوی آگهی</span>
+        <span>نتایج جستجو</span>
     </div>
     <div class="container np">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 adv">
@@ -541,13 +541,12 @@
     </div>
     <!-- VITRIN -->
     <!-- VITRIN -->
-    <div class="cross-line">
+    <div class="asl cross-line">
         <span>ویترین</span>
     </div>
-    <div class="container  hidden-xs">
-        <div class="row">
+    <div class="container asl hidden-xs">
             <div class="container-fluid">
-                    <div class="select cdc hidden-xs">
+<!--                     <div class="select cdc hidden-xs">
                         <span class="placeholder">شهر</span>
                         <ul>
                             <li data-value="آنكارا">آنكارا </li>
@@ -562,8 +561,8 @@
                             <li data-value="0">ملبورن   <span class='syel'>(به زودی)</span></li>
                             <li data-value="0">تفلیس  <span class='syel'>(به زودی)</span></li>
                         </ul>
-                        <input type="hidden" id="city" />
-                    </div>
+                        <input type="hidden" id="ds-city" />
+                    </div> -->
                 <div class="fr">
                     <!-- Controls -->
                     <div class="controls pull-right hidden-xs">
@@ -573,7 +572,7 @@
                     </div>
                 </div>
             </div>
-            <div id="carousel-example" class="carousel slide" data-ride="carousel">
+            <div id="carousel-example" class="carousel slide dcar" data-ride="carousel">
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
                     <div class="item active">
@@ -746,12 +745,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+        
     </div>
-    <div class="container  hidden-sm hidden-md hidden-lg">
-        <div class="row">
+    <div class="container asl hidden-sm hidden-md hidden-lg">
             <div class="container-fluid">
-                    <div class="select cdc">
+<!--                     <div class="select cdc">
                         <span class="placeholder">شهر</span>
                         <ul>
                             <li data-value="آنكارا">آنكارا </li>
@@ -766,8 +764,8 @@
                             <li data-value="0">ملبورن   <span class='syel'>(به زودی)</span></li>
                             <li data-value="0">تفلیس  <span class='syel'>(به زودی)</span></li>
                         </ul>                                    
-                        <input type="hidden" id="city" />
-                    </div>
+                        <input type="hidden" id="ms-city" />
+                    </div> -->
                 <div class="fr">
                     <!-- Controls -->
                     <div class="controls pull-right">
@@ -777,7 +775,7 @@
                     </div>
                 </div>
             </div>
-            <div id="carousel-example1" class="carousel slide" data-ride="carousel">
+            <div id="carousel-example1" class="carousel slide mcar" data-ride="carousel">
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
                     <div class="item active">
@@ -878,7 +876,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </div>
     <!-- <div class="cross-line">
         <span>چرا حیاطمون ؟</span>
@@ -887,7 +884,7 @@
         <div class="col-md-10 ml-auto col-xl-10 mr-auto">
             <div class="feature col-md-3 col-sm-12">
                 <div class="feature-icon">
-                    <i class="fa fa-check-circle" aria-hidden="true"></i>
+                    <i class="fa fa-plus" aria-hidden="true"></i>
                 </div>
                 <h5>ثبت آگهی رایگان برای ایرانیان خارج از کشور</h5>
                 <p>
@@ -914,7 +911,7 @@
             </div>
             <div class="feature col-md-3 col-sm-12">
                 <div class="feature-icon">
-                    <i class="fa fa-certificate" aria-hidden="true"></i>
+                    <i class="fa fa-lock" aria-hidden="true"></i>
                 </div>
                 <h5>پرداخت امن و قابل اطمینان</h5>
                 <p>
@@ -2151,6 +2148,8 @@
                             <ul class="list-unstyled">
                                 <li><a href="/blog">مجله حیاطمون<i class="fa fa-angle-left pull-left"></i></a></li>
                                 <li><a href="/login-register.html">ورود - ثبت نام<i class="fa fa-angle-left pull-left"></i></a></li>
+                                <li><a href="/faq/en.html">آموزش<i class="fa fa-angle-left pull-left"></i></a></li>
+                            </ul>
                         </div>
                     </div>
                     <div class="clearfix visible-sm"></div>
@@ -2173,9 +2172,7 @@
 
                             <!-- This is only for better view of theme if you want your image logo remove div dummy-logo bellow and replace your logo in logo.png and uncomment logo tag above-->
                             <div class="dummy-logo">
-                                <div class="icon pull-left brand">
-                                    <a href="/"><img src="assets/images/wlp.png" width="45" style="height: 30px;" alt="" class="d-inline-block logob align-middle mr-2"></a>
-                                </div>
+
                                 <p style="font-weight: bold;border-right: 5px solid #fff;padding: 10px;">درباره ما بخوانید</p>
                             </div>
                             <p  id="au" class="lh">در خانه های سنتی ایرانی وقتی از درب چوبی با آن دق الباب های بامزه و سرتاسر حیایش رد می شدی به فضایی بسته اما دلنشین می رسیدی به نام هشتی، اولین تجربه از فضای داخلی خانه، و چه زیبا گفت رضا امیر خانی که بدا به حال خانه ای که پنج دری اش رو به هشتی باز نشود. وقتی از فضای بسته هشتی گذر می کردی، به فضایی باز و با صفا می رسی به نام حیاط، اصلا انگار هشتی ها را به عمد بسته ساخته اند تا جذابیت حیاط های ایرانی برایت دو چندان شود و لذت ببری از این همه تضاد دل نشین در کنار هم، حیاط ها با حوض ها و گلدان ها و دار درخت، به سان باغ هایی کوچک شده در دل خانه ها بودند که به زندگی طراوت و شادی می بخشیدند. و سهراب چه زیبا توصیف کرد حیاط خانه را، رستگاری نزدیک، لای گل های حیاط. 
