@@ -190,8 +190,8 @@
 						title: post.title,
 						cover: post.cover.url,
 						link: `/blog/post.html?id=${post.id}`,
-						like: post.like ? parseInt(post.like) : 0,
-						view: post.view ? parseInt(post.view) : 0,
+						like: (post.like == "" || post.like == null) ? 0 : post.like,
+						view: (post.view == "" || post.view == null) ? 0 : post.view,
 					})
 				}
 				if(posts.length <= _limit) {

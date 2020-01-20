@@ -161,8 +161,8 @@
 			$("title").html(`Hayatemoon | ` + data.title);
 			$(".title").html(data.title);
 			$(".para").html(data.content);
-			$(".pl").html(data.like);
-			$(".pw").html(data.view);
+			$(".pl").html(((data.like == "" || data.like == null) ? 0 : data.like));
+			$(".pw").html(((data.view == "" || data.view == null) ? 0 : data.view));
 			$(".date").html(`در ${new Date(data.created_at).toDateString()}`);
 			$(".post-image img").attr('src', data.cover.url);
 		});
@@ -182,8 +182,8 @@
 									<h4 class="title"><a href="/blog/post.html?id=${post.id}"><b>${post.title}</b></a></h4>
 
 									<ul class="post-footer">
-										<li><a href="javascript:void(0)"><i class="ion-eye"></i>${post.like}</a></li>
-										<li><a href="javascript:void(0)"><i class="ion-heart"></i>${post.view}</a></li>
+										<li><a href="javascript:void(0)"><i class="ion-eye"></i>${(post.view == "" || post.view == null) ? 0 : post.view}</a></li>
+										<li><a href="javascript:void(0)"><i class="ion-heart"></i>${(post.like == "" || post.like == null) ? 0 : post.like}</a></li>
 									</ul>
 								</div><!-- blog-info -->
 
