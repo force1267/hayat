@@ -370,7 +370,7 @@ footer .input-area .submit-btn{ position: absolute; top: 0; bottom: 0; right: 0;
 
 .icons {
     margin: auto;
-    width: 270px;
+    width: 150px;
     height: 30px;
 }
 
@@ -386,4 +386,14 @@ footer .input-area .submit-btn{ position: absolute; top: 0; bottom: 0; right: 0;
 .post-style-1 .blog-image img {
     height: 200px;
     /*width: 200px;*/
+}
+
+strong:before {
+    content: '#';
+    margin-left: 10px;
+    color: #f3ba1a;
+}
+
+strong {
+    font-size: 30px;
 }

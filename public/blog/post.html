@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<title>TITLE</title>
+	<title>Loading...</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8">
@@ -62,7 +62,7 @@
 
 						</div><!-- post-top-area -->
 
-						<div class="post-image"><img src="images/blog-1-1000x600.jpg" alt="Blog Image"></div>
+						<!-- <div class="post-image"><img src="images/blog-1-1000x600.jpg" alt="Blog Image"></div> -->
 
 						<div class="post-bottom-area">
 
@@ -75,19 +75,19 @@
 
 							<div class="post-icons-area">
 								<ul class="post-icons">
-									<li><a href="#"><i class="ion-heart"></i>57</a></li>
-									<li><a href="#"><i class="ion-eye"></i>138</a></li>
+									<li><a href="#" id='like'><i class="ion-heart"></i><span class="pl"></span></a></li>
+									<li><a href="javascript:void(0)"><i class="ion-eye"></i><span class="pw"></span></a></li>
 								</ul>
 							</div>
 
 							<div class="post-footer post-info">
 
 								<div class="left-area">
-									<a class="avatar" href="#"><img src="images/logo.png" alt="Hayatemoon"></a>
+									<a class="avatar" href="/blog"><img src="images/logo.png" alt="Hayatemoon"></a>
 								</div>
 
 								<div class="middle-area">
-									<a class="name" href="#"><b>Hayatemoon</b></a>
+									<a class="name" href="/blog"><b>Hayatemoon</b></a>
 									<h6 class="date">on Sep 29, 2017 at 9:48 am</h6>
 								</div>
 
@@ -117,7 +117,7 @@
 
 				<div class="col-md-12">
 					<div class="footer-section">
-						<a class="logo" href="#"><img src="images/logo.png" alt="Hayatemoon"></a>
+						<a class="logo" href="/blog"><img src="images/logo.png" alt="Hayatemoon"></a>
 						<!-- <a class="logo" href="#"><img src="/blog/images/logo.png" alt="Logo Image"></a> -->
 						<p class="copyright">تمام حقوق این اثر مطعلق به حیاطمون میباشد.</p>
 						<!-- <p class="copyright">Designed by <a href="https://colorlib.com" target="_blank">Colorlib</a></p> -->
@@ -125,8 +125,6 @@
 							<li><a href="#"><i class="ion-social-facebook-outline"></i></a></li>
 							<li><a href="#"><i class="ion-social-twitter-outline"></i></a></li>
 							<li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
-							<li><a href="#"><i class="ion-social-vimeo-outline"></i></a></li>
-							<li><a href="#"><i class="ion-social-pinterest-outline"></i></a></li>
 						</ul>
 
 					</div><!-- footer-section -->
@@ -151,10 +149,20 @@
 
 	<script>
 		let id = getParameterByName('id');
+		strapi.post.view(id);
+		$('#like').click(function(e) {
+			e.preventDefault();
+			strapi.post.like(id).then(data=> {
+				$(".pl").html(data.like);
+			});
+		});
 		strapi.post.findOne(id).then(function(data) {
-			$("title").html(data.title);
+			console.log(data);
+			$("title").html(`Hayatemoon | ` + data.title);
 			$(".title").html(data.title);
 			$(".para").html(data.content);
+			$(".pl").html(data.like);
+			$(".pw").html(data.view);
 			$(".date").html(`در ${new Date(data.created_at).toDateString()}`);
 			$(".post-image img").attr('src', data.cover.url);
 		});
@@ -169,13 +177,13 @@
 						<div class="card h-100">
 							<div class="single-post post-style-1">
 								<div class="blog-image"><img src="${post.cover.url}" alt="Blog Image"></div>
-								<a class="avatar" href="#"><img src="images/icons8-team-355979.jpg" alt="Profile Image"></a>
+								<a class="avatar" href="/blog/post.html?id=${post.id}"><img src="images/icons8-team-355979.jpg" alt="Profile Image"></a>
 								<div class="blog-info">
 									<h4 class="title"><a href="/blog/post.html?id=${post.id}"><b>${post.title}</b></a></h4>
 
 									<ul class="post-footer">
-										<li><a href="#"><i class="ion-eye"></i>138</a></li>
-										<li><a href="#"><i class="ion-heart"></i>57</a></li>
+										<li><a href="javascript:void(0)"><i class="ion-eye"></i>${post.like}</a></li>
+										<li><a href="javascript:void(0)"><i class="ion-heart"></i>${post.view}</a></li>
 									</ul>
 								</div><!-- blog-info -->
 

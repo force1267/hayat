@@ -44,15 +44,15 @@
 			<div class="single-post post-style-1">
 				<div class="blog-image"><img src="{cover}" alt="عکس پست"></div>
 
-				<a class="avatar" href="#"><img src="/blog/images/icons8-team-355979.jpg" alt="Profile Image"></a>
+				<a class="avatar" href="{link}"><img src="/blog/images/icons8-team-355979.jpg" alt="Profile Image"></a>
 
 				<div class="blog-info">
 
 					<h4 class="title"><a href="{link}"><b>{title}</b></a></h4>
 
 					<ul class="post-footer">
-						<li><a href="#"><i class="ion-eye"></i>138</a></li>
-						<li><a href="javascript:void(0)" onclick="strapi.post.like({id})"><i class="ion-heart"></i>{like}</a></li>
+						<li><a href="javascript:void(0)"><i class="ion-eye"></i>{view}</a></li>
+						<li><a href="javascript:void(0)"><i class="ion-heart"></i>{like}</a></li>
 						<!-- <li><a href="#"><i class="ion-chatbubble"></i>6</a></li> -->
 					</ul>
 
@@ -87,7 +87,43 @@
 			<div class="row">
 
 
-				<div class="col-lg-12 col-md-12">
+				<div class="col-lg-4 col-md-12 ">
+
+					<div class="single-post info-area ">
+
+						<div class="about-area newest">
+							<h4 class="title"><b>جدیدترین  مطالب</b></h4>
+							<ul>
+								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
+								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
+								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
+								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
+								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
+								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
+								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
+							</ul>
+						</div>
+
+						<div class="about-area popust" style="border: none">
+							<h4 class="title"><b>محبوب ترین مقالات</b></h4>
+							<ul>
+								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
+								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
+								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
+								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
+								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
+								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
+								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
+								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
+							</ul>
+						</div>
+
+
+					</div><!-- info-area -->
+
+				</div><!-- col-lg-4 col-md-12 -->
+
+				<div class="col-lg-8 col-md-8">
 					<div class="row" id="workspace">
 
 						
@@ -113,7 +149,7 @@
 
 				<div class="col-md-12">
 					<div class="footer-section">
-						<a class="logo" href="#"><img src="/blog/images/logo.png" alt="Hayatemoon"></a>
+						<a class="logo" href="/"><img src="/blog/images/logo.png" alt="Hayatemoon"></a>
 						<!-- <a class="logo" href="#"><img src="/blog/images/logo.png" alt="Logo Image"></a> -->
 						<p class="copyright">تمام حقوق این اثر مطعلق به حیاطمون میباشد.</p>
 						<!-- <p class="copyright">Designed by <a href="https://colorlib.com" target="_blank">Colorlib</a></p> -->
@@ -121,8 +157,6 @@
 							<li><a href="#"><i class="ion-social-facebook-outline"></i></a></li>
 							<li><a href="#"><i class="ion-social-twitter-outline"></i></a></li>
 							<li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
-							<li><a href="#"><i class="ion-social-vimeo-outline"></i></a></li>
-							<li><a href="#"><i class="ion-social-pinterest-outline"></i></a></li>
 						</ul>
 
 					</div><!-- footer-section -->
@@ -157,6 +191,7 @@
 						cover: post.cover.url,
 						link: `/blog/post.html?id=${post.id}`,
 						like: post.like ? parseInt(post.like) : 0,
+						view: post.view ? parseInt(post.view) : 0,
 					})
 				}
 				if(posts.length <= _limit) {
@@ -170,7 +205,29 @@
 			_start += _limit
 			start()
 		}
-		document.addEventListener("DOMContentLoaded", start)
+		document.addEventListener("DOMContentLoaded", start);
+		strapi.post.find({
+			_sort: 'like:desc',
+			_limit: 10
+		}).then(posts=> {
+			$('.popust ul').html('');
+			posts.forEach(function(post) {
+				$('.popust ul').append(`
+					<a href="/blog/post.html?id=${post.id}"><li><i class="ion-android-apps"></i>${post.title}</li></a>
+				`);
+			});
+		});
+		strapi.post.find({
+			_sort: 'created_at:desc',
+			_limit: 10
+		}).then(posts=> {
+			$('.newest ul').html('');
+			posts.forEach(function(post) {
+				$('.newest ul').append(`
+					<a href="/blog/post.html?id=${post.id}"><li><i class="ion-android-apps"></i>${post.title}</li></a>
+				`);
+			});
+		});
 	</script>
 </body>
 </html>

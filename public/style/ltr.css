@@ -216,7 +216,7 @@
          right: 40px !important; 
     }
     .feature {
-        margin-left: 20px;
+        /* margin-left: 20px; */
     }
     .artif .logreg {
         top: 10px!important;
@@ -225,7 +225,7 @@
         right: 60px !important;
     }
     .feature p {
-        padding-left: 50px;
+        padding-left: 59px;
     }
     .feature-icon {
         float: left;
@@ -356,4 +356,12 @@ input[type=number] {
 
 .field .upi span, .uupi span {
     float: left !important;
+}
+
+@media only screen and (max-device-width: 768px) {
+    .feature-icon i {
+        position: relative;
+        top: 22px;
+        margin-right: 10px;
+    }
 }

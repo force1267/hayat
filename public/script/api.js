@@ -84,6 +84,10 @@
                 // get an ad by id
                 return await fetch(`/posts/like/${postId}`).then(r=>r.json())
             },
+            async view(postId) {
+                // get an ad by id
+                return await fetch(`/posts/view/${postId}`).then(r=>r.json())
+            },
         },
 
         advertise: {

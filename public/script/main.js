@@ -238,87 +238,102 @@ $("body").on('click', '.uss', function(e) {
     }
 });
 
-$('.dcar .carousel-inner').html('');
-strapi.advertise.find({
-    showcase: true
-}).then(function(r) {
-    let v = "";
-    if (r.length == 0) {
-        $('.asl').hide(0);
-    }
-    r.forEach(function(a, i) {
-        console.log(i);
-        if ((i+1) % 4 == 1) {
-            v += `
-                <div class="item ${(i == 0 ? 'active' : '')}">
-                    <div class="">
-            `;
+setvit();
+
+function setvit(city = 'آنكارا') {
+    strapi.advertise.find({
+        showcase: true,
+        city
+    }).then(function(r) {
+        let v = "";
+        if (r.length == 0) {
+            $('.asl').hide(0);
+        } else {
+            $('.dcar .carousel-inner').html('');
+            $('.asl').show(0);
         }
-        v += `
-            <div class="col-sm-3">
-                <div class="col-item">
-                    <div class="photo">
-                        <img src="${(a.images.length ? a.images[0].url : '/assets/images/def.jpg')}" class="img-responsive" />
-                    </div>
-                    <div class="info">
-                        <div class="row">
-                            <div class="price col-md-12">
-                                <h5>${a.title}</h5>
+        r.forEach(function(a, i) {
+            console.log(i);
+            if ((i+1) % 4 == 1) {
+                v += `
+                    <div class="item ${(i == 0 ? 'active' : '')}">
+                        <div class="">
+                `;
+            }
+            v += `
+                <div class="col-sm-3">
+                    <div class="col-item">
+                        <div class="photo">
+                            <img src="${(a.images.length ? a.images[0].url : '/assets/images/def.jpg')}" class="img-responsive" />
+                        </div>
+                        <div class="info">
+                            <div class="row">
+                                <div class="price col-md-12">
+                                    <h5>${a.title}</h5>
+                                </div>
+                            </div>
+                            <div class="separator clear-left">
+                                <p class="btn-add view" data-id="${a.id}"> 
+                                    <i class="fa fa-eye"></i><a href="#" class="hidden-sm">${sl(['مشاهده', 'İncele', 'View'])}</a></p>
+                            </div>
+                            <div class="clearfix">
                             </div>
                         </div>
-                        <div class="separator clear-left">
-                            <p class="btn-add view" data-id="${a.id}"> 
-                                <i class="fa fa-eye"></i><a href="#" class="hidden-sm">${sl(['مشاهده', 'İncele', 'View'])}</a></p>
-                        </div>
-                        <div class="clearfix">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `
-        if ((i+1) % 4 == 0 || (i+1) == r.length) {
-            v+= `
                     </div>
                 </div>
             `
-        }
+            if ((i+1) % 4 == 0 || (i+1) == r.length) {
+                v+= `
+                        </div>
+                    </div>
+                `
+            }
+        });
+        $('.dcar .carousel-inner').html(v);
     });
-    $('.dcar .carousel-inner').html(v);
-});
 
-$('.mcar .carousel-inner').html('');
-strapi.advertise.find({
-    showcase: true
-}).then(function(r) {
-    let v = "";
-    r.forEach(function(a, i) {
-        $('.mcar .carousel-inner').append(`
-            <div class="item ${(i == 0 ? 'active' : '')}">
-                <div class="row">
-                    <div class="col-sm-10" style='padding: 0 !important'>                                
-                        <div class="col-item">
-                            <div class="photo">
-                                <img src="${(a.images.length ? a.images[0].url : '/assets/images/def.jpg')}" class="img-responsive mb"/>
-                            </div>
-                            <div class="info">
-                                <div class="row">
-                                    <div class="price col-md-12">
-                                        <h5>${a.title}</h5>
+    $('.mcar .carousel-inner').html('');
+    strapi.advertise.find({
+        showcase: true,
+        city
+    }).then(function(r) {
+        let v = "";
+        r.forEach(function(a, i) {
+            $('.mcar .carousel-inner').append(`
+                <div class="item ${(i == 0 ? 'active' : '')}">
+                    <div class="row">
+                        <div class="col-sm-10" style='padding: 0 !important'>                                
+                            <div class="col-item">
+                                <div class="photo">
+                                    <img src="${(a.images.length ? a.images[0].url : '/assets/images/def.jpg')}" class="img-responsive mb"/>
+                                </div>
+                                <div class="info">
+                                    <div class="row">
+                                        <div class="price col-md-12">
+                                            <h5>${a.title}</h5>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="separator clear-left">
-                                    <p class="btn-add view" data-id="${a.id}">
-                                        <i class="fa fa-eye"></i><a href="#" class="hidden-sm">${sl(['مشاهده', 'İncele', 'View'])}</a></p>
-                                </div>
-                                <div class="clearfix">
+                                    <div class="separator clear-left">
+                                        <p class="btn-add view" data-id="${a.id}">
+                                            <i class="fa fa-eye"></i><a href="#" class="hidden-sm">${sl(['مشاهده', 'İncele', 'View'])}</a></p>
+                                    </div>
+                                    <div class="clearfix">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        `);
+            `);
+        });
     });
+}
+
+$('.ms-city').on('click', 'ul>li', function() {
+    var parent = $(this).closest('.select');
+    parent.removeClass('is-open').find('.placeholder').text($(this).text());
+    parent.find('input[type=hidden]').attr('value', $(this).attr('data-value'));
+    setvit($(this).attr('data-value'));
 });
 
 $('.registeru').click(function() {
