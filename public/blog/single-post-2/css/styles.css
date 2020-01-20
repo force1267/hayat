@@ -391,7 +391,7 @@ footer .input-area .submit-btn{ position: absolute; top: 0; bottom: 0; right: 0;
 strong:before {
     content: '#';
     margin-left: 10px;
-    color: #f3ba1a;
+    color: #4e5d5dd1;
 }
 
 strong {
