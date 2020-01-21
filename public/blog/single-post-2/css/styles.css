@@ -149,7 +149,7 @@ header .src-area .src-btn{ position: absolute; top: 0; bottom: 0; left: 0; width
 4. SLIDER
 --------------------------------- */
 
-.slider{height: 400px;width: 100%;background-image: linear-gradient(rgba(0, 0, 0, 0.66),rgba(0,0,0,.5)),url(/assets/images/bga.jpg);background-size: cover;background-repeat: no-repeat;}  
+.slider{height: 400px;width: 100%;background-image: url(/assets/images/bga.jpg);background-size: cover;background-repeat: no-repeat;}  
 
 
  
