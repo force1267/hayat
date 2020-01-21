@@ -123,7 +123,7 @@
 
 				</div><!-- col-lg-4 col-md-12 -->
 
-				<div class="col-lg-8 col-md-8">
+				<div class="col-lg-8 col-md-12">
 					<div class="row" id="workspace">
 
 						
@@ -213,7 +213,7 @@
 			$('.popust ul').html('');
 			posts.forEach(function(post) {
 				$('.popust ul').append(`
-					<a href="/blog/post.html?id=${post.id}"><li><img src='${post.cover.url}'>${post.title}</li></a>
+					<a href="/blog/post.html?id=${post.id}"><li><img src='${post.cover.url}'><span>${post.title}</span></li></a>
 				`);
 			});
 		});
@@ -224,7 +224,7 @@
 			$('.newest ul').html('');
 			posts.forEach(function(post) {
 				$('.newest ul').append(`
-					<a href="/blog/post.html?id=${post.id}"><li><i class="ion-android-apps"></i>${post.title}</li></a>
+					<a href="/blog/post.html?id=${post.id}"><li><img src='${post.cover.url}'><span>${post.title}</span></li></a>
 				`);
 			});
 		});
