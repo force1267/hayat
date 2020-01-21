@@ -141,7 +141,7 @@
 	.main-post ul.icons{ float: none; margin-top: 10px; }
 	
 	.main-post ul.post-icons > li > a > i,
-	.main-post ul.icons > li > a > i{ padding: 0; padding-right: 10px; }
+	.main-post ul.icons > li > a > i{padding: 0;padding-right: 10px;padding-left: 10px;}
 
 
 	
