@@ -213,7 +213,7 @@
 			$('.popust ul').html('');
 			posts.forEach(function(post) {
 				$('.popust ul').append(`
-					<a href="/blog/post.html?id=${post.id}"><li><i class="ion-android-apps"></i>${post.title}</li></a>
+					<a href="/blog/post.html?id=${post.id}"><li><img src='${post.cover.url}'>${post.title}</li></a>
 				`);
 			});
 		});
