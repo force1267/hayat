@@ -328,6 +328,13 @@ footer .icons > li > a:hover{ transform: translateY(-2px); box-shadow: 5px 10px 
 	font-family: 'IRANSans' !important;
 }
 
+.about-area img {
+	width: 45px;
+    height: 45px;
+    margin-left: 10px;
+    border-radius: 100%;
+}
+
 .about-area ul a {
     position: relative;
     display: block;
