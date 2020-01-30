@@ -1,380 +1,1056 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Hayatemoon | FAQ</title>
-	<link rel="stylesheet" href="https://cdn.3up.dk/bootstrap@4.1.3/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdn.3up.dk/mdi@2.2.43/css/materialdesignicons.min.css">
-	<link rel="stylesheet" href="style.css">
-	<script type="text/javascript" src="https://cdn.3up.dk/jquery@3.3.1/dist/jquery.slim.min.js"></script>
-	<script type="text/javascript" src="https://cdn.3up.dk/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Hayatemoon | FAQ</title>
+    <link rel="icon" href="/assets/images/logo.png" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="https://cdn.3up.dk/bootstrap@4.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.3up.dk/mdi@2.2.43/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://cdn.3up.dk/jquery@3.3.1/dist/jquery.slim.min.js"></script>
+    <script type="text/javascript" src="https://cdn.3up.dk/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
 </head>
+
 <body>
-	<div class="container">
-	    <div class="row">
-	        <div class="col-lg-4">
-	            <div class="nav nav-pills faq-nav" id="faq-tabs" role="tablist" aria-orientation="vertical">
-	                <a href="#tab1" class="nav-link active" data-toggle="pill" role="tab" aria-controls="tab1" aria-selected="true">
-	                    <i class="mdi mdi-help-circle"></i>Place an Advertisement
-	                </a>
-	                <a href="#tab2" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab2" aria-selected="false">
-	                    <i class="mdi mdi-account"></i> Profile
-	                </a>
-	                <a href="#tab3" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab3" aria-selected="false">
-	                    <i class="mdi mdi-account-settings"></i> Account
-	                </a>
-	                <a href="#tab4" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab4" aria-selected="false">
-	                    <i class="mdi mdi-heart"></i> Favorites
-	                </a>
-	                <a href="#tab5" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab5" aria-selected="false">
-	                    <i class="mdi mdi-coin"></i> Transactions
-	                </a>
-	                <a href="#tab6" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab6" aria-selected="false">
-	                    <i class="mdi mdi-help"></i> General help
-	                </a>
-	            </div>
-	        </div>
-	        <div class="col-lg-8">
-	            <div class="tab-content" id="faq-tab-content">
-	                <div class="tab-pane show active" id="tab1" role="tabpanel" aria-labelledby="tab1">
-	                    <div class="accordion" id="accordion-tab-1">
-	                        <div class="card">
-	                            <div class="card-header" id="accordion-tab-1-heading-1">
-	                                <h5>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="nav nav-pills faq-nav" id="faq-tabs" role="tablist" aria-orientation="vertical">
+                    <a href="#tab1" class="nav-link active" data-toggle="pill" role="tab" aria-controls="tab1" aria-selected="true">
+                        <i class="mdi mdi-star"></i>Place an Advertisement
+                    </a>
+                    <a href="#tab2" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab2" aria-selected="false">
+                        <i class="mdi mdi-star"></i> Search and Filter
+                    </a>
+                    <a href="#tab3" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab3" aria-selected="false">
+                        <i class="mdi mdi-star"></i> Account
+                    </a>
+                    <a href="#tab4" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab4" aria-selected="false">
+                        <i class="mdi mdi-star"></i> My Ads
+                    </a>
+                    <a href="#tab5" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab5" aria-selected="false">
+                        <i class="mdi mdi-star"></i> Criticisms and Suggestions
+                    </a>
+                    <a href="#tab6" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab6" aria-selected="false">
+                        <i class="mdi mdi-star"></i> Report Violation
+                    </a>
+
+                    <a href="#tab7" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab7" aria-selected="false">
+                        <i class="mdi mdi-star"></i> The Payment
+                    </a>
+
+                    <a href="#tab8" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab8" aria-selected="false">
+                        <i class="mdi mdi-star"></i> Terms and Conditions
+                    </a>
+
+                    <a href="#tab9" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab9" aria-selected="false">
+                        <i class="mdi mdi-star"></i> Reasons to Remove Ads
+                    </a>
+
+                    <a href="#tab10" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab10" aria-selected="false">
+                        <i class="mdi mdi-star"></i> Online Food Ordering (coming soon)
+                    </a>
+                    <a href="#tab11" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab11" aria-selected="false">
+                        <i class="mdi mdi-star"></i> Frequently Asked Questions
+                    </a>
+
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="tab-content" id="faq-tab-content">
+                    <div class="tab-pane show active" id="tab1" role="tabpanel" aria-labelledby="tab1">
+                        <div class="accordion" id="accordion-tab-1">
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-1-heading-1">
+                                    <h5>
 	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-1-content-1" aria-expanded="false" aria-controls="accordion-tab-1-content-1">How can I place an advertisement on HAYATEMOON?</button>
 	                                </h5>
-	                            </div>
-	                            <div class="collapse show" id="accordion-tab-1-content-1" aria-labelledby="accordion-tab-1-heading-1" data-parent="#accordion-tab-1">
-	                                <div class="card-body">
-	                                    <p>To register your ad for free, you must first sign up here. You can start recording ads in HAYATEMOON by tapping the ad registration button on the home page.
-										In addition, the registration of advertisements in HAYATEMOON is Free</p>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="card">
-	                            <div class="card-header" id="accordion-tab-1-heading-2">
-	                                <h5>
-	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-1-content-2" aria-expanded="false" aria-controls="accordion-tab-1-content-2">Bender, I didn't know you liked cooking?</button>
+                                </div>
+                                <div class="collapse show" id="accordion-tab-1-content-1" aria-labelledby="accordion-tab-1-heading-1" data-parent="#accordion-tab-1">
+                                    <div class="card-body">
+                                        To register your ad for free, you must first sign up <a href="/en/login-register.html">here</a>. You can start recording ads in <a href="/en">HAYATEMOON</a> by tapping the ad registration button on the home page.
+                                        <br> In addition, the registration of advertisements in HAYATEMOON is Free.
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-1-heading-2">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-1-content-2" aria-expanded="false" aria-controls="accordion-tab-1-content-2">What are the conditions for placing a free advertisement on HAYATEMOON?</button>
 	                                </h5>
-	                            </div>
-	                            <div class="collapse" id="accordion-tab-1-content-2" aria-labelledby="accordion-tab-1-heading-2" data-parent="#accordion-tab-1">
-	                                <div class="card-body">
-	                                    <p>That's so cute. Can we have Bender Burgers again? Is the Space Pope reptilian!? I wish! It's a nickel. Bender! Ship! Stop bickering or I'm going to come back there and change your opinions manually!</p>
-	                                    <p><strong>Example: </strong>Okay, I like a challenge. Is that a cooking show? No argument here.</p>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="card">
-	                            <div class="card-header" id="accordion-tab-1-heading-3">
-	                                <h5>
-	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-1-content-3" aria-expanded="false" aria-controls="accordion-tab-1-content-3">My fellow Earthicans?</button>
+                                </div>
+                                <div class="collapse" id="accordion-tab-1-content-2" aria-labelledby="accordion-tab-1-heading-2" data-parent="#accordion-tab-1">
+                                    <div class="card-body">
+                                        <p>You should only <a href="/en/login-register.html">sign up</a> to register your ad for free.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-1-heading-3">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-1-content-3" aria-expanded="false" aria-controls="accordion-tab-1-content-3">How should the advertisement’s photo be? </button>
 	                                </h5>
-	                            </div>
-	                            <div class="collapse" id="accordion-tab-1-content-3" aria-labelledby="accordion-tab-1-heading-3" data-parent="#accordion-tab-1">
-	                                <div class="card-body">
-	                                    <p>As I have explained in my book 'Earth in the Balance', and the much more popular 'Harry Potter and the Balance of Earth', we need to defend our planet against pollution. Also dark wizards. Fry, you can't just sit here in the dark listening to classical music.</p>
-	                                    <p><strong>Example: </strong>Actually, that's still true. Well, let's just dump it in the sewer and say we delivered it.</p>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="card">
-	                            <div class="card-header" id="accordion-tab-1-heading-4">
-	                                <h5>
-	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-1-content-4" aria-expanded="false" aria-controls="accordion-tab-1-content-4">Who am I making this out to?</button>
+                                </div>
+                                <div class="collapse" id="accordion-tab-1-content-3" aria-labelledby="accordion-tab-1-heading-3" data-parent="#accordion-tab-1">
+                                    <div class="card-body">
+                                        <p>To give your ad credibility and attract the attention of its users, it is best to choose a photo for your ad.
+                                            <br> There is no limit to the selection of a free ad in HAYATEMOON. Only when selecting a photo, Select and upload all 2 photos at once.
+                                            <br> If at least one of the following applies to your photo, the ad in question will be cleared:
+                                            <ul>
+                                                <li>
+                                                    Photo with no quality and too small
+                                                </li>
+
+                                                <li>
+                                                    Unreal photo
+                                                </li>
+
+                                                <li>
+                                                    Use people's tools in photography
+                                                </li>
+
+                                                <li>
+                                                    Photos containing pornographic content
+                                                </li>
+
+                                                <li>
+                                                    Content contrary to international law
+                                                </li>
+
+                                                <li>
+                                                    The picture needs to be rotated
+                                                </li>
+
+                                            </ul>
+                                            If none of the above applies to your ad, but your ad has been removed, to track and retrieve your ad, the photo of the ad along with the email with which you registered the ad <a href="/en/login-register.html">Contact us</a> for HAYATEMOON support team.
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-1-heading-4">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-1-content-4" aria-expanded="false" aria-controls="accordion-tab-1-content-4">What are the specific ad conditions?</button>
 	                                </h5>
-	                            </div>
-	                            <div class="collapse" id="accordion-tab-1-content-4" aria-labelledby="accordion-tab-1-heading-4" data-parent="#accordion-tab-1">
-	                                <div class="card-body">
-	                                    <p>Morbo can't understand his teleprompter because he forgot how you say that letter that's shaped like a man wearing a hat. Also Zoidberg. Can we have Bender Burgers again? Goodbye, cruel world. Goodbye, cruel lamp. Goodbye, cruel velvet drapes, lined with what would appear to be some sort of cruel muslin and the cute little pom-pom curtain pull cords.</p>
-	                                    <p><strong>Example: </strong>Cruel though they may be...</p>
-	                                </div>
-	                            </div>
-	                        </div>
+                                </div>
+                                <div class="collapse" id="accordion-tab-1-content-4" aria-labelledby="accordion-tab-1-heading-4" data-parent="#accordion-tab-1">
+                                    <div class="card-body">
+                                        <p>Ad specification can increase the attention of users and visitors to your ad up to 3 times.
+                                            <br>
+                                            <b>There are two ways to specialize your ad in HAYATEMOON:</b>
+                                            <br>
+                                            <b>The first way: when registering a free ad</b>
+                                            <br> After filling out your ad registration, you will have three options: free ad registration, ad specification, and ad display To customize your ad, you select one of the tariffs after clicking the ad specific button, and your ad specializes after paying the tariff through your international bank card.
+                                            <br>
+                                            <b>Second way: after the free registration of the ad</b>
+                                            <br> You may decide to specialize in the ad shortly or even a few days after your free ad registration, after logging into your <a href="/en/login-register.html">Account</a> Go to My Ads, Under the Ads, click on the Specialize button, select the tariff you want, and after your payment through the international bank card, your ad becomes special.
+
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-1-heading-5">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-1-content-5" aria-expanded="false" aria-controls="accordion-tab-1-content-5">
+										How do I place my ad in our showcase?
+											</button>
+	                                </h5>
+                                </div>
+                                <div class="collapse" id="accordion-tab-1-content-5" aria-labelledby="accordion-tab-1-heading-5" data-parent="#accordion-tab-1">
+                                    <div class="card-body">
+                                        <p>By placing an ad in HAYATEMOON’s Showcase you can attract the attention of hundreds of thousands of users and visitors to your ad.
+                                            <br>
+
+                                            <b>There are two ways you can put your ad in the showcase:</b>
+                                            <br>
+
+                                            <b>The first way: when registering a free ad</b>
+                                            <br> After filling out your ad registration, you will have three options: free ad registration, ad specialization, and ad display To place your ad in the showcase after you hit the show ad button, you select one of the tariffs and after paying the tariff through your international bank card, your ad is displayed in the HAYATEMOON’s Showcase
+                                            <br>
+
+                                            <b>Second way: after the free registration of the ad</b>
+                                            <br> You may decide to put your ad in a showcase shortly or even a few days after your free ad is due, so go to My Ads section after logging into your account, under the desired ad, on the Showcase button Make an advertisement, select your desired tariff and after paying through international bank card, your ad will be placed in HAYATEMOON’s Showcase
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab2" role="tabpanel" aria-labelledby="tab2">
+                        <div class="accordion" id="accordion-tab-2">
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-2-heading-1">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-2-content-1" aria-expanded="false" aria-controls="accordion-tab-2-content-1">How do I find the advertisement I want?</button>
+	                                </h5>
+                                </div>
+                                <div class="collapse show" id="accordion-tab-2-content-1" aria-labelledby="accordion-tab-2-heading-1" data-parent="#accordion-tab-2">
+                                    <div class="card-body">
+                                        <p>On your homepage you can select the category and then your desired city and click on the search button to display ads on HAYATEMOON. You do not need to be a member of HAYATEMOON to view ads.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-2-heading-2">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-2-content-2" aria-expanded="false" aria-controls="accordion-tab-2-content-2">What does filtering mean?</button>
+	                                </h5>
+                                </div>
+                                <div class="collapse" id="accordion-tab-2-content-2" aria-labelledby="accordion-tab-2-heading-2" data-parent="#accordion-tab-2">
+                                    <div class="card-body">
+                                        <p>If you want to refine your search and include some factors, you can use the filter section. For example, factors such as brand, function, year of manufacture, and factors such as number of rooms, area, and range are important for the car. The selections will be narrower.
+                                            <br> After displaying the ads for the category you are looking for, the subcategories show the filters associated with the search category and you can more precisely search for the ads you need using filters.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-2-heading-3">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-2-content-3" aria-expanded="false" aria-controls="accordion-tab-2-content-3">Safe shopping guide</button>
+	                                </h5>
+                                </div>
+                                <div class="collapse" id="accordion-tab-2-content-3" aria-labelledby="accordion-tab-2-heading-3" data-parent="#accordion-tab-2">
+                                    <div class="card-body">
+                                        <p>
+
+                                            <b>In-person trading; the safest way to trade:</b>
+                                            <ul>
+
+                                                <li>
+                                                    In-person trading and payment: The safest and best way to buy is in-person trading. This means that the buyer can see, check, and pay at the same time with the seller. Never postpone payment until after the goods or services have been delivered.
+                                                </li>
+                                                <li>
+                                                    Safe Place: For in-person trading, public and crowded places such as bank branches and sheriffs are suitable.
+                                                </li>
+                                                <li>
+                                                    Transaction Evidence: It is advisable to obtain a valid written receipt from the seller when purchasing the goods.
+                                                </li>
+                                            </ul>
+
+                                            <b>Money Transfer Highlights:</b>
+                                            <ul>
+                                                <li>
+                                                    Cash payment: It is better to pay in cash.
+                                                </li>
+                                                <li>
+                                                    Online payment and card-to-card payment: If you pay online or card-to-card, don't pay for the payment receipt. Before delivering the goods, make sure you have the money in your account.
+                                                </li>
+                                            </ul>
+
+                                            <b>Pre-deal Highlights:</b>
+                                            <ul>
+                                                <li>
+                                                    Do not lodge: Never charge a luggage, pastry, booking, etc. before receiving the goods. If the seller requests you to provide a luggage, please let us know by contacting HAYATEMOON <a href="/en/login-register.html">Support Team</a>.
+                                                </li>
+
+                                                <li>
+                                                    Storage: Be sure to store seller and ad information for quick access if needed.
+                                                </li>
+
+                                                <li>Buying invoice request: For some commodities such as jewelry, it is best to ask the seller to include the purchase invoice.</li>
+
+                                                <li>Initial Packaging Request: To buy electronics (such as mobile phones, tablets, laptops, etc.), it is best to ask the seller to provide the original packaging.
+                                                </li>
+
+                                                <li>
+                                                    Ownership and product identification: In automobile transactions, all vehicle ownership and identification documents are required. Experience has shown that cars traded with repetitive power of attorney are suspicious.
+                                                    <br> Avoiding harassment: Providing personal information that is unrelated to the transaction only increases the likelihood of harassment.
+                                                </li>
+                                            </ul>
+
+                                            <b>Can't trade in person? Pay attention:</b>
+                                            <ul>
+                                                <li>
+                                                    Product assurance: Don't pay before seeing the product and checking the specifications.
+                                                </li>
+
+                                                <li>
+                                                    Receipt: Make sure to check your account to keep track of your deposit and don't trust the payment receipt and online payment receipt.
+                                                </li>
+
+                                                <li>
+                                                    Pictures and merchandise information: Ask the seller to provide clear images and sufficient information about the merchandise.
+                                                </li>
+
+                                                <li>
+                                                    Avoid misplaced trust: Providing personal information such as address, landline phone number, bank account information, social network ID, etc. is not a measure of trust in the other party. Because someone else's information may have been misused.
+                                                </li>
+
+                                                <li>
+                                                    Postage shopping: In postage shopping, you pay before making sure the goods are genuine. This method is not safe and your doctor does not recommend it.
+                                                </li>
+
+                                                <li>
+                                                    Contradiction of Goods with Advertising Information: If the specifications of the goods do not comply with the specifications stated by the seller, return the goods immediately and do not hold them.
+                                                </li>
+
+                                            </ul>
+
+                                            <b>Our Role in Trading:</b>
+                                            <ul>
+                                                <li>
+                                                    HAYATEMOON does not profit from any transactions and is not responsible for them.
+                                                </li>
+
+                                                <li>
+                                                    If you see any suspicion or abuse, let us know by contacting our <a href="/en/login-register.html">Support Team</a>.
+                                                </li>
+                                                HAYATEMOON has no involvement in pricing goods or services. The price of the ad is determined by the advertiser. If you see ads at an unreasonable price, let us know by contacting us.
+                                                <li>
+                                                    We are not aware of the identities of advertisers .So users have to consider different aspects of security themselves.
+                                                </li>
+
+                                                <li>
+                                                    In the event of an inconvenience or problem for you, HAYATEMOON will consult with law enforcement.
+                                                </li>
+                                            </ul>
+
+                                            <b>Trading Alarms; Be More Cautious When:</b>
+                                            <ul>
+                                                <li>
+                                                    The price and terms offered are great too.
+                                                </li>
+
+                                                <li>
+                                                    Request a free delivery before any delivery by the seller.
+                                                </li>
+
+                                                <li>The seller does not provide clear and complete information about the product.
+                                                </li>
+
+                                                <li>
+                                                    The other party shall reject the request for a personal transaction without reasonable cause.
+                                                </li>
+
+                                                <li>
+                                                    The other party asks for your personal information or bank account without reasonable cause.
+                                                </li>
+
+                                                <li>
+                                                    Buyer wants to buy it at great price without seeing the goods.
+                                                </li>
+
+                                                <li>
+                                                    Announces its advertiser from reputable and endorsed vendors by our site.
+                                                </li>
+
+                                            </ul>
+
+                                            <b>Did you have a problem?</b>
+                                            <ul>
+                                                <li>
+                                                    If you have any issues with advertisers or advertisers, please let us know by contacting our <a href="/en/login-register.html">Support Team</a>.
+                                                </li>
+                                            </ul>
+
+                                            </ul>
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab3" role="tabpanel" aria-labelledby="tab3">
+                        <div class="accordion" id="accordion-tab-3">
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-3-heading-1">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-3-content-1" aria-expanded="false" aria-controls="accordion-tab-3-content-1">How to register and log in?</button>
+	                                </h5>
+                                </div>
+                                <div class="collapse show" id="accordion-tab-3-content-1" aria-labelledby="accordion-tab-3-heading-1" data-parent="#accordion-tab-3">
+                                    <div class="card-body">
+                                        <p>To <a href="/en/login-register.html">sign up</a> for your account, simply <a href="/en/login-register.html">sign in</a> at the top of the website's homepage and easily sign up by entering your details. After registering on HAYATEMOON, you can log in HAYATEMOON by entering the email you registered with and your password.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-3-heading-2">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-3-content-2" aria-expanded="false" aria-controls="accordion-tab-3-content-2">I forgot my password, what should I do?</button>
+	                                </h5>
+                                </div>
+                                <div class="collapse" id="accordion-tab-3-content-2" aria-labelledby="accordion-tab-3-heading-2" data-parent="#accordion-tab-3">
+                                    <div class="card-body">
+                                        <p>If you have forgotten your password to log in, don't worry, you can access your login and signup option on your <a href="/en/login-register.html">password recovery page</a>. By entering the email you have registered with us, an email will be sent to you to re-select your password.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-3-heading-3">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-3-content-3" aria-expanded="false" aria-controls="accordion-tab-3-content-3">How do I get access to my ads?</button>
+	                                </h5>
+                                </div>
+                                <div class="collapse" id="accordion-tab-3-content-3" aria-labelledby="accordion-tab-3-heading-3" data-parent="#accordion-tab-3">
+                                    <div class="card-body">
+                                        <p>You must be logged in to access your ads
+                                            <a href="/en/login-register.html">Sign up</a> for your account and view your ads from the My Ads section. If you haven't joined HAYATEMOON yet, you can join <a href="/en/login-register.html">here</a> for free.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-3-heading-4">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-3-content-4" aria-expanded="false" aria-controls="accordion-tab-3-content-4">How do I favorite an ad?</button>
+	                                </h5>
+                                </div>
+                                <div class="collapse" id="accordion-tab-3-content-4" aria-labelledby="accordion-tab-3-heading-4" data-parent="#accordion-tab-3">
+                                    <div class="card-body">
+                                        <p>
+                                            To show an ad you must first be a member of the site, from here you can <a href="/en/login-register.html">sign up</a>. Enter the ad’s page and click on the favorite option .To see favorited ads Enter your <a href="/en/login-register.html">Account</a> and go to the Favorite section.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-3-heading-5">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-3-content-5" aria-expanded="false" aria-controls="accordion-tab-3-content-5">How do I see my account balance?</button>
+	                                </h5>
+
+                                </div>
+                                <div class="collapse" id="accordion-tab-3-content-5" aria-labelledby="accordion-tab-3-heading-5" data-parent="#accordion-tab-3">
+                                    <div class="card-body">
+                                        <p>Log in from <a href="/en/login-register.html">here</a> first, if you haven't yet, you can <a href="/en/login-register.html">sign</a> up for free, then Sign in and enter to your Account to see your <a href="/en/login-register.html">account</a> balance.
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-3-heading-6">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-3-content-6" aria-expanded="false" aria-controls="accordion-tab-3-content-6">How do I charge my account?</button>
+	                                </h5>
+                                </div>
+                                <div class="collapse" id="accordion-tab-3-content-6" aria-labelledby="accordion-tab-3-heading-6" data-parent="#accordion-tab-3">
+                                    <div class="card-body">
+                                        <p>To recharge your account balance you must first log in from <a href="/en/login-register.html">here</a>, if you are not yet a member, you can <a href="/en/login-register.html">sign up</a> for free. Log in to your account and enter the amount you want and click the checkout button to complete the payment process.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-3-heading-7">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-3-content-7" aria-expanded="false" aria-controls="accordion-tab-3-content-7">How do I update my personal profile?</button>
+	                                </h5>
+                                </div>
+                                <div class="collapse" id="accordion-tab-3-content-7" aria-labelledby="accordion-tab-3-heading-7" data-parent="#accordion-tab-3">
+                                    <div class="card-body">
+                                        <p>To update your personal information, Log in to your account and easily enter your details and hit save. If you are not yet a member of HAYATEMOON, you can join for free <a href="/en/login-register.html">here</a>.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-3-heading-8">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-3-content-8" aria-expanded="false" aria-controls="accordion-tab-3-content-8">How do I register my address?</button>
+	                                </h5>
+                                </div>
+                                <div class="collapse" id="accordion-tab-3-content-8" aria-labelledby="accordion-tab-3-heading-8" data-parent="#accordion-tab-3">
+                                    <div class="card-body">
+                                        <p>Log in to your <a href="/en/login-register.html">Account</a> and enter your full address profile and click the save button.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab4" role="tabpanel" aria-labelledby="tab4">
+                        <div class="accordion" id="accordion-tab-4">
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-4-heading-1">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-4-content-1" aria-expanded="false" aria-controls="accordion-tab-4-content-1">Where can I see my ads?</button>
+	                                </h5>
+                                </div>
+                                <div class="collapse show" id="accordion-tab-4-content-1" aria-labelledby="accordion-tab-4-heading-1" data-parent="#accordion-tab-4">
+                                    <div class="card-body">
+                                        <p>You can enter to your <a href="/en/login-register.html">Account</a> and see your ads from the My Ads section.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-4-heading-2">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-4-content-2" aria-expanded="false" aria-controls="accordion-tab-4-content-2">How do I raise my ad traffic?</button>
+	                                </h5>
+                                </div>
+                                <div class="collapse" id="accordion-tab-4-content-2" aria-labelledby="accordion-tab-4-heading-2" data-parent="#accordion-tab-4">
+                                    <div class="card-body">Specialize your ad and  place the ad in our showcase.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-4-heading-3">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-4-content-3" aria-expanded="false" aria-controls="accordion-tab-4-content-3">How do I remove my ad?</button>
+	                                </h5>
+                                </div>
+                                <div class="collapse" id="accordion-tab-4-content-3" aria-labelledby="accordion-tab-4-heading-3" data-parent="#accordion-tab-4">
+                                    <div class="card-body">
+                                        <p>You can log in to your <a href="/en/login-register.html">Account</a> to remove your ad for any reason.
+                                            <br> From My Ads select the option clear the ad for each of your ads and clear it.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-4-heading-4">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-4-content-4" aria-expanded="false" aria-controls="accordion-tab-4-content-4">Why is my ad removed?</button>
+	                                </h5>
+                                </div>
+                                <div class="collapse" id="accordion-tab-4-content-4" aria-labelledby="accordion-tab-4-heading-4" data-parent="#accordion-tab-4">
+                                    <div class="card-body">
+                                        <p>Ads that are listed on HAYATEMOON may be removed for several reasons. In this section, we will try to explain these reasons at various stages in order to prevent your ad from being fully aware of these issues.
+                                            <br> If your ad is reported by a large number of users, your ad will be removed from HAYATEMOON.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab5" role="tabpanel" aria-labelledby="tab5">
+                        <div class="accordion" id="accordion-tab-5">
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-5-heading-1">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-5-content-1" aria-expanded="false" aria-controls="accordion-tab-5-content-1">I have the request to add a new city</button>
+	                                </h5>
+                                </div>
+                                <div class="collapse show" id="accordion-tab-5-content-1" aria-labelledby="accordion-tab-5-heading-1" data-parent="#accordion-tab-5">
+                                    <div class="card-body">
+                                        <p>Cities were added to HAYATEMOON based on the population of Iranians living there. If there is a strong demand for a new city, our team will proudly provide all the services in that city.
+                                            <br> If you want to add a city you can contact us.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-5-heading-2">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-5-content-2" aria-expanded="false" aria-controls="accordion-tab-5-content-2">I request to add new features</button>
+	                                </h5>
+                                </div>
+                                <div class="collapse" id="accordion-tab-5-content-2" aria-labelledby="accordion-tab-5-heading-2" data-parent="#accordion-tab-5">
+                                    <div class="card-body">
+                                        <p>
+                                            If you have a criticism or suggestion to improve our facilities, be sure to let us know if we have the honor of working with our dear compatriots.
+                                            <br> Undoubtedly all your comments will be reviewed by the technical team and the technical team will contact you to complete the proposal.
+                                            <br> Do not neglect your criticism and suggestions
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-5-heading-3">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-5-content-3" aria-expanded="false" aria-controls="accordion-tab-5-content-3">I criticize how HAYATEMOON works
+
+										</button>
+	                                </h5>
+                                </div>
+                                <div class="collapse" id="accordion-tab-5-content-3" aria-labelledby="accordion-tab-5-heading-3" data-parent="#accordion-tab-5">
+                                    <div class="card-body">
+                                        <p>
+                                            If You are critical of our performance, please let us know through the Contact Us page
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="tab6" role="tabpanel" aria-labelledby="tab6">
+                        <div class="accordion" id="accordion-tab-6">
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-6-heading-1">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-6-content-1" aria-expanded="false" aria-controls="accordion-tab-6-content-1">I need information about a deleted ad</button>
+	                                </h5>
+                                </div>
+                                <div class="collapse show" id="accordion-tab-6-content-1" aria-labelledby="accordion-tab-6-heading-1" data-parent="#accordion-tab-6">
+                                    <div class="card-body">
+                                        <p>
+                                            If you have a complaint about a removed ad you can tell us through the Contact Us page, as well as our support team, who will assist you in following up your complaint through the appropriate judicial authorities.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-6-heading-2">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-6-content-2" aria-expanded="false" aria-controls="accordion-tab-6-content-2">I have been a fraud</button>
+	                                </h5>
+                                </div>
+                                <div class="collapse" id="accordion-tab-6-content-2" aria-labelledby="accordion-tab-6-heading-2" data-parent="#accordion-tab-6">
+                                    <div class="card-body">
+                                        <p>Report the ad to our support team through the Contact Us page so that the person in question is not allowed to re-insert the ad on HAYATEMOON.
+                                            <br> In addition, our support team will make the necessary arrangements to prosecute your complaint.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-6-heading-3">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-6-content-3" aria-expanded="false" aria-controls="accordion-tab-6-content-3"> Some One disturbs me</button>
+	                                </h5>
+                                </div>
+                                <div class="collapse" id="accordion-tab-6-content-3" aria-labelledby="accordion-tab-6-heading-3" data-parent="#accordion-tab-6">
+                                    <div class="card-body">
+                                        <p>
+                                            If you are disturbed on HAYATEMOON environment, you can contact HAYATEMOON support team via the Contact Us page to quickly resolve the issue.
+                                            <br> If your ad was intentionally or inadvertently registered by someone else, please contact our support team for follow up.
+                                            <br> If you make use of your contact information, let us know with our support team so that we can work with you to pursue your complaint with the offender.
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-6-heading-4">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-6-content-4" aria-expanded="false" aria-controls="accordion-tab-6-content-4">I want to report an ad violation</button>
+	                                </h5>
+                                </div>
+                                <div class="collapse" id="accordion-tab-6-content-4" aria-labelledby="accordion-tab-6-heading-4" data-parent="#accordion-tab-6">
+                                    <div class="card-body">
+                                        <p>
+                                            If you see any of the items listed below, please email us via the Contact Us page.
+                                            <ul>
+                                                <li>Inappropriate ad content.</li>
+                                                <li>
+                                                    Advertising information is misleading or false.
+                                                </li>
+
+                                                <li> The ad is in the irrelevant category.</li>
+                                                <li>Inappropriate ad prices.</li>
+                                                <li>Advertised services, goods or property are no longer available.</li>
+
+                                                <li>
+                                                    The goods or services provided are subject to the "List of Criminal Content Instances".</li>
+                                                <li>
+                                                    Other reasons (in this section you can write your reason in full)
+
+                                                </li>
+
+                                            </ul>
+
+                                            You are reporting this ad directly to our Content Management Team.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="tab7" role="tabpanel" aria-labelledby="tab7">
+                        <div class="accordion" id="accordion-tab-7">
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-7-heading-1">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-7-content-1" aria-expanded="false" aria-controls="accordion-tab-7-content-1">What is HAYATEMOON service tariff?</button>
+	                                </h5>
+                                </div>
+                                <div class="collapse show" id="accordion-tab-7-content-1" aria-labelledby="accordion-tab-7-heading-1" data-parent="#accordion-tab-7">
+                                    <div class="card-body">
+                                        <p>
+                                            HAYATEMOON offers various services to people around the world.
+                                            <br> Including ads, online food ordering, and other services that will soon be added to our collection to serve.
+                                            <br> Specific ad tariffs
+                                            <br> Tariffs to place advertisement on HAYATEMOON’s showcase
+                                            <br> Tariffs to put restaurants on HAYATEMOON’s Showcase
+                                            <br>
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-7-heading-2">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-7-content-2" aria-expanded="false" aria-controls="accordion-tab-7-content-2">How can I make payments in HAYATEMOON?</button>
+	                                </h5>
+                                </div>
+                                <div class="collapse" id="accordion-tab-7-content-2" aria-labelledby="accordion-tab-7-heading-2" data-parent="#accordion-tab-7">
+                                    <div class="card-body">
+                                        <p>HAYATEMOON is the first platform for free online ad insertion and ordering of food and renting rooms and apartments and houses.
+                                            <br> You can also use some of specialized HAYATEMOON’s services for a small fee.
+                                            <br> All payments online, completely secure and through all international bank cards (Visa Card, Master Card, Debit Card) are payable.
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-7-heading-3">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-7-content-3" aria-expanded="false" aria-controls="accordion-tab-7-content-3">I made the payment but it didn't apply.</button>
+	                                </h5>
+                                </div>
+                                <div class="collapse" id="accordion-tab-7-content-3" aria-labelledby="accordion-tab-7-heading-3" data-parent="#accordion-tab-7">
+                                    <div class="card-body">
+                                        <p>
+                                            If you have attempted any of the ad-serving or online food ordering services and the service has not been provided, be patient for up to 72 hours, if your bank didn’t pay back the amount, then See our support team to help you.
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="tab-pane" id="tab8" role="tabpanel" aria-labelledby="tab8">
+                        <div class="accordion" id="accordion-tab-8">
+							<div class="card">
+							<div class="card-header" id="accordion-tab-8-heading-1">
+							<h5>
+							    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-8-content-1" aria-expanded="false" aria-controls="accordion-tab-8-content-1">What are the rules for placing ads in HAYATEMOON?</button>
+							</h5>
+							</div>
+							<div class="collapse show" id="accordion-tab-8-content-1" aria-labelledby="accordion-tab-8-heading-1" data-parent="#accordion-tab-8">
+							<div class="card-body">
+							    <p>
+
+							        If jurisdictions order a particular ad to be removed, it will remove the ad and if the ad infringement report is more than 7 times, the ad team will remove the ad.
+							        <br> Advertisers confirm by submitting their ad in our yard that their ad will not include the following items and that they are over 5 years old.
+							        <ul>
+
+							            <li>
+							                Violation of international law
+							            </li>
+
+							            <li>
+							                Violation of individuals' privacy
+							            </li>
+
+							            <li>
+							                Insert price in ad title
+							            </li>
+
+							            <li>
+							                Any insult to the country's official religions, customs, customs, ethnicities, dialects and dialects
+							            </li>
+
+							            <li>
+							                A tool for using images of individuals in ads, over-inserting faces, or using photos of children to introduce products and services that are not targeted to children.
+							                <br> Any kind of political, social, or religious advertising and non-commercial advertising
+							            </li>
+
+							            <li>
+							                Tools or training for infiltration, sabotage, unlocking, hacking and crack
+							            </li>
+
+							            <li>
+							                Any rental or sale of movies or music
+							            </li>
+
+							            <li>
+							                pyramid networks and similar illegal and illegal economic activities,
+							            </li>
+
+							            <li>
+							                Any form of betting (with or without a prize),
+							            </li>
+
+							            <li>
+							                Any goods that cause violence and harm to others, such as firearms, firearms, firearms and the like,
+							            </li>
+
+							            <li>
+							                Drug and smoking related goods and services, Buy and sell organs, such as: Kidney
+
+							            </li>
+
+							            <li>
+							                Advance payment for long distance transactions.
+							            </li>
+
+							            <li>
+							                Services and goods that are exposed to fraud,
+							            </li>
+
+							            <li>
+							                Introducing a site, product or service that is in any way intended to compete with us.
+							            </li>
+
+							            <li>
+							                Frequent insertion of the same ads, even with different titles in one day,
+							            </li>
+
+							            <li>
+							                resubmit an ad that has not expired more than 1 hour since the user removed it,
+							            </li>
+
+							            <li>
+							                SIM card sales ads that are not listed in the ad title,
+							            </li>
+
+							            <li>
+							                Any reference to businesses on social networks such as telegram or Instagram in the description section except in the category of services.
+							            </li>
+
+							            <li>
+							                Any reference to businesses on social networks such as telegram or Instagram in the description section except in the category of services.
+							            </li>
+
+							        </ul>
+
+							        Any abuse of a mobile phone number or e-mail address of others is subject to prosecution and the advertiser is held responsible and our accountant is not responsible for this.
+
+							    </p>
+							</div>
+							</div>
+							</div>
+							<div class="card">
+							<div class="card-header" id="accordion-tab-8-heading-2">
+							    <h5>
+							            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-8-content-2" aria-expanded="false" aria-controls="accordion-tab-8-content-2">Safe shopping guide</button>
+							        </h5>
+							</div>
+							<div class="collapse" id="accordion-tab-8-content-2" aria-labelledby="accordion-tab-8-heading-2" data-parent="#accordion-tab-8">
+							    <div class="card-body">
+							        <b>In-person trading; the safest way to trade:</b>
+							        <ul>
+
+							            <li>
+							                In-person trading and payment: The safest and best way to buy is in-person trading. This means that the buyer can see, check, and pay at the same time with the seller. Never postpone payment until after the goods or services have been delivered.
+							            </li>
+							            <li>
+							                Safe Place: For in-person trading, public and crowded places such as bank branches and sheriffs are suitable.
+							            </li>
+							            <li>
+							                Transaction Evidence: It is advisable to obtain a valid written receipt from the seller when purchasing the goods.
+							            </li>
+							        </ul>
+
+							        <b>Money Transfer Highlights:</b>
+							        <ul>
+							            <li>
+							                Cash payment: It is better to pay in cash.
+							            </li>
+							            <li>
+							                Online payment and card-to-card payment: If you pay online or card-to-card, don't pay for the payment receipt. Before delivering the goods, make sure you have the money in your account.
+							            </li>
+							        </ul>
+
+							        <b>Pre-deal Highlights:</b>
+							        <ul>
+							            <li>
+							                Do not lodge: Never charge a luggage, pastry, booking, etc. before receiving the goods. If the seller requests you to provide a luggage, please let us know by contacting HAYATEMOON Support Team.
+							            </li>
+
+							            <li>
+							                Storage: Be sure to store seller and ad information for quick access if needed.
+							            </li>
+
+							            <li>Buying invoice request: For some commodities such as jewelry, it is best to ask the seller to include the purchase invoice.</li>
+
+							            <li>Initial Packaging Request: To buy electronics (such as mobile phones, tablets, laptops, etc.), it is best to ask the seller to provide the original packaging.
+							            </li>
+
+							            <li>
+							                Ownership and product identification: In automobile transactions, all vehicle ownership and identification documents are required. Experience has shown that cars traded with repetitive power of attorney are suspicious.
+							                <br> Avoiding harassment: Providing personal information that is unrelated to the transaction only increases the likelihood of harassment.
+							            </li>
+							        </ul>
+
+							        <b>Can't trade in person? Pay attention:</b>
+							        <ul>
+							            <li>
+							                Product assurance: Don't pay before seeing the product and checking the specifications.
+							            </li>
+
+							            <li>
+							                Receipt: Make sure to check your account to keep track of your deposit and don't trust the payment receipt and online payment receipt.
+							            </li>
+
+							            <li>
+							                Pictures and merchandise information: Ask the seller to provide clear images and sufficient information about the merchandise.
+							            </li>
+
+							            <li>
+							                Avoid misplaced trust: Providing personal information such as address, landline phone number, bank account information, social network ID, etc. is not a measure of trust in the other party. Because someone else's information may have been misused.
+							            </li>
+
+							            <li>
+							                Postage shopping: In postage shopping, you pay before making sure the goods are genuine. This method is not safe and your doctor does not recommend it.
+							            </li>
+
+							            <li>
+							                Contradiction of Goods with Advertising Information: If the specifications of the goods do not comply with the specifications stated by the seller, return the goods immediately and do not hold them.
+							            </li>
+
+							        </ul>
+
+							        <b>Our Role in Trading:</b>
+							        <ul>
+							            <li>
+							                HAYATEMOON does not profit from any transactions and is not responsible for them.
+							            </li>
+
+							            <li>
+							                If you see any suspicion or abuse, let us know by contacting our Support Team.
+							            </li>
+							            HAYATEMOON has no involvement in pricing goods or services. The price of the ad is determined by the advertiser. If you see ads at an unreasonable price, let us know by contacting us.
+							            <li>
+							                We are not aware of the identities of advertisers .So users have to consider different aspects of security themselves.
+							            </li>
+
+							            <li>
+							                In the event of an inconvenience or problem for you, HAYATEMOON will consult with law enforcement.
+							            </li>
+							        </ul>
+
+							        <b>Trading Alarms; Be More Cautious When:</b>
+							        <ul>
+							            <li>
+							                The price and terms offered are great too.
+							            </li>
+
+							            <li>
+							                Request a free delivery before any delivery by the seller.
+							            </li>
+
+							            <li>The seller does not provide clear and complete information about the product.
+							            </li>
+
+							            <li>
+							                The other party shall reject the request for a personal transaction without reasonable cause.
+							            </li>
+
+							            <li>
+							                The other party asks for your personal information or bank account without reasonable cause.
+							            </li>
+
+							            <li>
+							                Buyer wants to buy it at great price without seeing the goods.
+							            </li>
+
+							            <li>
+							                Announces its advertiser from reputable and endorsed vendors by our site.
+							            </li>
+
+							        </ul>
+
+							        <b>Did you have a problem?</b>
+							        <ul>
+							            <li>
+							                If you have any issues with advertisers or advertisers, please let us know by contacting our Support Team.
+							            </li>
+							        </ul>
+
+							        </ul>
+
+							        </p>
+							    </div>
+							</div>
+							</div>
+		                    <div class="card">
+		                        <div class="card-header" id="accordion-tab-8-heading-3">
+		                            <h5>
+			                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-8-content-3" aria-expanded="false" aria-controls="accordion-tab-8-content-3">What are the terms of use and viewing of the ad?</button>
+			                                </h5>
+		                        </div>
+		                        <div class="collapse" id="accordion-tab-8-content-3" aria-labelledby="accordion-tab-8-heading-3" data-parent="#accordion-tab-8">
+		                            <div class="card-body">
+		                                <p>
+		                                    Any use of HAYATEMOON means acceptance of the terms contained on this site. HAYATEMOON has no agreement with users outside of these Terms. The following terms apply to anyone who uses any of the advertisements published on HAYATEMOON.
+		                                    <ul>
+		                                        <li>
+		                                            Our effort is to deliver the ads with the correct information but cannot guarantee the accuracy of the ads and assumes no liability or responsibility for the ads.
+		                                        </li>
+
+		                                        <li>
+		                                            The user is responsible for the use of the ads on this site and we do not assume any liability for any direct, incidental, consequential, indirect or punitive damages arising from your access to and use of the site.
+		                                        </li>
+
+		                                        <li>
+		                                            Users can always edit their ads, so Users disclaims any responsibility for any ads posted on the site and only displays content posted by users.
+		                                        </li>
+
+		                                        <li>
+		                                            The responsibility for the use of any text, message, description, information, photo, contact details, and the like that is sent to or contained on HAYATEMOON is borne by the sender of its reproduction, disclosure, transmission, publication and distribution.
+		                                        </li>
+
+		                                        <li>
+		                                            We have the authority to remove any messages, advertisements or photos posted to the Site, or any user account or other information that is user-generated or user-created at any time and in any manner necessary.
+		                                        </li>
+
+		                                        <li>
+		                                            The responsibility for any links, content, and claims to the wall posted by other individuals and legal entities on the site, blog, or social media, and the rest of the media, lies with them and does not hold them responsible.
+		                                        </li>
+
+		                                        <li>
+		                                            Ad banners are collected, monitored, sorted and distributed at the expense of the site operators and the advertiser is given the right to remove the ads at any time. The user of the HAYATEMOON will not have the right to copy the advertiser information, text and images of the HAYATEMOON ads either manually or automatically, and is subject to legal prosecution.
+		                                        </li>
+
+		                                    </ul>
+
+		                                </p>
+		                            </div>
+		                        </div>
+		                    </div>
 	                    </div>
-	                </div>
-	                <div class="tab-pane" id="tab2" role="tabpanel" aria-labelledby="tab2">
-	                    <div class="accordion" id="accordion-tab-2">
-	                        <div class="card">
-	                            <div class="card-header" id="accordion-tab-2-heading-1">
-	                                <h5>
-	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-2-content-1" aria-expanded="false" aria-controls="accordion-tab-2-content-1">Does anybody else feel jealous and aroused and worried?</button>
+                   	</div>
+                    <div class="tab-pane" id="tab9" role="tabpanel" aria-labelledby="tab9">
+                        <div class="accordion" id="accordion-tab-9">
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-9-heading-1">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-9-content-1" aria-expanded="false" aria-controls="accordion-tab-9-content-1">Why is my ad removed?</button>
 	                                </h5>
-	                            </div>
-	                            <div class="collapse show" id="accordion-tab-2-content-1" aria-labelledby="accordion-tab-2-heading-1" data-parent="#accordion-tab-2">
-	                                <div class="card-body">
-	                                    <p>Kif, I have mated with a woman. Inform the men. This is the worst part. The calm before the battle. Bender, being God isn't easy. If you do too much, people get dependent on you, and if you do nothing, they lose hope. You have to use a light touch. Like a safecracker, or a pickpocket.</p>
-	                                    <p><strong>Example: </strong>There's no part of that sentence I didn't like! You, a bobsleder!? That I'd like to see!</p>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="card">
-	                            <div class="card-header" id="accordion-tab-2-heading-2">
-	                                <h5>
-	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-2-content-2" aria-expanded="false" aria-controls="accordion-tab-2-content-2">This opera's as lousy as it is brilliant?</button>
+                                </div>
+                                <div class="collapse show" id="accordion-tab-9-content-1" aria-labelledby="accordion-tab-9-heading-1" data-parent="#accordion-tab-9">
+                                    <div class="card-body">
+                                        <p>
+                                            For some reasons your ad may have been removed from HAYATEMOON, firstly the judicial authorities will order your ad to be removed, secondly, if the number of abuse reports reaches 5, and thirdly, that your ad contains one Be one of the ones mentioned here.
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-9-heading-2">
+                                    <h5>
+	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-9-content-2" aria-expanded="false" aria-controls="accordion-tab-9-content-2">What are the most common reasons for ad removal?
+
+										</button>
 	                                </h5>
-	                            </div>
-	                            <div class="collapse" id="accordion-tab-2-content-2" aria-labelledby="accordion-tab-2-heading-2" data-parent="#accordion-tab-2">
-	                                <div class="card-body">
-	                                    <p>Your lyrics lack subtlety. You can't just have your characters announce how they feel. That makes me feel angry! It's okay, Bender. I like cooking too. Interesting. No, wait, the other thing: tedious.</p>
-	                                    <p><strong>Example: </strong>Of all the friends I've had… you're the first. But I know you in the future. I cleaned your poop. Then we'll go with that data file!</p>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="card">
-	                            <div class="card-header" id="accordion-tab-2-heading-3">
-	                                <h5>
-	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-2-content-3" aria-expanded="false" aria-controls="accordion-tab-2-content-3">Who are you, my warranty?!</button>
-	                                </h5>
-	                            </div>
-	                            <div class="collapse" id="accordion-tab-2-content-3" aria-labelledby="accordion-tab-2-heading-3" data-parent="#accordion-tab-2">
-	                                <div class="card-body">
-	                                    <p>Oh, I think we should just stay friends. I'll tell them you went down prying the wedding ring off his cold, dead finger. Aww, it's true. I've been hiding it for so long. Say it in Russian! Then throw her in the laundry room, which will hereafter be referred to as "the brig".</p>
-	                                    <p><strong>Example: </strong> We're rescuing ya. Robot 1-X, save my friends! And Zoidberg! <em>Then we'll go with that data file!</em> Okay, I like a challenge.</p>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="card">
-	                            <div class="card-header" id="accordion-tab-2-heading-4">
-	                                <h5>
-	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-2-content-4" aria-expanded="false" aria-controls="accordion-tab-2-content-4">I haven't felt much of anything since my guinea pig died?</button>
-	                                </h5>
-	                            </div>
-	                            <div class="collapse" id="accordion-tab-2-content-4" aria-labelledby="accordion-tab-2-heading-4" data-parent="#accordion-tab-2">
-	                                <div class="card-body">
-	                                    <p>And I'm his friend Jesus. Oh right. I forgot about the battle. OK, if everyone's finished being stupid. We'll need to have a look inside you with this camera. I'm just glad my fat, ugly mama isn't alive to see this day.</p>
-	                                    <p><strong>Example: </strong> Isn't it true that you have been paid for your testimony? Quite possible.</p>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </div>
-	                <div class="tab-pane" id="tab3" role="tabpanel" aria-labelledby="tab3">
-	                    <div class="accordion" id="accordion-tab-3">
-	                        <div class="card">
-	                            <div class="card-header" id="accordion-tab-3-heading-1">
-	                                <h5>
-	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-3-content-1" aria-expanded="false" aria-controls="accordion-tab-3-content-1">Michelle, I don't regret this, but I both rue and lament it?</button>
-	                                </h5>
-	                            </div>
-	                            <div class="collapse show" id="accordion-tab-3-content-1" aria-labelledby="accordion-tab-3-heading-1" data-parent="#accordion-tab-3">
-	                                <div class="card-body">
-	                                    <p>Look, last night was a mistake. We'll need to have a look inside you with this camera. Good news, everyone! There's a report on TV with some very bad news! You know, I was God once. You lived before you met me?!</p>
-	                                    <p><strong>Example: </strong>I'm Santa Claus! Pansy. That's a popular name today. Little "e", big "B"?</p>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="card">
-	                            <div class="card-header" id="accordion-tab-3-heading-2">
-	                                <h5>
-	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-3-content-2" aria-expanded="false" aria-controls="accordion-tab-3-content-2">Why am I sticky and naked?</button>
-	                                </h5>
-	                            </div>
-	                            <div class="collapse" id="accordion-tab-3-content-2" aria-labelledby="accordion-tab-3-heading-2" data-parent="#accordion-tab-3">
-	                                <div class="card-body">
-	                                    <p>Did I miss something fun? Humans dating robots is sick. You people wonder why I'm still single? It's 'cause all the fine robot sisters are dating humans! Kids don't turn rotten just from watching TV.</p>
-	                                    <p><strong>Example: </strong>I usually try to keep my sadness pent up inside where it can fester quietly as a mental illness.</p>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="card">
-	                            <div class="card-header" id="accordion-tab-3-heading-3">
-	                                <h5>
-	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-3-content-3" aria-expanded="false" aria-controls="accordion-tab-3-content-3">Is that a cooking show?</button>
-	                                </h5>
-	                            </div>
-	                            <div class="collapse" id="accordion-tab-3-content-3" aria-labelledby="accordion-tab-3-heading-3" data-parent="#accordion-tab-3">
-	                                <div class="card-body">
-	                                    <p>OK, this has gotta stop. I'm going to remind Fry of his humanity the way only a woman can. You seem malnourished. Are you suffering from intestinal parasites? Check it out, y'all. Everyone who was invited is here. I am Singing Wind, Chief of the Martians.</p>
-	                                    <p><strong>Example: </strong>Man, I'm sore all over. I feel like I just went ten rounds with mighty Thor.</p>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="card">
-	                            <div class="card-header" id="accordion-tab-3-heading-4">
-	                                <h5>
-	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-3-content-4" aria-expanded="false" aria-controls="accordion-tab-3-content-4">You are the last hope of the universe?</button>
-	                                </h5>
-	                            </div>
-	                            <div class="collapse" id="accordion-tab-3-content-4" aria-labelledby="accordion-tab-3-heading-4" data-parent="#accordion-tab-3">
-	                                <div class="card-body">
-	                                    <p>I don't want to be rescued. I videotape every customer that comes in here, so that I may blackmail them later. Ah, computer dating. It's like pimping, but you rarely have to use the phrase "upside your head."</p>
-	                                    <p><strong>Example: </strong>Tell them I hate them.</p>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </div>
-	                <div class="tab-pane" id="tab4" role="tabpanel" aria-labelledby="tab4">
-	                    <div class="accordion" id="accordion-tab-4">
-	                        <div class="card">
-	                            <div class="card-header" id="accordion-tab-4-heading-1">
-	                                <h5>
-	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-4-content-1" aria-expanded="false" aria-controls="accordion-tab-4-content-1">You, minion. Lift my arm?</button>
-	                                </h5>
-	                            </div>
-	                            <div class="collapse show" id="accordion-tab-4-content-1" aria-labelledby="accordion-tab-4-heading-1" data-parent="#accordion-tab-4">
-	                                <div class="card-body">
-	                                    <p>AFTER HIM! A true inspiration for the children. What are you hacking off? Is it my torso?! 'It is!' My precious torso! I saw you with those two "ladies of the evening" at Elzars. Explain that. She also liked to shut up! Why not indeed!</p>
-	                                    <p><strong>Example: </strong>I feel like I was mauled by Jesus. Hello, little man. I will destroy you!</p>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="card">
-	                            <div class="card-header" id="accordion-tab-4-heading-2">
-	                                <h5>
-	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-4-content-2" aria-expanded="false" aria-controls="accordion-tab-4-content-2">No, I'm Santa Claus?</button>
-	                                </h5>
-	                            </div>
-	                            <div class="collapse" id="accordion-tab-4-content-2" aria-labelledby="accordion-tab-4-heading-2" data-parent="#accordion-tab-4">
-	                                <div class="card-body">
-	                                    <p>I meant 'physically'. Look, perhaps you could let me work for a little food? I could clean the floors or paint a fence, or service you sexually? When the lights go out, it's nobody's business what goes on between two consenting adults.</p>
-	                                    <p><strong>Example: </strong>Nay, I respect and admire Harold Zoid too much to beat him to death with his own Oscar.</p>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="card">
-	                            <div class="card-header" id="accordion-tab-4-heading-3">
-	                                <h5>
-	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-4-content-3" aria-expanded="false" aria-controls="accordion-tab-4-content-3">Belligerent and numerous?</button>
-	                                </h5>
-	                            </div>
-	                            <div class="collapse" id="accordion-tab-4-content-3" aria-labelledby="accordion-tab-4-heading-3" data-parent="#accordion-tab-4">
-	                                <div class="card-body">
-	                                    <p>Hey, what kinda party is this? There's no booze and only one hooker. I'm just glad my fat, ugly mama isn't alive to see this day. Wow! A superpowers drug you can just rub onto your skin? You'd think it would be something you'd have to freebase. Well, let's just dump it in the sewer and say we delivered it. You guys realize you live in a sewer, right? </p>
-	                                    <p><strong>Example: </strong>Oh Leela! You're the only person I could turn to; you're the only person who ever loved me.</p>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="card">
-	                            <div class="card-header" id="accordion-tab-4-heading-4">
-	                                <h5>
-	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-4-content-4" aria-expanded="false" aria-controls="accordion-tab-4-content-4">Take me to your leader?</button>
-	                                </h5>
-	                            </div>
-	                            <div class="collapse" id="accordion-tab-4-content-4" aria-labelledby="accordion-tab-4-heading-4" data-parent="#accordion-tab-4">
-	                                <div class="card-body">
-	                                    <p>PUNY HUMAN NUMBER ONE, PUNY HUMAN NUMBER TWO, and Morbo's good friend, Richard Nixon. Interesting. No, wait, the other thing: tedious. All I want is to be a monkey of moderate intelligence who wears a suit… that's why I'm transferring to business school! Morbo can't understand his teleprompter because he forgot how you say that letter that's shaped like a man wearing a hat.</p>
-	                                    <p><strong>Example: </strong>If rubbin' frozen dirt in your crotch is wrong, hey I don't wanna be right.</p>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </div>
-	                <div class="tab-pane" id="tab5" role="tabpanel" aria-labelledby="tab5">
-	                    <div class="accordion" id="accordion-tab-5">
-	                        <div class="card">
-	                            <div class="card-header" id="accordion-tab-5-heading-1">
-	                                <h5>
-	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-5-content-1" aria-expanded="false" aria-controls="accordion-tab-5-content-1">Say what?</button>
-	                                </h5>
-	                            </div>
-	                            <div class="collapse show" id="accordion-tab-5-content-1" aria-labelledby="accordion-tab-5-heading-1" data-parent="#accordion-tab-5">
-	                                <div class="card-body">
-	                                    <p>That could be 'my' beautiful soul sitting naked on a couch. If I could just learn to play this stupid thing. Oh, I don't have time for this. I have to go and buy a single piece of fruit with a coupon and then return it, making people wait behind me while I complain. I'm just glad my fat, ugly mama isn't alive to see this day. For one beautiful night I knew what it was like to be a grandmother. Subjugated, yet honored. But existing is basically all I do! I never loved you.</p>
-	                                    <p><strong>Example: </strong>A sexy mistake. And I'd do it again!</p>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="card">
-	                            <div class="card-header" id="accordion-tab-5-heading-2">
-	                                <h5>
-	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-5-content-2" aria-expanded="false" aria-controls="accordion-tab-5-content-2">Who's brave enough to fly into something we all keep calling a death sphere?</button>
-	                                </h5>
-	                            </div>
-	                            <div class="collapse" id="accordion-tab-5-content-2" aria-labelledby="accordion-tab-5-heading-2" data-parent="#accordion-tab-5">
-	                                <div class="card-body">
-	                                    <p>Maybe I love you so much I love you no matter who you are pretending to be. Ah, the 'Breakfast Club' soundtrack! I can't wait til I'm old enough to feel ways about stuff! Now Fry, it's been a few years since medical school, so remind me.</p>
-	                                    <p><strong>Example: </strong>Disemboweling in your species: fatal or non-fatal?</p>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="card">
-	                            <div class="card-header" id="accordion-tab-5-heading-3">
-	                                <h5>
-	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-5-content-3" aria-expanded="false" aria-controls="accordion-tab-5-content-3">You mean while I'm sleeping in it?</button>
-	                                </h5>
-	                            </div>
-	                            <div class="collapse" id="accordion-tab-5-content-3" aria-labelledby="accordion-tab-5-heading-3" data-parent="#accordion-tab-5">
-	                                <div class="card-body">
-	                                    <p>We can't compete with Mom! Her company is big and evil! Ours is small and neutral! Look, everyone wants to be like Germany, but do we really have the pure strength of 'will'? I just told you! You've killed me!</p>
-	                                    <p><strong>Example: </strong>But, like most politicians, he promised more than he could deliver.</p>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="card">
-	                            <div class="card-header" id="accordion-tab-5-heading-4">
-	                                <h5>
-	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-5-content-4" aria-expanded="false" aria-controls="accordion-tab-5-content-4">And until then, I can never die?</button>
-	                                </h5>
-	                            </div>
-	                            <div class="collapse" id="accordion-tab-5-content-4" aria-labelledby="accordion-tab-5-heading-4" data-parent="#accordion-tab-5">
-	                                <div class="card-body">
-	                                    <p>I don't know what you did, Fry, but once again, you screwed up! Now all the planets are gonna start cracking wise about our mamas. Well, let's just dump it in the sewer and say we delivered it.</p>
-	                                    <p><strong>Example: </strong>Have you ever tried just turning off the TV, sitting down with your children, and hitting them? Hey, tell me something. You've got all this money. How come you always dress like you're doing your laundry?</p>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </div>
-	                <div class="tab-pane" id="tab6" role="tabpanel" aria-labelledby="tab6">
-	                    <div class="accordion" id="accordion-tab-6">
-	                        <div class="card">
-	                            <div class="card-header" id="accordion-tab-6-heading-1">
-	                                <h5>
-	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-6-content-1" aria-expanded="false" aria-controls="accordion-tab-6-content-1">Doomsday device?</button>
-	                                </h5>
-	                            </div>
-	                            <div class="collapse show" id="accordion-tab-6-content-1" aria-labelledby="accordion-tab-6-heading-1" data-parent="#accordion-tab-6">
-	                                <div class="card-body">
-	                                    <p>Ah, now the ball's in Farnsworth's court! We'll need to have a look inside you with this camera. Stop it, stop it. It's fine. I will 'destroy' you! Bender! Ship! Stop bickering or I'm going to come back there and change your opinions manually!</p>
-	                                    <p><strong>Example: </strong>So I really am important? How I feel when I'm drunk is correct?</p>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="card">
-	                            <div class="card-header" id="accordion-tab-6-heading-2">
-	                                <h5>
-	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-6-content-2" aria-expanded="false" aria-controls="accordion-tab-6-content-2">And so we say goodbye to our beloved pet, Nibbler?</button>
-	                                </h5>
-	                            </div>
-	                            <div class="collapse" id="accordion-tab-6-content-2" aria-labelledby="accordion-tab-6-heading-2" data-parent="#accordion-tab-6">
-	                                <div class="card-body">
-	                                    <p>Nibbler, who's gone to a place where I, too, hope one day to go. The toilet. But existing is basically all I do! I suppose I could part with 'one' and still be feared. I just told you! You've killed me!</p>
-	                                    <p><strong>Example: </strong>What's with you kids? Every other day it's food, food, food.</p>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="card">
-	                            <div class="card-header" id="accordion-tab-6-heading-3">
-	                                <h5>
-	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-6-content-3" aria-expanded="false" aria-controls="accordion-tab-6-content-3">Tell her you just want to talk?</button>
-	                                </h5>
-	                            </div>
-	                            <div class="collapse" id="accordion-tab-6-content-3" aria-labelledby="accordion-tab-6-heading-3" data-parent="#accordion-tab-6">
-	                                <div class="card-body">
-	                                    <p>It has nothing to do with mating. Soon enough. There, now he's trapped in a book I wrote: a crummy world of plot holes and spelling errors! Daylight and everything. Hey! I'm a porno-dealing monster, what do I care what you think?</p>
-	                                    <p><strong>Example: </strong>Is that a cooking show? It doesn't look so shiny to me. And why did 'I' have to take a cab?</p>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="card">
-	                            <div class="card-header" id="accordion-tab-6-heading-4">
-	                                <h5>
-	                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-6-content-4" aria-expanded="false" aria-controls="accordion-tab-6-content-4">Good man. Nixon's pro-war and pro-family?</button>
-	                                </h5>
-	                            </div>
-	                            <div class="collapse" id="accordion-tab-6-content-4" aria-labelledby="accordion-tab-6-heading-4" data-parent="#accordion-tab-6">
-	                                <div class="card-body">
-	                                    <p>I don't 'need' to drink. I can quit anytime I want! THE BIG BRAIN AM WINNING AGAIN! I AM THE GREETEST! NOW I AM LEAVING EARTH, FOR NO RAISEN! There's one way and only one way to determine if an animal is intelligent. Dissect its brain!</p>
-	                                    <p><strong>Example: </strong>Guess again. Yeah, I do that with my stupidness. And when we woke up, we had these bodies.</p>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </div>
-	            </div>
-	        </div>
-	    </div>
-	</div>
+                                </div>
+                                <div class="collapse" id="accordion-tab-9-content-2" aria-labelledby="accordion-tab-9-heading-2" data-parent="#accordion-tab-9">
+                                    <div class="card-body">
+                                        <p>The most common reasons for ad removal are inappropriate ad content as well as ad placement in inappropriate categories. Also, if the number of abuse reports reaches 5, the ad will be removed by our support team
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
+
 </html>

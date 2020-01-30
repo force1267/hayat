@@ -3619,6 +3619,13 @@ p.vip{
 .adv {
     padding: 0 !important;
 }
+
+@media screen and (max-width:400px){
+    .cdc {
+        width: 170px !important;
+    }
+}
+
 @media screen and (max-width:768px){
     .feature {
         height: unset !important;
@@ -4139,11 +4146,4 @@ and (max-device-width : 992px) {
 
 .cdc ul {
     width: calc(100% - 10px) !important;
-}
-
-.col-item h5 {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    direction: rtl;
 }
