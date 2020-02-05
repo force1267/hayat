@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 // import CKEditor from '@ckeditor/ckeditor5-react';
 // import ClassicEditor from './build/ckeditor';
-import './build/ckeditor';
+import '../customClassicCKEditor/ckeditor';
 // import ClassicEditor from 'ckeditor-build-with-simple-upload-provider-strapi-with-image-resize';
 import styled from 'styled-components';
 // import { auth } from 'strapi-helper-plugin';
