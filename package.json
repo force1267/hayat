@@ -13,7 +13,6 @@
   "devDependencies": {},
   "dependencies": {
     "@ckeditor/ckeditor5-react": "^2.1.0",
-    "ckeditor-build-with-simple-upload-provider-strapi-with-image-resize": "^1.0.7",
     "knex": "latest",
     "sqlite3": "latest",
     "strapi": "3.0.0-beta.17.8",
@@ -30,10 +29,7 @@
     "strapi-utils": "3.0.0-beta.17.8"
   },
   "author": {
-    "name": "A Strapi developer"
-  },
-  "strapi": {
-    "uuid": "2870c887-26b2-4aa0-920f-aac2b2985b66"
+    "name": "Sarv team"
   },
   "engines": {
     "node": ">=10.0.0",
