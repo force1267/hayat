@@ -1,9 +1,17 @@
+html, body {
+  height: 100%;
+}
+
 body {
   margin-top: 30px;
   background-color: #eee;
   font-family: 'IRANSans';
   background: url('/assets/images/help.jpg');
   background-size: cover;
+  background-position-x: 0;
+  background-position-y: 0;
+  background-repeat: no-repeat;
+  height: 100%;
 }
 
 .card-body {
