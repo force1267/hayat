@@ -170,7 +170,12 @@ const Editor = ({ onChange, name, value }) => {
     const data = editor.getData();
     onChange({ target: { name, value: data } });
   }}
-  config={{}}
+  config={{
+	  language: {
+		  ui: 'en',
+		  content: 'fa'
+	  }
+  }}
   />
   </Wrapper>
 );
