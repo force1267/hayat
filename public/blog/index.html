@@ -4,9 +4,9 @@
 	<title>مجله حیاطمون</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/images/logo.png" type="image/gif" sizes="16x16">
 	<meta charset="UTF-8">
-	
-    <link rel="icon" href="assets/images/logo.png" type="image/gif" sizes="16x16">
+
 
 	<!-- Font -->
 
@@ -16,14 +16,9 @@
 	<!-- Stylesheets -->
 
 	<link rel="stylesheet" href="/assets/cdn/WebFonts/css/fontiran.css">
-
 	<link href="/blog/common-css/bootstrap.css" rel="stylesheet">
-
 	<link href="/blog/common-css/ionicons.css" rel="stylesheet">
-
-
 	<link href="/blog/blog-sidebar/css/styles.css" rel="stylesheet">
-
 	<link href="/blog/blog-sidebar/css/responsive.css" rel="stylesheet">
 
 	<script>
@@ -124,7 +119,7 @@
 
 				</div><!-- col-lg-4 col-md-12 -->
 
-				<div class="col-lg-8 col-md-12">
+				<div class="col-lg-8 col-md-8">
 					<div class="row" id="workspace">
 
 						
@@ -155,9 +150,9 @@
 						<p class="copyright">تمام حقوق این اثر مطعلق به حیاطمون میباشد.</p>
 						<!-- <p class="copyright">Designed by <a href="https://colorlib.com" target="_blank">Colorlib</a></p> -->
 						<ul class="icons">
-							<li><a href="#"><i class="ion-social-facebook-outline"></i></a></li>
-							<li><a href="#"><i class="ion-social-twitter-outline"></i></a></li>
-							<li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
+							<li><a href="http://facebook.com/hayatemooon"><i class="ion-social-facebook-outline"></i></a></li>
+							<li><a href="http://twitter.com/hayatemoon"><i class="ion-social-twitter-outline"></i></a></li>
+							<li><a href="http://instagram.com/hayatemoon"><i class="ion-social-instagram-outline"></i></a></li>
 						</ul>
 
 					</div><!-- footer-section -->
@@ -214,7 +209,7 @@
 			$('.popust ul').html('');
 			posts.forEach(function(post) {
 				$('.popust ul').append(`
-					<a href="/blog/post.html?id=${post.id}"><li><img src='${post.cover.url}'><span>${post.title}</span></li></a>
+					<a href="/blog/post.html?id=${post.id}"><li><i class="ion-android-apps"></i>${post.title}</li></a>
 				`);
 			});
 		});
@@ -225,7 +220,7 @@
 			$('.newest ul').html('');
 			posts.forEach(function(post) {
 				$('.newest ul').append(`
-					<a href="/blog/post.html?id=${post.id}"><li><img src='${post.cover.url}'><span>${post.title}</span></li></a>
+					<a href="/blog/post.html?id=${post.id}"><li><i class="ion-android-apps"></i>${post.title}</li></a>
 				`);
 			});
 		});
