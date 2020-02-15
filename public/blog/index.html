@@ -179,7 +179,7 @@
 		var _start = 0
 		var _limit = 10
 		function start() {
-			strapi.post.find({_start, _limit}).then(posts => {
+			strapi.post.find({_start, _limit: _limit + 1}).then(posts => {
 				for(let post of posts) {
 					addPost({
 						id: post.id,
