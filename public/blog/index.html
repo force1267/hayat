@@ -180,7 +180,8 @@
 		var _limit = 10
 		function start() {
 			strapi.post.find({_start, _limit: _limit + 1}).then(posts => {
-				for(let post of posts) {
+				for(let i = 0; i < posts.length && i < _limit; i ++) {
+					let post = posts[i]
 					addPost({
 						id: post.id,
 						title: post.title,
