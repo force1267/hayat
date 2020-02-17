@@ -72,7 +72,9 @@
 
 </head>
 <body >
-
+	<div class="loading">
+		<img src="/assets/images/loading.gif" alt="">
+	</div>
 	<div class="slider display-table center-text">
 		<h1 class="title display-table-cell"><b>مجله حیاطمون</b></h1>
 	</div><!-- slider -->
@@ -90,27 +92,27 @@
 						<div class="about-area newest">
 							<h4 class="title"><b>جدیدترین  مطالب</b></h4>
 							<ul>
+	<!-- 							<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
 								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
 								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
 								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
 								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
 								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
-								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
-								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
+								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a> -->
 							</ul>
 						</div>
 
 						<div class="about-area popust" style="border: none">
 							<h4 class="title"><b>محبوب ترین مقالات</b></h4>
 							<ul>
+					<!-- 			<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
 								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
 								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
 								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
 								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
 								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
 								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
-								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
-								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a>
+								<a href=""><li><i class="ion-android-apps"></i>عنوان</li></a> -->
 							</ul>
 						</div>
 
@@ -127,7 +129,7 @@
 						
 					</div><!-- row -->
 
-					<a id="more" class="load-more-btn" href="javascript:void(0)" onclick="more()"><b>بیشتر</b></a>
+					<a id="more" class="load-more-btn" href="javascript:void(0)"><b>بیشتر</b></a>
 
 				</div><!-- col-lg-8 col-md-12 -->
 
@@ -176,55 +178,60 @@
 	<script src="/script/api.js"></script>
 
 	<script>
-		var _start = 0
-		var _limit = 10
-		function start() {
-			strapi.post.find({_start, _limit: _limit + 1}).then(posts => {
-				for(let i = 0; i < posts.length && i < _limit; i ++) {
-					let post = posts[i]
-					addPost({
-						id: post.id,
-						title: post.title,
-						cover: post.cover.url,
-						link: `/blog/post.html?id=${post.id}`,
-						like: (post.like == "" || post.like == null) ? 0 : post.like,
-						view: (post.view == "" || post.view == null) ? 0 : post.view,
-					})
-				}
-				if(posts.length <= _limit) {
-					start = e => e
-					more = e => e
-					document.getElementById("more").hidden = true
-				}
-			})
-		}
-		function more() {
-			_start += _limit
-			start()
-		}
-		document.addEventListener("DOMContentLoaded", start);
-		strapi.post.find({
-			_sort: 'like:desc',
-			_limit: 10
-		}).then(posts=> {
-			$('.popust ul').html('');
-			posts.forEach(function(post) {
-				$('.popust ul').append(`
-					<a href="/blog/post.html?id=${post.id}"><li><i class="ion-android-apps"></i>${post.title}</li></a>
-				`);
+		(async function() {			
+			var _start = 0;
+			var _limit = 10;
+			var _all = 0;
+			_all = await strapi.post.find({});
+			function more() {
+				_start += _limit
+				start()
+			}
+			function start() {
+				strapi.post.find({_start, _limit}).then(posts => {
+					for(let post of posts) {
+						addPost({
+							id: post.id,
+							title: post.title,
+							cover: post.cover.url,
+							link: `/blog/post.html?id=${post.id}`,
+							like: (post.like == "" || post.like == null) ? 0 : post.like,
+							view: (post.view == "" || post.view == null) ? 0 : post.view,
+						})
+					}
+					if(_all.length <= _limit + _start) {
+						start = e => e
+						more = e => e
+						document.getElementById("more").hidden = true
+					}
+				})
+			}
+			$('#more').click(more);
+			start();
+			strapi.post.find({
+				_sort: 'like:desc',
+				_limit: 10
+			}).then(posts=> {
+				$('.popust ul').html('');
+				posts.forEach(function(post) {
+					$('.popust ul').append(`
+						<a href="/blog/post.html?id=${post.id}"><li><img src='${post.cover.url}'><span>${post.title}</span></li></a>
+					`);
+				});
 			});
-		});
-		strapi.post.find({
-			_sort: 'created_at:desc',
-			_limit: 10
-		}).then(posts=> {
-			$('.newest ul').html('');
-			posts.forEach(function(post) {
-				$('.newest ul').append(`
-					<a href="/blog/post.html?id=${post.id}"><li><i class="ion-android-apps"></i>${post.title}</li></a>
-				`);
+			strapi.post.find({
+				_sort: 'created_at:desc',
+				_limit: 10
+			}).then(posts=> {
+				$('.newest ul').html('');
+				posts.forEach(function(post) {
+					$('.newest ul').append(`
+						<a href="/blog/post.html?id=${post.id}"><li><img src='${post.cover.url}'><span>${post.title}</span></li></a>
+					`);
+				});
 			});
-		});
+			$('.loading').fadeOut(300);
+		})()
 	</script>
 </body>
 </html>

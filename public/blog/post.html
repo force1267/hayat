@@ -28,7 +28,9 @@
 
 </head>
 <body >
-
+	<div class="loading">
+		<img src="/assets/images/loading.gif" alt="">
+	</div>
 	<div class="slider">
 
 	</div><!-- slider -->
@@ -46,7 +48,7 @@
 
 							<!-- <h5 class="pre-title">FASHION</h5> -->
 
-							<h3 class="title"><a href="#"><b></b></a></h3>
+							<h3 class="title"><a href="#"><b>How Did Van Gogh's Turbulent Mind Depict One of the Most Complex Concepts in Physics?</b></a></h3>
 
 							<div class="post-info">
 
@@ -56,7 +58,7 @@
 
 								<div class="middle-area">
 									<a class="name" href="/blog/"><b>Hayatemoon</b></a>
-									<h6 class="date"></h6>
+									<h6 class="date">on Sep 29, 2017 at 9:48 am</h6>
 								</div>
 
 							</div><!-- post-info -->
@@ -67,7 +69,11 @@
 
 						<div class="post-bottom-area">
 
-							<p class="para"></p>
+							<p class="para">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+							dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+							ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+							nulla pariatur. Excepteur sint
+							occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
 
 
 							<div class="post-icons-area">
@@ -85,7 +91,7 @@
 
 								<div class="middle-area">
 									<a class="name" href="/blog"><b>Hayatemoon</b></a>
-									<h6 class="date"></h6>
+									<h6 class="date">on Sep 29, 2017 at 9:48 am</h6>
 								</div>
 
 							</div><!-- post-info -->
@@ -154,7 +160,6 @@
 			});
 		});
 		strapi.post.findOne(id).then(function(data) {
-			console.log(data);
 			$("title").html(`Hayatemoon | ` + data.title);
 			$(".title").html(data.title);
 			$(".para").html(data.content);
@@ -162,6 +167,7 @@
 			$(".pw").html(((data.view == "" || data.view == null) ? 0 : data.view));
 			$(".date").html(`در ${new Date(data.created_at).toDateString()}`);
 			$(".post-image img").attr('src', data.cover.url);
+			$('.loading').fadeOut(300);
 		});
 		strapi.post.find({
 			_sort: 'created_at:desc',

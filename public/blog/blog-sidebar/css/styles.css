@@ -16,6 +16,32 @@
 1. PRIMARY STYLES
 --------------------------------- */
 
+.about-area img {
+	width: 45px;
+	height: 45px;
+	margin-left: 10px;
+	border-radius: 15%;
+}
+
+.loading img {
+    margin: 0;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: calc(50% - 100px);
+    top: calc(50% - 100px);
+}
+
+.loading {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1000;
+    background: #fff;
+}
+
 html{ font-size: 100%; height: 100%;  overflow-x: hidden; touch-action: manipulation; }
 
 body{
@@ -328,11 +354,16 @@ footer .icons > li > a:hover{ transform: translateY(-2px); box-shadow: 5px 10px 
 	font-family: 'IRANSans' !important;
 }
 
-.about-area img {
-	width: 45px;
-	height: 45px;
-	margin-left: 10px;
-	border-radius: 13%;
+.about-area ul a {
+    position: relative;
+    display: block;
+    margin-bottom: 10px;
+    color: #f3ba1a;
+}
+.about-area ul a i {
+    position: relative;
+    margin-left: 6px;
+    top: 2px;
 }
 
 .about-area span {
@@ -340,16 +371,4 @@ footer .icons > li > a:hover{ transform: translateY(-2px); box-shadow: 5px 10px 
     width: calc(100% - 55px);
     font-weight: bold;
     font-size: 12px;
-}
-
-.about-area ul a {
-    position: relative;
-    display: block;
-    margin-bottom: 10px;
-    color: #4e5d5dd1;
-}
-.about-area ul a i {
-    position: relative;
-    margin-left: 6px;
-    top: 2px;
 }
