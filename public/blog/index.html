@@ -206,7 +206,7 @@
 				})
 			}
 			$('#more').click(more);
-			start();
+			document.addEventListener("DOMContentLoaded", start)
 			strapi.post.find({
 				_sort: 'like:desc',
 				_limit: 10
