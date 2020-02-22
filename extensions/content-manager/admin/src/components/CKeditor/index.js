@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import '../customClassicCKEditor/ckeditor';
 // import ClassicEditor from 'ckeditor-build-with-simple-upload-provider-strapi-with-image-resize';
 import styled from 'styled-components';
-// import { auth } from 'strapi-helper-plugin';
+import { auth } from 'strapi-helper-plugin';
 
 
 class CKEditor extends React.Component {
@@ -158,7 +158,7 @@ const Wrapper = styled.div`
 
 const Editor = ({ onChange, name, value }) => {
 
-  // const jwtToken = auth.getToken();
+  const jwtToken = auth.getToken();
 
   return (
     <Wrapper>
@@ -174,6 +174,12 @@ const Editor = ({ onChange, name, value }) => {
 	  language: {
 		  ui: 'en',
 		  content: 'fa'
+	  },
+	  simpleUpload: {
+		uploadUrl: `https://hayatemoon.com/upload`,
+		  headers: {
+			Authorization: "Bearer " + jwtToken
+		}
 	  }
   }}
   />
