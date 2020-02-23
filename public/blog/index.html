@@ -187,7 +187,7 @@
 				start()
 			}
 			function start() {
-				strapi.post.find({_start, _limit}).then(posts => {
+				strapi.post.thumbnail({_start, _limit}).then(posts => {
 					for(let post of posts) {
 						addPost({
 							id: post.id,
@@ -206,8 +206,8 @@
 				})
 			}
 			$('#more').click(more);
-			document.addEventListener("DOMContentLoaded", start)
-			strapi.post.find({
+			start()
+			strapi.post.thumbnail({
 				_sort: 'like:desc',
 				_limit: 10
 			}).then(posts=> {
@@ -218,7 +218,7 @@
 					`);
 				});
 			});
-			strapi.post.find({
+			strapi.post.thumbnail({
 				_sort: 'created_at:desc',
 				_limit: 10
 			}).then(posts=> {

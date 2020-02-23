@@ -13,9 +13,9 @@ module.exports = {
             likeBlocked[id] = true
             try {
                 let post = await strapi.services.post.findOne({ id })
-                let result = await strapi.services.post.update({ id }, { like: post.like + 1})
+                await strapi.services.post.update({ id }, { like: post.like + 1})
                 setTimeout(e => likeBlocked[id] = false, 3000)
-                return result
+                return { code: 200, message: "ok" }
             } catch (err) {
                 likeBlocked[id] = false
                 return {}
@@ -32,7 +32,35 @@ module.exports = {
         } catch (err) {
             return {}
         } finally {
-            return post
+            return { code: 200, message: "ok" }
         }
-    }
+    },
+    async thumbnailById(ctx) { // GET /posts/thumbnailById/:id
+        console.log("dbg!!!")
+        let id = ctx.params.id
+        try {
+            let post = await strapi.services.post.findOne({ id })
+            delete post.content
+            return post
+        } catch (err) {
+            return {}
+        }
+    },
+    async thumbnail(ctx) { // GET /posts/thumbnail/
+        try {
+            let posts;
+            if (ctx.query._q) {
+                posts = await strapi.services.post.search(ctx.query);
+            } else {
+                posts = await strapi.services.post.find(ctx.query);
+            }
+            for(let post of posts) {
+                delete post.content
+            }
+            return posts
+        } catch (err) {
+            console.error(err)
+            return {}
+        }
+    },
 };

@@ -76,6 +76,14 @@
                 // find some adds
                 return await fetch(`/posts${parseQuery(query)}`).then(r=>r.json())
             },
+            async thumbnail(query) {
+                // find some adds
+                return await fetch(`/posts/thumbnail${parseQuery(query)}`).then(r=>r.json())
+            },
+            async thumbnailById(postId) {
+                // find some adds
+                return await fetch(`/posts/thumbnail/${postId}`).then(r=>r.json())
+            },
             async findOne(postId) {
                 // get an ad by id
                 return await fetch(`/posts/${postId}`).then(r=>r.json())
