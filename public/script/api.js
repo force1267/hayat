@@ -185,8 +185,8 @@
                     formData.append('field', 'images')
 
                     var options = {
-                        maxSizeMB: 0.99,
-                        maxWidthOrHeight: 1920,
+                        maxSizeMB: 0.1,
+                        maxWidthOrHeight: 600,
                         useWebWorker: true
                     }
 
