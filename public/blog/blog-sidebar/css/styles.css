@@ -358,7 +358,7 @@ footer .icons > li > a:hover{ transform: translateY(-2px); box-shadow: 5px 10px 
     position: relative;
     display: block;
     margin-bottom: 10px;
-    color: #f3ba1a;
+    color: rgb(115, 115, 115);
 }
 .about-area ul a i {
     position: relative;
