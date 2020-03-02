@@ -31,7 +31,7 @@ figure {
     font-style: italic;
     font-size: smaller;
     text-indent: 0;
-    border: thin silver solid;
+    border: 0px silver solid;
     margin: 0.5em;
 }
 
@@ -40,5 +40,6 @@ figure > img {
 }
 
 figcaption {
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
+    display: none;
 }
