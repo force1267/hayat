@@ -1,0 +1,13 @@
+{
+  "info": {
+    "name": "tag",
+    "description": "a tag"
+  },
+  "connection": "default",
+  "collectionName": "groups_tags",
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

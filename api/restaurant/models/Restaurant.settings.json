@@ -1,0 +1,38 @@
+{
+  "connection": "default",
+  "collectionName": "restaurants",
+  "info": {
+    "name": "restaurant",
+    "description": "Registered or Requested food providers"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
+    "comment": ""
+  },
+  "attributes": {
+    "name": {
+      "unique": true,
+      "required": true,
+      "type": "string"
+    },
+    "user": {
+      "model": "user",
+      "via": "restaurant",
+      "plugin": "users-permissions"
+    },
+    "open": {
+      "type": "boolean"
+    },
+    "active": {
+      "type": "boolean"
+    },
+    "dishes": {
+      "collection": "dish",
+      "via": "restaurant"
+    }
+  }
+}

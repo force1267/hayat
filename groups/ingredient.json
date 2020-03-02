@@ -1,0 +1,13 @@
+{
+  "info": {
+    "name": "ingredient",
+    "description": "dish ingredients"
+  },
+  "connection": "default",
+  "collectionName": "groups_ingredients",
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

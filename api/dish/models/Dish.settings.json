@@ -1,0 +1,44 @@
+{
+  "connection": "default",
+  "collectionName": "dishes",
+  "info": {
+    "name": "dish",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
+    "comment": ""
+  },
+  "attributes": {
+    "name": {
+      "unique": true,
+      "required": true,
+      "type": "string"
+    },
+    "price": {
+      "type": "biginteger",
+      "required": true
+    },
+    "available": {
+      "type": "boolean"
+    },
+    "ingredients": {
+      "group": "ingredient",
+      "repeatable": true,
+      "type": "group"
+    },
+    "tags": {
+      "group": "tag",
+      "repeatable": true,
+      "type": "group"
+    },
+    "restaurant": {
+      "model": "restaurant",
+      "via": "dishes"
+    }
+  }
+}

@@ -99,6 +99,10 @@
     "advertises": {
       "collection": "advertise",
       "via": "user"
+    },
+    "restaurant": {
+      "model": "restaurant",
+      "via": "user"
     }
   }
 }
