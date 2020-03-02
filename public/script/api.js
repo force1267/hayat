@@ -186,7 +186,7 @@
 
                     var options = {
                         maxSizeMB: 0.1,
-                        maxWidthOrHeight: 600,
+                        maxWidthOrHeight: 1080,
                         useWebWorker: true
                     }
 
@@ -206,9 +206,7 @@
                         let file = new File([compressed], `ad.${adId}.${i}.jpg`, {
                             type: "image/jpeg",
                         })
-                        console.log("file", file)
                         formData.append('files', file)
-                        console.log("after append")
                     }
 
                     try {
