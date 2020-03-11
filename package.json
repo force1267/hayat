@@ -10,12 +10,12 @@
     "build": "strapi build",
     "strapi": "strapi"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "sqlite3": "latest"
+  },
   "dependencies": {
-    "@ckeditor/ckeditor5-react": "^2.1.0",
     "knex": "latest",
     "pg": "^7.18.2",
-    "sqlite3": "latest",
     "strapi": "3.0.0-beta.17.8",
     "strapi-admin": "3.0.0-beta.17.8",
     "strapi-hook-bookshelf": "3.0.0-beta.17.8",
@@ -30,7 +30,9 @@
     "strapi-utils": "3.0.0-beta.17.8"
   },
   "author": {
-    "name": "Sarv team"
+    "name": "Sarv team",
+    "email": "dev@sarv.team",
+    "url": "https://sarv.team"
   },
   "engines": {
     "node": ">=10.0.0",
