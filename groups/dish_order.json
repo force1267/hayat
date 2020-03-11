@@ -1,0 +1,19 @@
+{
+  "info": {
+    "name": "dishOrder",
+    "description": "service data about a user's food order"
+  },
+  "connection": "default",
+  "collectionName": "groups_dish_orders",
+  "attributes": {
+    "quantity": {
+      "type": "integer",
+      "default": 1,
+      "required": true,
+      "min": 1
+    },
+    "dish": {
+      "model": "dish"
+    }
+  }
+}

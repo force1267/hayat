@@ -4,8 +4,8 @@
     "policy": [
       {
         "img-src": "'self' http: https: data:",
-        "worker-src": "'self' http: https: blob: data: 'unsafe-inline'",
-        "script-src": "'self' http: https: blob: data: 'unsafe-inline'"
+        "worker-src": "'self' http: https: blob: data: resource: 'unsafe-inline'",
+        "script-src": "'self' http: https: blob: data: resource: 'unsafe-inline'"
       },
       "block-all-mixed-content"
     ]

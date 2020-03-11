@@ -1,0 +1,19 @@
+{
+  "info": {
+    "name": "adShowcase",
+    "description": "service data about showcasing an advertise"
+  },
+  "connection": "default",
+  "collectionName": "groups_ad_showcases",
+  "attributes": {
+    "days": {
+      "type": "integer",
+      "default": 1,
+      "required": true,
+      "min": 1
+    },
+    "advertise": {
+      "model": "advertise"
+    }
+  }
+}

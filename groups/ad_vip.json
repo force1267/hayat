@@ -1,0 +1,19 @@
+{
+  "info": {
+    "name": "adVip",
+    "description": "service data about making an advertise VIP"
+  },
+  "connection": "default",
+  "collectionName": "groups_ad_vips",
+  "attributes": {
+    "days": {
+      "type": "integer",
+      "default": 1,
+      "required": true,
+      "min": 1
+    },
+    "advertise": {
+      "model": "advertise"
+    }
+  }
+}

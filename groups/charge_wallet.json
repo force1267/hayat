@@ -1,0 +1,20 @@
+{
+  "info": {
+    "name": "chargeWallet",
+    "description": "service data about charging a user's wallet"
+  },
+  "connection": "default",
+  "collectionName": "groups_charge_wallets",
+  "attributes": {
+    "user": {
+      "model": "user",
+      "plugin": "users-permissions"
+    },
+    "unit": {
+      "type": "integer",
+      "default": 1,
+      "required": true,
+      "min": 1
+    }
+  }
+}

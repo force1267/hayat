@@ -28,9 +28,22 @@
     "done": {
       "type": "boolean"
     },
-    "advertise": {
-      "model": "advertise",
-      "via": "services"
+    "showcase": {
+      "group": "ad_showcase",
+      "type": "group"
+    },
+    "vip": {
+      "group": "ad_vip",
+      "type": "group"
+    },
+    "order": {
+      "group": "dish_order",
+      "repeatable": true,
+      "type": "group"
+    },
+    "charge": {
+      "group": "charge_wallet",
+      "type": "group"
     }
   }
 }

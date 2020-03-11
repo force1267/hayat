@@ -3,7 +3,7 @@
   "collectionName": "advertises",
   "info": {
     "name": "advertise",
-    "description": ""
+    "description": "posted advertises"
   },
   "options": {
     "increments": true,
@@ -38,10 +38,6 @@
     },
     "hasImage": {
       "type": "boolean"
-    },
-    "services": {
-      "collection": "service",
-      "via": "advertise"
     },
     "city": {
       "type": "string"
@@ -147,7 +143,6 @@
       "plugin": "users-permissions"
     },
     "lang": {
-      "required": false,
       "enum": [
         "persian",
         "english",

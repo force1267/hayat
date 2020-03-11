@@ -93,15 +93,15 @@
     "birth": {
       "type": "date"
     },
+    "restaurant": {
+      "model": "restaurant",
+      "via": "user"
+    },
     "marks": {
       "collection": "advertise"
     },
     "advertises": {
       "collection": "advertise",
-      "via": "user"
-    },
-    "restaurant": {
-      "model": "restaurant",
       "via": "user"
     }
   }
