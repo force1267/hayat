@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="33.828" height="40.801" viewBox="0 0 33.828 40.801">
+  <g id="filter" transform="translate(1.414)">
+    <g id="Group_85" data-name="Group 85" transform="translate(0.169 7.172)">
+      <g id="Group_84" data-name="Group 84">
+        <path id="Path_55" data-name="Path 55" d="M97.261,96.263a1.591,1.591,0,0,0-1.407-.845H91.328a4.541,4.541,0,0,0-8.942,0H77.8a3.506,3.506,0,1,0-5.873,0h-3.74A1.594,1.594,0,0,0,66.864,97.9l10.694,15.9v9.027a.8.8,0,0,0,1.115.731L86,120.37a.8.8,0,0,0,.479-.731V113.8L97.177,97.9A1.591,1.591,0,0,0,97.261,96.263Zm-10.4-3a2.953,2.953,0,0,1,2.838,2.152H84.019A2.953,2.953,0,0,1,86.857,93.267ZM74.863,91.594a1.913,1.913,0,1,1-1.913,1.913A1.915,1.915,0,0,1,74.863,91.594Zm10.162,21.523a.8.8,0,0,0-.136.445v5.556l-5.738,2.5v-7.257h2.879a.8.8,0,1,0,0-1.594H78.779l-8.02-11.927h16.1a.8.8,0,1,0,0-1.594H69.688l-1.5-2.231H95.855Z" transform="translate(-66.593 -90)" fill="#ff2d58"/>
+      </g>
+    </g>
+    <g id="Group_87" data-name="Group 87" transform="translate(14.81)">
+      <g id="Group_86" data-name="Group 86">
+        <path id="Path_56" data-name="Path 56" d="M253.83,0a3.506,3.506,0,1,0,3.506,3.506A3.51,3.51,0,0,0,253.83,0Zm0,5.419a1.913,1.913,0,1,1,1.913-1.913A1.915,1.915,0,0,1,253.83,5.419Z" transform="translate(-250.324)" fill="#ff2d58"/>
+      </g>
+    </g>
+    <g id="Group_93" data-name="Group 93" transform="translate(10.352 1.016)">
+      <g id="Group_92" data-name="Group 92">
+        <path id="Path_59" data-name="Path 59" d="M195.172,12.755a.8.8,0,0,0-.8.8v3.267a.8.8,0,1,0,1.594,0V13.552A.8.8,0,0,0,195.172,12.755Z" transform="translate(-194.375 -12.755)" fill="#ff2d58"/>
+      </g>
+    </g>
+    <g id="Group_99" data-name="Group 99" transform="translate(0 4.5)">
+      <g id="Group_98" data-name="Group 98">
+        <path id="Path_62" data-name="Path 62" d="M356.707,206.233a.8.8,0,1,0,.234.563A.8.8,0,0,0,356.707,206.233Z" transform="translate(-332.167 -194.084)" fill="#ff2d58"/>
+        <line id="Line_3" data-name="Line 3" x1="31" y2="31" fill="none" stroke="#ff2d58" stroke-linecap="round" stroke-width="2"/>
+      </g>
+    </g>
+  </g>
+</svg>

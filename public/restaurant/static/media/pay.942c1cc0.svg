@@ -1,0 +1,27 @@
+<svg id="pay" xmlns="http://www.w3.org/2000/svg" width="40.959" height="27.306" viewBox="0 0 40.959 27.306">
+  <g id="Group_279" data-name="Group 279">
+    <g id="Group_278" data-name="Group 278" transform="translate(0 0)">
+      <path id="Path_231" data-name="Path 231" d="M36.693,85.333H4.267A4.273,4.273,0,0,0,0,89.6v18.773a4.273,4.273,0,0,0,4.267,4.267H36.693a4.273,4.273,0,0,0,4.267-4.267V89.6A4.272,4.272,0,0,0,36.693,85.333Zm2.56,23.04a2.563,2.563,0,0,1-2.56,2.56H4.267a2.563,2.563,0,0,1-2.56-2.56V89.6a2.563,2.563,0,0,1,2.56-2.56H36.693a2.563,2.563,0,0,1,2.56,2.56v18.773Z" transform="translate(0 -85.333)" fill="#2e266f"/>
+    </g>
+  </g>
+  <g id="Group_281" data-name="Group 281" transform="translate(0 5.12)">
+    <g id="Group_280" data-name="Group 280">
+      <path id="Path_232" data-name="Path 232" d="M40.106,149.333H.853a.854.854,0,0,0-.853.853v5.12a.854.854,0,0,0,.853.853H40.106a.854.854,0,0,0,.853-.853v-5.12A.854.854,0,0,0,40.106,149.333Zm-.853,5.12H1.707V151.04H39.253v3.413Z" transform="translate(0 -149.333)" fill="#2e266f"/>
+    </g>
+  </g>
+  <g id="Group_283" data-name="Group 283" transform="translate(5.12 17.066)">
+    <g id="Group_282" data-name="Group 282" transform="translate(0 0)">
+      <path id="Path_233" data-name="Path 233" d="M75.093,298.667H64.853a.853.853,0,1,0,0,1.707h10.24a.853.853,0,1,0,0-1.707Z" transform="translate(-64 -298.667)" fill="#2e266f"/>
+    </g>
+  </g>
+  <g id="Group_285" data-name="Group 285" transform="translate(5.12 20.48)">
+    <g id="Group_284" data-name="Group 284" transform="translate(0 0)">
+      <path id="Path_234" data-name="Path 234" d="M75.093,341.333H64.853a.853.853,0,1,0,0,1.707h10.24a.853.853,0,1,0,0-1.707Z" transform="translate(-64 -341.333)" fill="#2e266f"/>
+    </g>
+  </g>
+  <g id="Group_287" data-name="Group 287" transform="translate(29.013 15.36)">
+    <g id="Group_286" data-name="Group 286" transform="translate(0 0)">
+      <path id="Path_235" data-name="Path 235" d="M366.934,277.333h-1.707a2.563,2.563,0,0,0-2.56,2.56V281.6a2.563,2.563,0,0,0,2.56,2.56h1.707a2.563,2.563,0,0,0,2.56-2.56v-1.707A2.563,2.563,0,0,0,366.934,277.333Zm.853,4.267a.854.854,0,0,1-.853.853h-1.707a.854.854,0,0,1-.853-.853v-1.707a.854.854,0,0,1,.853-.853h1.707a.854.854,0,0,1,.853.853Z" transform="translate(-362.667 -277.333)" fill="#2e266f"/>
+    </g>
+  </g>
+</svg>
