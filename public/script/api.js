@@ -109,7 +109,7 @@
             },
             async findMine() {
                 // find ads of logged-in user
-                return await fetch("/advertises/mine", strapi.auth()).then(r=>r.json())
+                return await fetch("https://api.hayatemoon.com/advertises/mine", strapi.auth()).then(r=>r.json())
             },
             async findOne(adId) {
                 // get an ad by id
@@ -128,7 +128,7 @@
                 if(data.images instanceof Array && data.images.length > 0) {
                     data.hasImage = true
                 }
-                return await fetch("/advertises", strapi.auth({
+                return await fetch("https://api.hayatemoon.com/advertises", strapi.auth({
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(data),
@@ -244,7 +244,7 @@
                 if(strapi.user.now) {
                     return strapi.user.now;
                 } else {
-                    return strapi.user.now = await fetch("/users/me", strapi.auth()).then(r=>r.json())
+                    return strapi.user.now = await fetch("https://api.hayatemoon.com/users/me", strapi.auth()).then(r=>r.json())
                 }
             },
 
