@@ -17,6 +17,21 @@
     <link rel="icon" href="/assets/images/logo.png" type="image/gif" sizes="16x16">
 	<meta charset="UTF-8">
 
+	<script type='text/javascript'>
+	    let id = (function getParameterByName(name) {
+			let url = window.location.href;
+			name = name.replace(/[\[\]]/g, '\\$&');
+			var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+				results = regex.exec(url);
+			if (!results) return null;
+			if (!results[2]) return '';
+			return decodeURIComponent(results[2].replace(/\+/g, ' '));
+		})('id')
+		var link = document.createElement('link');
+		link.setAttribute('rel', 'canonical');
+		link.setAttribute('href', 'https//hayatemoon.com/blog/post.html?id=' + id);
+		document.head.appendChild(link);
+	</script>
 
 	<!-- Font -->
 
@@ -154,7 +169,7 @@
 	<script src="/script/api.js"></script>
 
 	<script>
-		let id = getParameterByName('id');
+		// let id = getParameterByName('id'); // got at header
 		strapi.post.view(id);
 		$('#like').click(function(e) {
 			e.preventDefault();
