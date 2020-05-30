@@ -1103,7 +1103,7 @@ $('body').on('click', '.register', function() {
     let end;
     $(this).parent().find('input, textarea').each(function() {
         let val = $(this).val();
-        console.log($(this).attr('id'), val);
+        // console.log($(this).attr('id'), val);
         if ($(this).attr('id') == 'city' && (val == '0' || val == '')) {
             janelaPopUp.abre("id", 'p orange alert', sl(['خطا', 'Hata', 'Error']), sl(['شهر انتخاب شده مجاز نیست', 'Seçilen şehre izin verilmiyor', 'Selected city is not active']));
             end = true;
@@ -1112,7 +1112,7 @@ $('body').on('click', '.register', function() {
             janelaPopUp.abre("id", 'p orange alert', sl(['خطا', 'Hata', 'Error']), sl(['عنوان نمیتواند خالی باشد', 'Başlık boş bırakılamaz', "Title can't be empty"]));
             end = true;
         }
-        if ($(this).attr('id') == 'title' && !(/^[A-Za-z0-9\s]{8,}$/.test(val))) {
+        if ($(this).attr('id') == 'title' && !(/^.{8,}$/.test(val))) {
             janelaPopUp.abre("id", 'p orange alert', sl(['خطا', 'Hata', 'Error']), sl(['از عنوان با حداقل ۸ حرف استفاده کنید', 'En az 8 harfli başlık ve geçerli bir telefon numarası kullanın', 'Use at least 8 letter title']));
             $(this).html(sl([`ثبت آگهی`, 'İlan ver', 'Post Ad']));
             end = true;
