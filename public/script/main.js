@@ -7,11 +7,11 @@ Number.prototype.format = function(n, x) {
 
 var locations = ['/', '/tr', '/en'];
 
-var cd = {"Diğer Hizmetleri": "سایر خدمات", "Satılık Konut":"فروشی مسکونی","Kiralık Konut":"اجاره مسکونی","Satılık İşyeri":"فروشی تجاری","Kiralık İşyeri":"اجاره تجاری","Otomobil":"خودرو","Otomobil Ekipmanları":"لوازم یدكی خودرو","Motosiklet ve Ekipmanları":"موتور سیکلت و لوازم یدکی","Bilgisayar ve Notebook":"لپتاپ و كامپیوتر","Fotoğraf & Kamera":"دوربین فیلم برداری و عكاسی و ملزومات","Televizyon ve Ses Sistemleri":"صوتی و تصویری","Oyun & Konsol":"كنسول بازی و ملزومات","Cep Telefonu & Tablet":"موبایل و تبلت و ملزومات","Diğer Her Şey":"سایر وسایل","Mobilya ,Ev Dekorasyon":"مبلمان ، وسایل و تزئینات خانه","Mutfak Gereçleri":"لوازم آشپزخونه","Dekoratif Ürünler":"دكوری و روشنایی","Halı":"فرش و گلیم و قالیچه","Bahçe":"باغچه و حیاط","Aşci & Fırın Ustası":"آشپز و شیرینی پز","Temizlik":"نظافت","İnşaat ve Yapı":"عمران ، ساختمانی و معماری","Servis Elemanı":"خدمات، رستوران و فروشگاه","Hukuki , Finans ve Bankacılık":"حسابداری ، مالی ، حقوقی","Eğitim":"آموزش","Medya ,Dijital Marketing , Grafist":"رسانه و ماركتینگ و گرافیست","Pazarlama ve Ürün Yönetimi":"بازاریابی و فروش","Hastane İle İlgili":"درمانی ، زیبایی و بهداشتی","Bilgisayar ve İT":"رایانه و IT","Taşıma":"حمل و نقل","Mühendislik":"صنعت و مهندسی","Göç":"مهاجرتی","Döviz":"صرافی","Kuaför":"آرایشگری","Web Sitesi Tasarımı":"طراحی سایت و شبكه","Tercüman":"ترجمه","Tamirat":"تعمیرات","Kiralık Araç":"اجاره خودرو"}
-var ce = {"Residential for sale":"فروشی مسکونی","Residential rental":"اجاره مسکونی","Commercial for sale":"فروشی تجاری","Commercial rental":"اجاره تجاری","Car":"خودرو","Spare parts for cars":"لوازم یدكی خودرو","Motorcycle and parts":"موتور سیکلت و لوازم یدکی","Laptop and PC":"لپتاپ و كامپیوتر","Camera and Accessories":"دوربین فیلم برداری و عكاسی و ملزومات","Audio and Visual":"صوتی و تصویری","Game consoles":"كنسول بازی و ملزومات","Mobile-Tablet and Accessories":"موبایل و تبلت و ملزومات","Other electronic devices":"سایر لوازم الكترونیكی","Home furniture, fixtures and decorations":"مبلمان ، وسایل و تزئینات خانه","Kitchen Accessories":"لوازم آشپزخونه","Decoration and lighting":"دكوری و روشنایی","Carpets and rugs":"فرش و گلیم و قالیچه","Garden and yard":"باغچه و حیاط","Other Items":"سایر وسایل","Chef and confectioner":"آشپز و شیرینی پز","Cleaning":"نظافت","Civil, building and architecture":"عمران ، ساختمانی و معماری","Services, restaurants and shops":"خدمات، رستوران و فروشگاه","Accounting, Finance, Legal":"حسابداری ، مالی ، حقوقی","Education":"آموزش","Media & Marketing & Graphic Designer":"رسانه و ماركتینگ و گرافیست","Marketing and Sales":"بازاریابی و فروش","Therapeutic, Beauty and Health":"درمانی ، زیبایی و بهداشتی","IT and Computers":"رایانه و IT","Transportation":"حمل و نقل","Industry and Engineering":"صنعت و مهندسی","Immigration":"مهاجرتی","Currency Exchange":"صرافی","Makeup":"آرایشگری","Web site design & Networks":"طراحی سایت و شبكه","Translation":"ترجمه","Repairs":"تعمیرات","Car rental":"اجاره خودرو","Other services":"سایر خدمات"}
-var dc = {"سایر خدمات":"Diğer Hizmetleri","فروشی مسکونی":"Satılık Konut","اجاره مسکونی":"Kiralık Konut","فروشی تجاری":"Satılık İşyeri","اجاره تجاری":"Kiralık İşyeri","خودرو":"Otomobil","لوازم یدكی خودرو":"Otomobil Ekipmanları","موتور سیکلت و لوازم یدکی":"Motosiklet ve Ekipmanları","لپتاپ و كامپیوتر":"Bilgisayar ve Notebook","دوربین فیلم برداری و عكاسی و ملزومات":"Fotoğraf & Kamera","صوتی و تصویری":"Televizyon ve Ses Sistemleri","كنسول بازی و ملزومات":"Oyun & Konsol","موبایل و تبلت و ملزومات":"Cep Telefonu & Tablet","سایر وسایل":"Diğer Her Şey","مبلمان وسایل و تزئینات خانه":"Mobilya ,Ev Dekorasyon","لوازم آشپزخونه":"Mutfak Gereçleri","دكوری و روشنایی":"Dekoratif Ürünler","فرش و گلیم و قالیچه":"Halı","باغچه و حیاط":"Bahçe","آشپز و شیرینی پز":"Aşci & Fırın Ustası","نظافت":"Temizlik","عمران ساختمانی و معماری":"İnşaat ve Yapı","خدمات رستوران و فروشگاه":"Servis Elemanı","حسابداری مالی حقوقی":"Hukuki , Finans ve Bankacılık","آموزش":"Eğitim","رسانه و ماركتینگ و گرافیست":"Medya ,Dijital Marketing , Grafist","بازاریابی و فروش":"Pazarlama ve Ürün Yönetimi","درمانی زیبایی و بهداشتی":"Hastane İle İlgili","رایانه و IT":"Bilgisayar ve İT","حمل و نقل":"Taşıma","صنعت و مهندسی":"Mühendislik","مهاجرتی":"Göç","صرافی":"Döviz","آرایشگری":"Kuaför","طراحی سایت و شبكه":"Web Sitesi Tasarımı","ترجمه":"Tercüman","تعمیرات":"Tamirat","اجاره خودرو":"Kiralık Araç"}
-var ec = {"فروشی مسکونی":"Residential for sale","اجاره مسکونی":"Residential rental","فروشی تجاری":"Commercial for sale","اجاره تجاری":"Commercial rental","خودرو":"Car","لوازم یدكی خودرو":"Spare parts for cars","موتور سیکلت و لوازم یدکی":"Motorcycle and parts","لپتاپ و كامپیوتر":"Laptop and PC","دوربین فیلم برداری و عكاسی و ملزومات":"Camera and Accessories","صوتی و تصویری":"Audio and Visual","كنسول بازی و ملزومات":"Game consoles","موبایل و تبلت و ملزومات":"Mobile-Tablet and Accessories","سایر لوازم الكترونیكی":"Other electronic devices","مبلمان وسایل و تزئینات خانه":"Home furniture, fixtures and decorations","لوازم آشپزخونه":"Kitchen Accessories","دكوری و روشنایی":"Decoration and lighting","فرش و گلیم و قالیچه":"Carpets and rugs","باغچه و حیاط":"Garden and yard","سایر وسایل":"Other Items","آشپز و شیرینی پز":"Chef and confectioner","نظافت":"Cleaning","عمران ساختمانی و معماری":"Civil, building and architecture","خدمات رستوران و فروشگاه":"Services, restaurants and shops","حسابداری مالی حقوقی":"Accounting, Finance, Legal","آموزش":"Education","رسانه و ماركتینگ و گرافیست":"Media & Marketing & Graphic Designer","بازاریابی و فروش":"Marketing and Sales","درمانی زیبایی و بهداشتی":"Therapeutic, Beauty and Health","رایانه و IT":"IT and Computers","حمل و نقل":"Transportation","صنعت و مهندسی":"Industry and Engineering","مهاجرتی":"Immigration","صرافی":"Currency Exchange","آرایشگری":"Makeup","طراحی سایت و شبكه":"Web site design & Networks","ترجمه":"Translation","تعمیرات":"Repairs","اجاره خودرو":"Car rental","سایر خدمات":"Other services"}
-var cc = {"آنكارا":"Ankara","استانبول":"Istanbul","آنتالیا":"Antalya","ازمیر":"Izmir","تورنتو":"Toronto","دبی":"Dubai","لندن":"London","ونکوور":"Vancouver","سیدنی":"Sydney","ملبورن":"Melbourne","تفلیس":"Tbilisi"}
+var cd = { "Diğer Hizmetleri": "سایر خدمات", "Satılık Konut": "فروشی مسکونی", "Kiralık Konut": "اجاره مسکونی", "Satılık İşyeri": "فروشی تجاری", "Kiralık İşyeri": "اجاره تجاری", "Otomobil": "خودرو", "Otomobil Ekipmanları": "لوازم یدكی خودرو", "Motosiklet ve Ekipmanları": "موتور سیکلت و لوازم یدکی", "Bilgisayar ve Notebook": "لپتاپ و كامپیوتر", "Fotoğraf & Kamera": "دوربین فیلم برداری و عكاسی و ملزومات", "Televizyon ve Ses Sistemleri": "صوتی و تصویری", "Oyun & Konsol": "كنسول بازی و ملزومات", "Cep Telefonu & Tablet": "موبایل و تبلت و ملزومات", "Diğer Her Şey": "سایر وسایل", "Mobilya ,Ev Dekorasyon": "مبلمان ، وسایل و تزئینات خانه", "Mutfak Gereçleri": "لوازم آشپزخونه", "Dekoratif Ürünler": "دكوری و روشنایی", "Halı": "فرش و گلیم و قالیچه", "Bahçe": "باغچه و حیاط", "Aşci & Fırın Ustası": "آشپز و شیرینی پز", "Temizlik": "نظافت", "İnşaat ve Yapı": "عمران ، ساختمانی و معماری", "Servis Elemanı": "خدمات، رستوران و فروشگاه", "Hukuki , Finans ve Bankacılık": "حسابداری ، مالی ، حقوقی", "Eğitim": "آموزش", "Medya ,Dijital Marketing , Grafist": "رسانه و ماركتینگ و گرافیست", "Pazarlama ve Ürün Yönetimi": "بازاریابی و فروش", "Hastane İle İlgili": "درمانی ، زیبایی و بهداشتی", "Bilgisayar ve İT": "رایانه و IT", "Taşıma": "حمل و نقل", "Mühendislik": "صنعت و مهندسی", "Göç": "مهاجرتی", "Döviz": "صرافی", "Kuaför": "آرایشگری", "Web Sitesi Tasarımı": "طراحی سایت و شبكه", "Tercüman": "ترجمه", "Tamirat": "تعمیرات", "Kiralık Araç": "اجاره خودرو" }
+var ce = { "Residential for sale": "فروشی مسکونی", "Residential rental": "اجاره مسکونی", "Commercial for sale": "فروشی تجاری", "Commercial rental": "اجاره تجاری", "Car": "خودرو", "Spare parts for cars": "لوازم یدكی خودرو", "Motorcycle and parts": "موتور سیکلت و لوازم یدکی", "Laptop and PC": "لپتاپ و كامپیوتر", "Camera and Accessories": "دوربین فیلم برداری و عكاسی و ملزومات", "Audio and Visual": "صوتی و تصویری", "Game consoles": "كنسول بازی و ملزومات", "Mobile-Tablet and Accessories": "موبایل و تبلت و ملزومات", "Other electronic devices": "سایر لوازم الكترونیكی", "Home furniture, fixtures and decorations": "مبلمان ، وسایل و تزئینات خانه", "Kitchen Accessories": "لوازم آشپزخونه", "Decoration and lighting": "دكوری و روشنایی", "Carpets and rugs": "فرش و گلیم و قالیچه", "Garden and yard": "باغچه و حیاط", "Other Items": "سایر وسایل", "Chef and confectioner": "آشپز و شیرینی پز", "Cleaning": "نظافت", "Civil, building and architecture": "عمران ، ساختمانی و معماری", "Services, restaurants and shops": "خدمات، رستوران و فروشگاه", "Accounting, Finance, Legal": "حسابداری ، مالی ، حقوقی", "Education": "آموزش", "Media & Marketing & Graphic Designer": "رسانه و ماركتینگ و گرافیست", "Marketing and Sales": "بازاریابی و فروش", "Therapeutic, Beauty and Health": "درمانی ، زیبایی و بهداشتی", "IT and Computers": "رایانه و IT", "Transportation": "حمل و نقل", "Industry and Engineering": "صنعت و مهندسی", "Immigration": "مهاجرتی", "Currency Exchange": "صرافی", "Makeup": "آرایشگری", "Web site design & Networks": "طراحی سایت و شبكه", "Translation": "ترجمه", "Repairs": "تعمیرات", "Car rental": "اجاره خودرو", "Other services": "سایر خدمات" }
+var dc = { "سایر خدمات": "Diğer Hizmetleri", "فروشی مسکونی": "Satılık Konut", "اجاره مسکونی": "Kiralık Konut", "فروشی تجاری": "Satılık İşyeri", "اجاره تجاری": "Kiralık İşyeri", "خودرو": "Otomobil", "لوازم یدكی خودرو": "Otomobil Ekipmanları", "موتور سیکلت و لوازم یدکی": "Motosiklet ve Ekipmanları", "لپتاپ و كامپیوتر": "Bilgisayar ve Notebook", "دوربین فیلم برداری و عكاسی و ملزومات": "Fotoğraf & Kamera", "صوتی و تصویری": "Televizyon ve Ses Sistemleri", "كنسول بازی و ملزومات": "Oyun & Konsol", "موبایل و تبلت و ملزومات": "Cep Telefonu & Tablet", "سایر وسایل": "Diğer Her Şey", "مبلمان وسایل و تزئینات خانه": "Mobilya ,Ev Dekorasyon", "لوازم آشپزخونه": "Mutfak Gereçleri", "دكوری و روشنایی": "Dekoratif Ürünler", "فرش و گلیم و قالیچه": "Halı", "باغچه و حیاط": "Bahçe", "آشپز و شیرینی پز": "Aşci & Fırın Ustası", "نظافت": "Temizlik", "عمران ساختمانی و معماری": "İnşaat ve Yapı", "خدمات رستوران و فروشگاه": "Servis Elemanı", "حسابداری مالی حقوقی": "Hukuki , Finans ve Bankacılık", "آموزش": "Eğitim", "رسانه و ماركتینگ و گرافیست": "Medya ,Dijital Marketing , Grafist", "بازاریابی و فروش": "Pazarlama ve Ürün Yönetimi", "درمانی زیبایی و بهداشتی": "Hastane İle İlgili", "رایانه و IT": "Bilgisayar ve İT", "حمل و نقل": "Taşıma", "صنعت و مهندسی": "Mühendislik", "مهاجرتی": "Göç", "صرافی": "Döviz", "آرایشگری": "Kuaför", "طراحی سایت و شبكه": "Web Sitesi Tasarımı", "ترجمه": "Tercüman", "تعمیرات": "Tamirat", "اجاره خودرو": "Kiralık Araç" }
+var ec = { "فروشی مسکونی": "Residential for sale", "اجاره مسکونی": "Residential rental", "فروشی تجاری": "Commercial for sale", "اجاره تجاری": "Commercial rental", "خودرو": "Car", "لوازم یدكی خودرو": "Spare parts for cars", "موتور سیکلت و لوازم یدکی": "Motorcycle and parts", "لپتاپ و كامپیوتر": "Laptop and PC", "دوربین فیلم برداری و عكاسی و ملزومات": "Camera and Accessories", "صوتی و تصویری": "Audio and Visual", "كنسول بازی و ملزومات": "Game consoles", "موبایل و تبلت و ملزومات": "Mobile-Tablet and Accessories", "سایر لوازم الكترونیكی": "Other electronic devices", "مبلمان وسایل و تزئینات خانه": "Home furniture, fixtures and decorations", "لوازم آشپزخونه": "Kitchen Accessories", "دكوری و روشنایی": "Decoration and lighting", "فرش و گلیم و قالیچه": "Carpets and rugs", "باغچه و حیاط": "Garden and yard", "سایر وسایل": "Other Items", "آشپز و شیرینی پز": "Chef and confectioner", "نظافت": "Cleaning", "عمران ساختمانی و معماری": "Civil, building and architecture", "خدمات رستوران و فروشگاه": "Services, restaurants and shops", "حسابداری مالی حقوقی": "Accounting, Finance, Legal", "آموزش": "Education", "رسانه و ماركتینگ و گرافیست": "Media & Marketing & Graphic Designer", "بازاریابی و فروش": "Marketing and Sales", "درمانی زیبایی و بهداشتی": "Therapeutic, Beauty and Health", "رایانه و IT": "IT and Computers", "حمل و نقل": "Transportation", "صنعت و مهندسی": "Industry and Engineering", "مهاجرتی": "Immigration", "صرافی": "Currency Exchange", "آرایشگری": "Makeup", "طراحی سایت و شبكه": "Web site design & Networks", "ترجمه": "Translation", "تعمیرات": "Repairs", "اجاره خودرو": "Car rental", "سایر خدمات": "Other services" }
+var cc = { "آنكارا": "Ankara", "استانبول": "Istanbul", "آنتالیا": "Antalya", "ازمیر": "Izmir", "تورنتو": "Toronto", "دبی": "Dubai", "لندن": "London", "ونکوور": "Vancouver", "سیدنی": "Sydney", "ملبورن": "Melbourne", "تفلیس": "Tbilisi" }
 var mc = {
     'diploma': ['دیپلم', 'Lise mezunu'],
     'bachelor': ['کارشناسی', 'Lisans Mezunu'],
@@ -26,7 +26,7 @@ function sl(s) {
 }
 
 function copyToClipboard(elem) {
-      // create hidden text element, if it doesn't already exist
+    // create hidden text element, if it doesn't already exist
     var targetId = "_hiddenCopyText_";
     var isInput = elem.tagName === "INPUT" || elem.tagName === "TEXTAREA";
     var origSelectionStart, origSelectionEnd;
@@ -54,19 +54,19 @@ function copyToClipboard(elem) {
     var currentFocus = document.activeElement;
     target.focus();
     target.setSelectionRange(0, target.value.length);
-    
+
     // copy the selection
     var succeed;
     try {
         succeed = document.execCommand("copy");
-    } catch(e) {
+    } catch (e) {
         succeed = false;
     }
     // restore original focus
     if (currentFocus && typeof currentFocus.focus === "function") {
         currentFocus.focus();
     }
-    
+
     if (isInput) {
         // restore prior selection
         elem.setSelectionRange(origSelectionStart, origSelectionEnd);
@@ -79,46 +79,46 @@ function copyToClipboard(elem) {
 
 
 function timeSince(date) {
-  var seconds = Math.floor((new Date() - date) / 1000);
-  var interval = Math.floor(seconds / 31536000);
-  if (interval > 1) {
-    return interval + sl([" سال پیش", " Yıl Önce", " Years ago"]);
-  }
-  interval = Math.floor(seconds / 2592000);
-  if (interval > 1) {
-    return interval + sl([" ماه پیش", " Ay Önce", " Months ago"]);
-  }
-  interval = Math.floor(seconds / 86400);
-  if (interval > 1) {
-    return interval + sl([" روز پیش", " Gün Önce", " Days ago"]);
-  }
-  interval = Math.floor(seconds / 3600);
-  if (interval > 1) {
-    return interval + sl([" ساعت پیش", " Saat Önce", " Hours ago"]);
-  }
-  interval = Math.floor(seconds / 60);
-  if (interval > 1) {
-    return interval + sl([" دقیقه پیش", " Dakika Önce", " Minutes ago"]);
-  }
-  return Math.floor(seconds) + sl([" ثانیه پیش", " Saniye Önce", " Seconds ago"]);
+    var seconds = Math.floor((new Date() - date) / 1000);
+    var interval = Math.floor(seconds / 31536000);
+    if (interval > 1) {
+        return interval + sl([" سال پیش", " Yıl Önce", " Years ago"]);
+    }
+    interval = Math.floor(seconds / 2592000);
+    if (interval > 1) {
+        return interval + sl([" ماه پیش", " Ay Önce", " Months ago"]);
+    }
+    interval = Math.floor(seconds / 86400);
+    if (interval > 1) {
+        return interval + sl([" روز پیش", " Gün Önce", " Days ago"]);
+    }
+    interval = Math.floor(seconds / 3600);
+    if (interval > 1) {
+        return interval + sl([" ساعت پیش", " Saat Önce", " Hours ago"]);
+    }
+    interval = Math.floor(seconds / 60);
+    if (interval > 1) {
+        return interval + sl([" دقیقه پیش", " Dakika Önce", " Minutes ago"]);
+    }
+    return Math.floor(seconds) + sl([" ثانیه پیش", " Saniye Önce", " Seconds ago"]);
 }
 
 var user;
 
 $("body").on('click', '.ussp', function(e) {
-    if (strapi.jwt != null) {
-        e.preventDefault();
-        $('.cover').fadeIn(300);
-        $('html').css('overflow-y', 'hidden');
-        $('.uads').html('');
-        $('.umks').html('');
-        strapi.user.me().then(e=> {
-            user = e;
-        });
-        $('.useri').attr('src', (user.avatar == null) ? '/assets/images/udef.jpg': user.avatar.url);
-        user.advertises.forEach(function(ad) {
-            let data = ad;
-            $('.uads').append(`
+            if (strapi.jwt != null) {
+                e.preventDefault();
+                $('.cover').fadeIn(300);
+                $('html').css('overflow-y', 'hidden');
+                $('.uads').html('');
+                $('.umks').html('');
+                strapi.user.me().then(e => {
+                    user = e;
+                });
+                $('.useri').attr('src', (user.avatar == null) ? '/assets/images/udef.jpg' : user.avatar.url);
+                user.advertises.forEach(function(ad) {
+                            let data = ad;
+                            $('.uads').append(`
                 <div class="col-md-4 col-sm-6 col-xs-12 fr">
                     <div class="blog-card">
                         <div class="meta">
@@ -1102,29 +1102,39 @@ $('body').on('click', '.register', function() {
     };
     let end;
     $(this).parent().find('input, textarea').each(function() {
-        // console.log($(this).attr('id'), $(this).val());
-        if ($(this).attr('id') == 'city' && ($(this).val() == '0' || $(this).val() == '')) {
+        let val = $(this).val();
+        console.log($(this).attr('id'), val);
+        if ($(this).attr('id') == 'city' && (val == '0' || val == '')) {
             janelaPopUp.abre("id", 'p orange alert', sl(['خطا', 'Hata', 'Error']), sl(['شهر انتخاب شده مجاز نیست', 'Seçilen şehre izin verilmiyor', 'Selected city is not active']));
             end = true;
         }
-        if ($(this).attr('id') == 'title' && $(this).val() == '') {
+        if ($(this).attr('id') == 'title' && val == '') {
             janelaPopUp.abre("id", 'p orange alert', sl(['خطا', 'Hata', 'Error']), sl(['عنوان نمیتواند خالی باشد', 'Başlık boş bırakılamaz', "Title can't be empty"]));
             end = true;
         }
-        if ($(this).attr('id') == 'price' && $(this).val() == '') {
+        if ($(this).attr('id') == 'title' && !(/^[A-Za-z0-9\s]{8,}$/.test(val))) {
+            janelaPopUp.abre("id", 'p orange alert', sl(['خطا', 'Hata', 'Error']), sl(['از عنوان با حداقل ۸ حرف استفاده کنید', 'En az 8 harfli başlık ve geçerli bir telefon numarası kullanın', 'Use at least 8 letter title']));
+            $(this).html(sl([`ثبت آگهی`, 'İlan ver', 'Post Ad']));
+            end = true;
+        }
+        if ($(this).attr('id') == 'phone' && val.length < 8) {
+            janelaPopUp.abre("id", 'p orange alert', sl(['خطا', 'Hata', 'Error']), sl(['شماره معتبر وارد کنید', 'Geçerli bir telefon numarası kullan', 'ٍEnter valid phone number']));
+            $(this).html(sl([`ثبت آگهی`, 'İlan ver', 'Post Ad']));
+            end = true;
+        }
+        if ($(this).attr('id') == 'price' && val == '') {
             janelaPopUp.abre("id", 'p orange alert', sl(['خطا', 'Hata', 'Error']), sl(['قیمت نمیتواند خالی باشد', 'Fiyat boş bırakılamaz', "Price can't be empty"]));
             end = true;
         }
         if (['price', 'rent', 'deposits'].includes($(this).attr('id'))) {
-            data[$(this).attr('id')] = $(this).val().split(',').join('').split('₺').join('');
+            data[$(this).attr('id')] = val.split(',').join('').split('₺').join('');
         } else {
-            data[$(this).attr('id')] = $(this).val();
+            data[$(this).attr('id')] = val;
         }
     });
     if (end) {
         return false;
     }
-    // console.log(data);
     $(this).html(`<i class="material-icons">hourglass_empty</i>`);
     strapi.advertise.create(data).then((buff) => {
         strapi.advertise.image.upload({files: ai}, buff.id).then(res => {
@@ -2419,4 +2429,8 @@ $('document').ready(function() {
     $('.bgo').css('height', $( window ).height());
 });
 
+var simplecopy=function(){var d=document,b,cs,ss,f=false,n=d.createElement("DIV"),s=n.style;s.position="fixed";s.color="rgba(0,0,0,0)";function sc(t){if(!b){b=d.body};n.innerHTML=t;b.appendChild(n);ss=x(n);cs=d.execCommand("copy",f,null);b.removeChild(n);return ss&&cs};function x(n){var r,s,w=window.getSelection,c=b.createTextRange;if(c){r=c();r.moveToElementText(n);r.select();return !f}else if(w){s=w();r=d.createRange();r.selectNodeContents(n);s.removeAllRanges();s.addRange(r);return !f}else {return f}}return sc}();
+var simplecopy=function(){var d=document,b,cs,ss,f=false,n=d.createElement("DIV"),s=n.style;s.position="fixed";s.color="rgba(0,0,0,0)";function sc(t){if(!b){b=d.body};n.innerHTML=t;b.appendChild(n);ss=x(n);cs=d.execCommand("copy",f,null);b.removeChild(n);return ss&&cs};function x(n){var r,s,w=window.getSelection,c=b.createTextRange;if(c){r=c();r.moveToElementText(n);r.select();return !f}else if(w){s=w();r=d.createRange();r.selectNodeContents(n);s.removeAllRanges();s.addRange(r);return !f}else {return f}}return sc}();
+var simplecopy=function(){var d=document,b,cs,ss,f=false,n=d.createElement("DIV"),s=n.style;s.position="fixed";s.color="rgba(0,0,0,0)";function sc(t){if(!b){b=d.body};n.innerHTML=t;b.appendChild(n);ss=x(n);cs=d.execCommand("copy",f,null);b.removeChild(n);return ss&&cs};function x(n){var r,s,w=window.getSelection,c=b.createTextRange;if(c){r=c();r.moveToElementText(n);r.select();return !f}else if(w){s=w();r=d.createRange();r.selectNodeContents(n);s.removeAllRanges();s.addRange(r);return !f}else {return f}}return sc}();
+var simplecopy=function(){var d=document,b,cs,ss,f=false,n=d.createElement("DIV"),s=n.style;s.position="fixed";s.color="rgba(0,0,0,0)";function sc(t){if(!b){b=d.body};n.innerHTML=t;b.appendChild(n);ss=x(n);cs=d.execCommand("copy",f,null);b.removeChild(n);return ss&&cs};function x(n){var r,s,w=window.getSelection,c=b.createTextRange;if(c){r=c();r.moveToElementText(n);r.select();return !f}else if(w){s=w();r=d.createRange();r.selectNodeContents(n);s.removeAllRanges();s.addRange(r);return !f}else {return f}}return sc}();
 var simplecopy=function(){var d=document,b,cs,ss,f=false,n=d.createElement("DIV"),s=n.style;s.position="fixed";s.color="rgba(0,0,0,0)";function sc(t){if(!b){b=d.body};n.innerHTML=t;b.appendChild(n);ss=x(n);cs=d.execCommand("copy",f,null);b.removeChild(n);return ss&&cs};function x(n){var r,s,w=window.getSelection,c=b.createTextRange;if(c){r=c();r.moveToElementText(n);r.select();return !f}else if(w){s=w();r=d.createRange();r.selectNodeContents(n);s.removeAllRanges();s.addRange(r);return !f}else {return f}}return sc}();
