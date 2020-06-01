@@ -20,7 +20,7 @@
             } catch (err) {
                 throw err
             }
-            if(!auth.jwt) {
+            if (!auth.jwt) {
                 throw auth;
             }
             strapi.jwt = auth.jwt
@@ -44,7 +44,7 @@
             } catch (err) {
                 throw err
             }
-            if(!auth.jwt) {
+            if (!auth.jwt) {
                 throw auth;
             }
             strapi.jwt = auth.jwt
@@ -57,14 +57,14 @@
         },
         // who am i
         async me() {
-            return await strapi.user.me()        
+            return await strapi.user.me()
         },
 
         auth(options = {}) {
-            if(!strapi.jwt) {
+            if (!strapi.jwt) {
                 throw "Not logged in"
             }
-            if(!options.headers) {
+            if (!options.headers) {
                 options.headers = {}
             }
             options.headers.Authorization = `Bearer ${strapi.jwt}`
@@ -74,46 +74,46 @@
         post: {
             async find(query) {
                 // find some adds
-                return await fetch(`https://api.hayatemoon.com/posts${parseQuery(query)}`).then(r=>r.json())
+                return await fetch(`https://api.hayatemoon.com/posts${parseQuery(query)}`).then(r => r.json())
             },
             async thumbnail(query) {
                 // find some adds
-                return await fetch(`https://api.hayatemoon.com/posts/thumbnail${parseQuery(query)}`).then(r=>r.json())
+                return await fetch(`https://api.hayatemoon.com/posts/thumbnail${parseQuery(query)}`).then(r => r.json())
             },
             async thumbnailById(postId) {
                 // find some adds
-                return await fetch(`https://api.hayatemoon.com/posts/thumbnail/${postId}`).then(r=>r.json())
+                return await fetch(`https://api.hayatemoon.com/posts/thumbnail/${postId}`).then(r => r.json())
             },
             async findOne(postId) {
                 // get an ad by id
-                return await fetch(`https://api.hayatemoon.com/posts/${postId}`).then(r=>r.json())
+                return await fetch(`https://api.hayatemoon.com/posts/${postId}`).then(r => r.json())
             },
             async like(postId) {
                 // get an ad by id
-                return await fetch(`https://api.hayatemoon.com/posts/like/${postId}`).then(r=>r.json())
+                return await fetch(`https://api.hayatemoon.com/posts/like/${postId}`).then(r => r.json())
             },
             async view(postId) {
                 // get an ad by id
-                return await fetch(`https://api.hayatemoon.com/posts/view/${postId}`).then(r=>r.json())
+                return await fetch(`https://api.hayatemoon.com/posts/view/${postId}`).then(r => r.json())
             },
             async count() {
                 // get an ad by id
-                return await fetch(`https://api.hayatemoon.com/posts/count`).then(r=>r.json())
+                return await fetch(`https://api.hayatemoon.com/posts/count`).then(r => r.json())
             },
         },
 
         advertise: {
             async find(query) {
                 // find some adds
-                return await fetch(`https://api.hayatemoon.com/advertises${parseQuery(query)}`).then(r=>r.json())
+                return await fetch(`https://api.hayatemoon.com/advertises${parseQuery(query)}`).then(r => r.json())
             },
             async findMine() {
                 // find ads of logged-in user
-                return await fetch("https://api.hayatemoon.com/advertises/mine", strapi.auth()).then(r=>r.json())
+                return await fetch("https://api.hayatemoon.com/advertises/mine", strapi.auth()).then(r => r.json())
             },
             async findOne(adId) {
                 // get an ad by id
-                return await fetch(`https://api.hayatemoon.com/advertises/${adId}`).then(r=>r.json())
+                return await fetch(`https://api.hayatemoon.com/advertises/${adId}`).then(r => r.json())
             },
             async create(data) {
                 // data :
@@ -125,14 +125,16 @@
                 // }
 
                 // create an ad
-                if(data.images instanceof Array && data.images.length > 0) {
+                console.log("debug.api.data", data)
+
+                if (data.images instanceof Array && data.images.length > 0) {
                     data.hasImage = true
                 }
                 return await fetch("https://api.hayatemoon.com/advertises", strapi.auth({
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(data),
-                })).then(r=>r.json())
+                })).then(r => r.json())
             },
             async update(data, adId) {
                 // data :
@@ -150,19 +152,19 @@
                 ///////
                 delete data.images
                 data.hasImage = false
-                ///////
-                
+                    ///////
+
                 return await fetch(`https://api.hayatemoon.com/advertises/${adId}`, strapi.auth({
-                  method: "PUT",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify(data),
-                })).then(r=>r.json())
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data),
+                })).then(r => r.json())
             },
             async delete(adId) {
                 // delete an ad by id
                 fetch(`https://api.hayatemoon.com/advertises/${adId}`, strapi.auth({
                     method: "DELETE"
-                })).then(r=>r.json())
+                })).then(r => r.json())
             },
             image: {
 
@@ -170,14 +172,14 @@
                     // delete an adImage by id
                     return await fetch(`https://api.hayatemoon.com/advertises/${adId}/image/${imgId}`, strapi.auth({
                         method: "DELETE"
-                    })).then(r=>r.json())
+                    })).then(r => r.json())
                 },
 
                 async upload(photos, adId) {
                     // get photos like this:
                     // const photos = document.getElementById('image_file_input')
                     // const photos = document.querySelector('input[type="file"][multiple]');
-                    if(photos.files.length < 1) return;
+                    if (photos.files.length < 1) return;
                     // upload images
                     const formData = new FormData()
                     formData.append('ref', 'advertise')
@@ -191,12 +193,12 @@
                     }
 
                     let files
-                    if(photos.files.length > 10) {
+                    if (photos.files.length > 10) {
                         files = 10
                     } else {
                         files = photos.files.length
                     }
-                    for (let i = 0; i < files; ++ i) {
+                    for (let i = 0; i < files; ++i) {
                         // using /script/image-compress.js
                         let compressed = await imageCompression(photos.files[i], options)
 
@@ -211,10 +213,10 @@
 
                     try {
                         return await fetch('https://api.hayatemoon.com/upload', strapi.auth({
-                                method: 'POST',
+                            method: 'POST',
                             body: formData
-                        })).then(r=>r.json()).then(async r => {
-                            if(photos.files.length > 0) {
+                        })).then(r => r.json()).then(async r => {
+                            if (photos.files.length > 0) {
                                 // await strapi.advertise.update({ hasImage: true }, adId)
                                 await fetch(`https://api.hayatemoon.com/advertises/verifyImage/${adId}`, strapi.auth())
                             }
@@ -228,23 +230,23 @@
                 let me = await strapi.user.me();
                 let marks = me.marks.map(ad => ad.id)
                 marks.push(adId)
-                return await strapi.user.update({marks})
+                return await strapi.user.update({ marks })
             },
             async unmark(adId) {
                 let me = await strapi.user.me();
                 let marks = me.marks.map(ad => ad.id).filter(id => adId != id)
-                return await strapi.user.update({marks})
+                return await strapi.user.update({ marks })
             }
         },
         user: {
             now: null,
-            
+
             // who am i
             async me() {
-                if(strapi.user.now) {
+                if (strapi.user.now) {
                     return strapi.user.now;
                 } else {
-                    return strapi.user.now = await fetch("https://api.hayatemoon.com/users/me", strapi.auth()).then(r=>r.json())
+                    return strapi.user.now = await fetch("https://api.hayatemoon.com/users/me", strapi.auth()).then(r => r.json())
                 }
             },
 
@@ -257,12 +259,12 @@
                         email,
                         url: `https://${window.location.hostname}/confirm-email.html`
                     }),
-                }).then(r=>r.json())
+                }).then(r => r.json())
             },
             // confirm email using the code
             async confirmEmail() {
                 let confirmation = getParameterByName("confirmation")
-                return await fetch(`https://api.hayatemoon.com/auth/email-confirmation?confirmation=${confirmation}`).then(r=>r.json())
+                return await fetch(`https://api.hayatemoon.com/auth/email-confirmation?confirmation=${confirmation}`).then(r => r.json())
             },
 
             // request a code to be sent
@@ -274,7 +276,7 @@
                         email,
                         url: `https://${window.location.hostname}/reset-password.html`
                     }),
-                }).then(r=>r.json())
+                }).then(r => r.json())
             },
             // use the code from `forgetPassword` to reset the password
             async resetPassword(password) {
@@ -287,22 +289,22 @@
                         password,
                         passwordConfirmation: password
                     }),
-                }).then(r=>r.json())
+                }).then(r => r.json())
             },
 
             async findOne(userId) {
                 // get a user by id
-                return await fetch(`https://api.hayatemoon.com/users/${userId}`).then(r=>r.json())
+                return await fetch(`https://api.hayatemoon.com/users/${userId}`).then(r => r.json())
             },
             async update(data) {
 
                 let userId = (await strapi.user.me()).id
 
                 return await fetch(`https://api.hayatemoon.com/users/${userId}`, strapi.auth({
-                  method: "PUT",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify(data),
-                })).then(r=>r.json())
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data),
+                })).then(r => r.json())
             },
             avatar: {
 
@@ -310,12 +312,12 @@
                     let me = await strapi.user.me()
                     me.avatar = null
                     let userId = me.id
-    
+
                     return await fetch(`https://api.hayatemoon.com/users/${userId}`, strapi.auth({
                         method: "PUT",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify(me),
-                    })).then(r=>r.json())
+                    })).then(r => r.json())
                 },
 
                 async upload(photos) {
@@ -345,7 +347,7 @@
                     return await fetch('https://api.hayatemoon.com/upload', strapi.auth({
                         method: 'POST',
                         body: formData
-                    })).then(r=>r.json())
+                    })).then(r => r.json())
                 },
             },
         },
@@ -363,10 +365,10 @@
 
     function parseQuery(query = {}) {
         let q = '?'
-        for(let key in query) {
+        for (let key in query) {
             q += `${key}=${query[key]}&`
         }
-        if(q.length > 1) {
+        if (q.length > 1) {
             return q.slice(0, q.length - 1)
         } else {
             return ''
@@ -376,7 +378,7 @@
     function getCookie(cname) {
         var name = cname + "=";
         var ca = document.cookie.split(';');
-        for(var i = 0; i < ca.length; i++) {
+        for (var i = 0; i < ca.length; i++) {
             var c = ca[i];
             while (c.charAt(0) == ' ') {
                 c = c.substring(1);
@@ -391,13 +393,13 @@
     function setCookie(cname, cvalue, exdays) {
         var d = new Date();
         d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-        var expires = "expires="+d.toUTCString();
+        var expires = "expires=" + d.toUTCString();
         document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
         document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/en";
         document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/tr";
     }
 
-    if(getCookie("jwt") != "") {
+    if (getCookie("jwt") != "") {
         strapi.jwt = getCookie("jwt")
     }
     window.strapi = strapi
