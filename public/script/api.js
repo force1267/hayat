@@ -124,12 +124,22 @@
                 //     submitted: true, // to submit
                 // }
 
-                // create an ad
-                console.log("debug.api.data", data)
+                // preprocess data
+                delete data.undefined
+                if (!data.price) {
+                    data.price = 0
+                }
+                for (let i in data) {
+                    if (data[i] === "") {
+                        delete data[i]
+                    }
+                }
 
                 if (data.images instanceof Array && data.images.length > 0) {
                     data.hasImage = true
                 }
+
+                // create an ad
                 return await fetch("https://api.hayatemoon.com/advertises", strapi.auth({
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
