@@ -27,7 +27,7 @@
   "dependencies": {
     "knex": "latest",
     "pg": "^7.18.2",
-    "strapi": "3.0.0-beta.17.8",
+    "strapi": "3.2.5",
     "strapi-admin": "3.0.0-beta.17.8",
     "strapi-hook-bookshelf": "3.0.0-beta.17.8",
     "strapi-hook-knex": "3.0.0-beta.17.8",
